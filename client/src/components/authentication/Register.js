@@ -9,7 +9,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
      constructor() {
          super();
          this.state = {
-             name: '',
+             handle: '',
              email: '',
              password: '',
              password2:'',
@@ -34,10 +34,10 @@ onChange = (e) => {
 onSubmit = (e) => {
      e.preventDefault(); 
     const nuser =  {
-        name: this.state.name,
+        handle: this.state.handle,
         email: this.state.email,
         password: this.state.password,
-        password2: this.state.password2
+        confirmPassword: this.state.confirmPassword
     };
 
     this.props.reguser(nuser,this.props.history);
@@ -53,13 +53,6 @@ onSubmit = (e) => {
             <h1 className="display-4 text-center">Sign Up</h1>
            <p className="lead text-center">Create your account</p>
            <form noValidate onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  placeholder="Name"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.onChange}
-                  error={errors.name}
-                />
                 <TextFieldGroup
                   placeholder="Email"
                   name="email"
@@ -79,11 +72,18 @@ onSubmit = (e) => {
                 />
                 <TextFieldGroup
                   placeholder="Confirm Password"
-                  name="password2"
+                  name="confirmPassword"
                   type="password"
-                  value={this.state.password2}
+                  value={this.state.confirmPassword}
                   onChange={this.onChange}
-                  error={errors.password2}
+                  error={errors.confirmPassword}
+                />
+                 <TextFieldGroup
+                  placeholder="Handle"
+                  name="handle"
+                  value={this.state.handle}
+                  onChange={this.onChange}
+                  error={errors.handle}
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
