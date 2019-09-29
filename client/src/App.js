@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import Navbar from "./components/layout/Navbar"
-import Landing from "./components/layout/Landing"
-import './App.css'
+import './App.css';
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Landing from './components/layout/Landing';
+import Register from './components/authentication/Register';
+import { Provider } from 'react-redux';
+import store from './store';
+
+
 
 class App extends Component {
   render() {
     return (
-     <div>
-      <Navbar />
-      <Landing />
-    </div>
-    )
+      <Provider store ={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <div className="container">
+                <Route exact path="/register" component={Register}/>
+            </div>
+            <Footer />  
+          </div>
+        </Router>
+      </Provider>
+    );
   }
-  
- 
-};
+}
+
 export default App;
