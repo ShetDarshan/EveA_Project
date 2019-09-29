@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.bc6ad93c.chunk.css",
-    "main.js": "/static/js/main.3c0ef6bf.chunk.js",
-    "main.js.map": "/static/js/main.3c0ef6bf.chunk.js.map",
+    "main.js": "/static/js/main.024d9ec7.chunk.js",
+    "main.js.map": "/static/js/main.024d9ec7.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c2763ce9.js",
     "runtime-main.js.map": "/static/js/runtime-main.c2763ce9.js.map",
     "static/js/2.c667077d.chunk.js": "/static/js/2.c667077d.chunk.js",
     "static/js/2.c667077d.chunk.js.map": "/static/js/2.c667077d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.24c0877ee9b2d87e8f4c87a050d5b161.js": "/precache-manifest.24c0877ee9b2d87e8f4c87a050d5b161.js",
+    "precache-manifest.1dc750bb1c1d3e4815b9918e910fdc55.js": "/precache-manifest.1dc750bb1c1d3e4815b9918e910fdc55.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.bc6ad93c.chunk.css.map": "/static/css/main.bc6ad93c.chunk.css.map",
     "static/media/App.css": "/static/media/evea.4d5926ec.jpg"

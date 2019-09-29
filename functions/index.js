@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require("body-parser");
 admin.initializeApp();
 const db = admin.firestore();
+const validateRegisterInput = require("./validation/register");
 
 const config = {
   apiKey: "AIzaSyD4svmLSEA5IDa49VKgK45vbUCL7JkO52I",
@@ -29,6 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //regitser user route
 
 app.post('/api/v1/register',(req,res) => {
+  const { errors, isValid } = validateRegisterInput(req.body)
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   const newuser = {
     name:req.body.name,    
     email:req.body.email,
