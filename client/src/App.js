@@ -9,22 +9,23 @@ import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
 import store from './store';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from './utils/setAuthToken';
+import { setCurrentUser, logoutuser } from './actions/authActions';
 
-
-// if(localStorage.jwtToken){
-//   setAuthToken(localStorage.jwtToken);
-//   //decoding token and getting user info and exp
-//   const decoded = jwt_decode(localStorage.jwtToken);
-//   //setting to current user
-//  store.dispatch(setCurrentUser(decoded));
-//  //checking for  expired token
-//  const CurrentTime = Date.now() /1000;
-//  if (decoded.exp < CurrentTime){
-//     store.dispatch(logoutuser());
-//     store.dispatch(clearCurrentProfile());
-//     window.location.href ='/login';
-//  }
-// }
+if(localStorage.jwtToken){
+  setAuthToken(localStorage.jwtToken);
+  //decoding token and getting user info and exp
+  const decoded = jwt_decode(localStorage.jwtToken);
+  //setting to current user
+ store.dispatch(setCurrentUser(decoded));
+ //checking for  expired token
+ const CurrentTime = Date.now() /1000;
+ if (decoded.exp < CurrentTime){
+    store.dispatch(logoutuser());
+    window.location.href ='/login';
+ }
+}
 
 
 class App extends Component {

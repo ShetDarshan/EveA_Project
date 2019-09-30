@@ -75,7 +75,7 @@ app.post('/api/v1/register',(req,res) => {
     .catch((err) => {
       console.error(err);
       if (err.code === 'auth/email-already-in-use') {
-        return res.status(400).json({ email: 'Email is already is use' });
+        return res.status(400).json({ email: 'Email is already in use' });
       } else {
         return res
           .status(500)
@@ -108,7 +108,7 @@ app.post('/api/v1/login',(req,res) =>{
       console.error(err);
       return res
         .status(403)
-        .json({ general: 'Wrong credentials, please try again' });
+        .json({ password: 'Wrong credentials, please try again' });
     });
 
 
