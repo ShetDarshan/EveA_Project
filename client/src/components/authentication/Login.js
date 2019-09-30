@@ -48,6 +48,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
+    
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">Sign in to your account</p>
               <form onSubmit={this.onSubmit}>
@@ -69,6 +70,9 @@ import TextFieldGroup from '../common/TextFieldGroup';
                   error={errors.password}
                 />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
+                <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=2404555833134862&autoLogAppEvents=1"></script>
               </form>
             </div>
           </div>

@@ -6,6 +6,6 @@ const initialState = {};
 
 const midleware = [thunk];
 
-const store = createStore(rootReducer,initialState,compose(applyMiddleware(...midleware),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(rootReducer,initialState,compose(applyMiddleware(...midleware)));
 
 export default store;
