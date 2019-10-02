@@ -113,6 +113,22 @@ app.post('/api/v1/login',(req,res) =>{
 
 
 });
+//get events data
+app.get('api/v1/events',(req,res) => {
+    db.collection('events')
+      .get()
+      .then((data) => {
+        console.log(data);
+        return res.json(data);
+
+        })
+
+        .catch((err) => {
+          console.error(err);
+          res.status(500).json({ error: err.code });
+        });
+})
+
 
 
 exports.api = functions.https.onRequest(app);

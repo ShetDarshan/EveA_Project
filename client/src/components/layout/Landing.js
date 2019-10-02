@@ -9,9 +9,8 @@ import { Link } from 'react-router-dom'
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Never Miss an Events 
+                <h1 className="display-3 mb-4">Never Miss any Events 
                 </h1>
-                <p className="lead"> Create a profile to know you better</p>
                 <hr />
                  <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>

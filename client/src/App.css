@@ -37,3 +37,6 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+.card-style {
+  max-width: 3000%;
+}

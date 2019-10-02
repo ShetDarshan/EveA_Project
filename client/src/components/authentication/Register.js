@@ -12,7 +12,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
              handle: '',
              email: '',
              password: '',
-             password2:'',
+             confirmPassword:'',
              errors:{ }
         };
      //   this.onChange = this.onChange.bind(this);
@@ -60,7 +60,6 @@ onSubmit = (e) => {
                   value={this.state.email}
                   onChange={this.onChange}
                   error={errors.email}
-                  info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
                 />
                 <TextFieldGroup
                   placeholder="Password"
@@ -79,7 +78,7 @@ onSubmit = (e) => {
                   error={errors.confirmPassword}
                 />
                  <TextFieldGroup
-                  placeholder="Handle"
+                  placeholder="Name"
                   name="handle"
                   value={this.state.handle}
                   onChange={this.onChange}
