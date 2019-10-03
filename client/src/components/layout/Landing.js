@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD
 import Face from '../authentication/Face'
 
+=======
+import Face from './Face'
+>>>>>>> 5b081352158d2bf76012a02f84228b25ecec8457
  class Landing extends Component {
   render() {
     return (
