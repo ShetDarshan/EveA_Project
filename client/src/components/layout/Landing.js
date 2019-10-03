@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
-import Face from '../authentication/Face'
-
-=======
-import Face from './Face'
->>>>>>> 5b081352158d2bf76012a02f84228b25ecec8457
  class Landing extends Component {
   render() {
     return (
@@ -19,7 +13,6 @@ import Face from './Face'
                 <hr />
                  <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>
-                <Face />
               </div>
             </div>
           </div>
