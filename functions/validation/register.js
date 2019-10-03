@@ -16,6 +16,9 @@ if (isEmpty(data.email)) {
 }
 
 if (isEmpty(data.password)) errors.password = 'Must not be empty';
+if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+  errors.password = "Password must be at least 6 characters";
+}
 if (data.password !== data.confirmPassword)
   errors.confirmPassword = 'Passwords must match';
 if (isEmpty(data.handle)) errors.handle = 'Must not be empty';
@@ -25,3 +28,4 @@ return {
   valid: Object.keys(errors).length === 0 ? true : false
 };
 };
+

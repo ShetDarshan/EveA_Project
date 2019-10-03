@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Face from '../authentication/Face'
 
  class Landing extends Component {
   render() {
@@ -14,6 +15,7 @@ import { Link } from 'react-router-dom'
                 <hr />
                  <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>
+                <Face />
               </div>
             </div>
           </div>
