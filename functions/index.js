@@ -6,7 +6,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 admin.initializeApp();
-const db = admin.firestore();
 const validateRegisterInput = require("./validation/register");
 const validateLoginData = require("./validation/login")
 const config = {
@@ -22,6 +21,7 @@ const config = {
 const firebase = require('firebase')
 firebase.initializeApp(config)
 
+const db = firebase.firestore();
 
 
 app.use(bodyParser.json());
@@ -114,12 +114,10 @@ app.post('/api/v1/login',(req,res) =>{
 });
 //get events data
 app.get('/api/v1/events',(req,res) => {
-  console.log("inside events api");
-   db.collection('events').get()
+  db.collection('events').get()
    .then(snapshot => {
      let eventsData=[];
     snapshot.forEach(doc => {
-        console.log(doc.id, '=>', doc.data());
         let tempJSON = {};
         tempJSON = doc.data();
       tempJSON.eventId = doc.id;
