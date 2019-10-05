@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 class Dashboard extends Component {
 
     render() {
-      const { user } = this.props.auth;
+      const { user,events } = this.props.auth;
+
   
       let dashboardContent;
           dashboardContent = (
@@ -27,6 +28,7 @@ class Dashboard extends Component {
               <div className="col-md-12">
                 <h1 className="display-4">Dashboard</h1>
                 {dashboardContent}
+                {events.time}
               </div>
             </div>
           </div>
