@@ -9,7 +9,6 @@ admin.initializeApp();
 const db = admin.firestore();
 const validateRegisterInput = require("./validation/register");
 const validateLoginData = require("./validation/login")
-
 const config = {
   apiKey: "AIzaSyD4svmLSEA5IDa49VKgK45vbUCL7JkO52I",
   authDomain: "evea-prj.firebaseapp.com",
@@ -114,20 +113,25 @@ app.post('/api/v1/login',(req,res) =>{
 
 });
 //get events data
-app.get('api/v1/events',(req,res) => {
-    db.collection('events')
-      .get()
-      .then((data) => {
-        console.log(data);
-        return res.json(data);
-
-        })
-
-        .catch((err) => {
+app.get('/api/v1/events',(req,res) => {
+  console.log("inside events api");
+   db.collection('events').get()
+   .then(snapshot => {
+     let eventsData=[];
+    snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        let tempJSON = {};
+        tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventsData.push(tempJSON);          
+      });
+      res.status(200).send(eventsData);
+    }) .catch(err => {
           console.error(err);
           res.status(500).json({ error: err.code });
         });
 })
+
 
 
 
