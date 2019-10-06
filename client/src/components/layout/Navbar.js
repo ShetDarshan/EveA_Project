@@ -18,7 +18,7 @@ import {logoutuser} from '../../actions/authActions'
                 <Link className="nav-link" to="/dashboard">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <a href="/login" onClick={this.onLogoutClick.bind(this)} className = "nav-link">
+                <a href="/login"  onClick={this.onLogoutClick.bind(this)} className = "nav-link">
                 Logout
                 </a>
               </li>

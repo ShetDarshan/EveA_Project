@@ -6,9 +6,9 @@ const initialState = {
 };
 
 export default function(state = initialState,action) {
+    console.log(action.payload,"user payload")
     switch(action.type){
         case SET_CURRENT_USER:
-            console.log("inside cureent user");
             return {
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),

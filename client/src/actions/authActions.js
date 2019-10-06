@@ -19,7 +19,7 @@ export const reguser = (userInfo,history) => dispatch => {
            );
 };
 
-export const luser = (userData,history) => (dispatch) => {
+export const luser = (userData) => (dispatch) => {
     axios
         .post('/api/v1/login',userData)
         .then(res => {
