@@ -19,7 +19,7 @@ export const reguser = (userInfo,history) => dispatch => {
            );
 };
 
-export const luser = (userData,history) => (dispatch) => {
+export const luser = (userData) => (dispatch) => {
     axios
         .post('/api/v1/login',userData)
         .then(res => {
@@ -55,23 +55,25 @@ export const logoutuser = () => dispatch => {
 };
 
 
-export const getEvents = () => (dispatch) => {
-    dispatch({ type: LOADING_DATA });
-    axios
-      .get('/api/v1/events')
-      .then((res) => {
-        dispatch({
-          type: GET_EVENTS,
-          payload: res.data
-        });
-      })
-      .catch((err) => {
-        dispatch({
-          type: GET_EVENTS,
-          payload: []
-        });
-      });
-  };
+// export const getEvents = () => (dispatch) => {
+//     console.log("hi get events")
+//     dispatch({ type: LOADING_DATA });
+//     axios
+//       .get('/api/v1/events')
+//       .then((res) => {
+//           console.log(res.data,"coming here for events data")
+//         dispatch({
+//           type: GET_EVENTS,
+//           payload: res.data
+//         });
+//       })
+//       .catch((err) => {
+//         dispatch({
+//           type: GET_EVENTS,
+//           payload: []
+//         });
+//       });
+//   };
 // const setAuthorizationHeader = (token) => {
 //     const FBIdToken = `Bearer ${token}`;
 //     localStorage.setItem('FBIdToken', FBIdToken);
