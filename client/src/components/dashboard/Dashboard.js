@@ -13,7 +13,7 @@ class Dashboard extends Component {
     render() {
       const { user } = this.props.auth;
       const { event,loading } = this.props.events;
-      console.log(event,"illi events")
+      console.log(event,"events")
 
   
       let dashboardContent;
