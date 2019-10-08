@@ -115,8 +115,6 @@ app.post('/api/v1/login',(req,res) =>{
 //get events data
 app.get('/api/v1/events',(req,res) => {
 
-  let 
-
   db.collection('events').get()
    .then(snapshot => {
      let eventsData=[];
@@ -134,25 +132,25 @@ app.get('/api/v1/events',(req,res) => {
 })
 
 //get events data
-app.get('/api/v1/eventPages',(req,res) => {
+// app.get('/api/v1/eventPages',(req,res) => {
 
-  let 
+//   let 
 
-  db.collection('events').get()
-   .then(snapshot => {
-     let eventsData=[];
-    snapshot.forEach(doc => {
-        let tempJSON = {};
-        tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventsData.push(tempJSON);          
-      });
-      res.status(200).send(eventsData);
-    }) .catch(err => {
-          console.error(err);
-          res.status(500).json({ error: err.code });
-        });
-})
+//   db.collection('events').get()
+//    .then(snapshot => {
+//      let eventsData=[];
+//     snapshot.forEach(doc => {
+//         let tempJSON = {};
+//         tempJSON = doc.data();
+//       tempJSON.eventId = doc.id;
+//       eventsData.push(tempJSON);          
+//       });
+//       res.status(200).send(eventsData);
+//     }) .catch(err => {
+//           console.error(err);
+//           res.status(500).json({ error: err.code });
+//         });
+// })
 
 
 
