@@ -13,7 +13,7 @@ class Dashboard extends Component {
     render() {
       const { user } = this.props.auth;
       const { event,loading } = this.props.events;
-      console.log(event,"illi events")
+      console.log(event,"events")
 
   
       let dashboardContent;
@@ -22,7 +22,7 @@ class Dashboard extends Component {
               <p className="lead text-muted">Welcome {user.email} </p>
               <p>You have not yet setup a profile, please add some info</p>
               <Link to="/create-profile" className="btn btn-lg btn-info">
-                Create Profile
+                Create New Profile
               </Link>
             </div>
           );
