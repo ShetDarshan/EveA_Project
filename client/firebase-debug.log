@@ -1,0 +1,32 @@
+[debug] [2019-10-08T21:30:43.397Z] ----------------------------------------------------------------------
+[debug] [2019-10-08T21:30:43.401Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Darshan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-08T21:30:43.401Z] CLI Version:   7.4.0
+[debug] [2019-10-08T21:30:43.401Z] Platform:      win32
+[debug] [2019-10-08T21:30:43.401Z] Node Version:  v10.16.0
+[debug] [2019-10-08T21:30:43.424Z] Time:          Tue Oct 08 2019 22:30:43 GMT+0100 (Irish Standard Time)
+[debug] [2019-10-08T21:30:43.424Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-08T21:30:43.439Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-08T21:30:43.440Z] > authorizing via signed-in user
+[debug] [2019-10-08T21:30:43.440Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-10-08T21:30:43.442Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-10-08T21:30:43.442Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-10-08T21:30:43.719Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-08T21:30:43.733Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-10-08T21:30:44.580Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-08T21:30:44.580Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+ 
+[debug] [2019-10-08T21:30:44.914Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Darshan\Desktop\MSC_FinalProject\EveA_Project'...
+[info] 
+[debug] [2019-10-08T21:30:44.924Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+ 
+[info] +  functions: Using node@10 from host.
+[info] +  functions: Emulator started at http://localhost:5001
+[debug] [2019-10-08T21:30:45.933Z] <<< HTTP RESPONSE 200
+[info] i  functions: Watching "C:\Users\Darshan\Desktop\MSC_FinalProject\EveA_Project\functions" for Cloud Functions...
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
