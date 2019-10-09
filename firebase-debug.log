@@ -1,157 +1,199 @@
-[debug] [2019-10-08T19:23:44.302Z] ----------------------------------------------------------------------
-[debug] [2019-10-08T19:23:44.304Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2019-10-08T19:23:44.304Z] CLI Version:   7.4.0
-[debug] [2019-10-08T19:23:44.304Z] Platform:      darwin
-[debug] [2019-10-08T19:23:44.304Z] Node Version:  v8.10.0
-[debug] [2019-10-08T19:23:44.305Z] Time:          Tue Oct 08 2019 20:23:44 GMT+0100 (IST)
-[debug] [2019-10-08T19:23:44.305Z] ----------------------------------------------------------------------
+[debug] [2019-10-09T18:58:51.320Z] ----------------------------------------------------------------------
+[debug] [2019-10-09T18:58:51.322Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-10-09T18:58:51.322Z] CLI Version:   7.4.0
+[debug] [2019-10-09T18:58:51.322Z] Platform:      darwin
+[debug] [2019-10-09T18:58:51.322Z] Node Version:  v8.16.1
+[debug] [2019-10-09T18:58:51.323Z] Time:          Wed Oct 09 2019 19:58:51 GMT+0100 (IST)
+[debug] [2019-10-09T18:58:51.323Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-10-08T19:23:44.311Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-10-08T19:23:44.311Z] > authorizing via signed-in user
-[debug] [2019-10-08T19:23:44.311Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
-[debug] [2019-10-08T19:23:44.313Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2019-10-08T19:23:44.313Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2019-10-09T18:58:51.329Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-09T18:58:51.329Z] > authorizing via signed-in user
+[debug] [2019-10-09T18:58:51.330Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-10-09T18:58:51.331Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-10-09T18:58:51.331Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2019-10-08T19:23:44.459Z] <<< HTTP RESPONSE 200
-[debug] [2019-10-08T19:23:44.476Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+[debug] [2019-10-09T18:58:51.487Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T18:58:51.505Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
 
-[debug] [2019-10-08T19:23:45.343Z] <<< HTTP RESPONSE 200
-[debug] [2019-10-08T19:23:45.344Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+[debug] [2019-10-09T18:58:52.446Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T18:58:52.448Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
  
-[debug] [2019-10-08T19:23:45.649Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T18:58:53.145Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/sharathgh/Documents/EveA_Project'...
 [info] 
-[debug] [2019-10-08T19:23:45.655Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+[debug] [2019-10-09T18:58:53.149Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
  
 [warn] ⚠  Your requested "node" version "10" doesn't match your global version "8"
 [info] ✔  functions: Emulator started at http://localhost:5001
-[debug] [2019-10-08T19:23:46.221Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T18:58:54.164Z] <<< HTTP RESPONSE 200
 [info] i  functions: Watching "/Users/sharathgh/Documents/EveA_Project/functions" for Cloud Functions...
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
-[debug] [2019-10-08T19:23:46.523Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"8.10.0"}
-[debug] [2019-10-08T19:23:46.523Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:23:46.525Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:23:46.526Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:23:46.527Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T18:58:54.483Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"8.16.1"}
+[debug] [2019-10-09T18:58:54.483Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T18:58:54.487Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T18:58:54.489Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T18:58:54.490Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
 [warn] ⚠  Error: Failed to load gRPC binary module because it was not installed for the current system
 Expected directory: node-v57-darwin-x64-unknown
 Found: [node-v64-darwin-x64-unknown]
 This problem can often be fixed by running "npm rebuild" on the current system
 Original error: Cannot find module '/Users/sharathgh/Documents/EveA_Project/functions/node_modules/@firebase/firestore/node_modules/grpc/src/node/extension_binary/node-v57-darwin-x64-unknown/grpc_node.node'
     at Object.<anonymous> (/Users/sharathgh/Documents/EveA_Project/functions/node_modules/@firebase/firestore/node_modules/grpc/src/grpc_extension.js:53:17)
-    at Module._compile (module.js:652:30)
-    at Object.Module._extensions..js (module.js:663:10)
-    at Module.load (module.js:565:32)
-    at tryModuleLoad (module.js:505:12)
-    at Function.Module._load (module.js:497:3)
-    at Module.require (module.js:596:17)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
     at require (internal/module.js:11:18)
     at Object.<anonymous> (/Users/sharathgh/Documents/EveA_Project/functions/node_modules/@firebase/firestore/node_modules/grpc/src/client_interceptors.js:144:12)
-    at Module._compile (module.js:652:30)
+    at Module._compile (module.js:653:30)
 [warn] ⚠  We were unable to load your functions code. (see above)
-[debug] [2019-10-08T19:27:21.838Z] ----------------------------------------------------------------------
-[debug] [2019-10-08T19:27:21.840Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2019-10-08T19:27:21.840Z] CLI Version:   7.4.0
-[debug] [2019-10-08T19:27:21.840Z] Platform:      darwin
-[debug] [2019-10-08T19:27:21.841Z] Node Version:  v10.16.3
-[debug] [2019-10-08T19:27:21.842Z] Time:          Tue Oct 08 2019 20:27:21 GMT+0100 (Irish Standard Time)
-[debug] [2019-10-08T19:27:21.842Z] ----------------------------------------------------------------------
+[debug] [2019-10-09T19:00:12.846Z] ----------------------------------------------------------------------
+[debug] [2019-10-09T19:00:12.848Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-10-09T19:00:12.848Z] CLI Version:   7.4.0
+[debug] [2019-10-09T19:00:12.848Z] Platform:      darwin
+[debug] [2019-10-09T19:00:12.848Z] Node Version:  v10.16.3
+[debug] [2019-10-09T19:00:12.850Z] Time:          Wed Oct 09 2019 20:00:12 GMT+0100 (Irish Standard Time)
+[debug] [2019-10-09T19:00:12.850Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-10-08T19:27:21.849Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-10-08T19:27:21.849Z] > authorizing via signed-in user
-[debug] [2019-10-08T19:27:21.850Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
-[debug] [2019-10-08T19:27:21.851Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+[debug] [2019-10-09T19:00:12.857Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-09T19:00:12.857Z] > authorizing via signed-in user
+[debug] [2019-10-09T19:00:12.858Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-10-09T19:00:12.859Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
 
-[debug] [2019-10-08T19:27:22.883Z] <<< HTTP RESPONSE 200
-[debug] [2019-10-08T19:27:22.885Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+[debug] [2019-10-09T19:00:13.753Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T19:00:13.755Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
  
-[debug] [2019-10-08T19:27:23.386Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T19:00:14.045Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/sharathgh/Documents/EveA_Project'...
 [info] 
-[debug] [2019-10-08T19:27:23.392Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+[debug] [2019-10-09T19:00:14.051Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
  
 [info] ✔  functions: Using node@10 from host.
 [info] ✔  functions: Emulator started at http://localhost:5001
-[debug] [2019-10-08T19:27:24.054Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-09T19:00:14.611Z] <<< HTTP RESPONSE 200
 [info] i  functions: Watching "/Users/sharathgh/Documents/EveA_Project/functions" for Cloud Functions...
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
-[debug] [2019-10-08T19:27:24.361Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
-[debug] [2019-10-08T19:27:24.361Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:27:24.364Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:27:24.365Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:27:24.366Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:14.936Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:00:14.936Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:00:14.938Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:00:14.939Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:14.940Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
 [info] ✔  functions[api]: http function initialized (http://localhost:5001/evea-prj/us-central1/api).
-[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
-[debug] [2019-10-08T19:27:37.713Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
-[debug] [2019-10-08T19:27:38.017Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
-[info] i  functions: Beginning execution of "api"
-[debug] [2019-10-08T19:27:38.018Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:27:38.021Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:27:38.022Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:27:38.023Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:27:38.392Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
-[debug] [2019-10-08T19:27:38.392Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2019-10-08T19:27:38.393Z] [runtime-status] Running api in mode HTTPS {}
-[debug] [2019-10-08T19:27:38.399Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1069.sock"}
-[debug] [2019-10-08T19:27:38.402Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1069.sock"}
-[debug] [2019-10-08T19:27:38.413Z] [runtime-status] Ephemeral server used! {}
-[debug] [2019-10-08T19:27:38.511Z] [runtime-status] Ephemeral server survived. {}
-[info] i  functions: Finished "api" in ~1s
 [info] [hosting] Rewriting /api/v1/login to http://localhost:5001/evea-prj/us-central1/api for local Function api
-[debug] [2019-10-08T19:28:02.957Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
-[debug] [2019-10-08T19:28:03.252Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:00:26.374Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-10-09T19:00:26.659Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
 [info] i  functions: Beginning execution of "api"
-[debug] [2019-10-08T19:28:03.253Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:28:03.256Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:28:03.257Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:03.258Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:03.601Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
-[debug] [2019-10-08T19:28:03.601Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2019-10-08T19:28:03.601Z] [runtime-status] Running api in mode HTTPS {}
-[debug] [2019-10-08T19:28:03.608Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1076.sock"}
-[debug] [2019-10-08T19:28:03.609Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1076.sock"}
-[debug] [2019-10-08T19:28:03.647Z] [runtime-status] Ephemeral server used! {}
-[debug] [2019-10-08T19:28:03.673Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-10-09T19:00:26.660Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:00:26.663Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:00:26.664Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:26.665Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:27.022Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:00:27.022Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:00:27.022Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:00:27.029Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6160.sock"}
+[debug] [2019-10-09T19:00:27.032Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6160.sock"}
+[debug] [2019-10-09T19:00:27.068Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:00:27.095Z] [runtime-status] Ephemeral server survived. {}
 [info] i  functions: Finished "api" in ~1s
 [info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
-[debug] [2019-10-08T19:28:04.477Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
-[debug] [2019-10-08T19:28:04.860Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:00:28.012Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[info] [hosting] Rewriting /api/v1/learning to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-10-09T19:00:28.021Z] Accepted request GET /evea-prj/us-central1/api/api/v1/learning --> api
+[debug] [2019-10-09T19:00:28.323Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:00:28.324Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
 [info] i  functions: Beginning execution of "api"
-[debug] [2019-10-08T19:28:04.861Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:28:04.864Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:28:04.865Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:04.865Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:05.216Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
-[debug] [2019-10-08T19:28:05.216Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2019-10-08T19:28:05.216Z] [runtime-status] Running api in mode HTTPS {}
-[debug] [2019-10-08T19:28:05.223Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1077.sock"}
-[debug] [2019-10-08T19:28:05.224Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1077.sock"}
-[debug] [2019-10-08T19:28:05.236Z] [runtime-status] Ephemeral server used! {}
-[debug] [2019-10-08T19:28:05.309Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-10-09T19:00:28.325Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:00:28.325Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:00:28.328Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:00:28.329Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:00:28.330Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:28.330Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:28.331Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:28.331Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:28.715Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:00:28.716Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:00:28.716Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:00:28.716Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:00:28.716Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:00:28.716Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:00:28.725Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6162.sock"}
+[debug] [2019-10-09T19:00:28.726Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6162.sock"}
+[debug] [2019-10-09T19:00:28.729Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6161.sock"}
+[debug] [2019-10-09T19:00:28.730Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6161.sock"}
+[debug] [2019-10-09T19:00:28.738Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:00:28.739Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:00:28.839Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-10-09T19:00:28.839Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
 [info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-10-09T19:00:29.321Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
 [info] i  functions: Finished "api" in ~1s
-[debug] [2019-10-08T19:28:05.608Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
-[debug] [2019-10-08T19:28:05.890Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:00:29.661Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
 [info] i  functions: Beginning execution of "api"
-[debug] [2019-10-08T19:28:05.891Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T19:28:05.894Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T19:28:05.895Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:05.895Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T19:28:06.248Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
-[debug] [2019-10-08T19:28:06.248Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
-[debug] [2019-10-08T19:28:06.248Z] [runtime-status] Running api in mode HTTPS {}
-[debug] [2019-10-08T19:28:06.255Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1078.sock"}
-[debug] [2019-10-08T19:28:06.258Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_1078.sock"}
-[debug] [2019-10-08T19:28:06.268Z] [runtime-status] Ephemeral server used! {}
-[debug] [2019-10-08T19:28:06.342Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-10-09T19:00:29.662Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:00:29.665Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:00:29.666Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:29.667Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:00:30.048Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:00:30.049Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:00:30.049Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:00:30.056Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6163.sock"}
+[debug] [2019-10-09T19:00:30.056Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6163.sock"}
+[debug] [2019-10-09T19:00:30.068Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:00:30.149Z] [runtime-status] Ephemeral server survived. {}
 [info] i  functions: Finished "api" in ~1s
-[debug] [2019-10-08T21:39:56.514Z] File /Users/sharathgh/Documents/EveA_Project/functions/index.js changed, reloading triggers
-[debug] [2019-10-08T21:39:57.874Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
-[debug] [2019-10-08T21:39:57.875Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
-[debug] [2019-10-08T21:39:57.878Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-10-08T21:39:57.879Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-10-08T21:39:57.880Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/learning to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-10-09T19:03:18.155Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-10-09T19:03:18.160Z] Accepted request GET /evea-prj/us-central1/api/api/v1/learning --> api
+[debug] [2019-10-09T19:03:18.831Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:03:18.831Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-10-09T19:03:18.832Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-10-09T19:03:18.832Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:03:18.838Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:03:18.838Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:03:18.840Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:18.841Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:18.841Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:18.842Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:19.766Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:03:19.766Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:03:19.767Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:03:19.767Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:03:19.767Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:03:19.767Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:03:19.774Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6177.sock"}
+[debug] [2019-10-09T19:03:19.775Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6177.sock"}
+[debug] [2019-10-09T19:03:19.776Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6176.sock"}
+[debug] [2019-10-09T19:03:19.777Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6176.sock"}
+[debug] [2019-10-09T19:03:19.788Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:03:19.789Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:03:19.878Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-10-09T19:03:19.880Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-10-09T19:03:20.328Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-10-09T19:03:20.645Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-10-09T19:03:20.646Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:03:20.648Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:03:20.649Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:20.650Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:03:21.018Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[debug] [2019-10-09T19:03:21.018Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-10-09T19:03:21.018Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-10-09T19:03:21.026Z] {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6178.sock"}
+[debug] [2019-10-09T19:03:21.027Z] [functions] Runtime ready! Sending request! {"socketPath":"/var/folders/1y/gb4w8tz977n_b6mr19z61hdm0000gn/T/firebase_emulator_invocation_6178.sock"}
+[debug] [2019-10-09T19:03:21.040Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-10-09T19:03:21.123Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s

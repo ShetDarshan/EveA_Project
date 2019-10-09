@@ -131,6 +131,24 @@ app.get('/api/v1/events',(req,res) => {
         });
 })
 
+app.get('/api/v1/learning',(req,res) => {
+
+  db.collection('events_bk').where('category','==','learning').get()
+   .then(snapshot => {
+     let eventsData=[];
+    snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventsData.push(tempJSON);          
+      });
+      res.status(200).send(eventsData);
+    }) .catch(err => {
+          console.error(err);
+          res.status(500).json({ error: err.code });
+        });
+})
+
 
 
 

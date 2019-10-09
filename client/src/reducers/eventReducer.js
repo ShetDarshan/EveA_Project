@@ -1,6 +1,7 @@
-import { GET_EVENTS } from '../actions/types';
+import { GET_EVENTS,GET_LEARNING } from '../actions/types';
 const initialState = {
     events: [],
+    learning: [],
     loading: false
 };
 
@@ -11,6 +12,12 @@ export default function(state = initialState,action) {
             return {
                 ...state,
                 events: action.payload,
+                loading:false
+      };
+        case GET_LEARNING:
+            return {
+                ...state,
+                learning: action.payload,
                 loading:false
       };
         default: 
