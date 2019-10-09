@@ -114,7 +114,6 @@ app.post('/api/v1/login',(req,res) =>{
 });
 //get events data
 app.get('/api/v1/events',(req,res) => {
-
   db.collection('events_bk').get()
    .then(snapshot => {
      let eventsData=[];

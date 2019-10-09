@@ -197,3 +197,33 @@ Original error: Cannot find module '/Users/sharathgh/Documents/EveA_Project/func
 [debug] [2019-10-09T19:03:21.040Z] [runtime-status] Ephemeral server used! {}
 [debug] [2019-10-09T19:03:21.123Z] [runtime-status] Ephemeral server survived. {}
 [info] i  functions: Finished "api" in ~1s
+[debug] [2019-10-09T19:09:18.359Z] File /Users/sharathgh/Documents/EveA_Project/functions/package-lock.json changed, reloading triggers
+[debug] [2019-10-09T19:09:18.360Z] File /Users/sharathgh/Documents/EveA_Project/functions/package.json changed, reloading triggers
+[debug] [2019-10-09T19:09:18.535Z] File /Users/sharathgh/Documents/EveA_Project/functions/index.js changed, reloading triggers
+[debug] [2019-10-09T19:09:20.101Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:09:20.102Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:09:20.106Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:09:20.107Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:09:20.108Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  /Users/sharathgh/Documents/EveA_Project/functions/index.js:133
+<<<<<<< HEAD
+  ^^
+
+SyntaxError: Unexpected token <<
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:4:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-09T19:10:44.147Z] File /Users/sharathgh/Documents/EveA_Project/functions/index.js changed, reloading triggers
+[debug] [2019-10-09T19:10:45.701Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/sharathgh/Documents/EveA_Project/functions","node_version":"10.16.3"}
+[debug] [2019-10-09T19:10:45.702Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-09T19:10:45.708Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-09T19:10:45.710Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-09T19:10:45.711Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/sharathgh/Documents/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
