@@ -48,7 +48,7 @@ import {logoutuser} from '../../actions/authActions'
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/profiles"> Guest User
+                <Link className="nav-link" to="/guestuser"> Guest User
                 </Link>
               </li>
             </ul>
