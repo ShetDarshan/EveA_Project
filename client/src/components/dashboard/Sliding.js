@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Card from './Card';
 import data from './data';
 import { Button } from 'reactstrap';
