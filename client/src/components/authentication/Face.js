@@ -17,7 +17,7 @@ const uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: 'https://evea-prj.firebaseapp.com/dashboard',
+    signInSuccessUrl: 'https://evea-prj.firebaseapp.com/eventboard',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
      firebase.auth.GoogleAuthProvider.PROVIDER_ID,

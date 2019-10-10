@@ -29,7 +29,7 @@ constructor(props) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4 text-center">Event Lists</h1>
+              <h1 className="display-4 text-center">Events List</h1>
               <p className="lead text-center">
                 More Info on Events
               </p>

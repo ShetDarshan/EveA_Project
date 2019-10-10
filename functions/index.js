@@ -114,7 +114,7 @@ app.post('/api/v1/login',(req,res) =>{
 });
 //get events data
 app.get('/api/v1/events',(req,res) => {
-  db.collection('events_bk').get()
+  db.collection('events_demo').get()
    .then(snapshot => {
      let eventsData=[];
     snapshot.forEach(doc => {
@@ -132,7 +132,7 @@ app.get('/api/v1/events',(req,res) => {
 
 app.get('/api/v1/learning',(req,res) => {
 
-  db.collection('events_bk').where('category','==','learning').get()
+  db.collection('events_demo').where('category','==','learning').get()
    .then(snapshot => {
      let eventsData=[];
     snapshot.forEach(doc => {
