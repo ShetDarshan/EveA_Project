@@ -43,10 +43,11 @@ class App extends Component {
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventboard" component={Eventboard}/>
+                <Route exact path="/guestuser" component={Sliding}/>
                 
             </div>
             <Footer />  
-            <Route exact path="/guestuser" component={Sliding}/>
+            
           </div>
         </Router>
       </Provider>

@@ -33,9 +33,9 @@ class EventItem extends Component {
             <ModalHeader>{event.title}</ModalHeader>
             <ModalBody>
               <img src={event.img} alt="" />
-              <b>Summary:</b><p>{event.summary}</p>
-              <b>Event Date:</b><h4>{event.startdate}</h4>
-              <b>Event Price:</b><h4>{event.price}</h4><br/>
+              <b style={{color:"grey"}}>Summary:</b><p>{event.summary}</p>
+              <b style={{color:"grey"}}>Event Date:</b><h4>{event.startdate}</h4>
+              <b style={{color:"grey"}}>Event Price:</b><h4>{event.price}</h4><br/>
               <a href={event.read_more} className="btn btn-info">Visit Website</a>
             </ModalBody>
             <ModalFooter>
