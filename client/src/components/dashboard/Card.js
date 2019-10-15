@@ -5,16 +5,17 @@ const Card = ({property}) => {
     const {index, image, title, location} = property;
     return (
         <div id={`card-${index}`} className="card">
-            <img src={image} alt={title} />
-            <div className="details">
-                <span className="index">{index+1}</span>
-                <p className="location">
-                    {title}<br />
+            <div className="overflow">
+            <img src={image} className="class-img-top" style={{height:"100", width:"100"}} alt={title} />
+            <div className="details-body text-dark">
+                <h6 className="card-title">{title}</h6>
+                <p className="location-text text-secondary">
                     {location}
                 </p>
-                
+                </div>  
             </div>
         </div>
+        
     )
 }
 
