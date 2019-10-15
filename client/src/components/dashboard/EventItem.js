@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
+ import MapContainer from './MapContainer'
+import {
+  IconButton
+} from "@material-ui/core";
+import {
+  Room as RoomIcon
+} from "@material-ui/icons";
 
 class EventItem extends Component {
   constructor(props){
     super(props);
     this.state ={
-      showModal: false
+      showModal: false,
+      locationModal: false,
+      locationClose: false
     }
   }
   
@@ -29,6 +38,41 @@ class EventItem extends Component {
               showModal: true
             })}>Details
           </Button>
+                 <IconButton
+                    style={{
+                               border: "1px solid blue",
+                               color: "blue",
+                                                     marginRight: "10px"
+                                                }}
+                                                onClick={() => {
+                                                  this.setState({locationModal:true})
+                                                  this.setState({locationClose:true})
+                                                   
+                                                }}
+                                            >
+                                                <RoomIcon />
+                                                </IconButton>
+
+                   <Modal isOpen={this.state.locationModal}>
+                  <ModalHeader closeButton>Location  
+                      <Button  style={{marginLeft: "318px"}} variant="contained" color="primary" 
+                      onClick={() => this.setState({locationModal:false}) }>
+                             CLOSE
+                         </Button>  
+                  </ModalHeader>
+              
+                  <MapContainer
+              lat={+event.latitude}
+              long={+event.longitude}
+            />              
+             </Modal>
+
+           {/* <div>                            
+           <MapContainer
+              lat={+event.latitude}
+              long={+event.longitude}
+            /> 
+            </div>    */}
           <Modal isOpen={this.state.showModal}>
             <ModalHeader>{event.title}</ModalHeader>
             <ModalBody>
@@ -42,7 +86,7 @@ class EventItem extends Component {
               <Button outline color="danger"  onClick ={() =>this.setState({
                 showModal:false
               }) }>
-                close
+                CLOSE
               </Button>
             </ModalFooter>
           </Modal>
