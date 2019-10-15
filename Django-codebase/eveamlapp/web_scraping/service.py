@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 from google.cloud import firestore
 from .models import URLCollection
+from .geocoding import getOrdinates
 
 
 class DataProcess:
@@ -16,6 +17,10 @@ class DataProcess:
         i=0
         for event in eventData:
             i=i+1
+            ordinates = getOrdinates(event.location)
+            #filtering only dublin adress
+            if "Dublin" not in str(ordinates):
+                ordinates = getOrdinates("Dublin")
             data = {
                 u'title': u''+event.title,
                 u'time': u''+event.time,
@@ -25,12 +30,13 @@ class DataProcess:
                 u'startdate':u''+event.startdate,
                 u'enddate':u''+event.enddate,
                 u'price':u''+event.price,
-                #u'address':u''+event.address,
+                u'address':ordinates[2],
                 u'read_more':u''+event.read_more,
-                u'category':u''+event.category
+                u'category':u''+event.category,
+                u'latitude':ordinates[0],
+                u'longitude':ordinates[1]
             }
-            db.collection(u'events_test').document(u''+event.id).set(data)
-
+            db.collection(u'events_demo').document(u''+event.id).set(data)
         return eventData
 
     @staticmethod
