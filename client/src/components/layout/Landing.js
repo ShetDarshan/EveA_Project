@@ -9,7 +9,7 @@ import Face from "../../components/layout/Face";
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Never Miss any Events 
+                <h1 className="display-3 mb-4">Never Miss an Event
                 </h1>
                 <hr />
                  <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
