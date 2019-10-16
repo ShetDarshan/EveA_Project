@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import './App.scss';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import Eventboard from './components/dashboard/Eventboard';
 import SlideShow from './SlideShow';
-import category_page from './category_page';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
-
+import upcomingevents from './components/dashboard/upcomingevents';
+import Footer from './components/layout/Footer';
+import Navbar from './components/layout/Navbar';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -34,10 +34,11 @@ if(localStorage.jwtToken){
 class App extends Component {
   render() {
     return (
+      
       <Provider store ={store}>
         <Router>
           <div>
-
+            <Navbar/>
             <Route exact path="/" component={Landing} />
             <div className="container-flex" style={{marginLeft: "0.5em"}}>
                 <Route exact path="/register" component={Register}/>
@@ -45,10 +46,8 @@ class App extends Component {
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventboard" component={Eventboard}/>
                 <Route exact path="/guestuser" component={SlideShow}/>
-                <Route exact path="/upcomingevents" component={category_page}/>
+                <Route exact path="/upcomingevents" component={upcomingevents}/>
             </div>
-            
-            
             
           </div>
           

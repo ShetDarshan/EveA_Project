@@ -1,15 +1,15 @@
-.App {
+.SPA {
   height: 100vh;
   display: flex;
   color: white;
 }
 
-.App-Aside {
+.SPA-Aside {
   width: 50%;
   background-color:#3c2f2f;
 }
 
-.App-Form {
+.SPA-Form {
   width: 50%;
   background-color:#854442;
   padding: 25px 40px;
