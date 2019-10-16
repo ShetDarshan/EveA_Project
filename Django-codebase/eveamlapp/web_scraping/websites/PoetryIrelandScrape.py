@@ -45,7 +45,7 @@ class PoetryIrelandIE:
             date = date + (' ')+ month+(' ')+ year
             Location=div_tags[3].text
             read_more=a_tags[1]['href']
-            Category='Art & Theatre'
+            Category='FASHION,ART & THEATRE'
 
             data = EventData()
 

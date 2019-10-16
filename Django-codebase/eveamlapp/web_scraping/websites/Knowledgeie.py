@@ -39,6 +39,7 @@ class KnowIE:
                 except:
                     title = 'none'    
                 read_more = container.h2.a['href']
+                read_more = 'https://www.knowledgetransferireland.com/'+ read_more
                 try:
                     description = container.p.text
                 except:

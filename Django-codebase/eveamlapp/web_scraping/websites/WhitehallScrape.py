@@ -38,7 +38,7 @@ class WhitehallIe:
             #wh = str(wh)
             location = 'Whitehall College of Further Education, Drumcondra, Dublin'
             read_more = container.a['href']
-            category = 'EDUCATION,BUSINESS & TECHNOLOGY'
+            Category = 'EDUCATION,BUSINESS & TECHNOLOGY'
 
 
             data = EventData()
@@ -48,7 +48,7 @@ class WhitehallIe:
             data.startdate = date
             data.enddate = ''
             data.time = ''
-            data.category = category
+            data.category = Category
             data.price = ''
             data.summary = ''
             data.location = location
