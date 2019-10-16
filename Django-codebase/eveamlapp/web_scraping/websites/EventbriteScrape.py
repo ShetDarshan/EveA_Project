@@ -18,7 +18,7 @@ class EventIe:
 
         data_list = []
         i = 0
-        for value in range(1, 2):
+        for value in range(1, 67):
             url = ""
             url = urlOriginal+format(value)
             print(url)
@@ -47,7 +47,7 @@ class EventIe:
 
             for events in data['events']:
                 name = events['name']['text']
-                description = events['description']['text'].strip('\n')
+                description = events['description']['text']
                 description = format(description)
                 link = events['url']
                 start_datetime = events['start']['local']
@@ -91,7 +91,7 @@ class EventIe:
 
                 # Category Uniformication
                 if category == 'Auto, Boat & Air' or category == 'Health & Wellness' or category == 'Sports & Fitness':
-                    category = 'SPORTS & HEALTH'
+                    category = 'HEALTH & SPORTS'
                 elif category == 'Business & Professional' or category == 'Science & Technology' or category == 'School Activities' or category == 'Government & Politics':
                     category = 'EDUCATION,BUSINESS & TECHNOLOGY'
                 elif category == 'Charity & Causes' or category == 'Community & Culture' or category == 'Family & Education' or category == 'Home & Lifestyle' or category == 'Religion & Spirituality':
@@ -107,7 +107,7 @@ class EventIe:
                 elif category == 'Travel & Outdoor' or category == 'Seasonal & Holiday':
                     category = 'TRAVEL'
                 elif category == 'Other':
-                    category = 'OTHERS'
+                    category = 'OTHER'
 
                 try:
                     img = events['logo']['original']['url']

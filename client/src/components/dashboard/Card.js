@@ -6,7 +6,7 @@ const Card = ({property}) => {
     return (
         <div id={`card-${index}`} className="card">
             <div className="overflow">
-            <img src={image} className="class-img-top" style={{height:"100", width:"100"}} alt={title} />
+            <img src={image} className="class-img-top" style={{height:"10", width:"10"}} alt={title} />
             <div className="details-body text-dark">
                 <h6 className="card-title">{title}</h6>
                 <p className="location-text text-secondary">

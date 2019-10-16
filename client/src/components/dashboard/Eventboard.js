@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import {getEvents} from '../../actions/eventActions';
 import EventItem from './EventItem';
@@ -33,6 +34,7 @@ constructor(props) {
               <p className="lead text-center">
                 More Info on Events
               </p>
+              <Button outline color="primary" >Search Events</Button>
               <div className="card card-body bg-light mb-3">
                  {eventItems}
             </div>

@@ -32,7 +32,7 @@ class RCSIIE:
                 URL= 'https://www.rcsi.com'+container.a['href']
                 date = container.div.text.replace("\n"," ")
                 Location=container.p.text.strip('\n')
-                Category='Business,Education & Technology'
+                Category='EDUCATION,BUSINESS & TECHNOLOGY'
 
                 data = EventData()
 

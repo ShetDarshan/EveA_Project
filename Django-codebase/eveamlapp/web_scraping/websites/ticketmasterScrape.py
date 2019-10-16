@@ -14,7 +14,7 @@ class TicketmasterIe:
     def scrape(urlOriginal):
 
         data_list = []
-        for value in range(1,2):
+        for value in range(1,49):
             url = ""
             url = urlOriginal+format(value)
             print(url)
@@ -50,11 +50,11 @@ class TicketmasterIe:
                 except:
                     Postal_Code =''    
                 img = var1['images'][2]['url']
-                Category = var1['classifications'][0]['segment']['name']
+                category = var1['classifications'][0]['segment']['name']
                 if category == 'Arts & Theatre':
                     category = 'FASHION,ART & THEATRE'
                 elif category == 'Sport':
-                    category = 'SPORTS'
+                    category = 'HEALTH & SPORTS'
                 elif category == 'Family & Attractions':
                     category = 'COMMUNITY & FESTIVALS'
                 elif category == 'Music':
@@ -72,7 +72,7 @@ class TicketmasterIe:
                 data.location = Location
                 data.summary = ''
                 data.img = img
-                data.category = Category
+                data.category = category
                 data.startdate = date
                 data.read_more = URL
                 #data.address = address

@@ -4,21 +4,21 @@ import './App.css';
 import EveaBuddy from './components/authentication/evea_buddy';
 
 
-class App extends Component {
+class SPA extends Component {
   render() {
     return (
       <Router>
         
-          <div className="App">
+          <div className="SPA">
             
             
-            <div className="App-Aside">
+            <div className="SPA-Aside">
             <EveaBuddy/>
 
             </div>
             
             
-             <div className="App-Form">
+             <div className="SPA-Form">
               
 
               <div className="FormTitle">
@@ -132,4 +132,4 @@ I agree to all the statements in<a href="" className="FormField-TermsLink">T&C o
   }
 }
 
-export default App;
+export default SPA;

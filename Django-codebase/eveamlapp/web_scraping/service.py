@@ -17,10 +17,10 @@ class DataProcess:
         i=0
         for event in eventData:
             i=i+1
-            #ordinates = getOrdinates(event.location)
+            ordinates = getOrdinates(event.location)
             #filtering only dublin adress
-            #if "Dublin" not in str(ordinates):
-            #    ordinates = getOrdinates("Dublin")
+            if "Dublin" not in str(ordinates):
+                ordinates = getOrdinates("Dublin")
             data = {
                 u'title': u''+event.title,
                 u'time': u''+event.time,
@@ -30,21 +30,21 @@ class DataProcess:
                 u'startdate':u''+event.startdate,
                 u'enddate':u''+event.enddate,
                 u'price':u''+event.price,
-                #u'address':ordinates[2],
+                u'address':ordinates[2],
                 u'read_more':u''+event.read_more,
                 u'category':u''+event.category,
-                #u'latitude':ordinates[0],
-                #u'longitude':ordinates[1]
+                u'latitude':ordinates[0],
+                u'longitude':ordinates[1]
             }
             rowCount = 0
+            
+            # Data duplicacy check
             # fetch records from firebase based on title, location and startdate 
-            existing_events = db.collection(u'events_t').where(u'title', u'==',u''+event.title).get()
-            print('existing')
+            existing_events = db.collection(u'events_list').where(u'title', u'==',u''+event.title).get()
             for existing_events in existing_events:
                 rowCount = rowCount+1
             if rowCount == 0:
-                db.collection(u'events_t').document(u''+event.id).set(data)
-                print('new')
+                db.collection(u'events_list').document(u''+event.id).set(data)
         print(len(eventData))        
         return eventData
 

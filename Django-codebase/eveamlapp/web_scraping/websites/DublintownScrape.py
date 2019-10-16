@@ -31,7 +31,7 @@ class DublintownScrape:
                 Title = container.h3.text.strip()
                 category=container.h5.text.strip()
                 if category=='Activities, Fashion' or category=='Activities, Art, Workshop':
-                    category='FASHION, ART & THEATRE'
+                    category='FASHION,ART & THEATRE'
         
                 elif category=='Activities, Drinks, Family, Food And Drink, Nightlife, Talks, Workshop' or category=='Food And Drink' or category=='Drinks, Food And Drink, History, Tours' or category=='Drinks, History, Tours' or category=='Drinks, Food And Drink' or category=='Drinks' or category=='Activities, Drinks, Family, Food And Drink, Nightlife, Talks, Workshop' or category=='Drinks' or category=='Culture, Food And Drink':
                     category='FOOD & DRINK'
@@ -39,17 +39,19 @@ class DublintownScrape:
                 elif category=='Activities, Culture, Exhibition':
                     category='COMMUNITY & FESTIVALS'
         
-                elif category=='Tours' or category=='Music, Tours' or category=='Culture, Tours' or category=='Music, Nightlife' or category=='Music' or category=='Activities, Art, Culture, Drinks, Fashion, Food And Drink, Free, Market' or category=='Activities, Comedy' or category=='Activities, Culture, Exhibition':
+                elif category=='Tours' or category=='Music, Tours' or category=='Culture, Tours' or category=='Music, Nightlife' or category=='Music' or category=='Activities, Art, Culture, Drinks, Fashion, Food And Drink, Free, Market' or category=='Activities, Comedy' or category=='Activities, Culture, Exhibition' or category == 'Activities':
                     category='MUSIC & ENTERTAINMENT'
         
-                elif category=='Theatre' or category=='Fashion' or category=='Culture, Theatre' or category=='Halloween, Theatre' or category=='Activities, Fashion' or category=='Culture, Exhibition, Family, Food And Drink' or category=='Activities, Art, Workshop' or category=='Family, Theatre':
-                    category='FASHION, ART & THEATRE'
+                elif category=='Theatre' or category=='Fashion' or category=='Culture, Theatre' or category=='Halloween, Theatre' or category=='Activities, Fashion' or category=='Culture, Exhibition, Family, Food And Drink' or category=='Activities, Art, Workshop' or category=='Family, Theatre' or category == 'Activities, Halloween, Nightlife, Tours':
+                    category='FASHION,ART & THEATRE'
         
                 elif category=='':
                     category='OTHER'
                 elif category=='Beauty, Fitness':
-                    category='SPORTS & HEALTH'
+                    category='HEALTH & SPORTS'
+                
                 URL= container.a['href']
+                
                 try:
                     image = container.a.img['src']
                 except:
@@ -85,13 +87,15 @@ class DublintownScrape:
         
                 a_tags=container.div.findAll('a')
     
-                Location=a_tags[2].text
+                location = a_tags[2].text
+                location= location.split('|')
+                location = location[0]
                 data = EventData()
 
                 data.id = uuid.uuid1().__str__()
                 data.title = Title
                 data.time = ''
-                data.location = Location
+                data.location = location
                 data.summary = ''
                 data.img = image
                 data.category = category
