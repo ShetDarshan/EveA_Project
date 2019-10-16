@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './App.scss';
+// import './App.scss';
 import Card from './components/dashboard/Card';
 import data from './components/dashboard/data';
 import {Navbar, NavbarBrand} from 'react-bootstrap';

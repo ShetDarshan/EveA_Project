@@ -55,7 +55,7 @@ class EventItem extends Component {
 
                    <Modal isOpen={this.state.locationModal}>
                   <ModalHeader closeButton>Location  
-                      <Button  style={{marginLeft: "318px"}} variant="contained" color="primary" 
+                      <Button  style={{marginLeft: "310px"}} variant="contained" color="primary" 
                       onClick={() => this.setState({locationModal:false}) }>
                              CLOSE
                          </Button>  

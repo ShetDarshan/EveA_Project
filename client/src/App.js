@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './App.scss';
+// import './App.scss';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
@@ -14,7 +14,8 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
-
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -36,10 +37,11 @@ class App extends Component {
     return (
       <Provider store ={store}>
         <Router>
-          <div>
-
+        <div className="App">
+          <Navbar />
+          
             <Route exact path="/" component={Landing} />
-            <div className="container-flex" style={{marginLeft: "0.5em"}}>
+            <div className="container-flex">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -48,10 +50,10 @@ class App extends Component {
                 <Route exact path="/upcomingevents" component={category_page}/>
             </div>
             
+            <Footer />
             
-            
-          </div>
           
+        </div>  
         </Router>
         
       </Provider>
