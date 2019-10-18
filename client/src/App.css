@@ -205,30 +205,6 @@ body {
   height: 80px;
 }
 
-/* DEMO STYLES */
-.nav a {
-  display: inline-block;
-  width: 100px;
-  text-align: center;
-  margin: 0 px;
-  padding: 0px;
-  border: 1px rgba(255, 255, 255, 0.5) solid;
-  transition: all 0.3s linear;
-  text-decoration: none;
-  color: white;
-}
-
-.nav a.active {
-  background-color: #61DAFB;
-  color: #222;
-}
-
-section {
-  padding: 20px 0;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 /* #endregion */
 /* #region Card */
 /* Card */
@@ -678,6 +654,13 @@ section {
   top: 0;
   left: 0;
 }
+
+.slider.container {
+  display: flex;
+  padding: 0 55px;
+}
+
+
 
 /* #endregion */
 
