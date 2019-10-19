@@ -30,12 +30,12 @@ constructor(props) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <h1 className="display-4 text-center">Events List</h1>
+              {/* <h1 className="display-4 text-center">Events List</h1>
               <p className="lead text-center">
                 More Info on Events
-              </p>
-              <Button outline color="primary" >Search Events</Button>
-              <div className="card card-body bg-light mb-3">
+              </p> */}
+              {/* <Button outline color="primary" >Search Events</Button> */}
+              <div className="card card-body bg-dark mb-3">
                  {eventItems}
             </div>
           </div>
