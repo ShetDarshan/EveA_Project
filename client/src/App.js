@@ -15,7 +15,7 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-
+import upcomingevents from './components/dashboard/upcomingevents';
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
   //decoding token and getting user info and exp
