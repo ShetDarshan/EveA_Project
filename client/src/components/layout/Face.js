@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
@@ -14,9 +13,9 @@ const config = {
   // Configure FirebaseUI.
 const uiConfig = {
     // Popup signin flow rather than redirect flow.
-    signInFlow: 'redirect',
+    signInFlow: 'popup',
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: '/signedIn',
+    signInSuccessUrl: '/https://evea-prj.firebaseapp.com/eventboard',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
      // 
