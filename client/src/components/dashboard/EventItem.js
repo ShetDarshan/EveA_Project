@@ -132,7 +132,9 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: "300px",
+    margin: "2%",
+    display: "inline-block",
   },
   media: {
     height: 0,
@@ -185,7 +187,7 @@ export default props => {
         title="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="p" style={{maxLength: 11}}> 
         {event.address}
         </Typography>
       </CardContent>
@@ -276,3 +278,4 @@ export default props => {
     </Card>
   );
 }
+
