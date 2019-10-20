@@ -74,11 +74,11 @@ class dublincity:
                 category='FASHION,ARTS & THEATRE'
             elif category=='Business Networking' or category=='Canvention / Conference' or category=='Educational' or category=='Expo':
                 category='EDUCATION,BUSINESS & TECHNOLOGY'
-            elif category=='Concert / Live Music' or category=='Cultutal' or category='Entertainment':
+            elif category=='Concert / Live Music' or category=='Cultutal' or category=='Entertainment':
                 category='MUSIC & ENTERTAINMENT'
-            elif category=='Festival' or category='Kids / Family':
+            elif category=='Festival' or category=='Kids / Family':
                 category='COMMUNITY & FESTIVALS'
-            elif category=' Health' or category='Sports':
+            elif category==' Health' or category=='Sports':
                 category='SPORTS & HEALTH'
 
             data = EventData()
