@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import {getEvents} from '../../actions/eventActions';
 import EventItem from './EventItem';
-
+import Carousel from 'react-bootstrap/Carousel'
 
 
 class Eventboard extends Component {
@@ -22,9 +22,33 @@ constructor(props) {
 }
     render() {
       const { events } = this.props.events;
-      let eventItems;
-      eventItems = events.map(event =>(<EventItem key={event.eventId} event={event} /> ));
-  
+      let eventSports = [];
+      let eventComedy = [];
+
+      let i =0;
+
+      
+      events.forEach(element => {
+        let eventObj = {};
+        eventObj = element;
+        let cat  = eventObj.category
+        console.log(cat,"category data")
+        
+        if(eventObj.category === "HEALTH & SPORTS" && eventSports.length <= 10){
+          eventSports.push(eventObj)
+        }
+
+        else if(eventObj.category === "MUSIC & ENTERTAINMENT" && eventComedy.length <= 10){
+          eventComedy.push(eventObj)
+        }
+      })
+
+      console.log(eventSports,"eventSports");
+      console.log(eventComedy,"eventComedy");
+     let eveSports=eventSports.map(event =>(<EventItem key={event.eventId} event={event} /> ));
+     let eveComedy=eventComedy.map(event =>(<EventItem key={event.eventId} event={event}  /> ));
+   console.log(eveComedy,"comedy");
+
       return (
         <div className="profiles">
         <div className="container">
@@ -34,10 +58,18 @@ constructor(props) {
               <p className="lead text-center">
                 More Info on Events
               </p>
-              <Button outline color="primary" >Search Events</Button>
-              <div className="card card-body bg-light mb-3">
-                 {eventItems}
-            </div>
+         
+              {/* <div className="card card-body bg-light mb-3"> */}
+              <h1 className="display-4 text-center">Sports and Health Events List</h1>
+                <div className="card-columns"> 
+                {eveSports}
+                </div>
+                <h1 className="display-4 text-center">Music Events List</h1>
+                <div className="card-columns">
+                {eveComedy}
+                </div>
+                 
+            {/* </div> */}
           </div>
         </div>
       </div>
