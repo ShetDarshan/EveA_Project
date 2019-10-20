@@ -1,2 +1,8 @@
 node_modules/
-functions/firebase-debug.log
+functions/fiirebase-debug.log
+Django-codebase/evea/__pycache__
+Django-codebase/eveamlapp/__pycache__
+Django_codebase/eveamlapp/migrations/__pycache__
+Django_codebase/eveamlapp/web_scraping/__pycache__
+Django_codebase/eveamlapp/web_scraping/websites/__pycache__
+.idea/
