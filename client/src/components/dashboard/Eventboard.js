@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import {getEvents} from '../../actions/eventActions';
 import EventItem from './EventItem';
 import Carousel from 'react-bootstrap/Carousel'
+import Spinner from '../dashboard/Spinner';
 
 
 class Eventboard extends Component {
@@ -21,18 +22,18 @@ constructor(props) {
     props.getEvents();
 }
     render() {
-      const { events } = this.props.events;
+      const { events} = this.props.events;
       let eventSports = [];
       let eventComedy = [];
+      let eventFestivals = [];
+      let eventFashion = [];
+      let eventEducation = [];
 
-      let i =0;
-
-      
+     
       events.forEach(element => {
         let eventObj = {};
         eventObj = element;
         let cat  = eventObj.category
-        console.log(cat,"category data")
         
         if(eventObj.category === "HEALTH & SPORTS" && eventSports.length <= 10){
           eventSports.push(eventObj)
@@ -41,14 +42,27 @@ constructor(props) {
         else if(eventObj.category === "MUSIC & ENTERTAINMENT" && eventComedy.length <= 10){
           eventComedy.push(eventObj)
         }
+        else if(eventObj.category === "COMMUNITY & FESTIVALS" && eventFestivals.length <= 10){
+          eventFestivals.push(eventObj)
+        }
+        else if(eventObj.category === "FASHION,ART & THEATRE" && eventFashion.length <= 10){
+          eventFashion.push(eventObj)
+        }
+
+        else if(eventObj.category === "EDUCATION,BUSINESS & TECHNOLOGY" && eventEducation.length <= 10){
+          eventEducation.push(eventObj)
+        }
+        
+
+        
       })
 
-      console.log(eventSports,"eventSports");
-      console.log(eventComedy,"eventComedy");
-     let eveSports=eventSports.map(event =>(<EventItem key={event.eventId} event={event} /> ));
+    let  eveSports=eventSports.map(event =>(<EventItem key={event.eventId} event={event} /> ));
      let eveComedy=eventComedy.map(event =>(<EventItem key={event.eventId} event={event}  /> ));
-   console.log(eveComedy,"comedy");
-
+     let eveFestivals=eventFestivals.map(event =>(<EventItem key={event.eventId} event={event}  /> ));
+     let eveEducation=eventEducation.map(event =>(<EventItem key={event.eventId} event={event}  /> ));
+     let eveFashion=eventFashion.map(event =>(<EventItem key={event.eventId} event={event}  /> ));
+    
       return (
         <div className="profiles">
         <div className="container">
@@ -60,13 +74,25 @@ constructor(props) {
               </p>
          
               {/* <div className="card card-body bg-light mb-3"> */}
-              <h1 className="display-4 text-center">Sports and Health Events List</h1>
+              <h3 className="display-4 text-left">Sports and Health</h3>
                 <div className="card-columns"> 
                 {eveSports}
                 </div>
-                <h1 className="display-4 text-center">Music Events List</h1>
+                <h3 className="display-4 text-left">Music and Entertainment</h3>
                 <div className="card-columns">
                 {eveComedy}
+                </div>
+                <h3 className="display-4 text-left">Community and Festivals</h3>
+                <div className="card-columns">
+                {eveFestivals}
+                </div>
+                <h3 className="display-4 text-left">Education Business and Technology</h3>
+                <div className="card-columns">
+                {eveEducation}
+                </div>
+                <h3 className="display-4 text-left">Fashion and Art</h3>
+                <div className="card-columns">
+                {eveFashion}
                 </div>
                  
             {/* </div> */}
@@ -77,6 +103,7 @@ constructor(props) {
       );
     }
   }
+
   
   
   const mapStateToProps = state => ({

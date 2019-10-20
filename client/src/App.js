@@ -6,6 +6,7 @@ import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import Eventboard from './components/dashboard/Eventboard';
+import Guestuser from './components/dashboard/Guestuser';
 // import SlideShow from './SlideShow';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
@@ -16,6 +17,9 @@ import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 // import upcomingevents from './components/dashboard/upcomingevents'
+
+
+
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -47,6 +51,7 @@ class App extends Component {
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventboard" component={Eventboard}/>
+                <Route exact path="/guestuser" component={Guestuser}/>
             </div>
             
             <Footer />
