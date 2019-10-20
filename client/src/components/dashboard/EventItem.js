@@ -95,7 +95,7 @@ class EventItem extends Component {
       // </div>
 
 
-      <div class="card-deck">
+      
       <div class="card border-primary">
         <img class="card-img-top" src={event.img} alt="" className="rounded-circle"/>
         <div class="card-body">
@@ -103,7 +103,6 @@ class EventItem extends Component {
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-      </div>
     </div>
     );
   }

@@ -35,7 +35,7 @@ constructor(props) {
                 More Info on Events
               </p> */}
               {/* <Button outline color="primary" >Search Events</Button> */}
-              <div className="card card-body bg-dark mb-3">
+              <div class="card-columns bg-dark">
                  {eventItems}
             </div>
           </div>
