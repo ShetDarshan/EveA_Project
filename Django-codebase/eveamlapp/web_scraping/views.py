@@ -15,3 +15,11 @@ def processwebdata(request):
     eventdatalist = DataProcess.saveeventdata(event_list)
     
     return HttpResponse(eventdatalist)
+
+def search(req):
+    event_list = Search.searchtry()
+
+
+
+
+
