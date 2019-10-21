@@ -35,21 +35,21 @@ class Guestuser extends Component {
       eventObj = element;
       let cat = eventObj.category
 
-      if (eventObj.category === "HEALTH & SPORTS" && eventSports.length <= 10) {
+      if (eventObj.category === "HEALTH & SPORTS" && eventSports.length <= 11) {
         eventSports.push(eventObj)
       }
 
-      else if (eventObj.category === "MUSIC & ENTERTAINMENT" && eventComedy.length <= 10) {
+      else if (eventObj.category === "MUSIC & ENTERTAINMENT" && eventComedy.length <= 11) {
         eventComedy.push(eventObj)
       }
-      else if (eventObj.category === "COMMUNITY & FESTIVALS" && eventFestivals.length <= 10) {
+      else if (eventObj.category === "COMMUNITY & FESTIVALS" && eventFestivals.length <= 11) {
         eventFestivals.push(eventObj)
       }
-      else if (eventObj.category === "FASHION,ART & THEATRE" && eventFashion.length <= 10) {
+      else if (eventObj.category === "FASHION,ART & THEATRE" && eventFashion.length <= 11) {
         eventFashion.push(eventObj)
       }
 
-      else if (eventObj.category === "EDUCATION,BUSINESS & TECHNOLOGY" && eventEducation.length <= 10) {
+      else if (eventObj.category === "EDUCATION,BUSINESS & TECHNOLOGY" && eventEducation.length <= 11) {
         eventEducation.push(eventObj)
       }
 
