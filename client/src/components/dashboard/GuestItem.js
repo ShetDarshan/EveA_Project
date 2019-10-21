@@ -15,8 +15,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from 'reactstrap';
-import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
- import MapContainer from './MapContainer'
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import MapContainer from './MapContainer'
 import {
   IconButton
 } from "@material-ui/core";
@@ -54,18 +54,18 @@ export default props => {
   const classes = useStyles();
   const [event] = React.useState(props.event);
   const [expanded, setExpanded] = React.useState(false);
-  const [showModal,setshowModal] = React.useState(false);
-  const [locationModal,setlocationModal] = React.useState(false);
+  const [showModal, setshowModal] = React.useState(false);
+  const [locationModal, setlocationModal] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} >
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-             {event.category.substring(0,1)}
+            {event.category.substring(0, 1)}
           </Avatar>
         }
         action={
@@ -82,8 +82,8 @@ export default props => {
         title="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p" style={{maxLength: 11}}> 
-        {event.address}
+        <Typography variant="body2" color="textSecondary" component="p" style={{ maxLength: 11 }}>
+          {event.address}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -95,62 +95,62 @@ export default props => {
         </IconButton> */}
         {/* <Button outline color="info" onClick ={() => setshowModal(true)}>Details
           </Button> */}
-            <IconButton
-                    style={{
-                              //  border: "1px solid blue",
-                               color: "grey",
-                                                     marginRight: "10px"
-                                                }}
-                                                onClick={() => {
-                                                  setshowModal(true)
-                                                   
-                                                }}
-                                            >
-                                                <VisibilityIcon />
-                                                </IconButton>
-                 <IconButton
-                    style={{
-                              //  border: "1px solid blue",
-                               color: "grey",
-                                                     marginRight: "10px"
-                                                }}
-                                                onClick={() => {
-                                                  setlocationModal(true)
-                                                   
-                                                }}
-                                            >
-                                                <RoomIcon />
-                                                </IconButton>
+        <IconButton
+          style={{
+            //  border: "1px solid blue",
+            color: "grey",
+            marginRight: "10px"
+          }}
+          onClick={() => {
+            setshowModal(true)
 
-                   <Modal isOpen={locationModal}>
-                  <ModalHeader closeButton>Location  
-                      <Button  style={{marginLeft: "310px"}} variant="contained" color="primary" 
-                      onClick={() => setlocationModal(false) }>
-                             CLOSE
-                         </Button>  
-                  </ModalHeader>
-              
-                  <MapContainer
-              lat={+event.latitude}
-              long={+event.longitude}
-            />              
-             </Modal>
-             <Modal isOpen={showModal}>
-            <ModalHeader>{event.title}</ModalHeader>
-            <ModalBody>
-              <img src={event.img} alt="" />
-              <b>Summary:</b><p>{event.summary}</p>
-              <b>Event Date:</b><h4>{event.startdate}</h4>
-              <b>Event Price:</b><h4>{event.price}</h4><br/>
-              <a href={event.read_more} className="btn btn-info">Visit Website</a>
-            </ModalBody>
-            <ModalFooter>
-              <Button outline color="danger"  onClick ={() =>setshowModal(false)
-               }>
-                CLOSE
+          }}
+        >
+          <VisibilityIcon />
+        </IconButton>
+        <IconButton
+          style={{
+            //  border: "1px solid blue",
+            color: "grey",
+            marginRight: "10px"
+          }}
+          onClick={() => {
+            setlocationModal(true)
+
+          }}
+        >
+          <RoomIcon />
+        </IconButton>
+
+        <Modal isOpen={locationModal}>
+          <ModalHeader closeButton>Location
+                      <Button style={{ marginLeft: "310px" }} variant="contained" color="primary"
+              onClick={() => setlocationModal(false)}>
+              CLOSE
+                         </Button>
+          </ModalHeader>
+
+          <MapContainer
+            lat={+event.latitude}
+            long={+event.longitude}
+          />
+        </Modal>
+        <Modal isOpen={showModal}>
+          <ModalHeader>{event.title}</ModalHeader>
+          <ModalBody>
+            <img src={event.img} alt="" />
+            <b>Summary:</b><p>{event.summary}</p>
+            <b>Event Date:</b><h4>{event.startdate}</h4>
+            <b>Event Price:</b><h4>{event.price}</h4><br />
+            <a href={event.read_more} className="btn btn-info">Visit Website</a>
+          </ModalBody>
+          <ModalFooter>
+            <Button outline color="danger" onClick={() => setshowModal(false)
+            }>
+              CLOSE
               </Button>
-            </ModalFooter>
-          </Modal>
+          </ModalFooter>
+        </Modal>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -166,7 +166,7 @@ export default props => {
         <CardContent>
           <Typography paragraph>Summary:</Typography>
           <Typography paragraph>
-           {event.summary}
+            {event.summary}
           </Typography>
         </CardContent>
       </Collapse>
