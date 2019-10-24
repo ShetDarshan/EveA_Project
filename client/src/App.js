@@ -52,6 +52,7 @@ class App extends Component {
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventboard" component={Eventboard}/>
                 <Route exact path="/guestuser" component={Guestuser}/>
+                <Route exact path="/create-profile" component={CreateProfile}/>
             </div>
             
             <Footer />
