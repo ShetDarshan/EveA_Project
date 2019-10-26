@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
 import GuestItem from './GuestItem';
 import Carousel from 'react-bootstrap/Carousel'
-import Spinner from '../dashboard/Spinner';
 
 
 class Guestuser extends Component {
