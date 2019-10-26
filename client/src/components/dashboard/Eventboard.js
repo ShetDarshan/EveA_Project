@@ -68,45 +68,7 @@ class Eventboard extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div>
-                <Carousel>
-                  <Carousel.Item style={{ height: '350px' }}>
-                    <img
-                      className="d-block w-100"
-                      src={require('./../../img/music.jpg')}
-                      alt="First slide"
-                    />
-                    <Carousel.Caption>
-                      <h3>Music Events</h3>
-                      {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item style={{ height: '350px' }}>
-                    <img
-                      className="d-block w-100"
-                      src={require('./../../img/sports.jpg')}
-                      alt="Third slide"
-                    />
 
-                    <Carousel.Caption>
-                      <h3>Sports Events</h3>
-                      {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item style={{ height: '350px' }}>
-                    <img
-                      className="d-block w-100"
-                      src={require('./../../img/music.jpg')}
-                      alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Cultural Events</h3>
-                      {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                </Carousel>
-              </div>
               {/* <div className="card card-body bg-light mb-3"> */}
               <div style={{ background: "white", color: "black", marginLeft: "20px", marginRight: "54px" }}>
                 <h3 className="display-4 text-left">Music and Entertainment</h3>
