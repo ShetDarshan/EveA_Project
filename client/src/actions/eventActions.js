@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { GET_EVENTS,LOADING_DATA,GET_LEARNING } from './types';
-
 export const getEvents = () => dispatch => {
   console.log("coming here")
     // dispatch({ type: LOADING_DATA });

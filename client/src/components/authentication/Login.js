@@ -39,7 +39,6 @@ import TextFieldGroup from '../common/TextFieldGroup';
         };
         this.props.luser(user);
     }
-
   render() {
     const { errors } = this.state;
     return (
