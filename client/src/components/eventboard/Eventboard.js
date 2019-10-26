@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
 import EventItem from '../eventItems/EventItem';
 import Carousel from 'react-bootstrap/Carousel'
-import Spinner from '../dashboard/Spinner';
+
 
 class Eventboard extends Component {
   componentDidMount() {
