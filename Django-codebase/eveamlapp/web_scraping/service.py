@@ -5,6 +5,7 @@ from datetime import datetime
 from google.cloud import firestore
 from .models import URLCollection
 from .geocoding import getOrdinates
+from .models import EventData
 
 
 class DataProcess:
@@ -70,3 +71,35 @@ class DataProcess:
             else:
                 print(u'No such document!!!')
         return urls
+
+    @staticmethod
+    def getevents():
+
+        db = firestore.Client()
+        event_list = list()
+
+        docs = db.collection(u'events_t').get()
+
+
+        for doc in docs:
+            data_Obj = EventData()
+            if doc.exists:
+                ev_Data = doc.to_dict()
+                
+                data_Obj.title = ev_Data['title']
+                data_Obj.time = ev_Data['time']
+                data_Obj.location = ev_Data['location']
+                data_Obj.summary = ev_Data['summary']
+                data_Obj.img = ev_Data['img']
+                data_Obj.startdate = ev_Data['startdate']
+                data_Obj.enddate = ev_Data['enddate']
+                data_Obj.category = ev_Data['category']
+                data_Obj.price = ev_Data['price']
+                #data_Obj.address = ev_Data['address']
+                data_Obj.read_more =  ev_Data['read_more']
+
+                event_list.append(data_Obj)
+            else:
+                print(u'No such document!!!')
+
+        return event_list
