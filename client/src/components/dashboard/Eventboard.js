@@ -72,7 +72,71 @@ constructor(props) {
               <p className="lead text-center">
                 More Info on Events
               </p>
-         
+              <Carousel>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F67084497%2F293687019507%2F1%2Foriginal.20190731-091909?auto=compress&s=cc3f0115824786449a6c5c93210d0ca1"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>{eventSports.title}</h3>
+      <p>{eventSports.startdate}</p>
+  </Carousel.Caption>
+ 
+  </Carousel.Item> 
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F67084497%2F293687019507%2F1%2Foriginal.20190731-091909?auto=compress&s=cc3f0115824786449a6c5c93210d0ca1"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>{eventSports.title}</h3>
+      <p>{eventSports.startdate}</p>
+  </Carousel.Caption>
+ 
+  </Carousel.Item> 
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F71888697%2F328258779587%2F1%2Foriginal.20190906-223657?auto=compress&s=2c44af5cf488e4595d7c4c2db6152c33"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>{eventSports.title}</h3>
+      <p>{eventSports.startdate}</p>
+  </Carousel.Caption>
+ 
+  </Carousel.Item> 
+
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F71888697%2F328258779587%2F1%2Foriginal.20190906-223657?auto=compress&s=2c44af5cf488e4595d7c4c2db6152c33"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>{eventSports.title}</h3>
+      <p>{eventSports.startdate}</p>
+  </Carousel.Caption>
+ 
+  </Carousel.Item> 
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F67084497%2F293687019507%2F1%2Foriginal.20190731-091909?auto=compress&s=cc3f0115824786449a6c5c93210d0ca1"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>{eventSports.title}</h3>
+      <p>{eventSports.startdate}</p>
+  </Carousel.Caption>
+ 
+  </Carousel.Item> 
+ </Carousel>
+
+              
               {/* <div className="card card-body bg-light mb-3"> */}
               <h3 className="display-4 text-left">Sports and Health</h3>
                 <div className="card-columns"> 

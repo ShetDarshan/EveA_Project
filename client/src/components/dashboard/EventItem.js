@@ -122,6 +122,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from 'reactstrap';
 import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
  import MapContainer from './MapContainer'
+ import Carousel from 'react-bootstrap/Carousel'
 import {
   IconButton
 } from "@material-ui/core";
@@ -165,7 +166,7 @@ export default props => {
     setExpanded(!expanded);
   };
 
-  return (
+  return ( 
     <Card className={classes.card}>
       <CardHeader
         avatar={
