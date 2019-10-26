@@ -51,6 +51,5 @@ class Dashboard extends Component {
     auth: state.auth,
     events: state.events
   });
-  
   export default connect(mapStateToProps,{getEvents})(Dashboard);
   

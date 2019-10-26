@@ -4,7 +4,6 @@ import { reguser } from '../../actions/authActions';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
-
  class Register extends Component {
      constructor() {
          super();

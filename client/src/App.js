@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 // import './App.scss';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
-import Eventboard from './components/dashboard/Eventboard';
-import Guestuser from './components/dashboard/Guestuser';
+import Eventboard from './components/eventboard/Eventboard';
+import Guestuser from './components/guestUser/Guestuser';
 // import SlideShow from './SlideShow';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
