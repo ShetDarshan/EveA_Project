@@ -28,31 +28,37 @@ import evealogo from '../../img/logo.png'
             </ul>
     );
 
-    const guestLinks = (
-      <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">Sign Up</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link> 
-              </li>
-              <div className="collapse navbar-collapse" id="mobile-nav">
-             <ul className="navbar-nav mr-auto">
-               <li className="nav-item">
-                 <Link className="nav-link" to="/guestuser"> Guest User
-                 </Link>
-               </li>
-             </ul>
-             </div>
-          </ul>
-          
-   );
+    const guestLinks = (    
+      <div className="collapse navbar-collapse" id="navbarColor01">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/register">Sign Up</Link>
+      </li>
+      <li className="nav-item">
+       <Link className="nav-link" to="/login">Login</Link> 
+      </li>
+      <li className="nav-item">
+       <Link className="nav-link" to="/guestuser"> Guest User</Link>
+      </li>
+    </ul>
+      </div>
+  
+    );
     
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to="/"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
+        
+            <Link className="navbar-brand" to="/"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
+  
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+         
           {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon"></span>
           </button> */}
