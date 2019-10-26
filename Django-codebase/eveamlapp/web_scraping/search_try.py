@@ -26,7 +26,7 @@ class Search:
         #user_input = raw_input("Enter your name : ")
         str2Match = user_input
         strOptions = titles
-        Ratios = process.extract(str2Match,strOptions, scorer=fuzz.token_sort_ratio)
+        Ratios = process.extract(str2Match,strOptions, scorer=fuzz.token_set_ratio)
         print(Ratios)
         Ratios = dict(Ratios)
 
