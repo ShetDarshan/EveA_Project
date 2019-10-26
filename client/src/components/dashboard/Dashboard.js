@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {getEvents} from '../../actions/eventActions';
 
+
 class Dashboard extends Component {
   componentDidMount(){
     console.log("inside in getevents")
@@ -20,8 +21,8 @@ class Dashboard extends Component {
           dashboardContent = (
             <div>
               <p className="lead text-muted">Welcome {user.email} </p>
-              <p>You have not yet setup a profile, please add some info</p>
-              <Link to="/create-profile" className="btn btn-lg btn-info">
+              <p>You have not yet setup a profiles, please add some info</p>
+              <Link to="/createProfile" className="btn btn-lg btn-info">
                 Create New Profile
               </Link>
             </div>

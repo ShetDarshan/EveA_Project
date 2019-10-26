@@ -16,6 +16,7 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import CreateProfile from './components/dashboard/CreateProfile';
 // import upcomingevents from './components/dashboard/upcomingevents'
 
 
@@ -52,6 +53,7 @@ class App extends Component {
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventboard" component={Eventboard}/>
                 <Route exact path="/guestuser" component={Guestuser}/>
+                <Route exact path="/createProfile" component={CreateProfile}/>
             </div>
             
             <Footer />
