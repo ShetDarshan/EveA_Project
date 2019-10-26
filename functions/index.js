@@ -153,7 +153,41 @@ app.get('/api/v1/learning',(req,res) => {
         });
 })
 
+//get all profile data data
+app.get('/api/v1/getAllProfiles',(req,res) => {
+  db.collection('users').get()
+   .then(snapshot => {
+     let eventsData=[];
+    snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventsData.push(tempJSON);          
+      });
+      res.status(200).send(eventsData);
+    }) .catch(err => {
+          console.error(err);
+          res.status(500).json({ error: err.code });
+        });
+})
 
+//get individual profile data data
+app.get('/api/v1/getProfile',(req,res) => {
+  db.collection('users').get()
+   .then(snapshot => {
+     let eventsData=[];
+    snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventsData.push(tempJSON);          
+      });
+      res.status(200).send(eventsData);
+    }) .catch(err => {
+          console.error(err);
+          res.status(500).json({ error: err.code });
+        });
+})
 
 
 exports.api = functions.https.onRequest(app);
