@@ -10,7 +10,6 @@
 // import {
 //   Room as RoomIcon
 // } from "@material-ui/icons";
-
 // class EventItem extends Component {
 //   constructor(props){
 //     super(props);
@@ -121,7 +120,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from 'reactstrap';
 import {Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap';
- import MapContainer from './MapContainer'
+ import MapContainer from '../mapContainer/MapContainer'
  import Carousel from 'react-bootstrap/Carousel'
 import {
   IconButton

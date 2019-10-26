@@ -18,7 +18,6 @@ export const reguser = (userInfo,history) => dispatch => {
           })
            );
 };
-
 export const luser = (userData) => (dispatch) => {
     axios
         .post('http://localhost:5000/api/v1/login',userData)
