@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import './index.css';
 // import * as serviceWorker from './serviceWorker';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -40,4 +40,4 @@ const uiConfig = {
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
-export default Face;
+export default Face;*/

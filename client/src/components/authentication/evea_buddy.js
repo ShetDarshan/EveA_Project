@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
@@ -23,4 +23,4 @@ class EveaBuddy extends Component{
     }
 }
 
-export default EveaBuddy;
+export default EveaBuddy;*/

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reguser } from '../../actions/authActions';
 import PropTypes from 'prop-types';
@@ -105,4 +105,4 @@ onSubmit = (e) => {
     errors: state.errors
   });
  
-export default connect(mapStateToProps, { reguser }) (withRouter(Register));
+export default connect(mapStateToProps, { reguser }) (withRouter(Register));*/

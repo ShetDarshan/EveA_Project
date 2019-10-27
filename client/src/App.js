@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
@@ -59,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App;*/

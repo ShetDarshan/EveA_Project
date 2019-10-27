@@ -1,8 +1,8 @@
 /* .App{
   text-align:center;
-} */
+} 
 
-/*Date Picker*/
+Date Picker
 
 .MainContent{
   display:flex;
@@ -10,7 +10,7 @@
   margin:20px;
 }
 
-/*Date Picker*/
+Date Picker
 
 img {
   width: 100%;
@@ -42,7 +42,7 @@ img {
   max-width: 100%;
 }
 
-/*SEARCH*/
+SEARCH
 
 .search-box{
   position: absolute;
@@ -91,9 +91,9 @@ img {
 
 }
 
-/*SEARCH*/
+/*SEARCH
 
-/* DEMO STYLES */
+DEMO STYLES 
 .nav {
   padding: 30px 0;
   background-color: #222; }
@@ -120,7 +120,7 @@ section {
 
 /* #endregion */
 /* #region Card */
-/* Card */
+/* Card 
 .card {
   border: 3px #f3f3f3 solid;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -155,7 +155,7 @@ section {
       
 
 /* #endregion */
-/* #region cards slider */
+/* #region cards slider 
 .cards-slider-wrapper{
   display:flex;
   position: absolute;
@@ -188,12 +188,6 @@ section {
     top: 0;
     left: 0; }
 
-/* #endregion */
-
-/*Card Slider*/
-
-/** sass/scss/less code */
-/* #region Default styles */
 body {
   margin: 0;
   padding: 0 0 100px 0;
@@ -205,9 +199,7 @@ body {
   height: 80px;
 }
 
-/* #endregion */
-/* #region Card */
-/* Card */
+
 .card {
   border: 3px #f3f3f3 solid;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.253) !important;
@@ -261,8 +253,8 @@ body {
   position: relative;
 }
 
-/* #endregion */
-/* #region cards slider */
+#endregion 
+ #region cards slider 
 .cards-slider-wrapper {
   display: flex;
   position: absolute;
@@ -661,7 +653,7 @@ body {
 }
 
 
+ #endregion
 
-/* #endregion */
 
-
+newlogin*/

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { luser } from '../../actions/authActions';
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-export default connect(mapStateToProps,{luser})(Login);
+export default connect(mapStateToProps,{luser})(Login);*/
