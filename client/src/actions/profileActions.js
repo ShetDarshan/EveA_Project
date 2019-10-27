@@ -19,10 +19,10 @@ export const getAllProfiles = () => dispatch => {
       );
   };
 
-  export const getProfile = () => dispatch => {
+  export const getProfile = (email) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5000/api/v1/getProfile') 
+      .get(`http://localhost:5000/api/v1/getProfile/${email}`) 
       .then(res => 
         dispatch({
           type: GET_USER,
@@ -35,4 +35,5 @@ export const getAllProfiles = () => dispatch => {
           payload: null
         })
       );
+
   };

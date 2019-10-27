@@ -172,17 +172,16 @@ app.get('/api/v1/getAllProfiles',(req,res) => {
 })
 
 //get individual profile data data
-app.get('/api/v1/getProfile',(req,res) => {
-  db.collection('users').get()
+app.get('/api/v1/getProfile/:email',(req,res) => {
+  db.collection('users').where('email','==',req.params.email).get()
    .then(snapshot => {
-     let eventsData=[];
+    let userData=[];
     snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventsData.push(tempJSON);          
+      userData.push(tempJSON);          
       });
-      res.status(200).send(eventsData);
+     res.status(200).send(userData);
     }) .catch(err => {
           console.error(err);
           res.status(500).json({ error: err.code });
