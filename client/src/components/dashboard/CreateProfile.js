@@ -57,11 +57,11 @@ class CreateProfile extends Component {
         <table class="table" style={{ width: "80px", align: "center", marginLeft: "219px" }}>
           <tbody >
             <tr>
-              <td class="text-right">Father's Name:</td>
+              <td class="text-right">email:</td>
               <td style={{ textAlign: "left" }}><b>{userEmail}</b></td>
             </tr>
             <tr>
-              <td class="text-right">Mother's Name:</td>
+              <td class="text-right">User Name:</td>
               <td style={{ textAlign: "left" }}><b>{userName}</b></td>
             </tr>
           </tbody>
