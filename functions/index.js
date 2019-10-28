@@ -188,5 +188,18 @@ app.get('/api/v1/getProfile/:email',(req,res) => {
         });
 })
 
+//update User route
+app.post('/api/v1/updateProfile/:email',(req,res) => {
+  let url = req.params.image;
+  db.collection('users').where('email','==',req.params.email).set({
+    imageURL : url
+  },function(error){
+    if (error) {
+      res.status(500);
+    } else {
+      res.status(200)
+    } 
+  })
+});
 
 exports.api = functions.https.onRequest(app);

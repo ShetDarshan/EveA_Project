@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import FileUploader from 'react-firebase-file-uploader';
 import { getAllProfiles, getProfile } from '../../actions/profileActions';
+import firebase from 'firebase';
+// import { url } from 'inspector';
 let userEmail,userName,userCreated = ""
 class CreateProfile extends Component {
+
   componentDidMount() {
     const { user } = this.props.auth;
     this.props.getProfile(user.email);
@@ -11,7 +15,10 @@ class CreateProfile extends Component {
     super(props);
     this.state = {
       file: '',
-      imagePreviewUrl: ''
+      imagePreviewUrl: '',
+      image: '',
+      imageURL: '',
+      progress:0
     };
     this._handleImageChange = this._handleImageChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -37,9 +44,24 @@ class CreateProfile extends Component {
 
     reader.readAsDataURL(file)
   }
+  handleUploadStart = () => {
+    this.setState({
+      progress:0
+    })
+  }
+  handleUploadSuccess = filename => {
+    this.setState({
+      image: filename,
+      progress:100
+    })
+    firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(filename).getDownloadURL()
+      .then(url => this.setState({
+        imageURL:url
+      }))
 
+  }
   render() {
-
+    console.log(this.state);
     let { imagePreviewUrl } = this.state;
     const { profile } = this.props.users;
     let final = profile.map(values => {
@@ -47,10 +69,6 @@ class CreateProfile extends Component {
       userName  = values.handle;
       userCreated = values.createdAt;
     });
-    let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
-    }
     return (
       <div class="content" style={{ backgroundColor: "#fafafa" }}>
         <div class="well well-sm page-title" style={{ fontWeight: "bold", marginLeft: "219px", fontSize: "xx-large" }}>Profile</div>
@@ -66,12 +84,18 @@ class CreateProfile extends Component {
             </tr>
           </tbody>
         </table>
-        <br />
-        <label for="iconFormControlInput1" style={{ color: "white" }}>imagePreviewUrl</label>
-        <form enctype="multipart/form-data" style={{ color: "white" }}>
-          <input type="file" name="file1" />
-          <br />
-        </form>
+        <div>
+          <img src= {this.state.imageURL}></img>
+        </div>
+        <div>
+          <FileUploader
+            accept ="image/*"
+            name ='image'
+            storageRef = {firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars')}
+            onUploadStart = {this.handleUploadStart}
+            onUploadSuccess = {this.handleUploadSuccess}
+          />
+        </div>
       </div>
     )
   }

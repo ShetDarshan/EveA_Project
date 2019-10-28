@@ -37,3 +37,22 @@ export const getAllProfiles = () => dispatch => {
       );
 
   };
+
+  export const updateProfile = (email,image) => dispatch => {
+    // dispatch({ type: LOADING_DATA });
+    axios
+      .get(`http://localhost:5000/api/v1/updateProfile/${email,image}`) 
+      .then(res => 
+        dispatch({
+          type: UPDATE_USER,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: UPDATE_USER,
+          payload: null
+        })
+      );
+
+  };
