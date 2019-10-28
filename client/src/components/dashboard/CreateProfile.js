@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FileUploader from 'react-firebase-file-uploader';
-import { getAllProfiles, getProfile } from '../../actions/profileActions';
+import { getAllProfiles, getProfile,updateProfile } from '../../actions/profileActions';
 import firebase from 'firebase';
+import { isNull } from 'util';
 // import { url } from 'inspector';
-let userEmail,userName,userCreated = ""
+let userEmail,userName,userCreated,userId = ""
 class CreateProfile extends Component {
 
   componentDidMount() {
     const { user } = this.props.auth;
     this.props.getProfile(user.email);
+    if(this.state.imageURL) {
+      console.log('calling update');
+      this.props.updateProfile(user.email,this.state.imageURL);
+    }
+    // this.props.updateProfile(user.email,this.state.imageURL);
+    // console.log("imgUrl",this.state.imageURL);
   }
   constructor(props) {
     super(props);
@@ -54,21 +61,23 @@ class CreateProfile extends Component {
       image: filename,
       progress:100
     })
-    firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(filename).getDownloadURL()
+    firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId).child(filename).getDownloadURL()
       .then(url => this.setState({
         imageURL:url
       }))
 
   }
   render() {
-    console.log(this.state);
     let { imagePreviewUrl } = this.state;
     const { profile } = this.props.users;
-    let final = profile.map(values => {
-      userEmail = values.email;
-      userName  = values.handle;
-      userCreated = values.createdAt;
-    });
+    if (profile) {
+      profile.map(values => {
+        userEmail = values.email;
+        userName  = values.handle;
+        userCreated = values.createdAt;
+        userId = values.userId;
+      });
+    }
     return (
       <div class="content" style={{ backgroundColor: "#fafafa" }}>
         <div class="well well-sm page-title" style={{ fontWeight: "bold", marginLeft: "219px", fontSize: "xx-large" }}>Profile</div>
@@ -84,14 +93,14 @@ class CreateProfile extends Component {
             </tr>
           </tbody>
         </table>
-        <div>
-          <img src= {this.state.imageURL}></img>
+        <div >
+          <img style = {{width: "80px;", marginLeft: "219px;" }} src= {this.state.imageURL}></img>
         </div>
         <div>
           <FileUploader
             accept ="image/*"
             name ='image'
-            storageRef = {firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars')}
+            storageRef = {firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId)}
             onUploadStart = {this.handleUploadStart}
             onUploadSuccess = {this.handleUploadSuccess}
           />
@@ -107,5 +116,5 @@ const mapStateToProps = state => ({
   users: state.users,
   auth: state.auth
 
-});
-export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);;
+})
+export default connect(mapStateToProps, { getAllProfiles, getProfile ,updateProfile})(CreateProfile);;

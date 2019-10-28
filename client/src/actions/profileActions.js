@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USERS,GET_USER } from './types';
+import { GET_USERS,GET_USER,UPDATE_USER } from './types';
 
 export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
@@ -40,8 +40,9 @@ export const getAllProfiles = () => dispatch => {
 
   export const updateProfile = (email,image) => dispatch => {
     // dispatch({ type: LOADING_DATA });
+    console.log("updateprofile:",email,image)
     axios
-      .get(`http://localhost:5000/api/v1/updateProfile/${email,image}`) 
+      .post(`http://localhost:5000/api/v1/updateProfile/${email}`) 
       .then(res => 
         dispatch({
           type: UPDATE_USER,
