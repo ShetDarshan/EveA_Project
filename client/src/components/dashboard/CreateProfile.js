@@ -3,72 +3,78 @@ import { connect } from 'react-redux';
 import FileUploader from 'react-firebase-file-uploader';
 import { getAllProfiles, getProfile,updateProfile } from '../../actions/profileActions';
 import firebase from 'firebase';
+import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
+import { Link } from 'react-router-dom';
 // import { url } from 'inspector';
 let userEmail,userName,userCreated,userId = ""
 class CreateProfile extends Component {
 
-  componentDidMount() {
-    const { user } = this.props.auth;
-    this.props.getProfile(user.email);
-    if(this.state.imageURL) {
-      console.log('calling update');
-      this.props.updateProfile(user.email,this.state.imageURL);
-    }
-    // this.props.updateProfile(user.email,this.state.imageURL);
-    // console.log("imgUrl",this.state.imageURL);
-  }
+  // componentDidMount() {
+  //   // const { user } = this.props.auth;
+  //   // this.props.getProfile(user.email);
+  //   //console.log("imageURL",this.state.imageURL);
+  //   // if(this.state.imageURL) {
+  //   //   console.log('calling update');
+  //   //   this.props.updateProfile(user.email,this.state.imageURL);
+  //   // }
+  //   // this.props.updateProfile(user.email,this.state.imageURL);
+  //   // console.log("imgUrl",this.state.imageURL);
+  // }
   constructor(props) {
     super(props);
-    this.state = {
-      file: '',
-      imagePreviewUrl: '',
-      image: '',
-      imageURL: '',
-      progress:0
-    };
-    this._handleImageChange = this._handleImageChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
+    // this.state = {
+    //   file: '',
+    //   imagePreviewUrl: '',
+    //   image: '',
+    //   imageURL: '',
+    //   progress:0
+    // };
+    // this._handleImageChange = this._handleImageChange.bind(this);
+    // this._handleSubmit = this._handleSubmit.bind(this);
+    const { user } = this.props.auth;
+    this.props.getProfile(user.email);
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
-    // TODO: do something with -> this.state.file
-  }
+  // _handleSubmit(e) {
+  //   e.preventDefault();
+  //   // TODO: do something with -> this.state.file
+  // }
 
-  _handleImageChange(e) {
-    e.preventDefault();
+  // _handleImageChange(e) {
+  //   e.preventDefault();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
+  //   let reader = new FileReader();
+  //   let file = e.target.files[0];
 
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-    }
+  //   reader.onloadend = () => {
+  //     this.setState({
+  //       file: file,
+  //       imagePreviewUrl: reader.result
+  //     });
+  //   }
 
-    reader.readAsDataURL(file)
-  }
-  handleUploadStart = () => {
-    this.setState({
-      progress:0
-    })
-  }
-  handleUploadSuccess = filename => {
-    this.setState({
-      image: filename,
-      progress:100
-    })
-    firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId).child(filename).getDownloadURL()
-      .then(url => this.setState({
-        imageURL:url
-      }))
+  //   reader.readAsDataURL(file)
+  // }
+  // handleUploadStart = () => {
+  //   this.setState({
+  //     progress:0
+  //   })
+  // }
+  // handleUploadSuccess = filename => {
+  //   this.setState({
+  //     image: filename,
+  //     progress:100
+  //   })
+  //   firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId).child(filename).getDownloadURL()
+  //     .then(url => this.setState({
+  //       imageURL:url
+  //     }))
 
-  }
+  // }
   render() {
-    let { imagePreviewUrl } = this.state;
+
+    // let { imagePreviewUrl } = this.state;
     const { profile } = this.props.users;
     if (profile) {
       profile.map(values => {
@@ -78,10 +84,12 @@ class CreateProfile extends Component {
         userId = values.userId;
       });
     }
+
     return (
-      <div class="content" style={{ backgroundColor: "#fafafa" }}>
-        <div class="well well-sm page-title" style={{ fontWeight: "bold", marginLeft: "219px", fontSize: "xx-large" }}>Profile</div>
-        <table class="table" style={{ width: "80px", align: "center", marginLeft: "219px" }}>
+
+      <div className="container" style={{borderStyle: "inset", backgroundColor: "#fafafa",marginTop:"50px" }}>
+      <div className="row">{userEmail}</div>
+       {/* <table class="table" style={{ width: "80px", align: "center", marginLeft: "219px" }}>
           <tbody >
             <tr>
               <td class="text-right">email:</td>
@@ -92,11 +100,15 @@ class CreateProfile extends Component {
               <td style={{ textAlign: "left" }}><b>{userName}</b></td>
             </tr>
           </tbody>
-        </table>
-        <div >
-          <img style = {{width: "80px;", marginLeft: "219px;" }} src= {this.state.imageURL}></img>
-        </div>
-        <div>
+        </table> */}
+
+        <img  src={noPic} className="img-fluid" style = {{width: "200px",height:"200px"} }></img>
+        {/* <div style = {{width: "200px",height:"200px", borderStyle: "groove",borderColor:"#fafafa" ,marginLeft: "700px" ,marginTop:"-150px"}} >
+    
+          <img  src={noPic} class="img-fluid"  ></img>
+        </div> */}
+        <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
+        {/* <div>
           <FileUploader
             accept ="image/*"
             name ='image'
@@ -104,7 +116,7 @@ class CreateProfile extends Component {
             onUploadStart = {this.handleUploadStart}
             onUploadSuccess = {this.handleUploadSuccess}
           />
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -117,4 +129,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile ,updateProfile})(CreateProfile);;
+export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);;
