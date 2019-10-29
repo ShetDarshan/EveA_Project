@@ -18,18 +18,18 @@ export class Login extends React.Component {
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Email Address</label>
-              <input type="text" name="emailaddress" placeholder="emailaddress" />
+              <input type="text" name="EmailAddress" placeholder="EmailAddress" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
+              <input type="password" name="Password" placeholder="Password" />
             </div>
           </div>
         
         <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Login
           </button>
-          <p>Not yet a member? Register</p>
+          <p>Already a member? Login</p>
         </div>
         </div>
         </div>

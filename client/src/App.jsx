@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Login, Register } from "./components/login/index";
+import Footer from "./components/layout/Footer";
 
 
 
@@ -38,17 +39,16 @@ class App extends React.Component {
     const currentActive = isLogginActive ? "login" : "register";
     return (
       <div className="App">
-     
-     
-     
         <div className="login">
           <div className="container" ref={ref => (this.container = ref)}>
+          
             {isLogginActive && (
               <Login containerRef={ref => (this.current = ref)} />
             )}
             {!isLogginActive && (
               <Register containerRef={ref => (this.current = ref)} />
             )}
+            <Footer/>
           </div>
           <RightSide
             current={current}
@@ -56,7 +56,9 @@ class App extends React.Component {
             containerRef={ref => (this.rightSide = ref)}
             onClick={this.changeState.bind(this)}
           />
+           
          </div>
+        
         </div>
     );
   }
@@ -69,10 +71,16 @@ const RightSide = props => {
       ref={props.containerRef}
       onClick={props.onClick}
     >
+     
       <div className="inner-container">
+      
         <div className="text">{props.current}</div>
+       
       </div>
+     
     </div>
+     
+   
   
   );
 };

@@ -18,11 +18,15 @@ export class Register extends React.Component {
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Email Address</label>
-              <input type="text" name="emailaddress" placeholder="emailaddress" />
+              <input type="text" name="EmailAddress" placeholder="EmailAddress" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
+              <input type="password" name="Password" placeholder="Password" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Re-Enter Password</label>
+              <input type="password" name="Re-Enter Password" placeholder="Re-Enter Password" />
             </div>
            
           </div>
@@ -30,7 +34,7 @@ export class Register extends React.Component {
         <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Register
           </button>
-          <p className="lead text-center">Not yet a member? Register</p>
+          <p>Not yet a member? Register</p>
         </div>
       
         </div>
