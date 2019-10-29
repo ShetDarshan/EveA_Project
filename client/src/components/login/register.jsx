@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -11,34 +9,31 @@ export class Register extends React.Component {
     return (
         <div className="container" style={{padding: "5px 5px"}} ref={this.props.containerRef}>
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-12 m-auto">
      
           
-        <h1 className="display-4 text-center">Register</h1>
-        <p className="lead text-center">Sign Up with Evea</p>
+        <h6 className="display-4 text-center">Register</h6>
+        <p className>Sign up with EveA</p>
         
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Email Address</label>
-              <input type="text" name="emailaddress" placeholder="Email-address" />
+              <input type="text" name="emailaddress" placeholder="emailaddress" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="Password" />
+              <input type="password" name="password" placeholder="password" />
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Re-enter Password</label>
-              <input type="password" name="reenterpassword" placeholder="Re-enter Password" />
-            </div>
+           
           </div>
-        </div>
-        <button type="button" style={{color:"#000063"}} className="btn btn-info btn-block mt-4">
+        
+        <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Register
           </button>
-          <p className="lead text-center"> Already a member? Login</p>
+          <p className="lead text-center">Not yet a member? Register</p>
         </div>
       
-          
+        </div>
         </div>
     );
   }

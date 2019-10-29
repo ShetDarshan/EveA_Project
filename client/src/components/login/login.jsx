@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 export class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -9,13 +7,13 @@ export class Login extends React.Component {
 
   render() {
     return (
-        <div className="container" style={{padding: "5px 5px"}} ref={this.props.containerRef}>
+        <div className="container" ref={this.props.containerRef}>
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-md-12 m-auto">
      
           
-        <h1 className="display-4 text-center">Login</h1>
-        <p className="lead text-center">Sign in to your account</p>
+        <h6 className="display-4 text-center">Login</h6>
+        <p className>Sign in to your account</p>
         
           <div className="form">
             <div className="form-group">
@@ -31,9 +29,8 @@ export class Login extends React.Component {
         <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Login
           </button>
-          <p className="lead text-center">Not yet a member? Register</p>
+          <p>Not yet a member? Register</p>
         </div>
-      
         </div>
         </div>
     );

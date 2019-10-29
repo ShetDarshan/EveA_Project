@@ -25,7 +25,8 @@
     "react-scrolling-nav": "^1.1.5",
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.23.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
   }
 }

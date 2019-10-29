@@ -1,7 +1,7 @@
 import React from "react";
-import "./App.scss";
+import "./App.css";
 import { Login, Register } from "./components/login/index";
-import { Container, Row, Col } from 'reactstrap';
+
 
 
 
@@ -39,14 +39,7 @@ class App extends React.Component {
     return (
       <div className="App">
      
-        <Row>
-
-<Col sm="4">
-      
-        </Col>
-        </Row>
-        <Row>
-        <Col sm="4">
+     
      
         <div className="login">
           <div className="container" ref={ref => (this.container = ref)}>
@@ -64,21 +57,7 @@ class App extends React.Component {
             onClick={this.changeState.bind(this)}
           />
          </div>
-        
-        </Col>
-        </Row>
-
-        <Row>
-
-        <Col sm="4">
-       
-        </Col>
-        </Row>
         </div>
-        
-        
-        
-        
     );
   }
 }
@@ -94,8 +73,6 @@ const RightSide = props => {
         <div className="text">{props.current}</div>
       </div>
     </div>
-
-    
   
   );
 };
