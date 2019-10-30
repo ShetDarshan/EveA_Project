@@ -28,13 +28,18 @@ export class Register extends React.Component {
               <label htmlFor="password">Re-Enter Password</label>
               <input type="password" name="Re-Enter Password" placeholder="Re-Enter Password" />
             </div>
-           
+            <div classname="FormField">
+              <label className="FormField-CheckboxLabel">
+                <input className="FormField-Checkbox" type="checkbox" name="hasAgreed"/>
+I agree to all the statements in<a href="" className="FormField-TermsLink">T&C of EveA</a>              
+</label>
+</div>
           </div>
         
         <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Register
           </button>
-          <p>Not yet a member? Register</p>
+          <p>Already a member? Login</p>
         </div>
       
         </div>

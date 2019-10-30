@@ -4,7 +4,7 @@ import React, { Component } from 'react'
  class Footer extends Component {
   render() {
     return (
-        <footer className="bg-dark text-white mt-5 p-4 text-center">
+        <footer className="bg-dark text-white mt-6 p-4 text-left" style={{marginTop:"45rem"}}>
         Copyright EVEA &copy; 2019 TUD
       </footer>
     )

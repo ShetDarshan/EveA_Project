@@ -29,7 +29,7 @@ export class Login extends React.Component {
         <button type="button" style={{color:"Red"}} className="btn btn-info btn-block mt-4">
             Login
           </button>
-          <p>Already a member? Login</p>
+          <p>Not yet a member? Register</p>
         </div>
         </div>
         </div>

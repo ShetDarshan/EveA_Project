@@ -1,9 +1,8 @@
 import React from "react";
 import "./App.css";
 import { Login, Register } from "./components/login/index";
-import Footer from "./components/layout/Footer";
-
-
+import {Row,Col} from "reactstrap";
+import Example from "./components/login/cardfront";
 
 
 class App extends React.Component {
@@ -38,27 +37,31 @@ class App extends React.Component {
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
     return (
+      
       <div className="App">
+      <div className="cardfront">
+        <Col><Example/></Col>
+        <Col><Example/></Col>
+        </div>
+        <Col>
         <div className="login">
           <div className="container" ref={ref => (this.container = ref)}>
-          
+
             {isLogginActive && (
               <Login containerRef={ref => (this.current = ref)} />
             )}
             {!isLogginActive && (
               <Register containerRef={ref => (this.current = ref)} />
+              
             )}
-            <Footer/>
           </div>
           <RightSide
             current={current}
             currentActive={currentActive}
             containerRef={ref => (this.rightSide = ref)}
             onClick={this.changeState.bind(this)}
-          />
-           
-         </div>
-        
+          />       </div>
+          </Col>
         </div>
     );
   }
@@ -71,18 +74,17 @@ const RightSide = props => {
       ref={props.containerRef}
       onClick={props.onClick}
     >
-     
+      
       <div className="inner-container">
       
         <div className="text">{props.current}</div>
        
       </div>
-     
+      
     </div>
-     
-   
-  
+    
   );
+  
 };
-
+ 
 export default App;
