@@ -39,6 +39,21 @@ export const luser = (userData) => (dispatch) => {
         );
 };
 
+export const forgotpwd = (pwd,history) => (dispatch) =>{
+    axios
+        .post('http://localhost:5000/api/v1/forgotpwd',pwd)   
+        .then(
+            history.push('/login')
+        )    
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+
+        );
+};
+
   export const setCurrentUser = (decoded) => {
     return {
         type:SET_CURRENT_USER,

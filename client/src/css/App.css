@@ -5,7 +5,7 @@ img {
 .landing {
   position: relative;
   background: url('../img/evea.jpg') no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   height: 100vh;
   margin-top: -24px;
