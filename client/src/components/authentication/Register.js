@@ -4,6 +4,7 @@ import { reguser } from '../../actions/authActions';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { Link } from 'react-router-dom';
  class Register extends Component {
      constructor() {
          super();
@@ -12,6 +13,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
              email: '',
              password: '',
              confirmPassword:'',
+             verified: false,
              errors:{ }
         };
      //   this.onChange = this.onChange.bind(this);
@@ -42,6 +44,13 @@ onSubmit = (e) => {
     this.props.reguser(nuser,this.props.history);
  
 }
+verifiedChange = e => {
+  // e.preventDefault(); It's not needed
+  const { verified } = e.target;
+  this.setState({
+    verified: !this.state.verified // It will make the default state value(false) at Part 1 to true 
+  });
+}; 
   render() {
     const { errors } = this.state;
     return (
@@ -52,6 +61,13 @@ onSubmit = (e) => {
             <h1 className="display-4 text-center">Sign Up</h1>
            <p className="lead text-center">Create your account</p>
            <form noValidate onSubmit={this.onSubmit}>
+           <TextFieldGroup
+                  placeholder="Name"
+                  name="handle"
+                  value={this.state.handle}
+                  onChange={this.onChange}
+                  error={errors.handle}
+                />
                 <TextFieldGroup
                   placeholder="Email"
                   name="email"
@@ -76,14 +92,19 @@ onSubmit = (e) => {
                   onChange={this.onChange}
                   error={errors.confirmPassword}
                 />
-                 <TextFieldGroup
-                  placeholder="Name"
-                  name="handle"
-                  value={this.state.handle}
-                  onChange={this.onChange}
-                  error={errors.handle}
-                />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                    <input
+          type="checkbox"
+          name="verified"
+          id="verified"
+          onChange={this.verifiedChange} // Triggers the function in the Part 2
+          value={this.state.verified}
+      />
+      <label for="verified">
+        
+      <small>By clicking Submit, you agree to our Terms. Learn how we collect, use and share your data in our <Link to="/datapolicy" target="_blank">Data Policy</Link> </small>
+      </label>
+               
+                <input type="submit" className="btn btn-danger btn-block mt-4" disabled={!this.state.verified} value="Sign Up"/>
               </form>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { Component } from "react";
@@ -6,10 +5,8 @@ import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
 import Slider from "react-slick";
 import "../../css/App.css";
-// import { Link } from 'react-router-dom'
-// import Face from "../../components/layout/Face";
-// import evea from "../../img/evea.jpg"
- class Landing extends Component {
+
+ class EventCategories extends Component {
   componentDidMount() {
     console.log("Loading Component Mounted");
   }
@@ -46,7 +43,7 @@ import "../../css/App.css";
                                     <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                           <div key={data.title+"-body"} className="card-body"  > 
                                           <div key={data.title+"-image-container"} className="imageContainer" >
-                                            <img key={data.title+"-img"} src={data.img}></img>
+                                            <img key={data.title+"-img"} src={data.img} alt={data.title}></img>
                                           </div>
                                             <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-4 ">{data.title}</h6>
                                             <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 "><b>Start Date: </b>{data.startdate}</h6>
@@ -67,32 +64,9 @@ import "../../css/App.css";
       );
      }
   }
-  // render() {
-  //   console.log({evea});
-  //   return (
-  //       <div className="landing jumbotron">
-  //        <div className="landing-inner text-light"> 
-  //         <div className="container">
-  //           <div className="row">
-  //             <div className="col-md-12 text-center">
-  //             <img src={evea}></img>
-  //               {/* <img src="../img/evea.jpg"></img> */}
-  //               {/* <h1 className="display-3 mb-4">Never Miss an Event
-  //               </h1> */}
-  //               <hr />
-  //                {/* <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
-  //               <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>
-  //               <Face /> */}
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
 }
 const mapStateToProps = state => ({
   events: state.events
 });
 
-export default connect(mapStateToProps, { getEvents })(Landing);
+export default connect(mapStateToProps, { getEvents })(EventCategories);

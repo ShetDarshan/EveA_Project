@@ -61,7 +61,7 @@ class Guestuser extends Component {
     let eveFestivals = eventFestivals.map(event => (<GuestItem key={event.eventId} event={event} />));
     let eveEducation = eventEducation.map(event => (<GuestItem key={event.eventId} event={event} />));
     let eveFashion = eventFashion.map(event => (<GuestItem key={event.eventId} event={event} />));
-
+console.log(typeof eveSports);
     return (
       <div className="profiles">
         <div className="container">

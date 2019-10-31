@@ -1,15 +1,27 @@
 import axios from 'axios';
 import { GET_EVENTS,LOADING_DATA,GET_LEARNING } from './types';
 export const getEvents = () => dispatch => {
-  console.log("coming here")
     // dispatch({ type: LOADING_DATA });
     axios
       .get('http://localhost:5000/api/v1/events') 
-      .then(res => 
-        dispatch({
-          type: GET_EVENTS,
-          payload: res.data
-        })
+      .then(function(res) { 
+        let  data = res.data,
+              dataset ={},
+              categoriesList = [];
+              data.sort((a, b) => (a.category > b.category) ? 1 : -1)
+              categoriesList = [...new Set(data.map(i1 => i1.category))];
+              for (const key of categoriesList) {
+                  dataset[key] =  [];
+              }  
+            data.forEach(data => {
+              if(dataset[data.category].length <15)
+                  dataset[data.category].push(data);
+              })
+          dispatch({
+            type: GET_EVENTS,
+            payload:dataset
+          })
+        }
       )
       .catch(err =>
         dispatch({
