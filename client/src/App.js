@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './css/App.css';
-// import './App.scss';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
-import Eventboard from './components/eventboard/Eventboard';
+import MainCorousel from './components/eventboard/eventMainPage';
 import Guestuser from './components/guestUser/Guestuser';
-// import SlideShow from './SlideShow';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -16,11 +14,6 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import ForgotPassword from './components/authentication/ForgotPassword';
-import DataPolicy from './components/authentication/DataPolicy';
-// import upcomingevents from './components/dashboard/upcomingevents'
-
-
 
 
 if(localStorage.jwtToken){
@@ -48,11 +41,12 @@ class App extends Component {
           <Navbar />
           
             <Route exact path="/" component={Landing} />
-            <div className="container-flex">
+            <div className="container-flex jumbotron mb-0">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
-                <Route exact path="/eventboard" component={Eventboard}/>
+                <Route exact path="/eventBoard" component={MainCorousel}/>
+                {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
                 <Route exact path="/guestuser" component={Guestuser}/>
                 <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
