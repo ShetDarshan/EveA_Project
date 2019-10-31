@@ -190,9 +190,23 @@ app.get('/api/v1/getProfile/:email',(req,res) => {
 
 //update User route
 app.post('/api/v1/updateProfile',(req,res) => {
-  console.log("backend:",req);
-  db.collection('user')
-
+  console.log("reqest:", req.body);
+  userDetails = req.body;
+  console.log("parsed:", userDetails);
+  const handle = req.;  
+  console.log("handle:",handle)  ;
+    db.collection('users').doc(handle).update({
+    gender: userDetails.gender,
+    interests:userDetails.interests,
+    bio : userDetails.bio,
+    birthday : userDetails.birthday,
+    address : userDetails.address,
+    location: userDetails.location,
+    imageUrl : userDetails.imageUrl
+   }).then(res.status(200).send("User Data Updated Successfully")).catch(err => {
+        console.error(err);
+        res.status(500).json({ error: err.code });
+      });
 });
 
 exports.api = functions.https.onRequest(app);

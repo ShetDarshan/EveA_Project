@@ -42,7 +42,7 @@ export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("updateprofile:",userDetails)
     axios
-      .post('http://localhost:5000/api/v1/updateProfile',userDetails) 
+      .post('http://localhost:5000/api/v1/updateProfile',JSON.stringify(userDetails)) 
       .then(res => 
         dispatch({
           type: UPDATE_USER,

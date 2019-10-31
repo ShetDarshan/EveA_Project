@@ -13,6 +13,7 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { array } from 'prop-types';
 
 // import { url } from 'inspector';
 let userEmail, userName, userCreated, userId = ""
@@ -24,14 +25,14 @@ class UpdateProfile extends Component {
             file: '',
             imagePreviewUrl: '',
             image: '',
-            imageURL: '',
+            imageURL: "",
             progress: 0,
             birthday: new Date('2000-01-01T00:00:00'),
-            gender: '',
-            interests: '',
-            bio: '',
-            address: '',
-            location: ''
+            gender: "",
+            interests: [],
+            bio: "",
+            address: "",
+            location: ""
 
 
         };
@@ -91,6 +92,7 @@ class UpdateProfile extends Component {
         e.preventDefault();
         const userDetails = {
             email: userEmail,
+            userId: userId,
             gender: this.state.gender,
             birthday: this.state.birthday,
             bio: this.state.bio,
