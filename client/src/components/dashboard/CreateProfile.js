@@ -89,34 +89,8 @@ class CreateProfile extends Component {
 
       <div className="container" style={{borderStyle: "inset", backgroundColor: "#fafafa",marginTop:"50px" }}>
       <div className="row">{userEmail}</div>
-       {/* <table class="table" style={{ width: "80px", align: "center", marginLeft: "219px" }}>
-          <tbody >
-            <tr>
-              <td class="text-right">email:</td>
-              <td style={{ textAlign: "left" }}><b>{userEmail}</b></td>
-            </tr>
-            <tr>
-              <td class="text-right">User Name:</td>
-              <td style={{ textAlign: "left" }}><b>{userName}</b></td>
-            </tr>
-          </tbody>
-        </table> */}
-
         <img  src={noPic} className="img-fluid" style = {{width: "200px",height:"200px"} }></img>
-        {/* <div style = {{width: "200px",height:"200px", borderStyle: "groove",borderColor:"#fafafa" ,marginLeft: "700px" ,marginTop:"-150px"}} >
-    
-          <img  src={noPic} class="img-fluid"  ></img>
-        </div> */}
         <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
-        {/* <div>
-          <FileUploader
-            accept ="image/*"
-            name ='image'
-            storageRef = {firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId)}
-            onUploadStart = {this.handleUploadStart}
-            onUploadSuccess = {this.handleUploadSuccess}
-          />
-        </div> */}
       </div>
     )
   }
@@ -129,4 +103,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);;
+export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);

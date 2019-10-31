@@ -38,11 +38,11 @@ export const getAllProfiles = () => dispatch => {
 
   };
 
-  export const updateProfile = (email,image) => dispatch => {
+  export const updateProfile = (userDetails) => dispatch => {
     // dispatch({ type: LOADING_DATA });
-    console.log("updateprofile:",email,image)
+    console.log("updateprofile:",userDetails)
     axios
-      .post(`http://localhost:5000/api/v1/updateProfile/${email}`) 
+      .post('http://localhost:5000/api/v1/updateProfile',userDetails) 
       .then(res => 
         dispatch({
           type: UPDATE_USER,

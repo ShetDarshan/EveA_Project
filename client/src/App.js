@@ -18,7 +18,6 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CreateProfile from './components/dashboard/CreateProfile';
 import UpdateProfile from './components/dashboard/UpdateProfile';
-import Portfolio from './components/dashboard/Portfolio';
 // import upcomingevents from './components/dashboard/upcomingevents'
 
 
@@ -56,7 +55,6 @@ class App extends Component {
                 <Route exact path="/eventboard" component={Eventboard}/>
                 <Route exact path="/guestuser" component={Guestuser}/>
                 <Route exact path="/createProfile" component={CreateProfile}/>
-                <Route exact path="/portfolio" component={Portfolio}/>
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
             </div>
             
