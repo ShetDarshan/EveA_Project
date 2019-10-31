@@ -100,10 +100,11 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified">
+        
       <small>By clicking Submit, you agree to our Terms. Learn how we collect, use and share your data in our <Link to="/datapolicy" target="_blank">Data Policy</Link> </small>
       </label>
                
-                <input type="submit" className="btn btn-info btn-block mt-4" disabled={!this.state.verified}/>
+                <input type="submit" className="btn btn-danger btn-block mt-4" disabled={!this.state.verified} value="Sign Up"/>
               </form>
         </div>
       </div>

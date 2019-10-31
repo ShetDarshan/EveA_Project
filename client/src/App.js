@@ -14,6 +14,8 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import ForgotPassword from './components/authentication/ForgotPassword'
+import DataPolicy from './components/authentication/DataPolicy'
 
 
 if(localStorage.jwtToken){

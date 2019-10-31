@@ -75,7 +75,7 @@ import { Link } from 'react-router-dom';
               </Link>
        
 
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-danger btn-block mt-4" value="Login" />
            
               </form>
             </div>

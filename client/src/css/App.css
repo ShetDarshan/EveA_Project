@@ -4,12 +4,12 @@ img {
 
 .landing {
   position: relative;
-  background: url('../img/evea.jpg') no-repeat;
+  /* background: url('../img/evea.jpg') no-repeat;
   background-size: contain;
-  background-position: center;
-  height: 100vh;
+  background-position: center; */
+  /* height: 100vh;
   margin-top: -24px;
-  margin-bottom: -50px;
+  margin-bottom: -50px; */
 }
 
 .landing-inner {
@@ -116,4 +116,11 @@ footer.footer-custom {
 .slick-next {
   right: -10px !important;
   z-index: 1;
+}
+/*Privacy*/
+.privacy  .container .m-auto p{
+  color:white  !important;
+}
+.privacy  .container .m-auto b{
+  color:green !important;
 }
