@@ -9,6 +9,8 @@ from .service import DataProcess
 from rest_framework import viewsets
 import json
 from .search import Search
+from .Nearby import Nearby
+from django.http import JsonResponse
 
 def processwebdata(request):
 
@@ -47,3 +49,14 @@ def to_json(x):
             #'latitude': x.latitude,
             #'longitude': x.longitude
         }
+
+
+def nearby(req,inputstr = 'Book of Kells'):
+    print(inputstr)
+    nearby_list = Nearby.eventsNearBy(inputstr)
+
+    nearByEventsList = DataProcess.fetchEventsByTitle(nearby_list)
+
+    events = list(map(lambda x: to_json(x), nearByEventsList))
+
+    return JsonResponse(events, safe=False)

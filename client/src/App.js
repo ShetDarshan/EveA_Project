@@ -15,6 +15,7 @@ import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
+
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
   //decoding token and getting user info and exp
@@ -47,7 +48,9 @@ class App extends Component {
                 <Route exact path="/eventBoard" component={MainCorousel}/>
                 {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
                 <Route exact path="/guestuser" component={Guestuser}/>
-            </div>
+                <Route exact path="/forgotpwd" component={ForgotPassword}/>
+                <Route exact path="/datapolicy" component={DataPolicy}/>
+             </div>
             
             <Footer />
             

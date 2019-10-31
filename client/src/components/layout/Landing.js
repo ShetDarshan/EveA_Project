@@ -9,12 +9,12 @@ import Face from "../../components/layout/Face";
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Never Miss an Event
-                </h1>
+                {/* <h1 className="display-3 mb-4">Never Miss an Event
+                </h1> */}
                 <hr />
-                 <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
+                 {/* <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>
-                <Face />
+                <Face /> */}
               </div>
             </div>
           </div>
