@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 admin.initializeApp();
 const validateRegisterInput = require("./validation/register");
 const validateLoginData = require("./validation/login")
+const validateFPwdData = require("./validation/forgotPwd")
 const config = {
   apiKey: "AIzaSyD4svmLSEA5IDa49VKgK45vbUCL7JkO52I",
   authDomain: "evea-prj.firebaseapp.com",
@@ -52,7 +53,7 @@ app.post('/api/v1/register',(req,res) => {
     .get()
     .then((doc) => {
       if (doc.exists) {
-        return res.status(400).json({ handle: 'this handle is already taken' });
+        return res.status(400).json({ handle: 'Name already taken' });
       } else {
         return firebase
           .auth()
@@ -98,7 +99,6 @@ app.post('/api/v1/login',(req,res) =>{
   const { valid, errors } = validateLoginData(user);
 
   if (!valid) return res.status(400).json(errors);
-
   firebase
     .auth()
     .signInWithEmailAndPassword(user.email, user.password)
@@ -117,6 +117,25 @@ app.post('/api/v1/login',(req,res) =>{
 
 
 });
+app.post('/api/v1/forgotpwd',(req,res)=>{
+
+  const pwd = {
+    email: req.body.email
+  };
+  const { valid, errors } = validateFPwdData(pwd);
+  if (!valid) return res.status(400).json(errors);
+     firebase
+          .auth()
+          .sendPasswordResetEmail(pwd.email)
+          .then(() => {
+            return res.status(200).json({email: 'email has been sent'})
+          })
+          .catch((err) => {
+            return  res
+              .status(500).json({error:err.code})
+          })
+  }
+)
 //get events data
 app.get('/api/v1/events',(req,res) => {
   db.collection('events_list').get()
