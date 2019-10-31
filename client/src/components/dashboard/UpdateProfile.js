@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FileUploader from 'react-firebase-file-uploader';
-import { updateProfile } from '../../actions/profileActions';
+import { updateProfile ,getProfile} from '../../actions/profileActions';
 import firebase from 'firebase';
 import { isNull } from 'util';
 import 'date-fns';
@@ -16,7 +16,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { array } from 'prop-types';
 
 // import { url } from 'inspector';
-let userEmail, userName, userCreated, userId = ""
+let userEmail, userHandle, userCreated, userId = ""
 class UpdateProfile extends Component {
 
     constructor(props) {
@@ -38,9 +38,15 @@ class UpdateProfile extends Component {
         };
         this._handleImageChange = this._handleImageChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
-        const { user } = this.props.auth;
-        userEmail = user.email
-        userId = user.user_id
+        const { profile } = this.props.users;
+        if (profile) {
+          profile.map(values => {
+            userEmail = values.email;
+            userHandle  = values.handle;
+            userCreated = values.createdAt;
+            userId = values.userId;
+          });
+        }
 
 
     }
@@ -93,6 +99,7 @@ class UpdateProfile extends Component {
         const userDetails = {
             email: userEmail,
             userId: userId,
+            handle: userHandle,
             gender: this.state.gender,
             birthday: this.state.birthday,
             bio: this.state.bio,
@@ -104,6 +111,7 @@ class UpdateProfile extends Component {
         this.props.updateProfile(userDetails);
     }
     render() {
+
         
         return (
             <div className="container" style={{ borderStyle: "inset", backgroundColor: "black", marginTop: "50px" }}>
@@ -234,8 +242,9 @@ class UpdateProfile extends Component {
 
 const mapStateToProps = state => ({
     //getting  auth from authReducer
-    auth: state.auth
+    auth: state.auth,
+    users: state.users,
 
 })
 
-export default connect(mapStateToProps, { updateProfile })(UpdateProfile);
+export default connect(mapStateToProps, { updateProfile,getProfile })(UpdateProfile);
