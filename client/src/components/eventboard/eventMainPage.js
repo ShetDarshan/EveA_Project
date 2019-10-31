@@ -4,7 +4,7 @@ import "../../css/App.css";
 import React from "react";
 import EventCategories from "../eventCategories/EventCategories";
 import Slider from "react-slick";
-class SimpleSlider extends React.Component {
+export default  class MainCorousel extends React.Component {
     
     render() {
       var settings = {
@@ -46,4 +46,3 @@ class SimpleSlider extends React.Component {
       );
     }
   }
-  export default SimpleSlider;

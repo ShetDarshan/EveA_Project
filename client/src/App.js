@@ -4,10 +4,8 @@ import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
-import Eventboard from './components/eventboard/Eventboard';
-//import SimpleSlider from './components/eventboard/eventMainPage';
+import MainCorousel from './components/eventboard/eventMainPage';
 import Guestuser from './components/guestUser/Guestuser';
-// import SlideShow from './SlideShow';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -16,10 +14,6 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import SimpleSlider from './components/eventboard/eventMainPage';
-// import MultipleItems from './components/eventItems/EventItem';
-import EventCategories from "./components/eventCategories/EventCategories";
-// import upcomingevents from './components/dashboard/upcomingevents'
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -50,7 +44,7 @@ class App extends Component {
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
-                <Route exact path="/eventBoard" component={SimpleSlider}/>
+                <Route exact path="/eventBoard" component={MainCorousel}/>
                 {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
                 <Route exact path="/guestuser" component={Guestuser}/>
             </div>
