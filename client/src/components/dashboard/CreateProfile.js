@@ -8,16 +8,21 @@ import { Link } from 'react-router-dom';
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
 class CreateProfile extends Component {
-
+  
   constructor(props) {
     super(props);
     const { user } = this.props.auth;
     this.props.getProfile(user.email);
+    this.props.getAllProfiles();
   }
+  componentDidMount(){
+    const { user } = this.props.auth;
+    this.props.getProfile(user.email);
+    }
   render() {
 
     // let { imagePreviewUrl } = this.state;
-    const { profile } = this.props.users;
+    const { profile,profiles } = this.props.users;
     if (profile) {
       profile.map(values => {
         userEmail = values.email;
@@ -29,18 +34,24 @@ class CreateProfile extends Component {
         userInterests = values.interests;
         userlocation = values.location;
         userBirthday = values.birthday;
-        userImageUrl = values.imageURL;
+        userImageUrl = values.imageUrl;
         userGender = values.gender;
       });
     }
-    console.log("createProfileDetails", userImageUrl)
+    if(profiles){
+        console.log("list of profiles",profiles)
+    }
     return (
 
       <div className="container" style={{ borderStyle: "inset", backgroundColor: "#fafafa", marginTop: "50px" }}>
         <div className="row">{userEmail}</div>
-        <img src={noPic} className="img-fluid" style={{ width: "200px", height: "200px" }}></img>
+        <img src={userImageUrl?userImageUrl:noPic} className="img-fluid" style={{ width: "200px", height: "200px" }}></img>
         <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
+        <div>
+
+        </div>
       </div>
+      
     )
   }
 

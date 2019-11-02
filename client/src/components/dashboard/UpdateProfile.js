@@ -7,6 +7,7 @@ import { isNull } from 'util';
 import 'date-fns';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
+import { withRouter } from 'react-router-dom';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -58,6 +59,7 @@ class UpdateProfile extends Component {
 
 
     }
+    
     //const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
     handleDateChange = date => {
@@ -117,6 +119,7 @@ class UpdateProfile extends Component {
             imageURL: this.state.imageURL ? this.state.imageURL : userImageUrl
         };
         this.props.updateProfile(userDetails);
+        this.props.history.push('/profile');
     }
     render() {
 
@@ -255,4 +258,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, { updateProfile, getProfile })(UpdateProfile);
+export default connect(mapStateToProps, { updateProfile, getProfile })(withRouter(UpdateProfile));
