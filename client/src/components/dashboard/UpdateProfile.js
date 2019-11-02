@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FileUploader from 'react-firebase-file-uploader';
-import { updateProfile ,getProfile} from '../../actions/profileActions';
+import { updateProfile, getProfile } from '../../actions/profileActions';
 import firebase from 'firebase';
 import { isNull } from 'util';
 import 'date-fns';
@@ -16,7 +16,8 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { array } from 'prop-types';
 
 // import { url } from 'inspector';
-let userEmail, userHandle, userCreated, userId = ""
+let userEmail, userHandle, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender = ""
+
 class UpdateProfile extends Component {
 
     constructor(props) {
@@ -40,12 +41,19 @@ class UpdateProfile extends Component {
         this._handleSubmit = this._handleSubmit.bind(this);
         const { profile } = this.props.users;
         if (profile) {
-          profile.map(values => {
-            userEmail = values.email;
-            userHandle  = values.handle;
-            userCreated = values.createdAt;
-            userId = values.userId;
-          });
+            profile.map(values => {
+                userEmail = values.email;
+                userHandle = values.handle;
+                userCreated = values.createdAt;
+                userId = values.userId;
+                userBio = values.bio;
+                userAddress = values.address;
+                userInterests = values.interests;
+                userlocation = values.location;
+                userBirthday = values.birthday;
+                userImageUrl = values.imageUrl;
+                userGender = values.gender;
+            });
         }
 
 
@@ -100,19 +108,19 @@ class UpdateProfile extends Component {
             email: userEmail,
             userId: userId,
             handle: userHandle,
-            gender: this.state.gender,
-            birthday: this.state.birthday,
-            bio: this.state.bio,
-            interests: this.state.interests,
-            address: this.state.address,
-            location: this.state.location,
-            imageURL: this.state.imageURL
+            gender: this.state.gender ? this.state.gender : userGender,
+            birthday: this.state.birthday ? this.state.birthday : userBirthday,
+            bio: this.state.bio ? this.state.bio : userBio,
+            interests: this.state.interests ? this.state.interests : userInterests,
+            address: this.state.address ? this.state.address : userAddress,
+            location: this.state.location ? this.state.location : userlocation,
+            imageURL: this.state.imageURL ? this.state.imageURL : userImageUrl
         };
         this.props.updateProfile(userDetails);
     }
     render() {
 
-        
+
         return (
             <div className="container" style={{ borderStyle: "inset", backgroundColor: "black", marginTop: "50px" }}>
 
@@ -198,7 +206,7 @@ class UpdateProfile extends Component {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleAddress"><b style={{ color: "white", fontSize: "20px" }}>Address</b></Label>
-                                <Input type="text" name="address" id="exampleAddress" placeholder="Temple Bar lane"
+                                <Input type="text" name="address" id="exampleAddress" placeholder={userAddress}
                                     value={this.state.address}
                                     onChange={event => {
                                         let address = event.target.value;
@@ -226,11 +234,11 @@ class UpdateProfile extends Component {
                         </Col>
                     </Row>
                     <FileUploader
-                        accept ="image/*"
-                        name ='image'
-                        storageRef = {firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId)}
-                        onUploadStart = {this.handleUploadStart}
-                        onUploadSuccess = {this.handleUploadSuccess}
+                        accept="image/*"
+                        name='image'
+                        storageRef={firebase.app().storage("gs://evea-prj.appspot.com").ref('avatars').child(userId)}
+                        onUploadStart={this.handleUploadStart}
+                        onUploadSuccess={this.handleUploadSuccess}
                     />
                     <Button style={{ backgroundColor: "red" }}><b>SUBMIT</b></Button>
                 </Form>
@@ -247,4 +255,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, { updateProfile,getProfile })(UpdateProfile);
+export default connect(mapStateToProps, { updateProfile, getProfile })(UpdateProfile);
