@@ -1,27 +1,34 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import Message from './Message'
 
-const DUMMY_DATA= [
-    {
-        senderId: 'Netra',
-        text: 'Hello, How are you?'
-    },
-    {
-        senderId:'Sowmya',
-        text:'Great!How about you?'
+class MessageList extends React.Component {
+    componentWillUpdate() {
+        const node = ReactDOM.findDOMNode(this);
+        this.shouldScrollBottom = node.scrollTop + node.clientHeight + 50 >= node.scrollHeight;
     }
-]
 
-class MessageList extends React.Component{
-    render(){
-        return(
+    componentDidUpdate() {
+        if (this.shouldScrollBottom) {
+            const node = ReactDOM.findDOMNode(this);
+            node.scrollTop = node.scrollHeight
+        }
+    }
+        
+    render() {
+        if (!this.props.currentRoomId) {
+            return ( 
+                <div className="message-list">
+                    <div className="join-room">
+                        &larr; Join a room!
+                    </div>
+                </div>
+            )
+        } 
+        return (
             <div className="message-list">
-                {DUMMY_DATA.map((message,index)=>{
-                    retrun(
-                        <div key={index} className="message">
-                        <div className="message-username">{message.senderId}</div>
-                        <div className="message-text">{message.text}</div>
-                        </div>
-                    )
+                {this.props.messages.map((message, index) => {
+                    return <Message key={index} user={message.senderId} text={message.text} /> 
                 })}
             </div>
         )
