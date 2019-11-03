@@ -58,8 +58,8 @@ verifiedChange = e => {
        <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
-            <h1 className="display-4 text-center">Sign Up</h1>
-           <p className="lead text-center">Create your account</p>
+            {/* <h1 className="display-4 text-center">Sign Up</h1>
+           <p className="lead text-center">Create your account</p> */}
            <form noValidate onSubmit={this.onSubmit}>
            <TextFieldGroup
                   placeholder="Name"
@@ -101,7 +101,7 @@ verifiedChange = e => {
       />
       <label for="verified">
         
-      <small>By clicking Submit, you agree to our Terms. Learn how we collect, use and share your data in our <Link to="/datapolicy" target="_blank">Data Policy</Link> </small>
+      <h6> By clicking Submit, you agree to our Terms. Learn how we collect, use and share your data in our <Link to="/datapolicy" target="_blank">Data Policy</Link> </h6>
       </label>
                
                 <input type="submit" className="btn btn-danger btn-block mt-4" disabled={!this.state.verified} value="Sign Up"/>
