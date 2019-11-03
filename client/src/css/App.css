@@ -43,10 +43,13 @@ img {
   max-width: 3000%;
 }
 footer.footer-custom {
-  /* position:fixed;
-  width:100%;
-  bottom:0; */
-  background-color: #3e7aae !important;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color:black !important;
 }
 /*Slick Slider*/
 
