@@ -32,10 +32,13 @@ firebase.initializeApp(config)
   }
    render() {
       const dataset  = this.props.events.events;
-     if (Object.keys(dataset).length < 1 ){
-      console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-       return <div>Loading...</div>
-     } 
+      if(!dataset){
+        return <div>Loading...</div>
+      }
+    //  if (Object.keys(dataset).length < 1 ){
+    //   console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
+    //    return <div>Loading...</div>
+    //  } 
      else {
       console.log("dataset",dataset);
       const settings = {
