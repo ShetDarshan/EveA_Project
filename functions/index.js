@@ -154,6 +154,10 @@ app.get('/api/v1/events', (req, res) => {
     });
 })
 
+
+
+
+
 app.get('/api/v1/learning', (req, res) => {
 
   db.collection('events_list').where('category', '==', 'learning').get()
@@ -165,6 +169,7 @@ app.get('/api/v1/learning', (req, res) => {
         tempJSON.eventId = doc.id;
         eventsData.push(tempJSON);
       });
+      
       res.status(200).send(eventsData);
     }).catch(err => {
       console.error(err);
@@ -207,7 +212,22 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
       res.status(500).json({ error: err.code });
     });
 })
-
+app.get('/api/v1/eventDetails/:eventId', (req, res) => {
+  db.collection('events_list').where('eventId','==',req.params.eventId).get()
+  .then(snapshot=>{
+    let eventData = [];
+    snapshot.forEach(doc => {
+      let tempJSON = {};
+      tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventData.push(tempJSON);
+    });
+    res.status(200).send(eventData);
+  }).catch(
+    err=>{
+      res.status(500).json({ error: err.code });
+    })
+  })
 //update User route
 app.post('/api/v1/updateProfile', (req, res) => { 
 

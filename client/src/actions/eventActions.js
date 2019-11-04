@@ -5,6 +5,7 @@ export const getEvents = () => dispatch => {
     axios
       .get('http://localhost:5000/api/v1/events') 
       .then(function(res) { 
+        console.log(res,"response")
         let  data = res.data,
               dataset ={},
               categoriesList = [];
@@ -48,3 +49,21 @@ export const getEvents = () => dispatch => {
         })
       );
   };
+  // export const getProfile = (email) => dispatch => {
+  //   // dispatch({ type: LOADING_DATA });
+  //   axios
+  //     .get(`http://localhost:5000/api/v1/getProfile/${email}`) 
+  //     .then(res => 
+  //       dispatch({
+  //         type: GET_USER,
+  //         payload: res.data
+  //       })
+  //     )
+  //     .catch(err =>
+  //       dispatch({
+  //         type: GET_USER,
+  //         payload: null
+  //       })
+  //     );
+
+  // };
