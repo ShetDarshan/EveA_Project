@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_EVENTS,LOADING_DATA,GET_LEARNING } from './types';
+import { GET_EVENTS,LOADING_DATA,GET_LEARNING,GET_EVENT_DETAILS } from './types';
 export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
@@ -49,21 +49,21 @@ export const getEvents = () => dispatch => {
         })
       );
   };
-  // export const getProfile = (email) => dispatch => {
-  //   // dispatch({ type: LOADING_DATA });
-  //   axios
-  //     .get(`http://localhost:5000/api/v1/getProfile/${email}`) 
-  //     .then(res => 
-  //       dispatch({
-  //         type: GET_USER,
-  //         payload: res.data
-  //       })
-  //     )
-  //     .catch(err =>
-  //       dispatch({
-  //         type: GET_USER,
-  //         payload: null
-  //       })
-  //     );
+  export const getEventDetails = eventId => dispatch => {
+    // dispatch({ type: LOADING_DATA });
+    axios
+      .get(`http://localhost:5000/api/v1/eventDetails/${eventId}`) 
+      .then(res => 
+        dispatch({
+          type: GET_EVENT_DETAILS,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: GET_EVENT_DETAILS,
+          payload: null
+        })
+      );
 
-  // };
+  };
