@@ -60,7 +60,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
                   onChange={this.onChange}
                   error={errors.email}
                 />
-                <input type="submit" className="btn btn-info btn-block mt-4" disabled={!this.state.email}/>
+                <input type="submit" className="btn btn-danger btn-block mt-4" disabled={!this.state.email}/>
               </form>
             </div>
           </div>

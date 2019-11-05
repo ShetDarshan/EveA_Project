@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getEventDetails } from '../../actions/eventActions';
-import { Category } from '@material-ui/icons';
+
 
 class EventDetails extends Component {
   componentDidMount() {

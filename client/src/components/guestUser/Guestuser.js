@@ -28,7 +28,8 @@ class Guestuser extends Component {
     let eventFashion = [];
     let eventEducation = [];
 
-
+    if(events)
+    {
     events.forEach(element => {
       let eventObj = {};
       eventObj = element;
@@ -54,7 +55,8 @@ class Guestuser extends Component {
 
 
 
-    })
+    }
+  )}
 
     let eveSports = eventSports.map(event => (<GuestItem key={event.eventId} event={event} />));
     let eveComedy = eventComedy.map(event => (<GuestItem key={event.eventId} event={event} />));
