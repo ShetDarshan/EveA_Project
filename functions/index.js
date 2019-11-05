@@ -1,11 +1,14 @@
 const functions = require('firebase-functions');
-
 const admin = require('firebase-admin');
 const appKey = require("./admin-sdk.json");
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
-admin.initializeApp();
+//for full text search configuration
+const algoliaSearch = require("algoliasearch");
+const ALGOLIA_APP_ID = "7Z6VFB8JQD";
+const ALGOLIA_ADMIN_KEY = "4d3d6bd4f0d834faf34f8458efaea5f5";
+const ALGOLIA_INDEX_NAME = "algoevents";
 const validateRegisterInput = require("./validation/register");
 const validateLoginData = require("./validation/login")
 const validateFPwdData = require("./validation/forgotPwd")
@@ -19,6 +22,7 @@ const config = {
   appId: "1:342374627785:web:3242138c0109915fc19018",
   measurementId: "G-4L5XLJ17HJ"
 };
+admin.initializeApp(config);
 const firebase = require('firebase')
 firebase.initializeApp(config)
 
@@ -32,6 +36,32 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
+  var algoArr = []; 
+  admin.firestore().collection('events_list').get().then((docs) => {
+    docs.forEach((doc)=>{
+      let individualEvent =  doc.data();
+      const record = {
+        objectID: doc.id,
+        address: individualEvent.address,
+        category: individualEvent.category,
+        title: individualEvent.title
+        //summary: individualEvent.summary
+    };
+          
+    // individualEvent.objectID = doc.eventId;
+    // console.log("individualEvent",individualEvent)
+    algoArr.push(record);
+    })
+    var client =algoliaSearch(ALGOLIA_APP_ID,ALGOLIA_ADMIN_KEY);
+    var index = client.initIndex(ALGOLIA_INDEX_NAME);
+    index.saveObjects(algoArr,function(err,content){
+      res.status(200).send("content")
+    })
+  })
+
+})
 
 //regitser user route
 
