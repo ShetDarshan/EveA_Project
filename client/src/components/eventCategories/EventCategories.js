@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 
@@ -52,8 +53,10 @@ import "../../css/App.css";
                                             {/* <h6 key={data.time+"-time"} className="card-subtitle mb-2"><b>Time: </b> {data.time}</h6> */}
                                       
                                             {/* <a href="#" className="card-link">Go to Site</a> */}
-                                            <a href="#" className="card-link" style={{color:"#ff8800"}}>Event Details</a>
-                                            <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link" style={{color:"#ff8800"}}>View Map</a>
+                                            <Link to={`/event/${data.eventId}`} className="card-link">
+                                                   View Event
+                                           </Link>
+                                            <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
                                           </div>
                                         </div>                                
                               

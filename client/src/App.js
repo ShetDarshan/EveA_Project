@@ -18,6 +18,7 @@ import CreateProfile from './components/dashboard/CreateProfile';
 import UpdateProfile from './components/dashboard/UpdateProfile';
 import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
+import EventDetails from './components/eventCategories/EventDetails';
 
 
 if(localStorage.jwtToken){
@@ -51,6 +52,7 @@ class App extends Component {
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventBoard" component={MainCorousel}/>
                 {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
+                <Route exact path="/event/:eventId" component={EventDetails} />
                 <Route exact path="/guestuser" component={Guestuser}/>
                 <Route exact path="/profile" component={CreateProfile}/>
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
