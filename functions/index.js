@@ -46,7 +46,9 @@ exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
         objectID: doc.id,
         address: individualEvent.address,
         category: individualEvent.category,
-        title: individualEvent.title
+        title: individualEvent.title,
+        startDate : individualEvent.startdate,
+        image : individualEvent.img
         //summary: individualEvent.summary
     };
           
@@ -168,7 +170,7 @@ app.post('/api/v1/forgotpwd', (req, res) => {
 )
 //get events data
 app.get('/api/v1/events', (req, res) => {
-  db.collection('events_test').get()
+  db.collection('events_list').get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {
