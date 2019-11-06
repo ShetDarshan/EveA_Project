@@ -242,8 +242,8 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
       res.status(500).json({ error: err.code });
     });
 })
-app.get('/api/v1/eventDetails/:eventId', (req, res) => {
-  db.collection('events_test').where('eventId','==',req.params.eventId).get()
+app.get('/api/v1/eventDetails/:title', (req, res) => {
+  db.collection('events_test').where('title','==',req.params.title).get()
   .then(snapshot=>{
     let eventData = [];
     snapshot.forEach(doc => {
