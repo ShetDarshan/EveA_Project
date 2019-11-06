@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { luser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { Link } from 'react-router-dom';
+import './index.css';
+
+
  class Login extends Component {
     constructor() {
         super();
@@ -49,7 +52,7 @@ import { Link } from 'react-router-dom';
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-    
+    <div class="box">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">Sign in to your account</p>
               <form onSubmit={this.onSubmit}>
@@ -81,6 +84,7 @@ import { Link } from 'react-router-dom';
             </div>
           </div>
         </div>
+      </div>
       </div>
      
     )

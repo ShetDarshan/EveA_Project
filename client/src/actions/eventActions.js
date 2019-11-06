@@ -3,7 +3,7 @@ import { GET_EVENTS,LOADING_DATA,GET_LEARNING } from './types';
 export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5000/api/v1/events') 
+      .get('http://localhost:5001/evea-prj/us-central1/api/api/v1/events') 
       .then(function(res) { 
         let  data = res.data,
               dataset ={},

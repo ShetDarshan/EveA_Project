@@ -124,3 +124,7 @@ footer.footer-custom {
 .privacy  .container .m-auto b{
   color:green !important;
 }
+
+.jumbotron{
+  height:660px !important;
+}
