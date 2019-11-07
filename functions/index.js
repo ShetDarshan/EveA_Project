@@ -46,7 +46,9 @@ exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
         objectID: doc.id,
         address: individualEvent.address,
         category: individualEvent.category,
-        title: individualEvent.title
+        title: individualEvent.title,
+        startDate : individualEvent.startdate,
+        image : individualEvent.img
         //summary: individualEvent.summary
     };
           

@@ -46,11 +46,11 @@ footer.footer-custom {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 10px;
+  height:75px;
   width: 100%;
   color: white;
   text-align: center;
-  background-color:black !important;
+  background-color:#cb0b1e!important;
 }
 /*Slick Slider*/
 
@@ -142,3 +142,10 @@ footer.footer-custom {
 {
   font-size: 25px !important;
 }
+
+.jumbotron_home{
+  height:660px !important;
+    background-image: url('./event.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 

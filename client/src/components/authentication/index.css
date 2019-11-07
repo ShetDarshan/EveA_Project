@@ -10,3 +10,32 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+
+  .login{
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,.5);
+    width:400px;
+    height:350px;
+    box-sizing:border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.9);
+    border-radius:10px;
+  }
+
+
+  
+  .register{
+    padding-top:20px;
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,.5);
+    width:400px;
+    height:500px;
+    box-sizing:border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.9);
+    border-radius:10px;
+  }

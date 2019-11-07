@@ -19,7 +19,7 @@ import UpdateProfile from './components/dashboard/UpdateProfile';
 import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
-
+import Search from './components/dashboard/Search';
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -46,7 +46,7 @@ class App extends Component {
           <Navbar />
           
             <Route exact path="/" component={Landing} />
-            <div className="container-flex jumbotron mb-0">
+            <div className="container-flex jumbotron_home mb-0">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -58,6 +58,7 @@ class App extends Component {
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
        <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
+                <Route exact path="/search" component={Search}/>
             </div>
 
             
