@@ -144,7 +144,7 @@ footer.footer-custom {
   font-size: 25px !important;
 }
 
-.jumbotron{
+.jumbotron_home{
   height:660px !important;
     background-image: url('./event.jpg');
     background-size: cover;
