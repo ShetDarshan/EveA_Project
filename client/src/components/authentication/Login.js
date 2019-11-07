@@ -53,7 +53,7 @@ import './index.css'
             <div className="col-md-8 m-auto">
     
                <h1 className="display-4 text-center">Log In</h1>
-              <h5 className="lead text-center">Sign in to your account</h5>
+              {/* <h5 className="lead text-center">Sign in to your account</h5> */}
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"
