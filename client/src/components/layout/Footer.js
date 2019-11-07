@@ -5,7 +5,7 @@ import "../../css/App.css"
  class Footer extends Component {
   render() {
     return (
-        <footer className="text-white  p-4 text-center footer-custom ">
+        <footer className="text-white  p-4 text-center footer-custom " style={{color:'#f64142'}}>
         Copyright EVEA &copy; 2019 TUD
       </footer>
     )

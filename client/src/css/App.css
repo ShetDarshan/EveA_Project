@@ -145,3 +145,9 @@ footer.footer-custom {
   font-size: 25px !important;
 }
 
+.jumbotron{
+  height:660px !important;
+    background-image: url('./event.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
