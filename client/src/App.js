@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-// import './App.scss';
+import './css/App.css';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
 import Dashboard from './components/dashboard/Dashboard';
-import Eventboard from './components/dashboard/Eventboard';
-// import SlideShow from './SlideShow';
+import MainCorousel from './components/eventboard/eventMainPage';
+import Guestuser from './components/guestUser/Guestuser';
 import Login from './components/authentication/Login';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,7 +14,12 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-// import upcomingevents from './components/dashboard/upcomingevents'
+import CreateProfile from './components/dashboard/CreateProfile';
+import UpdateProfile from './components/dashboard/UpdateProfile';
+import ForgotPassword from './components/authentication/ForgotPassword'
+import DataPolicy from './components/authentication/DataPolicy'
+import EventDetails from './components/eventCategories/EventDetails';
+
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -42,12 +46,20 @@ class App extends Component {
           <Navbar />
           
             <Route exact path="/" component={Landing} />
-            <div className="container-flex">
+            <div className="container-flex jumbotron mb-0">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
-                <Route exact path="/eventboard" component={Eventboard}/>
+                <Route exact path="/eventBoard" component={MainCorousel}/>
+                {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
+                <Route exact path="/event/:title" component={EventDetails} />
+                <Route exact path="/guestuser" component={Guestuser}/>
+                <Route exact path="/profile" component={CreateProfile}/>
+                <Route exact path="/updateProfile" component={UpdateProfile}/>
+       <Route exact path="/forgotpwd" component={ForgotPassword}/>
+                <Route exact path="/datapolicy" component={DataPolicy}/>
             </div>
+
             
             <Footer />
             

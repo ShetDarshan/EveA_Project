@@ -3,14 +3,8 @@ import './index.css';
 // import * as serviceWorker from './serviceWorker';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
-
-
+import {config} from '../authentication/firebaseConfig';
 // Configure Firebase.
-const config = {
-    apiKey: "AIzaSyD4svmLSEA5IDa49VKgK45vbUCL7JkO52I",
-    authDomain: "evea-prj.firebaseapp.com",
-    // ...
-  };
   firebase.initializeApp(config);
   // Configure FirebaseUI.
 const uiConfig = {

@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode'
 
 export const reguser = (userInfo,history) => dispatch => {
     axios
-      .post('/api/v1/register', userInfo)
+      .post('http://localhost:5000/api/v1/register', userInfo)
       .then(res => {
         const { token } = res.data;
         setAuthToken(token);
@@ -18,10 +18,9 @@ export const reguser = (userInfo,history) => dispatch => {
           })
            );
 };
-
 export const luser = (userData) => (dispatch) => {
     axios
-        .post('/api/v1/login',userData)
+        .post('http://localhost:5000/api/v1/login',userData)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken',token);
@@ -31,6 +30,21 @@ export const luser = (userData) => (dispatch) => {
             //setting current user
             dispatch(setCurrentUser(decoded));
         })
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+
+        );
+};
+
+export const forgotpwd = (pwd,history) => (dispatch) =>{
+    axios
+        .post('http://localhost:5000/api/v1/forgotpwd',pwd)   
+        .then(
+            history.push('/login')
+        )    
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,

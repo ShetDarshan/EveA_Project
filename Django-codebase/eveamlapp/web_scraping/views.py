@@ -74,3 +74,4 @@ def to_json(x):
             'latitude': x.latitude,
             'longitude': x.longitude
         }
+
