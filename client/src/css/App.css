@@ -127,4 +127,7 @@ footer.footer-custom {
 
 .jumbotron{
   height:660px !important;
-}
+    background-image: url('./event.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 
