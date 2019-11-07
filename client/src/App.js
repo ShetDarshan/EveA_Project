@@ -46,7 +46,7 @@ class App extends Component {
           <Navbar />
           
             <Route exact path="/" component={Landing} />
-            <div className="container-flex jumbotron mb-0">
+            <div className="container-flex jumbotron_home mb-0">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>

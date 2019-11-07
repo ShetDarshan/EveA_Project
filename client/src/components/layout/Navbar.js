@@ -13,8 +13,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {logoutuser} from '../../actions/authActions'
-import evealogo from '../../img/logo.png'
+import {logoutuser} from '../../actions/authActions';
+import evealogo from '../../img/logo.png';
+
 
  class Navbar extends Component {
    onLogoutClick(e){
@@ -45,23 +46,19 @@ import evealogo from '../../img/logo.png'
       'fe812c7ddbd852cb3074294b24c7e641'
     );
     const guestLinks = (    
-      <div className="collapse navbar-collapse" id="navbarColor01">
+      <div className="collapse navbar-collapse" style={{color:"#fffff"}}>
             <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                </li>
+<<
       <li className="nav-item">
-        <Link className="nav-link" to="/register">Sign Up</Link>
+        <Link className="nav-link" to="/About"><h6 style={{color:"white"}}>ABOUT US</h6></Link>
       </li>
       <li className="nav-item">
-       <Link className="nav-link" to="/login">Login</Link> 
+       <Link className="nav-link" to="/guestuser"><h6 style={{color:"white"}}>GUEST USER</h6></Link>
       </li>
       <li className="nav-item">
-       <Link className="nav-link" to="/guestuser"> Guest User</Link>
+       <Link className="nav-link" to="/Register"><h6 style={{color:"white"}}>SIGN UP</h6></Link>
       </li>
-      <li className="nav-item">
-       <Link className="nav-link" to="/search"> Search</Link>
-      </li>
+
       {/* <li>
       <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <SearchBox />
@@ -79,7 +76,7 @@ import evealogo from '../../img/logo.png'
          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
         
-            <Link className="navbar-brand" to="/"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
+            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
   
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>

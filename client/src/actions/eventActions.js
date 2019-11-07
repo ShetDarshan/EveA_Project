@@ -91,7 +91,7 @@ export const getEvents = () => dispatch => {
   export const getLocationEvents = title => dispatch => {
 
     axios 
-      .get(`http://35.205.204.145:8000/api/recommendationData/${title}`)
+      .get(`http://35.205.204.145:8000/api/nearByData/${title}`)
       .then(res => 
         dispatch({
           type: GET_LOC_DETAILS,
