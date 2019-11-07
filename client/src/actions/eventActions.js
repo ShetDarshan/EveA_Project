@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_EVENTS,LOADING_DATA,GET_LEARNING,GET_EVENT_DETAILS,GET_RCMD_DETAILS } from './types';
+import { GET_EVENTS,LOADING_DATA,GET_LEARNING,GET_EVENT_DETAILS,GET_RCMD_DETAILS,GET_LOC_DETAILS } from './types';
 export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
@@ -81,6 +81,26 @@ export const getEvents = () => dispatch => {
         .catch( err => 
           dispatch ({
           type: GET_RCMD_DETAILS,
+          payload: null
+        })
+        
+          );
+
+
+  };
+  export const getLocationEvents = title => dispatch => {
+
+    axios 
+      .get(`http://35.205.204.145:8000/api/nearByData/${title}`)
+      .then(res => 
+        dispatch({
+          type: GET_LOC_DETAILS,
+          payload: res.data
+        })
+      )
+        .catch( err => 
+          dispatch ({
+          type: GET_LOC_DETAILS,
           payload: null
         })
         
