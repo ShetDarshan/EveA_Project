@@ -50,7 +50,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
             <div className="col-md-8 m-auto">
     
               {/* <h1 className="display-4 text-center">Log In</h1> */}
-              <p className="lead text-center">Forgot Password, please enter registred email address</p>
+              <p className="lead text-center"> Please enter your registered email address to reset the password</p>
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"

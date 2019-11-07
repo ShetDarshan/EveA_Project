@@ -53,7 +53,7 @@ import "../../css/App.css";
                                             {/* <h6 key={data.time+"-time"} className="card-subtitle mb-2"><b>Time: </b> {data.time}</h6> */}
                                       
                                             {/* <a href="#" className="card-link">Go to Site</a> */}
-                                            <Link to={`/event/${data.eventId}`} className="card-link">
+                                            <Link to={`/event/${data.title}`} className="card-link">
                                                    View Event
                                            </Link>
                                             <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
