@@ -52,7 +52,7 @@ export const getEvents = () => dispatch => {
   export const getEventDetails = title => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`http://localhost:5000/eventDetails/${title}`) 
+      .get(`http://localhost:5000/api/v1/eventDetails/${title}`) 
       .then(res => 
         dispatch({
           type: GET_EVENT_DETAILS,

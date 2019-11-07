@@ -20,7 +20,7 @@ export const reguser = (userInfo,history) => dispatch => {
 };
 export const luser = (userData) => (dispatch) => {
     axios
-        .post('http://localhost:5000/login',userData)
+        .post('http://localhost:5000/api/v1/login',userData)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken',token);
@@ -41,7 +41,7 @@ export const luser = (userData) => (dispatch) => {
 
 export const forgotpwd = (pwd,history) => (dispatch) =>{
     axios
-        .post('http://localhost:5000/forgotpwd',pwd)   
+        .post('http://localhost:5000/api/v1/forgotpwd',pwd)   
         .then(
             history.push('/login')
         )    
