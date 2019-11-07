@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import React, { Component } from 'react';
-import Image from 'react-image-resizer';
+/*import Image from 'react-image-resizer';*/
 import {
   InstantSearch,
   Hits,
