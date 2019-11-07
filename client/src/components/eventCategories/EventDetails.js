@@ -19,27 +19,25 @@ class EventDetails extends Component {
   render() {
     const { eventDetails, loading,recom } = this.props.eventDetails;
     console.log(recom,"recom")
-
+    console.log(eventDetails);
     return (
-      <div className="eventDetails">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
+          
           { eventDetails && eventDetails.map(data => {
               return(
-                  <div>
-                  {data.title}
-                  <img src={data.img}
-                  />
+                  <div className="event-detail-container">
+                    <div className="left-container col-lg-8">
+                      <h4>{data.title}</h4>
+                      <img src={data.img}/>
+                      <p>{data.summary}</p>
+                      </div>
+                      <div className="right-container col-lg-4">
+                      </div>
                   </div>
-                  )
-                     
+                  ) 
     })
           }      
             </div>
-          </div>
-        </div>
-      </div>
     );
   }
 }
