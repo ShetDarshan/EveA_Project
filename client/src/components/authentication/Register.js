@@ -9,6 +9,10 @@ import {
   Snackbar,
   SnackbarContent
 } from "@material-ui/core";
+
+import './index.css'
+
+
  class Register extends Component {
      constructor() {
          super();
@@ -70,12 +74,13 @@ verifiedChange = e => {
        <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
-            {/* <h1 className="display-4 text-center">Sign Up</h1> */}
-           <h1 className="lead text-center">Create your account</h1>
+          <h5 className="display-4 text-center">Sign Up</h5>
+           <h6 className="lead text-center">Let Friends Identify You By</h6>
            <form noValidate onSubmit={this.onSubmit}>
            <TextFieldGroup
-                  placeholder="Name"
+                  placeholder="User Name"
                   name="handle"
+                  required=""
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
@@ -112,8 +117,7 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified">
-        
-      <h6> By clicking Submit, you agree to our Terms. Learn how we collect, use and share your data in our <Link to="/datapolicy" target="_blank">Data Policy</Link> </h6>
+       <h6> By Signing Up, You Agree to Our <Link to="/datapolicy" target="_blank">Terms & Conditions </Link> </h6>
       </label>
                
                 <input 
