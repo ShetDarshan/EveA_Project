@@ -26,7 +26,7 @@ class PoetryIrelandIE:
             
             title = container.h2.text
             a_tags=container.findAll('a')
-            image=a_tags[0].img['src']
+            image='https://www.poetryireland.ie'+ a_tags[0].img['src']
             read_more= a_tags[0]['href']
             div_tags=container.findAll('div')
             date=div_tags[2].text.strip('\n\t')
@@ -45,7 +45,7 @@ class PoetryIrelandIE:
             date = date + (' ')+ month+(' ')+ year
             Location=div_tags[3].text
             read_more=a_tags[1]['href']
-            Category='FASHION,ART & THEATRE'
+            Category='FASHION, ART & THEATRE'
 
             data = EventData()
 

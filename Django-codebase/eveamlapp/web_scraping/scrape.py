@@ -37,19 +37,14 @@ class WebScrape:
 
         for url in urls:
 
-            if url.referenceId=='TicketMasterIE':
-                dataList = TicketmasterIe.scrape(url.url)
+            # if url.referenceId=='TicketMasterIE':
+            #     dataList = TicketmasterIe.scrape(url.url)
 
-                for data in dataList:
-                   data_list.append(data)
+            #     for data in dataList:
+            #        data_list.append(data)
 
-            elif url.referenceId=='WhitehallIE':
-                dataList = WhitehallIe.scrape(url.url)
-
-                for data in dataList:
-                   data_list.append(data)
-
-            elif url.referenceId=='RCSIIE':
+            
+            if url.referenceId=='RCSIIE':
                 dataList = RCSIIE.scrape(url.url)
 
                 for data in dataList:
@@ -79,7 +74,7 @@ class WebScrape:
             #     for data in dataList:
             #        data_list.append(data)
 
-            # if url.referenceId=='DUBIE':
+            # elif url.referenceId=='DUBIE':
             #    dataList = DublinIe.scrape(url.url)
 
             #    for data in dataList:
@@ -103,30 +98,30 @@ class WebScrape:
                 for data in dataList:
                     data_list.append(data)
 
-            elif url.referenceId == 'EventbriteIE':
-                dataList = EventIe.scrape(url.url)
-
-                for data in dataList:
-                    data_list.append(data)
-
-            
-            elif url.referenceId == 'TUD_Blanchardstown':
-                dataList = TUD_Blanchardstown.scrape(url.url)
-
-                for data in dataList:
-                    data_list.append(data)
-
-            # elif url.referenceId=='TUD_main':
-            #     dataList = TUD_main.scrape(url.url)
+            # elif url.referenceId == 'EventbriteIE':
+            #     dataList = EventIe.scrape(url.url)
 
             #     for data in dataList:
-            #        data_list.append(data)
+            #         data_list.append(data)
 
             
-            elif url.referenceId=='IRELANDIE':
-                dataList = IrelandIe.scrape(url.url)
+            # elif url.referenceId == 'TUD_Blanchardstown':
+            #     dataList = TUD_Blanchardstown.scrape(url.url)
+
+            #     for data in dataList:
+            #         data_list.append(data)
+
+            elif url.referenceId=='TUD_main':
+                dataList = TUD_main.scrape(url.url)
 
                 for data in dataList:
-                   data_list.append(data)       
+                   data_list.append(data)
+
+            
+            # elif url.referenceId=='IRELANDIE':
+            #     dataList = IrelandIe.scrape(url.url)
+
+            #     for data in dataList:
+            #        data_list.append(data)       
 
         return data_list

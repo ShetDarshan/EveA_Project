@@ -17,6 +17,8 @@ class EventData(models.Model):
     price = models.CharField
     #address = models.CharField
     read_more = models.CharField
+    latitude = models.CharField
+    longitude = models.CharField
 
 
 class URLCollection(models.Model):

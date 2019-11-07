@@ -33,7 +33,7 @@ class KnowIE:
                 date2 = datetime.datetime.strptime(date2,'%b').strftime('%B')
                 date3 = span_tags[2].text
                 startdate = date1 + ' ' + date2 + ' ' + date3
-                category='EDUCATION,BUSINESS & TECHNOLOGY'
+                category='EDUCATION, BUSINESS & TECHNOLOGY'
                 try:
                     title = container.h2.text
                 except:
@@ -48,6 +48,8 @@ class KnowIE:
                     location = p_tags[2].text
                 except:
                     location = 'none'
+                img = 'https://uindia.net/assets/img/MediaTechnology.jpg'
+                
                 data = EventData()
 
                 data.id = uuid.uuid1().__str__()
@@ -55,7 +57,7 @@ class KnowIE:
                 data.time = ''
                 data.location = location
                 data.summary = description
-                data.img = ''
+                data.img = img
                 data.category = category
                 data.startdate = startdate
                 data.read_more = read_more
