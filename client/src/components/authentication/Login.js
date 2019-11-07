@@ -72,7 +72,7 @@ import './index.css'
                   onChange={this.onChange}
                  error={errors.password}
                 />
-                 <Link to="/forgotpwd" >
+                 <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
                 Forgot Password?
               </Link>
        

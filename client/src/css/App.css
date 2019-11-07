@@ -46,7 +46,7 @@ footer.footer-custom {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 10px;
+  height:75px;
   width: 100%;
   color: white;
   text-align: center;
@@ -118,7 +118,6 @@ footer.footer-custom {
   margin-left: auto;
   height: 150px;
   width: 120px;
-
 }
 .slick-prev {
   left: -10px !important;
