@@ -28,7 +28,11 @@
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-buttons": "0.0.11",
+<<<<<<< HEAD
     "react-dom": "^16.11.0",
+=======
+    "react-dom": "^16.10.2",
+>>>>>>> bd2d980e9690095d9a7f96b2fc1d137a068543d7
     "react-firebase-file-uploader": "^2.4.3",
     "react-firebaseui": "^4.0.0",
     "react-gesture-gallery": "^1.1.0",

@@ -52,9 +52,15 @@ import './index.css';
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
+<<<<<<< HEAD
     <div class="box">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center" style={{color:"black"}}>Sign in to your account</p>
+=======
+    
+              {/* <h1 className="display-4 text-center">Log In</h1> */}
+              <h5 className="lead text-center">Sign in to your account</h5>
+>>>>>>> bd2d980e9690095d9a7f96b2fc1d137a068543d7
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"

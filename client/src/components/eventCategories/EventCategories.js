@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 
@@ -35,7 +36,8 @@ import "../../css/App.css";
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">     
                       <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
-                      <div key={categoriesList+"-container"} className="card text-white bg-secondary mb-3 card-slider" >
+                      <div >
+                      <div key={categoriesList+"-container"} className="card text-white  mb-3 card-slider"  >
                       <Slider {...settings}>
                       {
                           
@@ -45,19 +47,23 @@ import "../../css/App.css";
                                           <div key={data.title+"-image-container"} className="imageContainer" >
                                             <img key={data.title+"-img"} src={data.img} alt={data.title}></img>
                                           </div>
-                                            <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-4 ">{data.title}</h6>
-                                            <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 "><b>Start Date: </b>{data.startdate}</h6>
+                                            <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-4 " style={{paddingTop:"50px"}}>{data.title}</h6>
+                                            <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 "><b>Date: </b>{data.startdate}</h6>
                                             {/* <h6 key={data.enddate+"-enddate"} className="card-subtitle mb-2 "><span className="text-muted">End Date:</span>{data.enddate}</h6> */}
-                                            <h6 key={data.time+"-time"} className="card-subtitle mb-2"><b>Time: </b> {data.time}</h6>
+                                            {/* <h6 key={data.time+"-time"} className="card-subtitle mb-2"><b>Time: </b> {data.time}</h6> */}
                                       
-                                            <a href="#" className="card-link">Go to Site</a>
+                                            {/* <a href="#" className="card-link">Go to Site</a> */}
+                                            <Link to={`/event/${data.title}`} className="card-link">
+                                                   View Event
+                                           </Link>
                                             <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
                                           </div>
                                         </div>                                
                               
                         ))}
                         </Slider>
-                        </div>      
+                        </div>  
+                        </div>    
                   </div>
               ))} 
           </div>
