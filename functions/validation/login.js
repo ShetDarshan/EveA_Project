@@ -3,7 +3,7 @@ module.exports= function validateLoginData (data) {
     let errors = {};
   
     if (isEmpty(data.email)) errors.email = ' not be empty';
-    if (isEmpty(data.password)) errors.password = ' not be empty';
+    if (isEmpty(data.password)) errors.password = 'NOT LOGIN';
   
     return {
       errors,

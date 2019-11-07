@@ -53,3 +53,50 @@
 [info] +  functions[api]: http function initialized (http://localhost:5001/evea-prj/us-central1/api).
 [debug] [2019-11-07T03:22:22.071Z] [worker-~diagnostic~-b3b57ffd-6b22-49af-b118-f284f9c95a51]: exited
 [debug] [2019-11-07T03:22:22.071Z] [worker-~diagnostic~-b3b57ffd-6b22-49af-b118-f284f9c95a51]: FINISHED
+[debug] [2019-11-07T03:29:22.838Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:29:23.851Z] [worker-~diagnostic~-a79eb5a7-b5dc-4608-87bb-e47236cf1499]: BUSY
+[debug] [2019-11-07T03:29:24.660Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T03:29:24.663Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T03:29:24.669Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T03:29:24.671Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:29:24.672Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:29:25.508Z] [worker-~diagnostic~-a79eb5a7-b5dc-4608-87bb-e47236cf1499]: exited
+[debug] [2019-11-07T03:29:25.508Z] [worker-~diagnostic~-a79eb5a7-b5dc-4608-87bb-e47236cf1499]: FINISHED
+[debug] [2019-11-07T03:36:38.739Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:36:38.853Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:36:39.859Z] [worker-~diagnostic~-594c2627-be46-4f7d-bf6e-d1e77df6ed8c]: BUSY
+[debug] [2019-11-07T03:36:40.612Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T03:36:40.615Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T03:36:40.621Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T03:36:40.624Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:36:40.625Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:36:41.424Z] [worker-~diagnostic~-594c2627-be46-4f7d-bf6e-d1e77df6ed8c]: exited
+[debug] [2019-11-07T03:36:41.424Z] [worker-~diagnostic~-594c2627-be46-4f7d-bf6e-d1e77df6ed8c]: FINISHED
+[debug] [2019-11-07T03:39:51.842Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:39:51.949Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:39:52.970Z] [worker-~diagnostic~-594a8901-a587-45bf-8237-9072300d8ba5]: BUSY
+[debug] [2019-11-07T03:39:54.225Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T03:39:54.228Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T03:39:54.233Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T03:39:54.235Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:39:54.237Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:39:54.881Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:39:55.219Z] [worker-~diagnostic~-594a8901-a587-45bf-8237-9072300d8ba5]: exited
+[debug] [2019-11-07T03:39:55.219Z] [worker-~diagnostic~-594a8901-a587-45bf-8237-9072300d8ba5]: FINISHED
+[debug] [2019-11-07T03:39:55.903Z] [worker-~diagnostic~-079aa7c8-cbb4-4624-987f-98c1785a031e]: BUSY
+[debug] [2019-11-07T03:39:56.887Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T03:39:56.890Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T03:39:56.895Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T03:39:56.898Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:39:56.899Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:39:57.805Z] [worker-~diagnostic~-079aa7c8-cbb4-4624-987f-98c1785a031e]: exited
+[debug] [2019-11-07T03:39:57.805Z] [worker-~diagnostic~-079aa7c8-cbb4-4624-987f-98c1785a031e]: FINISHED
+[debug] [2019-11-07T03:39:58.087Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T03:39:59.110Z] [worker-~diagnostic~-e5057ccd-17d6-46e5-bd6b-76a99aaf93d7]: BUSY
+[debug] [2019-11-07T03:40:00.229Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T03:40:00.233Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T03:40:00.237Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T03:40:00.239Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:40:00.241Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T03:40:01.167Z] [worker-~diagnostic~-e5057ccd-17d6-46e5-bd6b-76a99aaf93d7]: exited
+[debug] [2019-11-07T03:40:01.168Z] [worker-~diagnostic~-e5057ccd-17d6-46e5-bd6b-76a99aaf93d7]: FINISHED
