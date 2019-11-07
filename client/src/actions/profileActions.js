@@ -4,7 +4,7 @@ import { GET_USERS,GET_USER,UPDATE_USER } from './types';
 export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5001/evea-prj/us-central1/api/getAllProfiles') 
+      .get('http://localhost:5000/getAllProfiles') 
       .then(res => 
         dispatch({
           type: GET_USERS,
@@ -22,7 +22,7 @@ export const getAllProfiles = () => dispatch => {
   export const getProfile = (email) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`http://localhost:5001/evea-prj/us-central1/api/getProfile/${email}`) 
+      .get(`http://localhost:5000/getProfile/${email}`) 
       .then(res => 
         dispatch({
           type: GET_USER,
@@ -42,7 +42,7 @@ export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("updateprofile:",userDetails)
     axios
-      .post('http://localhost:5001/evea-prj/us-central1/api/updateProfile',userDetails) 
+      .post('http://localhost:5000/updateProfile',userDetails) 
       .then(res => 
         dispatch({
           type: UPDATE_USER,
