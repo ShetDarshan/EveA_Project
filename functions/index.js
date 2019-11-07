@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 
 exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
   var algoArr = []; 
-  admin.firestore().collection('events_list').get().then((docs) => {
+  admin.firestore().collection('events_test').get().then((docs) => {
     docs.forEach((doc)=>{
       let individualEvent =  doc.data();
       const record = {
@@ -170,7 +170,7 @@ app.post('/api/v1/forgotpwd', (req, res) => {
 )
 //get events data
 app.get('/api/v1/events', (req, res) => {
-  db.collection('events_list').get()
+  db.collection('events_test').get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {

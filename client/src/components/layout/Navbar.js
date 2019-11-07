@@ -59,13 +59,16 @@ import evealogo from '../../img/logo.png'
       <li className="nav-item">
        <Link className="nav-link" to="/guestuser"> Guest User</Link>
       </li>
-      <li>
+      <li className="nav-item">
+       <Link className="nav-link" to="/search"> Search</Link>
+      </li>
+      {/* <li>
       <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <SearchBox />
             <Hits hitComponent={Hit} />
           <Pagination />
         </InstantSearch>
-      </li>
+      </li> */}
     </ul>
       </div>
   
@@ -94,26 +97,23 @@ import evealogo from '../../img/logo.png'
     )
   }
 }
-function Hit(props) {
-  return (
-    <div>
-      
-
-
-      <img src={props.hit.image} align="left" alt={props.hit.title} />
-      <div className="hit-name">
-        <Highlight attribute="title" hit={props.hit} />
-      </div>
-      {/* <div className="hit-description">
-        <Highlight attribute="description" hit={props.hit} />
-      </div>
-      <div className="hit-price">${props.hit.title}</div> */}
-    </div>
-  );
-}
-Hit.propTypes = {
-  hit: PropTypes.object.isRequired,
-};
+// function Hit(props) {
+//   return (
+//     <div>
+//       <img src={props.hit.image} align="left" alt={props.hit.title} />
+//       <div className="hit-name">
+//         <Highlight attribute="title" hit={props.hit} />
+//       </div>
+//       {/* <div className="hit-description">
+//         <Highlight attribute="description" hit={props.hit} />
+//       </div>
+//       <div className="hit-price">${props.hit.title}</div> */}
+//     </div>
+//   );
+// }
+// Hit.propTypes = {
+//   hit: PropTypes.object.isRequired,
+// };
 Navbar.propTypes = {
  
   logoutuser: PropTypes.func.isRequired,
