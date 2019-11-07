@@ -37,14 +37,14 @@ class WebScrape:
 
         for url in urls:
 
-            # if url.referenceId=='TicketMasterIE':
-            #     dataList = TicketmasterIe.scrape(url.url)
+            if url.referenceId=='TicketMasterIE':
+                dataList = TicketmasterIe.scrape(url.url)
 
-            #     for data in dataList:
-            #        data_list.append(data)
+                for data in dataList:
+                   data_list.append(data)
 
             
-            if url.referenceId=='RCSIIE':
+            elif url.referenceId=='RCSIIE':
                 dataList = RCSIIE.scrape(url.url)
 
                 for data in dataList:
@@ -118,10 +118,10 @@ class WebScrape:
                    data_list.append(data)
 
             
-            # elif url.referenceId=='IRELANDIE':
-            #     dataList = IrelandIe.scrape(url.url)
+            elif url.referenceId=='IRELANDIE':
+                dataList = IrelandIe.scrape(url.url)
 
-            #     for data in dataList:
-            #        data_list.append(data)       
+                for data in dataList:
+                   data_list.append(data)       
 
         return data_list
