@@ -1,7 +1,17 @@
-
+import algoliasearch from 'algoliasearch/lite';
+import {
+  InstantSearch,
+  Hits,
+  SearchBox,
+  Pagination,
+  Highlight,
+  ClearRefinements,
+  RefinementList,
+  Configure,
+} from 'react-instantsearch-dom';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {logoutuser} from '../../actions/authActions'
 import evealogo from '../../img/logo.png'
@@ -11,6 +21,9 @@ import evealogo from '../../img/logo.png'
      //e.preventDefault();
      this.props.logoutuser();
    }
+
+  
+
   render() {
     const { isAuthenticated } = this.props.auth;
 
@@ -27,7 +40,10 @@ import evealogo from '../../img/logo.png'
               </li>
             </ul>
     );
-
+    const searchClient = algoliasearch(
+      '7Z6VFB8JQD',
+      'fe812c7ddbd852cb3074294b24c7e641'
+    );
     const guestLinks = (    
       <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">
@@ -43,6 +59,16 @@ import evealogo from '../../img/logo.png'
       <li className="nav-item">
        <Link className="nav-link" to="/guestuser"> Guest User</Link>
       </li>
+      <li className="nav-item">
+       <Link className="nav-link" to="/search"> Search</Link>
+      </li>
+      {/* <li>
+      <InstantSearch indexName="algoevents" searchClient={searchClient}>
+          <SearchBox />
+            <Hits hitComponent={Hit} />
+          <Pagination />
+        </InstantSearch>
+      </li> */}
     </ul>
       </div>
   
@@ -71,7 +97,25 @@ import evealogo from '../../img/logo.png'
     )
   }
 }
+// function Hit(props) {
+//   return (
+//     <div>
+//       <img src={props.hit.image} align="left" alt={props.hit.title} />
+//       <div className="hit-name">
+//         <Highlight attribute="title" hit={props.hit} />
+//       </div>
+//       {/* <div className="hit-description">
+//         <Highlight attribute="description" hit={props.hit} />
+//       </div>
+//       <div className="hit-price">${props.hit.title}</div> */}
+//     </div>
+//   );
+// }
+// Hit.propTypes = {
+//   hit: PropTypes.object.isRequired,
+// };
 Navbar.propTypes = {
+ 
   logoutuser: PropTypes.func.isRequired,
   auth: PropTypes.func.isRequired
 }

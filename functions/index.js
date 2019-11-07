@@ -39,14 +39,16 @@ app.use(function (req, res, next) {
 
 exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
   var algoArr = []; 
-  admin.firestore().collection('events_list').get().then((docs) => {
+  admin.firestore().collection('events_test').get().then((docs) => {
     docs.forEach((doc)=>{
       let individualEvent =  doc.data();
       const record = {
         objectID: doc.id,
         address: individualEvent.address,
         category: individualEvent.category,
-        title: individualEvent.title
+        title: individualEvent.title,
+        startDate : individualEvent.startdate,
+        image : individualEvent.img
         //summary: individualEvent.summary
     };
           

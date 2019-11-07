@@ -1,0 +1,28 @@
+[debug] [2019-11-06T01:35:45.225Z] ----------------------------------------------------------------------
+[debug] [2019-11-06T01:35:45.229Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Darshan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-06T01:35:45.229Z] CLI Version:   7.4.0
+[debug] [2019-11-06T01:35:45.229Z] Platform:      win32
+[debug] [2019-11-06T01:35:45.229Z] Node Version:  v10.16.0
+[debug] [2019-11-06T01:35:45.246Z] Time:          Wed Nov 06 2019 01:35:45 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-11-06T01:35:45.246Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-11-06T01:35:45.261Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-06T01:35:45.262Z] > authorizing via signed-in user
+[debug] [2019-11-06T01:35:45.262Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-06T01:35:45.264Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-06T01:35:45.606Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-06T01:35:45.608Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+ 
+[debug] [2019-11-06T01:35:45.941Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Darshan\Desktop\MSC_FinalProject\EveA_Project'...
+[info] 
+[debug] [2019-11-06T01:35:45.970Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+ 
+[info] +  functions: Using node@10 from host.
+[info] +  functions: Emulator started at http://localhost:5001
+[debug] [2019-11-06T01:35:46.889Z] <<< HTTP RESPONSE 200
+[info] i  functions: Watching "C:\Users\Darshan\Desktop\MSC_FinalProject\EveA_Project\functions" for Cloud Functions...
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
