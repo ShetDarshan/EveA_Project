@@ -48,12 +48,14 @@ import evealogo from '../../img/logo.png';
     const guestLinks = (    
       <div className="collapse navbar-collapse" style={{color:"#fffff"}}>
             <ul className="navbar-nav mr-auto">
-                
       <li className="nav-item">
         <Link className="nav-link" to="/About"><h6 style={{color:"white", paddingLeft:"700px"}}>ABOUT US</h6></Link>
       </li>
       <li className="nav-item">
        <Link className="nav-link" to="/guestuser"><h6 style={{color:"white"}}>GUEST USER</h6></Link>
+      </li>
+      <li className="nav-item">
+       <Link className="nav-link" to="/Register"><h6 style={{color:"white"}}>SIGN UP</h6></Link>
       </li>
       <li>
       <img src="{require('./../../img/th.jpg')"></img>
