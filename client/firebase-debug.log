@@ -371,3 +371,37 @@
 [debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-0e53afed-057d-495a-bfa3-bbd3b1d335c7]: FINISHED
 [debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: exited
 [debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: FINISHED
+[debug] [2019-11-07T01:22:26.208Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T01:22:26.217Z] [worker-api-df08dc18-d773-433b-9887-a6ff14407330]: BUSY
+[debug] [2019-11-07T01:22:26.712Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T01:22:26.714Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T01:22:26.717Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T01:22:26.718Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T01:22:26.719Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T01:22:27.206Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T01:22:27.208Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T01:22:27.210Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T01:22:27.213Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\27344"}
+[debug] [2019-11-07T01:22:27.214Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\27344"}
+[debug] [2019-11-07T01:22:27.221Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T01:22:27.228Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-07T01:22:27.232Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T01:22:27.238Z] [worker-api-81574060-fbf8-44ce-aa8a-d4da2c8fbdac]: BUSY
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T01:22:27.239Z] [worker-api-df08dc18-d773-433b-9887-a6ff14407330]: IDLE
+[debug] [2019-11-07T01:22:27.727Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T01:22:27.730Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T01:22:27.737Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T01:22:27.739Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T01:22:27.740Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T01:22:28.266Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T01:22:28.267Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T01:22:28.267Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T01:22:28.273Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\36852"}
+[debug] [2019-11-07T01:22:28.273Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\36852"}
+[debug] [2019-11-07T01:22:28.294Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T01:22:28.300Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T01:22:28.303Z] [worker-api-81574060-fbf8-44ce-aa8a-d4da2c8fbdac]: IDLE
