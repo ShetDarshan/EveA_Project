@@ -201,3 +201,173 @@
 [debug] [2019-11-07T00:11:15.635Z] [runtime-status] Ephemeral server survived. {}
 [info] i  functions: Finished "api" in ~4s
 [debug] [2019-11-07T00:11:20.045Z] [worker-api-4b695d4f-3573-4fbf-8ff8-9b43e3222a37]: IDLE
+[debug] [2019-11-07T00:46:19.587Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:19.596Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:20.391Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:20.497Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:20.545Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:20.546Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:20.650Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:20.746Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:20.752Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:20.753Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:46:20.829Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:20.829Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:20.830Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:20.832Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:20.832Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:20.925Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:20.926Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:20.929Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:20.930Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:20.932Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:46:35.874Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:35.874Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:35.876Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:35.879Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:35.880Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:35.880Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:35.883Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:35.889Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:35.892Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:35.895Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:46:35.901Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:35.901Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:35.903Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:35.905Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:35.905Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:35.905Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:35.906Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:35.909Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:35.910Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:35.911Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:46:59.033Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:59.033Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:59.034Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:59.035Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:59.035Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:59.035Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:59.036Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:59.682Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:59.684Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:59.685Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:46:59.690Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:46:59.690Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:46:59.695Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:46:59.696Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:46:59.696Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:46:59.696Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:59.697Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:46:59.700Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:46:59.700Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:46:59.702Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:47:24.430Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:47:24.430Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:47:24.431Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:47:24.432Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:47:24.432Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:47:24.432Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:24.433Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:24.436Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:47:24.438Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:47:24.440Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:47:24.441Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:47:24.441Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:47:24.447Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:47:24.448Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:47:24.448Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:47:24.448Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:24.449Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:24.451Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:47:24.452Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:47:24.452Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:47:35.889Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:47:35.889Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:47:35.893Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:47:35.897Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:47:35.897Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:47:35.898Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:35.900Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:35.905Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:47:35.907Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:47:35.909Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:47:35.914Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:47:35.914Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:47:35.918Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:47:35.919Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:47:35.919Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:47:35.919Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:35.920Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:47:35.922Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:47:35.923Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:47:35.925Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:49:42.863Z] Accepted request OPTIONS /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:49:42.863Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: BUSY
+[debug] [2019-11-07T00:49:42.864Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:49:42.866Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:49:42.866Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:49:42.866Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:49:42.867Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\26692"}
+[debug] [2019-11-07T00:49:42.870Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:49:42.871Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-07T00:49:42.876Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-07T00:49:42.876Z] [worker-api-4b695d4f-3573-4fbf-8ff8-9b43e3222a37]: BUSY
+[debug] [2019-11-07T00:49:42.881Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-07T00:49:42.882Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-07T00:49:42.882Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-07T00:49:42.886Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20952"}
+[debug] [2019-11-07T00:49:42.887Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20952"}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:49:42.922Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: IDLE
+[debug] [2019-11-07T00:49:44.846Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-07T00:49:44.967Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-07T00:49:44.970Z] [worker-api-4b695d4f-3573-4fbf-8ff8-9b43e3222a37]: IDLE
+[debug] [2019-11-07T00:50:44.173Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T00:50:45.175Z] [worker-pool]: Shutting down IDLE worker (api)
+[debug] [2019-11-07T00:50:45.176Z] [worker-pool]: Shutting down IDLE worker (api)
+[debug] [2019-11-07T00:50:45.487Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: BUSY
+[debug] [2019-11-07T00:50:45.571Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: exited
+[debug] [2019-11-07T00:50:45.571Z] [worker-api-693fa274-63c9-49da-a892-cc387de02d72]: FINISHED
+[debug] [2019-11-07T00:50:45.591Z] [worker-api-4b695d4f-3573-4fbf-8ff8-9b43e3222a37]: exited
+[debug] [2019-11-07T00:50:45.592Z] [worker-api-4b695d4f-3573-4fbf-8ff8-9b43e3222a37]: FINISHED
+[debug] [2019-11-07T00:50:49.798Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T00:50:49.800Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T00:50:49.892Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T00:50:49.924Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T00:50:49.929Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T00:50:50.660Z] File F:\EveA_Project\functions\validation\login.js changed, reloading triggers
+[debug] [2019-11-07T00:50:51.661Z] [worker-pool]: Marking BUSY worker to finish (~diagnostic~)
+[debug] [2019-11-07T00:50:51.661Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: FINISHING
+[debug] [2019-11-07T00:50:51.665Z] [worker-~diagnostic~-0e53afed-057d-495a-bfa3-bbd3b1d335c7]: BUSY
+[debug] [2019-11-07T00:50:52.094Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-07T00:50:52.096Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-07T00:50:52.099Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-07T00:50:52.100Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T00:50:52.101Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-07T00:50:54.882Z] [worker-~diagnostic~-0e53afed-057d-495a-bfa3-bbd3b1d335c7]: exited
+[debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-0e53afed-057d-495a-bfa3-bbd3b1d335c7]: FINISHED
+[debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: exited
+[debug] [2019-11-07T00:50:54.883Z] [worker-~diagnostic~-2e91e611-6f60-4ed7-a4b1-30a3cc5b9ab2]: FINISHED

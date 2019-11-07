@@ -54,7 +54,7 @@ import './index.css';
             <div className="col-md-8 m-auto">
     <div class="box">
               <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">Sign in to your account</p>
+              <p className="lead text-center" style={{color:"black"}}>Sign in to your account</p>
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"
