@@ -7,6 +7,7 @@ import {
   Pagination,
   Highlight
 } from 'react-instantsearch-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './../../css/search.css';
 const searchClient = algoliasearch(
@@ -38,10 +39,10 @@ function Hit(props) {
   return (
     <div>
       <div className="imageContainer" >
-
-        <div className="imageBg"  style={{ backgroundImage: `url(${props.hit.image})` }}>
-
-        </div>
+        
+        <Link to={`/event/${props.hit.title}`} className="card-link">
+        <img className="imageBg"  src = {props.hit.image}/>
+        </Link>
       </div>
       <span className="hit-name">
         <Highlight attribute="name" hit={props.hit} />
