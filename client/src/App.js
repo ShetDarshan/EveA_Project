@@ -59,13 +59,9 @@ class App extends Component {
        <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
                 <Route exact path="/search" component={Search}/>
-            </div>
-
-            
-            <Footer />
-            
-          
+            </div>  
         </div>  
+        <Footer />
         </Router>
         
       </Provider>

@@ -48,7 +48,6 @@ import evealogo from '../../img/logo.png';
     const guestLinks = (    
       <div className="collapse navbar-collapse" style={{color:"#fffff"}}>
             <ul className="navbar-nav mr-auto">
-<<
       <li className="nav-item">
         <Link className="nav-link" to="/About"><h6 style={{color:"white"}}>ABOUT US</h6></Link>
       </li>
@@ -58,7 +57,9 @@ import evealogo from '../../img/logo.png';
       <li className="nav-item">
        <Link className="nav-link" to="/Register"><h6 style={{color:"white"}}>SIGN UP</h6></Link>
       </li>
-
+      <li className="nav-item">
+       <Link className="nav-link" to="/Search"><h6 style={{color:"white",paddingLeft:"500px"}}>SEARCH</h6></Link>
+      </li>   
       {/* <li>
       <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <SearchBox />

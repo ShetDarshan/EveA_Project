@@ -76,7 +76,7 @@ constructor(props) {
                                           <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage }>
                                                  View Event
                                          </Link>
-                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
+                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
                                         </div>
                                       </div>                                
                             
@@ -100,7 +100,7 @@ constructor(props) {
                                           <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage } >
                                                  View Event
                                          </Link>
-                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
+                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
                                         </div>
                                       </div>                                
                       ))}
