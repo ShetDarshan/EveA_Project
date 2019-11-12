@@ -37,28 +37,28 @@ app.use(function (req, res, next) {
   next();
 });
 
-exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
-  var algoArr = []; 
+exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
+  var algoArr = [];
   admin.firestore().collection('events_test').get().then((docs) => {
-    docs.forEach((doc)=>{
-      let individualEvent =  doc.data();
+    docs.forEach((doc) => {
+      let individualEvent = doc.data();
       const record = {
         objectID: doc.id,
         address: individualEvent.address,
         category: individualEvent.category,
         title: individualEvent.title,
-        startDate : individualEvent.startdate,
-        image : individualEvent.img
+        startDate: individualEvent.startdate,
+        image: individualEvent.img
         //summary: individualEvent.summary
-    };
-          
-    // individualEvent.objectID = doc.eventId;
-    // console.log("individualEvent",individualEvent)
-    algoArr.push(record);
+      };
+
+      // individualEvent.objectID = doc.eventId;
+      // console.log("individualEvent",individualEvent)
+      algoArr.push(record);
     })
-    var client =algoliaSearch(ALGOLIA_APP_ID,ALGOLIA_ADMIN_KEY);
+    var client = algoliaSearch(ALGOLIA_APP_ID, ALGOLIA_ADMIN_KEY);
     var index = client.initIndex(ALGOLIA_INDEX_NAME);
-    index.saveObjects(algoArr,function(err,content){
+    index.saveObjects(algoArr, function (err, content) {
       res.status(200).send("content")
     })
   })
@@ -81,7 +81,7 @@ app.post('/api/v1/register', (req, res) => {
 
 
   let token, userId;
-  db.doc(`/users/${newUser.handle}`)
+  db.doc(`/users/${newUser.email}`)
     .get()
     .then((doc) => {
       if (doc.exists) {
@@ -201,7 +201,7 @@ app.get('/api/v1/learning', (req, res) => {
         tempJSON.eventId = doc.id;
         eventsData.push(tempJSON);
       });
-      
+
       res.status(200).send(eventsData);
     }).catch(err => {
       console.error(err);
@@ -237,7 +237,7 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
         tempJSON = doc.data();
         userData.push(tempJSON);
       });
-      console.log("index:userData",userData)
+      console.log("index:userData", userData)
       res.status(200).send(userData);
     }).catch(err => {
       console.error(err);
@@ -245,38 +245,62 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
     });
 })
 app.get('/api/v1/eventDetails/:title', (req, res) => {
-  db.collection('events_test').where('title','==',req.params.title).get()
-  .then(snapshot=>{
-    let eventData = [];
-    snapshot.forEach(doc => {
-      let tempJSON = {};
-      tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventData.push(tempJSON);
-    });
-    res.status(200).send(eventData);
-  }).catch(
-    err=>{
-      res.status(500).json({ error: err.code });
-    })
-  })
+  db.collection('events_test').where('title', '==', req.params.title).get()
+    .then(snapshot => {
+      let eventData = [];
+      snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+        tempJSON.eventId = doc.id;
+        eventData.push(tempJSON);
+      });
+      res.status(200).send(eventData);
+    }).catch(
+      err => {
+        res.status(500).json({ error: err.code });
+      })
+})
 //update User route
-app.post('/api/v1/updateProfile', (req, res) => { 
+app.post('/api/v1/updateProfile', (req, res) => {
 
-    db.collection('users').doc(Object.values(req.body)[2]).update({
-      gender: Object.values(req.body)[3] ,
-      interests:Object.values(req.body)[6],
-      bio : Object.values(req.body)[5],
-      birthday : Object.values(req.body)[4],
-      address : Object.values(req.body)[7],
-      location: Object.values(req.body)[8],
-      imageUrl : Object.values(req.body)[9]
-     }).then(function(){
+  db.collection('users').doc(Object.values(req.body)[0]).update({
+    gender: Object.values(req.body)[3],
+    interests: Object.values(req.body)[6],
+    bio: Object.values(req.body)[5],
+    birthday: Object.values(req.body)[4],
+    address: Object.values(req.body)[7],
+    location: Object.values(req.body)[8],
+    imageUrl: Object.values(req.body)[9]
+  }).then(function () {
+    res.status(200);
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+});
+
+//update User friends
+app.post('/api/v1/sendFriendRequest', (req, res) => {
+  let sender = Object.values(req.body)[0];
+  let receiver = Object.values(req.body)[1];
+  if (sender) {
+    db.collection('users').doc(sender).collection('friends').doc(receiver).set({
+      status: "friendRequestSent",
+      email: receiver
+    })
+  }
+  if (sender) {
+    db.collection('users').doc(receiver).collection('friends').doc(sender).set({
+      status: "newRequestReceived",
+      email: sender
+    }).then(function () {
       res.status(200);
-     }).catch(err => {
+    }).catch(err => {
       console.error(err);
       res.status(500).json({ error: err.code });
-    });  
+    });
+  }
+
 });
 
 exports.api = functions.https.onRequest(app);
