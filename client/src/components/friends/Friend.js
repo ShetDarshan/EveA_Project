@@ -41,7 +41,7 @@ class Friend extends Component {
                         <div>
                         <p className="lead text-muted">Welcome {user.email} </p>
                         <h4>Name: {value.email}</h4>
-                        <button
+                        <button className="btn btn-lg btn-danger btn-sm mr-2"
                             onClick={() => {
                                 this.setState({
                                     loggedEmail: user.email,

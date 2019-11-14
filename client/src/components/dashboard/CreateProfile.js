@@ -70,14 +70,14 @@ class CreateProfile extends Component {
 	                        </div> */}
 	                        <div className="name">
 	                            <h3 className="title">{userName}</h3>
-							                	<h6>Student</h6>
-                                <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
+							                	
+                                <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link>
                                 <div className="description text-center mt-2">
-                                    <p>User description. Please make sure you are giving enough description to fill in the contents </p>
-                                    <h6> Studied at: <b className="text-white bold">Some text</b> </h6>
-                                    <h6> Joined at: <b className="text-white bold">Some text</b> </h6>
-                                    <h6> Lives at: <b className="text-white bold">Some text</b> </h6>
-                                    <h6> From: <b className="text-white bold">Some text</b> </h6>
+                                    <p>{userBio}</p>
+                                    {/* <h6> Addresss: <b className="text-white bold">{userlocation}</b> </h6> */}
+                                    <h6> Interest: <b className="text-white bold">{userInterests}</b> </h6>
+                                    <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
+                                   
                                 </div>
 	                        </div>
 	                    </div>
@@ -94,9 +94,11 @@ class CreateProfile extends Component {
                           <li className="m-2">
                              <div className="card border-primary mb-3 text-center">
                              <div className="friendAvtar">
-                                    <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
+                              <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
+      
+                                    {/* <img src={data.imageUrl} alt="Circle Image" className="img-raised rounded-circle img-fluid"/> */}
                                     <h6 className="m-2 text-white">{data.handle}</h6>
-                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-info btn-sm mr-2">View Profile</Link>
+                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
                                     {/* <a href="#" className="btn btn-lg btn-info btn-sm mr-2">View Profile</a>  */}
                                   {/* <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
                                   <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link> */}
