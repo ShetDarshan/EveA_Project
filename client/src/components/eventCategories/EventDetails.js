@@ -9,15 +9,14 @@ import Slider from "react-slick";
 import "../../css/App.css";
 class EventDetails extends Component {
   componentDidMount() {
-    console.log("Loading Component Mounted");
+    this.props.getRecmdEvents(this.props.match.params.title);
+    this.props.getLocationEvents(this.props.match.params.title);
   }
 constructor(props) {
     super(props);
     this.state = {};
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
-    this.props.getRecmdEvents(this.props.match.params.title);
-    this.props.getLocationEvents(this.props.match.params.title);
 }
   render() {
     const { eventDetails, loading,recom,locationData } = this.props.eventDetails;

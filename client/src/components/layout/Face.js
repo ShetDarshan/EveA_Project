@@ -9,7 +9,7 @@ const config = {
     authDomain: "evea-prj.firebaseapp.com",
     // ...
   };
-  firebase.initializeApp(config);
+  // firebase.initializeApp(config);
   // Configure FirebaseUI.
 const uiConfig = {
     // Popup signin flow rather than redirect flow.
