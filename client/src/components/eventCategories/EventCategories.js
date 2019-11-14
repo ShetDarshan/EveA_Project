@@ -56,8 +56,7 @@ import "../../css/App.css";
                                            </Link>
                                             <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
                                           </div>
-                                        </div>                                
-                              
+                                        </div>  
                         ))}
                         </Slider>
                         </div>  

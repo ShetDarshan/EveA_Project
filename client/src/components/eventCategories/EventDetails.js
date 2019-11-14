@@ -36,8 +36,11 @@ constructor(props) {
        slidesToShow: 4,
        slidesToScroll: 1
      };
+     function triggerRefresh(){
+      //refreshPage();
+     }
      function refreshPage(){ 
-      setTimeout(function(){  window.location.reload();  }, 500); 
+      setTimeout(function(){  window.location.reload();},1e2); 
       }
     return (
         <div className="container pt-2">
@@ -47,7 +50,7 @@ constructor(props) {
                     <div key={data.title+"-left-container"} className="left-container col-lg-8">
                       <h4 key={data.title+"-title"}>{data.title}</h4>
                       <img key={data.title+"-image"} src={data.img}/>
-                      <p>{data.summary}</p>
+                      <p className="mt-2 text-justify">{data.summary}</p>
                       </div>
                       <div key={data.title+"-right-container"} className="right-container col-lg-4 pt-5">
                         <h5 key={data.title+"-category"} className="mb-2">Category:</h5><p className="card-text mb-2"> {data.category}</p>
@@ -62,10 +65,10 @@ constructor(props) {
                   <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
                     <Slider {...setting}>
                     {
-                          recom.map(data => (
+                          recom && recom.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                         <div key={data.title+"-body"} className="card-body"  > 
-                                        <div key={data.title+"-image-container"} className="imageContainer" >
+                                        <div key={data.title+"-image-container"} className="imageContainer" onClick = {triggerRefresh}>
                                           <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
                                         </div>
                                         <Link to={`/event/${data.title}`} className="card-link">
@@ -86,7 +89,7 @@ constructor(props) {
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
                     <Slider {...setting}>
                     {
-                          locationData.map(data => (
+                          locationData && locationData.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                         <div key={data.title+"-body"} className="card-body"  > 
                                         <div key={data.title+"-image-container"} className="imageContainer" >
