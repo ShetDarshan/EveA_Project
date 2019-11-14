@@ -307,4 +307,17 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
     res.status(500).json({ error: err.code });
   });
 })
+app.get('/api/v1/acceptRequest/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  db.collection('connections').doc(loggedEmail).get()
+  .then(snapshot => {
+    from = snapshot.data().from;
+    db.collection('connections').doc(loggedEmail).update({status: 'friends'});
+    db.collection('connections').doc(from).update({status: 'friends'});
+    res.status(200).send(snapshot.data());
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+})
 exports.api = functions.https.onRequest(app);
