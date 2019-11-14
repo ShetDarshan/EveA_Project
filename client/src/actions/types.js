@@ -9,3 +9,4 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const GET_EVENT_DETAILS = 'GET_EVENT_DETAILS';
 export const GET_RCMD_DETAILS = 'GET_RCMD_DETAILS';
 export const GET_LOC_DETAILS = 'GET_LOC_DETAILS';
+export const SEND_REQ = 'SEND_REQ';

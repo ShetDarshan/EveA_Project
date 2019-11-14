@@ -81,7 +81,7 @@ app.post('/api/v1/register', (req, res) => {
 
 
   let token, userId;
-  db.doc(`/users/${newUser.handle}`)
+  db.doc(`/users/${newUser.email}`)
     .get()
     .then((doc) => {
       if (doc.exists) {
@@ -279,4 +279,22 @@ app.post('/api/v1/updateProfile', (req, res) => {
     });  
 });
 
+//update User friends
+app.post('/api/v1/sendFriendRequest', (req, res) => {
+  let sender = Object.values(req.body)[0];
+  let receiver = Object.values(req.body)[1];
+    db.collection('users').doc(sender).collection('friends').doc(receiver).set({
+      status: "friendRequestSent",
+      email: receiver
+    })
+    db.collection('users').doc(receiver).collection('friends').doc(sender).set({
+      status: "newRequestReceived",
+      email: sender
+    }).then(function (){
+      res.status(200);
+    }).catch( err =>{
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+});
 exports.api = functions.https.onRequest(app);
