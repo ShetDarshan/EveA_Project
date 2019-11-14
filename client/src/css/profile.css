@@ -21,12 +21,15 @@
 .profile-page .profile  {
     text-align:center;
 }
+.friendAvtar,
 .profile .avtar {
     width: auto;
     max-height: 18rem;
     overflow: hidden;
     cursor: pointer;
   }
+ 
+.friendAvtar .avtarImg, 
 .profile .avtar .avtarImg {
     width: 16rem;
     height: 16rem;
@@ -36,8 +39,13 @@
     background-repeat: no-repeat;
     margin: 0 auto;
 }
-.friendAvtar img {
-    max-width: 80px;
-    width: 100%;
+.friendAvtar {
+    width: 12rem;
+    max-width: 12rem;
+    max-height: 12rem;
+}
+.friendAvtar .avtarImg {
+    width: 6rem;
+    height: 6rem;
     margin: 0 auto;
 }
