@@ -99,6 +99,7 @@ footer.footer-custom {
   width: 16rem;
   height: 10rem;
   overflow: hidden;
+  cursor:pointer;
 }
 .card-slider .card-body .card-title {
   max-height: 2rem;
@@ -141,10 +142,6 @@ footer.footer-custom {
 .slick-next:before{
   font-size: 25px !important;
 }
-
-/* .jumbotron_home{
-  height:660px !important;
-    background-image: url('./event.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }  */
+img {
+  cursor:pointer !important;
+}
