@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
+import { getfriendRequestList } from '../../actions/friendActions';
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
@@ -14,6 +15,7 @@ class CreateProfile extends Component {
     const { user } = this.props.auth;
     this.props.getProfile(user.email);
     this.props.getAllProfiles();
+    this.props.getfriendRequestList(user.email);
     
   }
   componentDidMount(){
@@ -24,6 +26,7 @@ class CreateProfile extends Component {
 
     // let { imagePreviewUrl } = this.state;
     const { profile,profiles } = this.props.users;
+    const {request} = this.props.friends;
     if (profile) {
       profile.map(values => {
         userEmail = values.email;
@@ -39,13 +42,13 @@ class CreateProfile extends Component {
         userGender = values.gender;
       });
     }
-    if(profiles){
-        console.log("list of profiles",profiles)
+    if(request){
+        console.log("list of requests",request)
     }
     return (
 
       <div className="container" style={{ borderStyle: "inset", backgroundColor: "#fafafa", marginTop: "50px" }}>
-        <div className="row">{userEmail}</div>
+        <div className="row">{profile.email}</div>
         <img src={userImageUrl?userImageUrl:noPic} className="img-fluid" style={{ width: "200px", height: "200px" }}></img>
         <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
         <div>
@@ -67,7 +70,8 @@ class CreateProfile extends Component {
 const mapStateToProps = state => ({
   //getting the user list from profileReducer and auth from authReducer
   users: state.users,
-  auth: state.auth
+  auth: state.auth,
+  friends : state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile ,getfriendRequestList})(CreateProfile);
