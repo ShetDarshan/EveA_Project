@@ -14,6 +14,7 @@ class CreateProfile extends Component {
     const { user } = this.props.auth;
     this.props.getProfile(user.email);
     this.props.getAllProfiles();
+    
   }
   componentDidMount(){
     const { user } = this.props.auth;
@@ -48,7 +49,13 @@ class CreateProfile extends Component {
         <img src={userImageUrl?userImageUrl:noPic} className="img-fluid" style={{ width: "200px", height: "200px" }}></img>
         <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
         <div>
-
+          <ul>
+            {profiles.map((value, index) => {
+              return <Link to={`/friend/${value.email}`} className="card-link">
+               <li key={index}>{value.email}</li>
+               </Link>
+            })}
+          </ul>
         </div>
       </div>
       
