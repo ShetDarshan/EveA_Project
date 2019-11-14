@@ -1,6 +1,7 @@
-import { SEND_REQ } from '../actions/types';
+import { SEND_REQ,GET_REQ } from '../actions/types';
 const initialState = {
     friend: [],
+    request: [],
     loading: false
 };
 
@@ -13,6 +14,12 @@ export default function(state = initialState,action) {
                 friend: action.payload,
                 loading:false
      };
+     case GET_REQ:
+        return {
+            ...state,
+            request: action.payload,
+            loading:false
+ };
         default: 
             return state;
 

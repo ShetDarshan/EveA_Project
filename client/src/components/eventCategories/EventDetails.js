@@ -66,7 +66,7 @@ constructor(props) {
                   <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
                     <Slider {...setting}>
                     {
-                          recom.map(data => (
+                          recom && recom.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                         <div key={data.title+"-body"} className="card-body"  > 
                                         <div key={data.title+"-image-container"} className="imageContainer" onClick = {triggerRefresh}>
@@ -90,7 +90,7 @@ constructor(props) {
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
                     <Slider {...setting}>
                     {
-                          locationData.map(data => (
+                          locationData && locationData.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                         <div key={data.title+"-body"} className="card-body"  > 
                                         <div key={data.title+"-image-container"} className="imageContainer" >

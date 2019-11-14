@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
+import { getfriendRequestList } from '../../actions/friendActions';
+
 import "../../css/profile.css";
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
@@ -16,6 +18,7 @@ class CreateProfile extends Component {
     const profile = this.props.getProfile(user.email);
       console.log("Constructor",profile);
     this.props.getAllProfiles();
+    this.props.getfriendRequestList(user.email);
     
   }
   componentDidMount(){
@@ -27,6 +30,7 @@ class CreateProfile extends Component {
 
     // let { imagePreviewUrl } = this.state;
     const { profile, profiles } = this.props.users;
+    const {request} = this.props.friends;
     console.log("Profile",this.props.users);
     if (profile) {
       profile.map(values => {
@@ -44,8 +48,8 @@ class CreateProfile extends Component {
       });
       
     }
-    if(profiles){
-        console.log("list of profiles",profiles)
+    if(request){
+        console.log("list of requests",request)
     }
     return (
       <div className="profile-page">
@@ -58,11 +62,14 @@ class CreateProfile extends Component {
                 <div className="row">
                     <div className="col-md-6 ml-auto mr-auto">
         	           <div className="profile">
-	                        <div className="avtar">
-	                            <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
-	                        </div>
+                        <div  className="avtar">
+                             <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
+                          </div>
+	                        {/* <div className="avtar">
+	                            <img src={} alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
+	                        </div> */}
 	                        <div className="name">
-	                            <h3 className="title">User Name</h3>
+	                            <h3 className="title">{userName}</h3>
 							                	<h6>Student</h6>
                                 <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
                                 <div className="description text-center mt-2">
@@ -89,8 +96,8 @@ class CreateProfile extends Component {
                              <div className="friendAvtar">
                                     <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
                                     <h6 className="m-2 text-white">{data.handle}</h6>
-                                    <a href="#" className="btn btn-lg btn-info btn-sm mr-2">Add Friend</a>
-                                    <a href="#" className="btn btn-lg btn-info btn-sm mr-2">Remove</a>
+                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-info btn-sm mr-2">View Profile</Link>
+                                    {/* <a href="#" className="btn btn-lg btn-info btn-sm mr-2">View Profile</a>  */}
                                   {/* <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
                                   <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link> */}
                                 </div>
@@ -113,7 +120,8 @@ class CreateProfile extends Component {
 const mapStateToProps = state => ({
   //getting the user list from profileReducer and auth from authReducer
   users: state.users,
-  auth: state.auth
+  auth: state.auth,
+  friends : state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile ,getfriendRequestList})(CreateProfile);
