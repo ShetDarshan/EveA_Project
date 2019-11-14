@@ -91,7 +91,7 @@ export const getEvents = () => dispatch => {
   export const getLocationEvents = title => dispatch => {
 
     axios 
-      .get(`https://evea-prj.appspot.com/api/recommendationData/${title}`)
+      .get(`https://evea-prj.appspot.com/api/nearByData/${title}`)
       .then(res => 
         dispatch({
           type: GET_LOC_DETAILS,
