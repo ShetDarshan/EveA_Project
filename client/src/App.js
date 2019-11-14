@@ -12,7 +12,7 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/navbar/navbar';
 import Footer from './components/layout/Footer';
 import CreateProfile from './components/dashboard/CreateProfile';
 import UpdateProfile from './components/dashboard/UpdateProfile';
@@ -21,6 +21,7 @@ import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
 import Search from './components/dashboard/Search';
 import Friend from './components/friends/Friend';
+
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -45,7 +46,6 @@ class App extends Component {
         <Router>
         <div className="App">
           <Navbar />
-          
             <Route exact path="/" component={Landing} />
             <div className="container-flex jumbotron_home mb-0">
                 <Route exact path="/register" component={Register}/>
