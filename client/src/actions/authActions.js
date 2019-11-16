@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode'
 
 export const reguser = (userInfo,history) => dispatch => {
     axios
-      .post('http://localhost:5000/register', userInfo)
+      .post('http://localhost:5000/api/v1/register', userInfo)
       .then(res => {
         const { token } = res.data;
         setAuthToken(token);

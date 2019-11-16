@@ -5,6 +5,3 @@ import App from './App';
 //import "./css/bootstrap.min.css"
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
