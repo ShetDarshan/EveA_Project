@@ -14,8 +14,8 @@ class Friend extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedEmail: '',
-            friendEmail: '',
+            loggedEmail: [],
+            friendEmail: [],
             status: ''
         };
         this.props.getProfile(this.props.match.params.email);
