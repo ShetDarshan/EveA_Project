@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3596bcc8.chunk.css",
+    "main.js": "/static/js/main.df9083e8.chunk.js",
+    "main.js.map": "/static/js/main.df9083e8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c2763ce9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c2763ce9.js.map",
+    "static/css/2.cdaf15d1.chunk.css": "/static/css/2.cdaf15d1.chunk.css",
+    "static/js/2.d408d72c.chunk.js": "/static/js/2.d408d72c.chunk.js",
+    "static/js/2.d408d72c.chunk.js.map": "/static/js/2.d408d72c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3e2d6416a02d87c0b62cf79bdf3afdc6.js": "/precache-manifest.3e2d6416a02d87c0b62cf79bdf3afdc6.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.cdaf15d1.chunk.css.map": "/static/css/2.cdaf15d1.chunk.css.map",
+    "static/css/main.3596bcc8.chunk.css.map": "/static/css/main.3596bcc8.chunk.css.map",
+    "static/media/index.css": "/static/media/event.122187c4.jpg",
+    "static/media/logo.png": "/static/media/logo.19f2d4fd.png",
+    "static/media/music.jpg": "/static/media/music.4108e8e1.jpg",
+    "static/media/noPic.jpg": "/static/media/noPic.b5f8f954.jpg",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/sports.jpg": "/static/media/sports.64fb7e31.jpg"
+  }
+}
