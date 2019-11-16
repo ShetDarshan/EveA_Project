@@ -5,6 +5,7 @@ import { luser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { Link } from 'react-router-dom';
 import './index.css'
+import Face from '../layout/Face';
 
  class Login extends Component {
     constructor() {
@@ -53,7 +54,7 @@ import './index.css'
             <div className="col-md-8 m-auto">
     
                <h1 className="display-4 text-center">Log In</h1>
-              <h5 className="lead text-center">Sign in to your account</h5>
+              {/* <h5 className="lead text-center">Sign in to your account</h5> */}
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"
@@ -75,10 +76,8 @@ import './index.css'
                  <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
                 Forgot Password?
               </Link>
-       
-
                 <input type="submit" className="btn btn-danger btn-block mt-4" value="Login" />
-           
+                <Face/>
               </form>
             </div>
           </div>

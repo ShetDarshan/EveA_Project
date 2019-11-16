@@ -81,7 +81,7 @@ app.post('/api/v1/register', (req, res) => {
 
 
   let token, userId;
-  db.doc(`/users/${newUser.handle}`)
+  db.doc(`/users/${newUser.email}`)
     .get()
     .then((doc) => {
       if (doc.exists) {
@@ -235,6 +235,7 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
       snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
+        console.log("userdata_index.js_234",doc.data())
         userData.push(tempJSON);
       });
       console.log("index:userData",userData)
@@ -262,7 +263,6 @@ app.get('/api/v1/eventDetails/:title', (req, res) => {
   })
 //update User route
 app.post('/api/v1/updateProfile', (req, res) => { 
-
     db.collection('users').doc(Object.values(req.body)[2]).update({
       gender: Object.values(req.body)[3] ,
       interests:Object.values(req.body)[6],
@@ -279,4 +279,45 @@ app.post('/api/v1/updateProfile', (req, res) => {
     });  
 });
 
+//update User friends
+app.post('/api/v1/sendFriendRequest', (req, res) => {
+  let sender = Object.values(req.body)[0];
+  let receiver = Object.values(req.body)[1];
+    db.collection('connections').doc(receiver).set({ 
+      status: "newRequestReceived",from: sender
+    })
+    db.collection('connections').doc(sender).set({
+      status: "RequestSent",to: receiver
+    }).then(function (){
+      res.status(200);
+    }).catch( err =>{
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+});
+
+//get individual friends list data
+app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  db.collection('connections').doc(loggedEmail).get()
+  .then(snapshot => {
+    res.status(200).send(snapshot.data());
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+})
+app.get('/api/v1/acceptRequest/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  db.collection('connections').doc(loggedEmail).get()
+  .then(snapshot => {
+    from = snapshot.data().from;
+    db.collection('connections').doc(loggedEmail).update({status: 'friends'});
+    db.collection('connections').doc(from).update({status: 'friends'});
+    res.status(200).send(snapshot.data());
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+})
 exports.api = functions.https.onRequest(app);

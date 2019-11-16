@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
+import { getfriendRequestList } from '../../actions/friendActions';
+
+import "../../css/profile.css";
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
@@ -12,17 +15,23 @@ class CreateProfile extends Component {
   constructor(props) {
     super(props);
     const { user } = this.props.auth;
-    this.props.getProfile(user.email);
+    const profile = this.props.getProfile(user.email);
+      console.log("Constructor",profile);
     this.props.getAllProfiles();
+    this.props.getfriendRequestList(user.email);
+    
   }
   componentDidMount(){
     const { user } = this.props.auth;
+    console.log("user",user);
     this.props.getProfile(user.email);
     }
   render() {
 
     // let { imagePreviewUrl } = this.state;
-    const { profile,profiles } = this.props.users;
+    const { profile, profiles } = this.props.users;
+    const {request} = this.props.friends;
+    console.log("Profile",this.props.users);
     if (profile) {
       profile.map(values => {
         userEmail = values.email;
@@ -37,21 +46,74 @@ class CreateProfile extends Component {
         userImageUrl = values.imageUrl;
         userGender = values.gender;
       });
+      
     }
-    if(profiles){
-        console.log("list of profiles",profiles)
+    if(request){
+        console.log("list of requests",request)
     }
     return (
-
-      <div className="container" style={{ borderStyle: "inset", backgroundColor: "#fafafa", marginTop: "50px" }}>
-        <div className="row">{userEmail}</div>
-        <img src={userImageUrl?userImageUrl:noPic} className="img-fluid" style={{ width: "200px", height: "200px" }}></img>
-        <Link to="/updateProfile" className="btn btn-lg btn-info">Update Profile</Link>
-        <div>
-
-        </div>
-      </div>
+      <div className="profile-page">
+        {/* style={{backgroundImage:  "url(http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png)"}} */}
+          <div className="page-header header-filter"   ></div> 
+          {/* `url(${data.img})` */}
+          <div className="main main-raised">
+            <div className="profile-content">
+              <div className="container">
+                <div className="row">
+                    <div className="col-md-6 ml-auto mr-auto">
+        	           <div className="profile">
+                        <div  className="avtar">
+                             <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
+                          </div>
+	                        {/* <div className="avtar">
+	                            <img src={} alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
+	                        </div> */}
+	                        <div className="name">
+	                            <h3 className="title">{userName}</h3>
+							                	
+                                <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link>
+                                <div className="description text-center mt-2">
+                                    <p>{userBio}</p>
+                                    {/* <h6> Addresss: <b className="text-white bold">{userlocation}</b> </h6> */}
+                                    <h6> Interest: <b className="text-white bold">{userInterests}</b> </h6>
+                                    <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
+                                   
+                                </div>
+	                        </div>
+	                    </div>
+    	            </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-12 ml-auto mr-auto">
+                      <h5>Suggested Friends</h5>
+                      <ul className="customFriendList">
+                      { 
+                        profiles && profiles.map(data => {
+                        return(
+                       
+                          <li className="m-2">
+                             <div className="card border-primary mb-3 text-center">
+                             <div className="friendAvtar">
+                              <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
       
+                                    {/* <img src={data.imageUrl} alt="Circle Image" className="img-raised rounded-circle img-fluid"/> */}
+                                    <h6 className="m-2 text-white">{data.handle}</h6>
+                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
+                                    {/* <a href="#" className="btn btn-lg btn-info btn-sm mr-2">View Profile</a>  */}
+                                  {/* <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
+                                  <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link> */}
+                                </div>
+                                 </div>
+                          </li>
+                       
+                         )})}
+                          </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
     )
   }
 
@@ -60,7 +122,8 @@ class CreateProfile extends Component {
 const mapStateToProps = state => ({
   //getting the user list from profileReducer and auth from authReducer
   users: state.users,
-  auth: state.auth
+  auth: state.auth,
+  friends : state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile ,getfriendRequestList})(CreateProfile);

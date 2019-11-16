@@ -45,21 +45,18 @@ import "../../css/App.css";
                                     <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                           <div key={data.title+"-body"} className="card-body"  > 
                                           <div key={data.title+"-image-container"} className="imageContainer" >
-                                            <img key={data.title+"-img"} src={data.img} alt={data.title}></img>
+                                            <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
                                           </div>
-                                            <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-4 " style={{paddingTop:"50px"}}>{data.title}</h6>
-                                            <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 "><b>Date: </b>{data.startdate}</h6>
-                                            {/* <h6 key={data.enddate+"-enddate"} className="card-subtitle mb-2 "><span className="text-muted">End Date:</span>{data.enddate}</h6> */}
-                                            {/* <h6 key={data.time+"-time"} className="card-subtitle mb-2"><b>Time: </b> {data.time}</h6> */}
-                                      
-                                            {/* <a href="#" className="card-link">Go to Site</a> */}
+                                          <Link to={`/event/${data.title}`} className="card-link">
+                                            <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
+                                            </Link>
+                                            <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
                                             <Link to={`/event/${data.title}`} className="card-link">
                                                    View Event
                                            </Link>
                                             <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">Show Route</a>
                                           </div>
-                                        </div>                                
-                              
+                                        </div>  
                         ))}
                         </Slider>
                         </div>  

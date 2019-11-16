@@ -18,7 +18,7 @@ export default  class MainCorousel extends React.Component {
       };
       return (
         <div className="jumbotron slider">
-            <div className="mainSlider">
+            {/* <div className="mainSlider">
                     <Slider {...settings}>
                     <div>
                         <img src={require('./../../img/music.jpg')} alt="Bacn"></img>
@@ -39,7 +39,7 @@ export default  class MainCorousel extends React.Component {
                         <img src={require('./../../img/music.jpg')} alt="Bacn"></img>
                     </div>
                     </Slider>
-            </div>
+            </div> */}
             <EventCategories/>
       </div>
         
