@@ -37,28 +37,28 @@ app.use(function (req, res, next) {
   next();
 });
 
-exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
-  var algoArr = []; 
+exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
+  var algoArr = [];
   admin.firestore().collection('events_test').get().then((docs) => {
-    docs.forEach((doc)=>{
-      let individualEvent =  doc.data();
+    docs.forEach((doc) => {
+      let individualEvent = doc.data();
       const record = {
         objectID: doc.id,
         address: individualEvent.address,
         category: individualEvent.category,
         title: individualEvent.title,
-        startDate : individualEvent.startdate,
-        image : individualEvent.img
+        startDate: individualEvent.startdate,
+        image: individualEvent.img
         //summary: individualEvent.summary
-    };
-          
-    // individualEvent.objectID = doc.eventId;
-    // console.log("individualEvent",individualEvent)
-    algoArr.push(record);
+      };
+
+      // individualEvent.objectID = doc.eventId;
+      // console.log("individualEvent",individualEvent)
+      algoArr.push(record);
     })
-    var client =algoliaSearch(ALGOLIA_APP_ID,ALGOLIA_ADMIN_KEY);
+    var client = algoliaSearch(ALGOLIA_APP_ID, ALGOLIA_ADMIN_KEY);
     var index = client.initIndex(ALGOLIA_INDEX_NAME);
-    index.saveObjects(algoArr,function(err,content){
+    index.saveObjects(algoArr, function (err, content) {
       res.status(200).send("content")
     })
   })
@@ -201,7 +201,7 @@ app.get('/api/v1/learning', (req, res) => {
         tempJSON.eventId = doc.id;
         eventsData.push(tempJSON);
       });
-      
+
       res.status(200).send(eventsData);
     }).catch(err => {
       console.error(err);
@@ -235,10 +235,10 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
       snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
-        console.log("userdata_index.js_234",doc.data())
+        console.log("userdata_index.js_234", doc.data())
         userData.push(tempJSON);
       });
-      console.log("index:userData",userData)
+      console.log("index:userData", userData)
       res.status(200).send(userData);
     }).catch(err => {
       console.error(err);
@@ -246,51 +246,94 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
     });
 })
 app.get('/api/v1/eventDetails/:title', (req, res) => {
-  db.collection('events_test').where('title','==',req.params.title).get()
-  .then(snapshot=>{
-    let eventData = [];
-    snapshot.forEach(doc => {
-      let tempJSON = {};
-      tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventData.push(tempJSON);
-    });
-    res.status(200).send(eventData);
-  }).catch(
-    err=>{
-      res.status(500).json({ error: err.code });
-    })
-  })
+  db.collection('events_test').where('title', '==', req.params.title).get()
+    .then(snapshot => {
+      let eventData = [];
+      snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+        tempJSON.eventId = doc.id;
+        eventData.push(tempJSON);
+      });
+      res.status(200).send(eventData);
+    }).catch(
+      err => {
+        res.status(500).json({ error: err.code });
+      })
+})
 //update User route
-app.post('/api/v1/updateProfile', (req, res) => { 
-    db.collection('users').doc(Object.values(req.body)[2]).update({
-      gender: Object.values(req.body)[3] ,
-      interests:Object.values(req.body)[6],
-      bio : Object.values(req.body)[5],
-      birthday : Object.values(req.body)[4],
-      address : Object.values(req.body)[7],
-      location: Object.values(req.body)[8],
-      imageUrl : Object.values(req.body)[9]
-     }).then(function(){
-      res.status(200);
-     }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });  
+app.post('/api/v1/updateProfile', (req, res) => {
+  db.collection('users').doc(Object.values(req.body)[2]).update({
+    gender: Object.values(req.body)[3],
+    interests: Object.values(req.body)[6],
+    bio: Object.values(req.body)[5],
+    birthday: Object.values(req.body)[4],
+    address: Object.values(req.body)[7],
+    location: Object.values(req.body)[8],
+    imageUrl: Object.values(req.body)[9]
+  }).then(function () {
+    res.status(200);
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 });
 
 //update User friends
 app.post('/api/v1/sendFriendRequest', (req, res) => {
   let sender = Object.values(req.body)[0];
   let receiver = Object.values(req.body)[1];
-    db.collection('connections').doc(receiver).set({ 
-      status: "newRequestReceived",from: sender
-    })
-    db.collection('connections').doc(sender).set({
-      status: "RequestSent",to: receiver
-    }).then(function (){
-      res.status(200);
-    }).catch( err =>{
+  db.collection('connections').doc(sender).get().then(doc => {
+    let arr = [];
+    if (!doc.exists) {
+      db.collection('connections').doc(sender).set({
+        to: [receiver]
+      }, { merge: true })
+    } else {
+      if (!doc.data()['to']) {
+        arr.push(receiver);
+        db.collection('connections').doc(sender).set({
+          to: arr
+        }, { merge: true })
+      } else {
+        arr = doc.data()['to'];
+        if (!arr.includes(receiver)) {
+          arr.push(receiver);
+          console.log("final", arr)
+          db.collection('connections').doc(sender).set({
+            to: arr
+          }, { merge: true })
+        }
+      }
+    }
+  })
+
+  db.collection('connections').doc(receiver).get().then(doc => {
+    let arr = [];
+    if (!doc.exists) {
+      db.collection('connections').doc(receiver).set({
+        from: [sender]
+      }, { merge: true })
+    } else {
+      if (!doc.data()['from']) {
+        arr.push(sender);
+        db.collection('connections').doc(receiver).set({
+          from: arr
+        }, { merge: true })
+      } else {
+        arr = doc.data()['from'];
+        if (!arr.includes(sender)) {
+          arr.push(sender);
+          console.log("final", arr)
+          db.collection('connections').doc(receiver).set({
+            from: arr
+          }, { merge: true })
+        }
+      }
+    }
+  }).then(function () {
+    res.status(200);
+  }).catch(err => {
       console.error(err);
       res.status(500).json({ error: err.code });
     });
@@ -300,24 +343,24 @@ app.post('/api/v1/sendFriendRequest', (req, res) => {
 app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
   loggedEmail = req.params.email;
   db.collection('connections').doc(loggedEmail).get()
-  .then(snapshot => {
-    res.status(200).send(snapshot.data());
-  }).catch(err => {
-    console.error(err);
-    res.status(500).json({ error: err.code });
-  });
+    .then(snapshot => {
+      res.status(200).send(snapshot.data());
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
 })
 app.get('/api/v1/acceptRequest/:email', (req, res) => {
   loggedEmail = req.params.email;
   db.collection('connections').doc(loggedEmail).get()
-  .then(snapshot => {
-    from = snapshot.data().from;
-    db.collection('connections').doc(loggedEmail).update({status: 'friends'});
-    db.collection('connections').doc(from).update({status: 'friends'});
-    res.status(200).send(snapshot.data());
-  }).catch(err => {
-    console.error(err);
-    res.status(500).json({ error: err.code });
-  });
+    .then(snapshot => {
+      from = snapshot.data().from;
+      db.collection('connections').doc(loggedEmail).update({ status: 'friends' });
+      db.collection('connections').doc(from).update({ status: 'friends' });
+      res.status(200).send(snapshot.data());
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
 })
 exports.api = functions.https.onRequest(app);
