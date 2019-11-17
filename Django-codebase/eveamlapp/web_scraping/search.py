@@ -20,9 +20,11 @@ class Search:
             var1 = item.title
             ratio = fuzz.token_sort_ratio(var1.lower(),str2Match.lower())
             #print(ratio)
-            if ratio >  30:
+            if ratio > 30:
                 i=+1
                 output_list.append(item)
+                print(len)
 
-        print(i)
+        print(len(output_list))
+        
         return output_list

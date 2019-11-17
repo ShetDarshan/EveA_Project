@@ -6,6 +6,7 @@ import re
 import datetime
 
 from eveamlapp.web_scraping.models import EventData
+#from models import EventData
 
 class TUD_Blanchardstown:
     @staticmethod
@@ -39,13 +40,14 @@ class TUD_Blanchardstown:
             read_more = container.a['href']
             read_more = 'https://www.itb.ie/NewsEvents/' + read_more
             location = "Technological University Dublin, Blanchardstown, Dublin 15"
-            Category='EDUCATION,BUSINESS & TECHNOLOGY'
+            Category='EDUCATION, BUSINESS & TECHNOLOGY'
+            image = 'https://uindia.net/assets/img/MediaTechnology.jpg'
 
             data = EventData()
 
             data.id = uuid.uuid1().__str__()
             data.title = title
-            data.img = ''
+            data.img = image
             data.startdate = date
             data.enddate = ' '
             data.price = ' '
