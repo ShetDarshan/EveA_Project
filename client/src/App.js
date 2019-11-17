@@ -19,7 +19,11 @@ import UpdateProfile from './components/dashboard/UpdateProfile';
 import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
+<<<<<<< HEAD
 
+=======
+import Search from './components/dashboard/Search';
+>>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -58,6 +62,10 @@ class App extends Component {
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
        <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
+<<<<<<< HEAD
+=======
+                <Route exact path="/search" component={Search}/>
+>>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
             </div>
 
             

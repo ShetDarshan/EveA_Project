@@ -37,3 +37,4 @@ Django_codebase/eveamlapp/web_scraping/websites/__pycache__
 venv/
 
 .vscode/
+public/

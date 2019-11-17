@@ -34,7 +34,7 @@ class DublintownScrape:
                 except:
                     image='None'
                 category=container.h5.text.strip()
-                if category=='Activities, Fashion' or category=='Activities, Art, Workshop':
+                if category=='Activities, Fashion' or category=='Activities, Art, Workshop' or category == 'Art, Exhibition' or category == 'Activities, Christmas, Family, Theatre' or category == 'Activities, Theatre':
                     category='FASHION, ART & THEATRE'
                     if category == 'FASHION, ART & THEATRE' and image == 'None':
                         image = 'https://4.bp.blogspot.com/-haQkpIywgPA/W5L1p-6P5JI/AAAAAAAANv4/279R0n1im_MugfsnYTlbf5ZiTaG2s7NYQCLcBGAs/s1600/Six_photoby_IdilSukan_18.jpg'
@@ -46,16 +46,16 @@ class DublintownScrape:
                     category='COMMUNITY & FESTIVALS'
                     if category == 'COMMUNITY & FESTIVALS' and image == 'None':
                         image = 'https://www.totallydublin.ie/wp-content/uploads/2017/07/Just-Eat-Street.jpg'
-                elif category=='Tours' or category=='Music, Tours' or category=='Culture, Tours' or category=='Music, Nightlife' or category=='Music' or category=='Activities, Art, Culture, Drinks, Fashion, Food And Drink, Free, Market' or category=='Activities, Comedy' or category=='Activities, Culture, Exhibition' or category == 'Activities':
+                elif category=='Tours' or category=='Music, Tours' or category=='Culture, Tours' or category=='Music, Nightlife' or category=='Music' or category=='Activities, Art, Culture, Drinks, Fashion, Food And Drink, Free, Market' or category=='Activities, Comedy' or category=='Activities, Culture, Exhibition' or category == 'Activities' or category == 'Christmas, Music' or category == 'Activities, Christmas, Cinema, Music' or category == 'Activities, Family':
                     category='MUSIC & ENTERTAINMENT'
                     if category == 'MUSIC & ENTERTAINMENT' and image == 'None':
                         image = 'https://livestyle.com/wp-content/uploads/2017/07/slider-4.jpg'
-                elif category=='Theatre' or category=='Fashion' or category=='Culture, Theatre' or category=='Halloween, Theatre' or category=='Activities, Fashion' or category=='Culture, Exhibition, Family, Food And Drink' or category=='Activities, Art, Workshop' or category=='Family, Theatre' or category == 'Activities, Halloween, Nightlife, Tours':
+                elif category=='Theatre' or category=='Fashion' or category=='Culture, Theatre' or category=='Halloween, Theatre' or category=='Activities, Fashion' or category=='Culture, Exhibition, Family, Food And Drink' or category=='Activities, Art, Workshop' or category=='Family, Theatre' or category == 'Activities, Halloween, Nightlife, Tours' or category == 'Beauty, Christmas':
                     category='FASHION, ART & THEATRE'
                     if category == 'FASHION, ART & THEATRE' and image == 'None':
                         image = 'https://4.bp.blogspot.com/-haQkpIywgPA/W5L1p-6P5JI/AAAAAAAANv4/279R0n1im_MugfsnYTlbf5ZiTaG2s7NYQCLcBGAs/s1600/Six_photoby_IdilSukan_18.jpg'
                 elif category=='':
-                    category='OTHER'
+                    category='OTHERS'
                     if category == 'OTHER' and image == 'None':
                         image ='https://discuss.fm/images/max_topic_images/others.jpg'
                 elif category=='Beauty, Fitness':

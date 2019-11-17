@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from .serializer import EventsSerializers
 # Create your views here.
@@ -74,4 +75,5 @@ def to_json(x):
             'latitude': x.latitude,
             'longitude': x.longitude
         }
+
 
