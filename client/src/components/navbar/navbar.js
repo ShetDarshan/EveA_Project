@@ -62,6 +62,9 @@ import "./navbar.css";
                 Logout
                 </a> */}
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/eventBoard">Event Board</Link>
+              </li>
             </ul>
     );
     const searchClient = algoliasearch(
