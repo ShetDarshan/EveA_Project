@@ -27,17 +27,10 @@ class dublincity:
 
         for event in events:
             title = event.h3.a["title"]
-<<<<<<< HEAD
-            print(title)
-            read_more = event.find_all('a', {"class": "calendarImageLink"})[0]["data-link-url"]
-            try:
-                image = event.find_all('a', {"class": "calendarImageLink"})[0].img["src"]
-=======
             #print(title)
             read_more = event.find_all('a', {"class": "calendarImageLink"})[0]["data-link-url"]
             try:
                 image = event.find_all('a',{"class":"calendarImageLink"})[0]['href']
->>>>>>> master
             #         print(image)
             except:
                 image = 'None'
@@ -49,14 +42,10 @@ class dublincity:
             date = event.em.text
 
             start_date = date.split('through')[0].strip()
-<<<<<<< HEAD
-            Year1 = start_date.split(',')[1].strip()
-=======
             try:
                 Year1 = start_date.split(',')[1].strip()
             except:
                 Year1 = 'None'    
->>>>>>> master
             Date1 = start_date.split(',')[0].split(' ')[1]
             Month1 = start_date.split(',')[0].split(' ')[2]
             start_date = Date1 + " " + Month1 + " " + Year1

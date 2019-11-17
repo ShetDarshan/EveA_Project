@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-node_modules/
-functions/firebase-debug.log
-__pycache__
-.DS_Store
-=======
 functions/node_modules
 vrcore-lib/dist
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -44,4 +38,3 @@ venv/
 
 .vscode/
 public/
->>>>>>> master
