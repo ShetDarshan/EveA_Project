@@ -44,11 +44,11 @@ class WebScrape:
             #        data_list.append(data)
 
             
-            if url.referenceId=='RCSIIE':
-                dataList = RCSIIE.scrape(url.url)
+            # if url.referenceId=='RCSIIE':
+            #     dataList = RCSIIE.scrape(url.url)
 
-                for data in dataList:
-                    data_list.append(data)
+            #     for data in dataList:
+            #         data_list.append(data)
 
             # elif url.referenceId=='SugarclubIE':
             #     dataList = SugarclubIe.scrape(url.url)
@@ -74,11 +74,11 @@ class WebScrape:
             #     for data in dataList:
             #        data_list.append(data)
 
-            # elif url.referenceId=='DUBIE':
-            #    dataList = DublinIe.scrape(url.url)
+            if url.referenceId=='DUBIE':
+               dataList = DublinIe.scrape(url.url)
 
-            #    for data in dataList:
-            #        data_list.append(data)
+                for data in dataList:
+                   data_list.append(data)
 
             # elif url.referenceId=='DBSScrape':
             #     dataList = DBSScrape.scrape(url.url)
@@ -92,11 +92,11 @@ class WebScrape:
             #     for data in dataList:
             #         data_list.append(data)
 
-            elif url.referenceId=='Knowledgeie':
-                dataList = KnowIE.scrape(url.url)
+            # elif url.referenceId=='Knowledgeie':
+            #     dataList = KnowIE.scrape(url.url)
 
-                for data in dataList:
-                    data_list.append(data)
+            #     for data in dataList:
+            #         data_list.append(data)
 
             # elif url.referenceId == 'EventbriteIE':
             #     dataList = EventIe.scrape(url.url)
