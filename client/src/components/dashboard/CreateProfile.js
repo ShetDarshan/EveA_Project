@@ -67,10 +67,10 @@ class CreateProfile extends Component {
                              <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div>
                           </div>
 	                      <div className="name float-left">
-	                            <h3 className="title">{userName}</h3>
+	                            <h3 className="title text-capitalize">{userName}</h3>
                                 {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                                 <div className="description text-center mt-2">
-                                    <p>{userBio}</p>
+                                    <p className="text-capitalize">{userBio}</p>
                                     <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
                                     <h6> Joined at: <b className="text-white bold">{userlocation}</b> </h6>
                                 </div>
