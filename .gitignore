@@ -34,3 +34,7 @@ Django_codebase/eveamlapp/migrations/__pycache__
 Django_codebase/eveamlapp/web_scraping/__pycache__
 Django_codebase/eveamlapp/web_scraping/websites/__pycache__
 .idea/
+venv/
+
+.vscode/
+public/

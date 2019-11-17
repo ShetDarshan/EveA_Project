@@ -22,7 +22,14 @@ class EventIe:
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            JSONContent = requests.get(url).json()
+            #JSONContent = requests.get(url).json()
+
+            uh = uReq(url)
+            data = uh.read()
+            print ('Retrieved',len(data),'characters')
+
+            JSONContent = json.loads(data.decode("utf-8"))
+
             content = json.dumps(JSONContent, indent=4, sort_keys=True)
             # print(content)
             data = json.loads(content)
@@ -93,11 +100,11 @@ class EventIe:
                 if category == 'Auto, Boat & Air' or category == 'Health & Wellness' or category == 'Sports & Fitness':
                     category = 'HEALTH & SPORTS'
                 elif category == 'Business & Professional' or category == 'Science & Technology' or category == 'School Activities' or category == 'Government & Politics':
-                    category = 'EDUCATION,BUSINESS & TECHNOLOGY'
+                    category = 'EDUCATION, BUSINESS & TECHNOLOGY'
                 elif category == 'Charity & Causes' or category == 'Community & Culture' or category == 'Family & Education' or category == 'Home & Lifestyle' or category == 'Religion & Spirituality':
                     category = 'COMMUNITY & FESTIVALS'
                 elif category == 'Fashion & Beauty' or category == 'Film, Media & Entertainment' or category == 'Performing & Visual Arts':
-                    category = 'FASHION,ART & THEATRE'
+                    category = 'FASHION, ART & THEATRE'
                 elif category == 'Food & Drink':
                     category = 'FOOD & DRINK'
                 elif category == 'FREE':
@@ -105,9 +112,9 @@ class EventIe:
                 elif category == 'Music' or category=='Hobbies & Special Interest':
                     category = 'MUSIC & ENTERTAINMENT'
                 elif category == 'Travel & Outdoor' or category == 'Seasonal & Holiday':
-                    category = 'TRAVEL'
+                    category = 'TOURISM & SIGHTSEEING'
                 elif category == 'Other':
-                    category = 'OTHER'
+                    category = 'OTHERS'
 
                 try:
                     img = events['logo']['original']['url']

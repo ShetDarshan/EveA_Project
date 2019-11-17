@@ -19,11 +19,11 @@ constructor(props) {
     this.props.getEventDetails(this.props.match.params.title);
 }
   render() {
-    const { eventDetails, loading } = this.props.eventDetails;
+    const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
       // console.log("Recommendation",recom);
       // console.log("locationData",locationData);
-    if (Object.keys(eventDetails).length < 1 ){
+    if (Object.keys(recom).length < 1 ){
      console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
       return <div>Loading...</div>
     } 
@@ -67,7 +67,7 @@ constructor(props) {
                       </div>
                   </div>
                   )})}
-                  {/* <div key="recommended-events" className="recommended-events">
+                  <div key="recommended-events" className="recommended-events">
                   <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
                     <Slider {...setting}>
                     {
@@ -91,9 +91,9 @@ constructor(props) {
                       ))}
                    </Slider>      
                   </div>
-                  <div key="nearby-events" className="nearby-events"> */}
+                  <div key="nearby-events" className="nearby-events">
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
-                    {/* <Slider {...setting}>
+                    <Slider {...setting}>
                     {
                           locationData && locationData.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
@@ -113,7 +113,7 @@ constructor(props) {
                                       </div>                                
                       ))}
                    </Slider>      
-                  </div> */}
+                  </div>
             </div>
     );
   }

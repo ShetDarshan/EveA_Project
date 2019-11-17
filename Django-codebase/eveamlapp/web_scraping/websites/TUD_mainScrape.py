@@ -36,7 +36,7 @@ class TUD_main:
             month = datetime.datetime.strptime(month,'%b').strftime('%B')
             date = new_date+" "+month+" "+year
 
-            category = "Education, Business & Technology"
+            category = "EDUCATION, BUSINESS & TECHNOLOGY"
             location = arti.find_all('li',{"class":"article-list__location"})[0].text.strip()
             desc = arti.find_all('p')[1].text.strip()
             title = arti.h3.text

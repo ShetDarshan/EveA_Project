@@ -52,7 +52,7 @@ class TicketmasterIe:
                 img = var1['images'][2]['url']
                 category = var1['classifications'][0]['segment']['name']
                 if category == 'Arts & Theatre':
-                    category = 'FASHION,ART & THEATRE'
+                    category = 'FASHION, ART & THEATRE'
                 elif category == 'Sport':
                     category = 'HEALTH & SPORTS'
                 elif category == 'Family & Attractions':
