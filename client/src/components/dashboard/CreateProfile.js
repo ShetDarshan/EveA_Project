@@ -59,31 +59,37 @@ class CreateProfile extends Component {
           <div className="main main-raised">
             <div className="profile-content">
               <div className="container">
-                <div className="row">
-                    <div className="col-md-6 ml-auto mr-auto">
+                <div className="row m-4">
+                    <div className="w-75">
         	           <div className="profile">
-                        <div  className="avtar">
-                             <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
+                        <div  className="avtar float-left">
+                             {/* <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div> */}
+                             <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div>
                           </div>
-	                        {/* <div className="avtar">
-	                            <img src={} alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
-	                        </div> */}
-	                        <div className="name">
-	                            <h3 className="title">{userName}</h3>
-							                	
-                                <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link>
+	                      <div className="name float-left">
+	                            <h3 className="title text-capitalize">{userName}</h3>
+                                {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                                 <div className="description text-center mt-2">
-                                    <p>{userBio}</p>
-                                    {/* <h6> Addresss: <b className="text-white bold">{userlocation}</b> </h6> */}
-                                    <h6> Interest: <b className="text-white bold">{userInterests}</b> </h6>
+                                    <p className="text-capitalize">{userBio}</p>
                                     <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
-                                   
+                                    <h6> Joined at: <b className="text-white bold">{userlocation}</b> </h6>
                                 </div>
 	                        </div>
-	                    </div>
+                        <div className="clearfix"></div>
+                      </div>
     	            </div>
+                    <div className="w-25">
+                        <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
+                        <Link to="/deleteProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Delete Profile</Link>
+                    </div>
                 </div>
-                <div className="row">
+                <div className="row m-4">
+                    <h6 className="w-100">Interests: <b className="text-white bold">{userInterests}</b> </h6>
+                    <h6 className="w-100">Address: <b className="text-white bold">A</b> </h6>
+                    <h6 className="w-100">Date Of Birth: <b className="text-white bold">d</b></h6>
+                    <h6 className="w-100">Email: <b className="text-white bold">asd</b></h6>
+                </div>
+                <div className="row m-4">
                   <div className="col-md-12 ml-auto mr-auto">
                       <h5>Suggested Friends</h5>
                       <ul className="customFriendList">
