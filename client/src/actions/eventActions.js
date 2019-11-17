@@ -3,7 +3,7 @@ import { GET_EVENTS,LOADING_DATA,GET_LEARNING,GET_EVENT_DETAILS,GET_RCMD_DETAILS
 export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5000/api/v1/events') 
+      .get('/api/v1/events') 
       .then(function(res) { 
         console.log(res,"response")
         let  data = res.data,
@@ -35,7 +35,7 @@ export const getEvents = () => dispatch => {
   export const getLearning = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5000/api/v1/learning') 
+      .get('/api/v1/learning') 
       .then(res => 
         dispatch({
           type: GET_LEARNING,
@@ -52,7 +52,7 @@ export const getEvents = () => dispatch => {
   export const getEventDetails = title => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`http://localhost:5000/api/v1/eventDetails/${title}`) 
+      .get(`/api/v1/eventDetails/${title}`) 
       .then(res => 
         dispatch({
           type: GET_EVENT_DETAILS,
@@ -71,7 +71,7 @@ export const getEvents = () => dispatch => {
   export const getRecmdEvents = title => dispatch => {
 
     axios 
-      .get(`http://35.205.204.145:8000/api/recommendationData/${title}`)
+      .get(`https://evea-prj.appspot.com/api/recommendationData/${title}`)
       .then(res => 
         dispatch({
           type: GET_RCMD_DETAILS,
@@ -91,7 +91,7 @@ export const getEvents = () => dispatch => {
   export const getLocationEvents = title => dispatch => {
 
     axios 
-      .get(`http://35.205.204.145:8000/api/recommendationData/${title}`)
+      .get(`https://evea-prj.appspot.com/api/nearByData/${title}`)
       .then(res => 
         dispatch({
           type: GET_LOC_DETAILS,

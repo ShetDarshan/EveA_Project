@@ -43,14 +43,14 @@ img {
   max-width: 3000%;
 }
 footer.footer-custom {
-  position: fixed;
+  /* position: fixed;
   left: 0;
   bottom: 0;
-  height: 10px;
-  width: 100%;
+  height:75px;
+  width: 100%; */
   color: white;
   text-align: center;
-  background-color:black !important;
+  /* background-color:#cb0b1e!important; */
 }
 /*Slick Slider*/
 
@@ -96,10 +96,10 @@ footer.footer-custom {
   max-height:15rem;
 }
 .card-slider .card-body .imageContainer {
-  max-width: 50%;
-  margin: 0 auto;
-  height: 125px;
-  margin-bottom: 10px;
+  width: 16rem;
+  height: 10rem;
+  overflow: hidden;
+  cursor:pointer;
 }
 .card-slider .card-body .card-title {
   max-height: 2rem;
@@ -113,12 +113,11 @@ footer.footer-custom {
 .card {
     padding: 1rem;
 }
-.card-slider .card-body .imageContainer img {
-  /* width:100%; */
-  margin-left: auto;
-  height: 150px;
-  width: 120px;
-
+.card-slider .card-body .imageContainer .imageBg {
+  width: 16rem;
+  height: 10rem;
+  background-position: center;
+  background-size: cover;
 }
 .slick-prev {
   left: -10px !important;
@@ -140,12 +139,12 @@ footer.footer-custom {
 }
 
 .slick-prev:before,
-.slick-next:before
-{
+.slick-next:before{
   font-size: 25px !important;
-<<<<<<< HEAD
 }
-=======
+img {
+  cursor:pointer !important;
 }
-
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+.navbar {
+  z-index: 5;
+}

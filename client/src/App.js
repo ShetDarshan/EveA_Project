@@ -12,7 +12,7 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutuser } from './actions/authActions';
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/navbar/navbar';
 import Footer from './components/layout/Footer';
 import CreateProfile from './components/dashboard/CreateProfile';
 import UpdateProfile from './components/dashboard/UpdateProfile';
@@ -23,7 +23,12 @@ import EventDetails from './components/eventCategories/EventDetails';
 
 =======
 import Search from './components/dashboard/Search';
+<<<<<<< HEAD
 >>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+=======
+import Friend from './components/friends/Friend';
+
+>>>>>>> 59b924183aa5f74b64fb3b128041b2ad92062613
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -48,9 +53,8 @@ class App extends Component {
         <Router>
         <div className="App">
           <Navbar />
-          
             <Route exact path="/" component={Landing} />
-            <div className="container-flex jumbotron mb-0">
+            <div className="container-flex mb-0">
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -65,6 +69,7 @@ class App extends Component {
 <<<<<<< HEAD
 =======
                 <Route exact path="/search" component={Search}/>
+<<<<<<< HEAD
 >>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
             </div>
 
@@ -72,7 +77,12 @@ class App extends Component {
             <Footer />
             
           
+=======
+                <Route exact path="/friend/:email" component={Friend}/>
+            </div>  
+>>>>>>> 59b924183aa5f74b64fb3b128041b2ad92062613
         </div>  
+        <Footer />
         </Router>
         
       </Provider>

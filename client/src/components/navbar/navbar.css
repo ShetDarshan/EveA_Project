@@ -1,0 +1,9 @@
+.sticky-container.navbar{
+    position: absolute;
+    width:100%;
+  }
+  @media (min-width: 576px) {
+    .form-inline .form-control#Search {
+    display:none;
+  }
+}
