@@ -145,3 +145,7 @@ footer.footer-custom {
 img {
   cursor:pointer !important;
 }
+
+.navbar {
+  z-index: 5;
+}

@@ -1,6 +1,5 @@
 .sticky-container.navbar{
     position: absolute;
-    z-index:1;
     width:100%;
   }
   @media (min-width: 576px) {
