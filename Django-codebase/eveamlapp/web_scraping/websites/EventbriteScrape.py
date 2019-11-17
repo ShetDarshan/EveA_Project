@@ -6,6 +6,7 @@ import uuid
 import re
 from bs4 import BeautifulSoup as soup
 import datetime
+import pandas as pd
 
 from eveamlapp.web_scraping.models import EventData
 
@@ -21,7 +22,14 @@ class EventIe:
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            JSONContent = requests.get(url).json()
+            #JSONContent = requests.get(url).json()
+
+            uh = uReq(url)
+            data = uh.read()
+            print ('Retrieved',len(data),'characters')
+
+            JSONContent = json.loads(data.decode("utf-8"))
+
             content = json.dumps(JSONContent, indent=4, sort_keys=True)
             # print(content)
             data = json.loads(content)
@@ -46,7 +54,7 @@ class EventIe:
 
             for events in data['events']:
                 name = events['name']['text']
-                description = events['description']['text'].strip('\n')
+                description = events['description']['text']
                 description = format(description)
                 link = events['url']
                 start_datetime = events['start']['local']
@@ -59,23 +67,24 @@ class EventIe:
                 date = start_date[2]
                 month = start_date[1]
                 year = start_date[0]
-                month = datetime.datetime.strptime(month,'%m').strftime('%B')
-                start_date = date + (' ')+ month+(' ')+ year
-        
-                #end_date
+                month = datetime.datetime.strptime(month, '%m').strftime('%B')
+                start_date = date + (' ') + month+(' ') + year
+
+                # end_date
                 end_datetime = events['end']['local']
 
                 # formating end date and time
                 end_date_split = end_datetime.split('T')
                 end_date = end_date_split[0]
                 end_time = end_date_split[1]
+                time = start_time + ('-') + end_time
                 end_date = end_date.split('-')
                 date = end_date[2]
                 month = end_date[1]
                 year = end_date[0]
-                month = datetime.datetime.strptime(month,'%m').strftime('%B')
-                end_date = date + (' ')+ month+(' ')+ year
-                #event price
+                month = datetime.datetime.strptime(month, '%m').strftime('%B')
+                end_date = date + (' ') + month+(' ') + year
+                # event price
                 free_event = events['is_free']
                 if free_event == True:
                     price = 'free'
@@ -87,13 +96,32 @@ class EventIe:
                     if category_id in each[1]:
                         category = each[0]
 
+                # Category Uniformication
+                if category == 'Auto, Boat & Air' or category == 'Health & Wellness' or category == 'Sports & Fitness':
+                    category = 'HEALTH & SPORTS'
+                elif category == 'Business & Professional' or category == 'Science & Technology' or category == 'School Activities' or category == 'Government & Politics':
+                    category = 'EDUCATION, BUSINESS & TECHNOLOGY'
+                elif category == 'Charity & Causes' or category == 'Community & Culture' or category == 'Family & Education' or category == 'Home & Lifestyle' or category == 'Religion & Spirituality':
+                    category = 'COMMUNITY & FESTIVALS'
+                elif category == 'Fashion & Beauty' or category == 'Film, Media & Entertainment' or category == 'Performing & Visual Arts':
+                    category = 'FASHION, ART & THEATRE'
+                elif category == 'Food & Drink':
+                    category = 'FOOD & DRINK'
+                elif category == 'FREE':
+                    category = 'FREE'
+                elif category == 'Music' or category=='Hobbies & Special Interest':
+                    category = 'MUSIC & ENTERTAINMENT'
+                elif category == 'Travel & Outdoor' or category == 'Seasonal & Holiday':
+                    category = 'TOURISM & SIGHTSEEING'
+                elif category == 'Other':
+                    category = 'OTHERS'
 
                 try:
                     img = events['logo']['original']['url']
                 except:
                     img = 'none'
                 Location = events['venue']['address']['localized_multi_line_address_display']
-                #location formatting
+                # location formatting
                 location = str(Location).strip('[]')
                 location = location.split(',')
                 try:    
@@ -104,10 +132,10 @@ class EventIe:
                     location[1] = location[1].strip(" ''")
                 except:
                     pass
-                #print(location[0])
-                #print(location[1])
+                # print(location[0])
+                # print(location[1])
                 try:
-                    location = location[0] + location[1]
+                    location = location[0] + (' ') + location[1]
                 except:
                     location = location[0]
         
@@ -116,7 +144,7 @@ class EventIe:
 
                 data.id = uuid.uuid1().__str__()
                 data.title = name
-                data.time = start_time
+                data.time = time
                 data.location = location
                 data.summary = description
                 data.img = img
@@ -132,7 +160,8 @@ class EventIe:
             # print(len(data))
 
         print(len(data_list))
-
         return data_list
+
+                  
 
     

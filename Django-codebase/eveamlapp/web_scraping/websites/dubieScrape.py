@@ -31,6 +31,26 @@ class DublinIe:
             img = re.search(pattern, img)
             img = img[0]
             category = container["data-categories"]
+            if category=='ART & THEATRE':
+                category='FASHION, ART & THEATRE'
+            elif category=='BUSINESS & TECH':
+                category='EDUCATION, BUSINESS & TECHNOLOGY'
+            elif category=='FAMILY FRIENDLY':
+                category='COMMUNITY & FESTIVALS'
+            elif category=='FESTIVALS':
+                category='COMMUNITY & FESTIVALS'
+            elif category=='FILM & LITERATURE':
+                category='FASHION, ART & THEATRE'
+            elif category=='FOOD & DRINK':
+                category='FOOD & DRINK'
+            elif category=='FREE':
+                category='FREE'
+            elif category=='LEARNING':
+                category='EDUCATION, BUSINESS & TECHNOLOGY'
+            elif category=='MUSIC & COMEDY':
+                category='MUSIC & ENTERTAINMENT'
+            elif category=='SPORTS':
+                category='SPORTS & HEALTH'
             url2 = v
             uClient = uReq(url2)
             page_html = uClient.read()

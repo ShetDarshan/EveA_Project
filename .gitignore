@@ -1,4 +1,47 @@
+<<<<<<< HEAD
 node_modules/
 functions/firebase-debug.log
 __pycache__
 .DS_Store
+=======
+functions/node_modules
+vrcore-lib/dist
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist
+.firebase
+.env
+
+functions/fiirebase-debug.log
+Django-codebase/evea/__pycache__
+Django-codebase/eveamlapp/__pycache__
+Django_codebase/eveamlapp/migrations/__pycache__
+Django_codebase/eveamlapp/web_scraping/__pycache__
+Django_codebase/eveamlapp/web_scraping/websites/__pycache__
+.idea/
+venv/
+
+.vscode/
+public/
+>>>>>>> master

@@ -27,10 +27,17 @@ class dublincity:
 
         for event in events:
             title = event.h3.a["title"]
+<<<<<<< HEAD
             print(title)
             read_more = event.find_all('a', {"class": "calendarImageLink"})[0]["data-link-url"]
             try:
                 image = event.find_all('a', {"class": "calendarImageLink"})[0].img["src"]
+=======
+            #print(title)
+            read_more = event.find_all('a', {"class": "calendarImageLink"})[0]["data-link-url"]
+            try:
+                image = event.find_all('a',{"class":"calendarImageLink"})[0]['href']
+>>>>>>> master
             #         print(image)
             except:
                 image = 'None'
@@ -42,7 +49,14 @@ class dublincity:
             date = event.em.text
 
             start_date = date.split('through')[0].strip()
+<<<<<<< HEAD
             Year1 = start_date.split(',')[1].strip()
+=======
+            try:
+                Year1 = start_date.split(',')[1].strip()
+            except:
+                Year1 = 'None'    
+>>>>>>> master
             Date1 = start_date.split(',')[0].split(' ')[1]
             Month1 = start_date.split(',')[0].split(' ')[2]
             start_date = Date1 + " " + Month1 + " " + Year1
@@ -69,6 +83,28 @@ class dublincity:
             for i in header:
                 my_dict[i] = values[j].strip()
                 j = j + 1
+            category = my_dict["Category:"]
+            if category=='Arts / Exhibits' or category=='Comedy' or category=='Theatre / Dance':
+                category='FASHION, ART & THEATRE'
+                if category == 'FASHION, ART & THEATRE' and image == 'None':
+                    image = 'https://4.bp.blogspot.com/-haQkpIywgPA/W5L1p-6P5JI/AAAAAAAANv4/279R0n1im_MugfsnYTlbf5ZiTaG2s7NYQCLcBGAs/s1600/Six_photoby_IdilSukan_18.jpg'
+            elif category=='Business Networking' or category=='Canvention / Conference' or category=='Educational' or category=='Expo':
+                category='EDUCATION, BUSINESS & TECHNOLOGY'
+                if category == 'EDUCATION, BUSINESS & TECHNOLOGY' and image == 'None':
+                    image = 'https://uindia.net/assets/img/MediaTechnology.jpg'
+            elif category=='Concert / Live Music' or category=='Cultutal' or category=='Entertainment':
+                category='MUSIC & ENTERTAINMENT'
+                if category == 'MUSIC & ENTERTAINMENT' and image == 'None':
+                    image = 'https://livestyle.com/wp-content/uploads/2017/07/slider-4.jpg'
+            elif category=='Festival' or category =='Kids / Family':
+                category = 'COMMUNITY & FESTIVALS'
+                if category == 'COMMUNITY & FESTIVALS' and image == 'None':
+                    image = 'https://www.totallydublin.ie/wp-content/uploads/2017/07/Just-Eat-Street.jpg'
+            elif category ==' Health' or category =='Sports':
+                category ='SPORTS & HEALTH'
+                if category == 'SPORTS & HEALTH' and image == 'None':
+                    image = 'https://previews.123rf.com/images/tnn103eda/tnn103eda1705/tnn103eda170500019/79377445-huge-multi-sports-collage-soccer-basketball-football-hockey-baseball-boxing-etc.jpg'
+    
 
             data = EventData()
 
@@ -79,14 +115,14 @@ class dublincity:
             data.enddate = end_date
             data.summary = desc
             data.time = my_dict["Time:"]
-            data.location = my_dict["Location:"]
+            data.location = my_dict["Location:"] + my_dict["Address:"]
             #data.address = my_dict["Address:"]
             data.read_more = read_more
             try:
                 data.price = my_dict["Price:"]
             except:
                 data.price = "SEE DESCRIPTION"
-            data.category = my_dict["Category:"]
+            data.category = category
             data_list.append(data)
 
 

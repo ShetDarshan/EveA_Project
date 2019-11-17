@@ -1,13 +1,17 @@
 const functions = require('firebase-functions');
-
 const admin = require('firebase-admin');
 const appKey = require("./admin-sdk.json");
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
-admin.initializeApp();
+//for full text search configuration
+const algoliaSearch = require("algoliasearch");
+const ALGOLIA_APP_ID = "7Z6VFB8JQD";
+const ALGOLIA_ADMIN_KEY = "4d3d6bd4f0d834faf34f8458efaea5f5";
+const ALGOLIA_INDEX_NAME = "algoevents";
 const validateRegisterInput = require("./validation/register");
 const validateLoginData = require("./validation/login")
+const validateFPwdData = require("./validation/forgotPwd")
 const config = {
   apiKey: "AIzaSyD4svmLSEA5IDa49VKgK45vbUCL7JkO52I",
   authDomain: "evea-prj.firebaseapp.com",
@@ -18,6 +22,7 @@ const config = {
   appId: "1:342374627785:web:3242138c0109915fc19018",
   measurementId: "G-4L5XLJ17HJ"
 };
+admin.initializeApp(config);
 const firebase = require('firebase')
 firebase.initializeApp(config)
 
@@ -26,10 +31,51 @@ const db = firebase.firestore();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+exports.addFirestoreDataToAlgolia = functions.https.onRequest((req,res) => {
+  var algoArr = []; 
+<<<<<<< HEAD
+  admin.firestore().collection('events_list').get().then((docs) => {
+=======
+  admin.firestore().collection('events_test').get().then((docs) => {
+>>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+    docs.forEach((doc)=>{
+      let individualEvent =  doc.data();
+      const record = {
+        objectID: doc.id,
+        address: individualEvent.address,
+        category: individualEvent.category,
+<<<<<<< HEAD
+        title: individualEvent.title
+=======
+        title: individualEvent.title,
+        startDate : individualEvent.startdate,
+        image : individualEvent.img
+>>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+        //summary: individualEvent.summary
+    };
+          
+    // individualEvent.objectID = doc.eventId;
+    // console.log("individualEvent",individualEvent)
+    algoArr.push(record);
+    })
+    var client =algoliaSearch(ALGOLIA_APP_ID,ALGOLIA_ADMIN_KEY);
+    var index = client.initIndex(ALGOLIA_INDEX_NAME);
+    index.saveObjects(algoArr,function(err,content){
+      res.status(200).send("content")
+    })
+  })
+
+})
 
 //regitser user route
 
-app.post('/api/v1/register',(req,res) => {
+app.post('/api/v1/register', (req, res) => {
   const newUser = {
     email: req.body.email,
     password: req.body.password,
@@ -43,11 +89,11 @@ app.post('/api/v1/register',(req,res) => {
 
 
   let token, userId;
-  db.doc(`/users/${newUser.handle}`)
+  db.doc(`/users/${newUser.email}`)
     .get()
     .then((doc) => {
       if (doc.exists) {
-        return res.status(400).json({ handle: 'this handle is already taken' });
+        return res.status(400).json({ handle: 'Name already taken' });
       } else {
         return firebase
           .auth()
@@ -84,7 +130,7 @@ app.post('/api/v1/register',(req,res) => {
 });
 
 //login route
-app.post('/api/v1/login',(req,res) =>{
+app.post('/api/v1/login', (req, res) => {
   const user = {
     email: req.body.email,
     password: req.body.password
@@ -93,7 +139,6 @@ app.post('/api/v1/login',(req,res) =>{
   const { valid, errors } = validateLoginData(user);
 
   if (!valid) return res.status(400).json(errors);
-
   firebase
     .auth()
     .signInWithEmailAndPassword(user.email, user.password)
@@ -112,43 +157,175 @@ app.post('/api/v1/login',(req,res) =>{
 
 
 });
+app.post('/api/v1/forgotpwd', (req, res) => {
+
+  const pwd = {
+    email: req.body.email
+  };
+  const { valid, errors } = validateFPwdData(pwd);
+  if (!valid) return res.status(400).json(errors);
+  firebase
+    .auth()
+    .sendPasswordResetEmail(pwd.email)
+    .then(() => {
+      return res.status(200).json({ email: 'email has been sent' })
+    })
+    .catch((err) => {
+      return res
+        .status(500).json({ error: err.code })
+    })
+}
+)
 //get events data
-app.get('/api/v1/events',(req,res) => {
-  db.collection('events_demo').get()
-   .then(snapshot => {
-     let eventsData=[];
-    snapshot.forEach(doc => {
+app.get('/api/v1/events', (req, res) => {
+  db.collection('events_test').get()
+    .then(snapshot => {
+      let eventsData = [];
+      snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventsData.push(tempJSON);          
+        tempJSON.eventId = doc.id;
+        eventsData.push(tempJSON);
       });
       res.status(200).send(eventsData);
-    }) .catch(err => {
-          console.error(err);
-          res.status(500).json({ error: err.code });
-        });
-})
-
-app.get('/api/v1/learning',(req,res) => {
-
-  db.collection('events_demo').where('category','==','learning').get()
-   .then(snapshot => {
-     let eventsData=[];
-    snapshot.forEach(doc => {
-        let tempJSON = {};
-        tempJSON = doc.data();
-      tempJSON.eventId = doc.id;
-      eventsData.push(tempJSON);          
-      });
-      res.status(200).send(eventsData);
-    }) .catch(err => {
-          console.error(err);
-          res.status(500).json({ error: err.code });
-        });
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
 })
 
 
 
 
+
+app.get('/api/v1/learning', (req, res) => {
+
+  db.collection('events_test').where('category', '==', 'learning').get()
+    .then(snapshot => {
+      let eventsData = [];
+      snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+        tempJSON.eventId = doc.id;
+        eventsData.push(tempJSON);
+      });
+      
+      res.status(200).send(eventsData);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+})
+
+//get all profile data data
+app.get('/api/v1/getAllProfiles', (req, res) => {
+  db.collection('users').get()
+    .then(snapshot => {
+      let eventsData = [];
+      snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+        tempJSON.eventId = doc.id;
+        eventsData.push(tempJSON);
+      });
+      res.status(200).send(eventsData);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+})
+
+//get individual profile data data
+app.get('/api/v1/getProfile/:email', (req, res) => {
+  db.collection('users').where('email', '==', req.params.email).get()
+    .then(snapshot => {
+      let userData = [];
+      snapshot.forEach(doc => {
+        let tempJSON = {};
+        tempJSON = doc.data();
+        console.log("userdata_index.js_234",doc.data())
+        userData.push(tempJSON);
+      });
+      console.log("index:userData",userData)
+      res.status(200).send(userData);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+})
+app.get('/api/v1/eventDetails/:title', (req, res) => {
+  db.collection('events_test').where('title','==',req.params.title).get()
+  .then(snapshot=>{
+    let eventData = [];
+    snapshot.forEach(doc => {
+      let tempJSON = {};
+      tempJSON = doc.data();
+      tempJSON.eventId = doc.id;
+      eventData.push(tempJSON);
+    });
+    res.status(200).send(eventData);
+  }).catch(
+    err=>{
+      res.status(500).json({ error: err.code });
+    })
+  })
+//update User route
+app.post('/api/v1/updateProfile', (req, res) => { 
+    db.collection('users').doc(Object.values(req.body)[2]).update({
+      gender: Object.values(req.body)[3] ,
+      interests:Object.values(req.body)[6],
+      bio : Object.values(req.body)[5],
+      birthday : Object.values(req.body)[4],
+      address : Object.values(req.body)[7],
+      location: Object.values(req.body)[8],
+      imageUrl : Object.values(req.body)[9]
+     }).then(function(){
+      res.status(200);
+     }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });  
+});
+
+//update User friends
+app.post('/api/v1/sendFriendRequest', (req, res) => {
+  let sender = Object.values(req.body)[0];
+  let receiver = Object.values(req.body)[1];
+    db.collection('connections').doc(receiver).set({ 
+      status: "newRequestReceived",from: sender
+    })
+    db.collection('connections').doc(sender).set({
+      status: "RequestSent",to: receiver
+    }).then(function (){
+      res.status(200);
+    }).catch( err =>{
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+});
+
+//get individual friends list data
+app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  db.collection('connections').doc(loggedEmail).get()
+  .then(snapshot => {
+    res.status(200).send(snapshot.data());
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+})
+app.get('/api/v1/acceptRequest/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  db.collection('connections').doc(loggedEmail).get()
+  .then(snapshot => {
+    from = snapshot.data().from;
+    db.collection('connections').doc(loggedEmail).update({status: 'friends'});
+    db.collection('connections').doc(from).update({status: 'friends'});
+    res.status(200).send(snapshot.data());
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
+})
 exports.api = functions.https.onRequest(app);

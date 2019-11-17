@@ -1,0 +1,150 @@
+img {
+  width: 100%;
+}
+
+.landing {
+  position: relative;
+  /* background: url('../img/evea.jpg') no-repeat;
+  background-size: contain;
+  background-position: center; */
+  /* height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px; */
+}
+
+.landing-inner {
+  padding-top: 80px;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.bg-dark {
+  background-color: #121212!important;
+}
+.card-form {
+  opacity: 0.9;
+}
+
+.latest-profiles-img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-control::placeholder {
+  color: #bbb !important;
+}
+.card-style {
+  max-width: 3000%;
+}
+footer.footer-custom {
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  height:75px;
+  width: 100%; */
+  color: white;
+  text-align: center;
+  /* background-color:#cb0b1e!important; */
+}
+/*Slick Slider*/
+
+.jumbotron.slider {
+    padding: 1rem 2rem !important;
+    margin-bottom: 0;
+}
+.carousel,
+.mainSlider{
+    width :90%;
+    margin: 0 auto;
+    height: 250px;
+}
+.mainSlider .slick-slider.slick-initialized,
+.mainSlider .slick-slider .slick-list,
+.carousel .slick-slider.slick-initialized,
+.carousel .slick-slider .slick-list {
+  height: inherit; 
+}
+.mainSlider .slick-slider .slick-slide img{
+  width:auto  !important;
+}
+.mainSlider .slick-slider .slick-dots {
+  bottom:10px;
+}
+/* Card Slider*/
+.carousel {
+    height: auto !important;
+}
+
+
+.carousel .slick-slider .slick-slide img{ 
+  max-width:70%;
+  margin:0 auto;
+}
+.card-slider .card-body {
+  padding:0;
+  
+}
+.card-slider .card-body {
+  min-width:15rem;
+  min-height: 15rem;
+  max-height:15rem;
+}
+.card-slider .card-body .imageContainer {
+  width: 16rem;
+  height: 10rem;
+  overflow: hidden;
+  cursor:pointer;
+}
+.card-slider .card-body .card-title {
+  max-height: 2rem;
+  min-height:2rem;
+  line-height: 1.2rem;
+  padding-top: 25px;
+}
+.text-capitalise {
+  text-transform: capitalize;
+}
+.card {
+    padding: 1rem;
+}
+.card-slider .card-body .imageContainer .imageBg {
+  width: 16rem;
+  height: 10rem;
+  background-position: center;
+  background-size: cover;
+}
+.slick-prev {
+  left: -10px !important;
+  z-index: 1;
+}
+.slick-next {
+  right: -10px !important;
+  z-index: 1;
+}
+.bg-secondary{
+  background-color: black !important;
+}
+/*Privacy*/
+.privacy  .container .m-auto p{
+  color:white  !important;
+}
+.privacy  .container .m-auto b{
+  color:green !important;
+}
+
+.slick-prev:before,
+.slick-next:before{
+  font-size: 25px !important;
+}
+img {
+  cursor:pointer !important;
+}
+.navbar {
+  z-index: 5;
+}

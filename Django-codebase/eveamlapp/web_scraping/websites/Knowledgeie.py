@@ -27,34 +27,38 @@ class KnowIE:
 
             for container in div:
                 span_tags = container.div.findAll('span')
-                #p_tags = container.findAll('p')
+                p_tags = container.findAll('p')
                 date1 = span_tags[0].text
                 date2 = span_tags[1].text
                 date2 = datetime.datetime.strptime(date2,'%b').strftime('%B')
                 date3 = span_tags[2].text
                 startdate = date1 + ' ' + date2 + ' ' + date3
+                category='EDUCATION, BUSINESS & TECHNOLOGY'
                 try:
                     title = container.h2.text
                 except:
                     title = 'none'    
                 read_more = container.h2.a['href']
+                read_more = 'https://www.knowledgetransferireland.com/'+ read_more
                 try:
                     description = container.p.text
                 except:
                     description = 'none'    
-                #try:
-                #    location = p_tags[2].text
-                #except:
-                #    location = 'none'
+                try:
+                    location = p_tags[2].text
+                except:
+                    location = 'none'
+                img = 'https://uindia.net/assets/img/MediaTechnology.jpg'
+                
                 data = EventData()
 
                 data.id = uuid.uuid1().__str__()
                 data.title = title
                 data.time = ''
-                data.location = ''
+                data.location = location
                 data.summary = description
-                data.img = ''
-                data.category = ''
+                data.img = img
+                data.category = category
                 data.startdate = startdate
                 data.read_more = read_more
                 data.address = ''

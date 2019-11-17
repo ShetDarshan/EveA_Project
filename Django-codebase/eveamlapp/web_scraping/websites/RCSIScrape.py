@@ -31,8 +31,20 @@ class RCSIIE:
                 Title=container.h3.text.strip()
                 URL= 'https://www.rcsi.com'+container.a['href']
                 date = container.div.text.replace("\n"," ")
+
+                # date formatting
+
+                date_split = date.split(' ')
+                date = date_split[1]
+                month = date_split[2] 
+                month = datetime.datetime.strptime(month,'%b').strftime('%B')
+                year = '2019'
+                date = date + (' ')+ month+ (' ')+ year
+                
+                
                 Location=container.p.text.strip('\n')
-                Category='Business,Education & Technology'
+                Category='EDUCATION, BUSINESS & TECHNOLOGY'
+                img ='http://www.hrbcentreprimarycare.ie/images/rcsilogonewer.png'
 
                 data = EventData()
 
@@ -41,7 +53,7 @@ class RCSIIE:
                 data.time = ''
                 data.location = Location
                 data.summary = ''
-                data.img = ''
+                data.img = img
                 data.category = Category
                 data.startdate = date
                 data.read_more = URL

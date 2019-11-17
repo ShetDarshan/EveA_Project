@@ -32,18 +32,16 @@ class WhitehallIe:
             date=container.em.text.strip('()')
             date = date.split('/')
             month = date[1]
-            month = datetime.datetime.strptime(month, '%m').strftime('%B')
-            date = date[0] + (' ') + month + (' ') + date[2]
+            # date format change
+            #month = datetime.datetime.strptime(month, '%m').strftime('%B')
+            #date = date[0] + (' ') + month + (' ') + date[2]
+            date = date[2] + ('-')+ month +('-')+ date[0]
             #wh = container.p.text
             #wh = str(wh)
             location = 'Whitehall College of Further Education, Drumcondra, Dublin'
             read_more = container.a['href']
-<<<<<<< HEAD
-            category = 'Business,Education & Technology'
-=======
-            category = 'Education & Technology'
->>>>>>> 0aff4ce5a440af8f0630c7571aeff3c01ec8b07e
-
+            Category = 'EDUCATION, BUSINESS & TECHNOLOGY'
+            img = 'https://whitehallcollege.com/uploads/pages/logo.jpg'
 
             data = EventData()
 
@@ -52,11 +50,11 @@ class WhitehallIe:
             data.startdate = date
             data.enddate = ''
             data.time = ''
-            data.category = category
+            data.category = Category
             data.price = ''
             data.summary = ''
             data.location = location
-            data.img = ''
+            data.img = img
             data.read_more = read_more
             data_list.append(data)
 

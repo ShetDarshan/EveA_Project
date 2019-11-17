@@ -18,7 +18,6 @@ export const reguser = (userInfo,history) => dispatch => {
           })
            );
 };
-
 export const luser = (userData) => (dispatch) => {
     axios
         .post('/api/v1/login',userData)
@@ -31,6 +30,21 @@ export const luser = (userData) => (dispatch) => {
             //setting current user
             dispatch(setCurrentUser(decoded));
         })
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+
+        );
+};
+
+export const forgotpwd = (pwd,history) => (dispatch) =>{
+    axios
+        .post('/api/v1/forgotpwd',pwd)   
+        .then(
+            history.push('/login')
+        )    
         .catch(err => 
             dispatch({
                 type: GET_ERRORS,

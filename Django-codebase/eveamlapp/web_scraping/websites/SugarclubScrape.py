@@ -47,8 +47,10 @@ class SugarclubIe:
             time = datesplit[1]
             div_tags = container.findAll('div')
             price = div_tags[1].p.text
-            location = "Sugar Club"
-            category = "Music & Entertainment"
+            location = "Sugar Club, Leeson Street, Dublin"
+            category = "MUSIC & ENTERTAINMENT"
+            if category == 'MUSIC & ENTERTAINMENT' and image == 'None':
+                image = 'https://livestyle.com/wp-content/uploads/2017/07/slider-4.jpg'
 
             data = EventData()
 
