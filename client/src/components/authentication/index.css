@@ -18,7 +18,7 @@ body {
     transform:translate(-50%,-50%);
     background:rgba(0,0,0,.5);
     width:400px;
-    height:350px;
+    height:400px;
     box-sizing:border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.9);
     border-radius:10px;
@@ -46,4 +46,8 @@ body {
   background-image: url('../../img/event.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.firebaseui-idp-facebook {
+
 }

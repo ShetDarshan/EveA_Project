@@ -1,0 +1,483 @@
+[debug] [2019-11-16T18:16:08.911Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:08.936Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:16:08.937Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:16:08.937Z] Platform:      win32
+[debug] [2019-11-16T18:16:08.937Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:16:09.108Z] Time:          Sat Nov 16 2019 23:46:08 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:16:09.108Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:09.108Z] 
+[debug] [2019-11-16T18:16:09.159Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:16:09.159Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:16:09.160Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:16:09.161Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:16:09.654Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+[debug] [2019-11-16T18:16:38.551Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:38.553Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:16:38.553Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:16:38.554Z] Platform:      win32
+[debug] [2019-11-16T18:16:38.554Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:16:38.555Z] Time:          Sat Nov 16 2019 23:46:38 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:16:38.555Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:38.555Z] 
+[debug] [2019-11-16T18:16:38.561Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:16:38.562Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:16:38.562Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:16:38.563Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:16:38.597Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+[debug] [2019-11-16T18:16:46.232Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:46.235Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:16:46.235Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:16:46.235Z] Platform:      win32
+[debug] [2019-11-16T18:16:46.235Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:16:46.236Z] Time:          Sat Nov 16 2019 23:46:46 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:16:46.236Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:16:46.236Z] 
+[debug] [2019-11-16T18:16:46.243Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:16:46.244Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:16:46.244Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:16:46.245Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:16:46.278Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+[debug] [2019-11-16T18:17:29.407Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:17:29.409Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:17:29.409Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:17:29.409Z] Platform:      win32
+[debug] [2019-11-16T18:17:29.409Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:17:29.410Z] Time:          Sat Nov 16 2019 23:47:29 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:17:29.410Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:17:29.410Z] 
+[debug] [2019-11-16T18:17:29.417Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:17:29.417Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:17:29.417Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:17:29.419Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:17:29.451Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+[debug] [2019-11-16T18:17:40.133Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:17:40.135Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:17:40.135Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:17:40.135Z] Platform:      win32
+[debug] [2019-11-16T18:17:40.135Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:17:40.136Z] Time:          Sat Nov 16 2019 23:47:40 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:17:40.136Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:17:40.136Z] 
+[debug] [2019-11-16T18:17:40.143Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:17:40.144Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:17:40.144Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:17:40.145Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:17:40.180Z] Error: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:56:26)
+[error] 
+[error] Error: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com cloudresourcemanager.googleapis.com:443
+[debug] [2019-11-16T18:38:04.565Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:38:04.574Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-16T18:38:04.575Z] CLI Version:   7.6.2
+[debug] [2019-11-16T18:38:04.575Z] Platform:      win32
+[debug] [2019-11-16T18:38:04.575Z] Node Version:  v10.16.3
+[debug] [2019-11-16T18:38:04.577Z] Time:          Sun Nov 17 2019 00:08:04 GMT+0530 (India Standard Time)
+[debug] [2019-11-16T18:38:04.577Z] ----------------------------------------------------------------------
+[debug] [2019-11-16T18:38:04.578Z] 
+[debug] [2019-11-16T18:38:04.654Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-16T18:38:04.655Z] > authorizing via signed-in user
+[debug] [2019-11-16T18:38:04.655Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-16T18:38:04.658Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-16T18:38:04.658Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-16T18:38:04.826Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-16T18:38:04.871Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-16T18:38:05.116Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-16T18:38:05.118Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+ 
+[debug] [2019-11-16T18:38:05.450Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'F:\EveA_Project'...
+[info] 
+[debug] [2019-11-16T18:38:05.473Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+ 
+[debug] [2019-11-16T18:38:06.141Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "F:\EveA_Project\functions" for Cloud Functions...
+[debug] [2019-11-16T18:38:08.031Z] [worker-~diagnostic~-e72bd827-fa26-46a7-b3b3-a562ace4268a]: BUSY
+[debug] [2019-11-16T18:38:08.584Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-16T18:38:08.585Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-16T18:38:08.588Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-16T18:38:08.610Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-16T18:38:08.611Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[addFirestoreDataToAlgolia]: http function initialized (http://localhost:5001/evea-prj/us-central1/addFirestoreDataToAlgolia).
+[info] +  functions[api]: http function initialized (http://localhost:5001/evea-prj/us-central1/api).
+[debug] [2019-11-16T18:38:16.794Z] [worker-~diagnostic~-e72bd827-fa26-46a7-b3b3-a562ace4268a]: exited
+[debug] [2019-11-16T18:38:16.794Z] [worker-~diagnostic~-e72bd827-fa26-46a7-b3b3-a562ace4268a]: FINISHED
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-16T18:38:27.320Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-11-16T18:38:27.325Z] [worker-api-32808840-d112-4468-b61f-d802943203c9]: BUSY
+[debug] [2019-11-16T18:38:28.071Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-16T18:38:28.073Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-16T18:38:28.076Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-16T18:38:28.078Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-16T18:38:28.079Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-16T18:38:28.561Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-16T18:38:28.562Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-16T18:38:28.562Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-16T18:38:28.567Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\11320"}
+[debug] [2019-11-16T18:38:28.569Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\11320"}
+[debug] [2019-11-16T18:38:28.576Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-16T18:38:28.784Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-16T18:38:30.051Z] [worker-api-32808840-d112-4468-b61f-d802943203c9]: IDLE
+[debug] [2019-11-17T14:27:08.446Z] ----------------------------------------------------------------------
+[debug] [2019-11-17T14:27:08.455Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-17T14:27:08.456Z] CLI Version:   7.6.2
+[debug] [2019-11-17T14:27:08.456Z] Platform:      win32
+[debug] [2019-11-17T14:27:08.456Z] Node Version:  v10.16.3
+[debug] [2019-11-17T14:27:08.460Z] Time:          Sun Nov 17 2019 19:57:08 GMT+0530 (India Standard Time)
+[debug] [2019-11-17T14:27:08.460Z] ----------------------------------------------------------------------
+[debug] [2019-11-17T14:27:08.460Z] 
+[debug] [2019-11-17T14:27:08.542Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-17T14:27:08.544Z] > authorizing via signed-in user
+[debug] [2019-11-17T14:27:08.544Z] [iam] checking project evea-prj for permissions ["firebase.projects.get"]
+[debug] [2019-11-17T14:27:08.551Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-17T14:27:08.552Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-17T14:27:08.826Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-17T14:27:08.861Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/evea-prj:testIamPermissions  
+
+[debug] [2019-11-17T14:27:09.803Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-17T14:27:09.804Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj  
+ 
+[debug] [2019-11-17T14:27:10.198Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'F:\EveA_Project'...
+[info] 
+[debug] [2019-11-17T14:27:10.229Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/evea-prj/webApps/-/config  
+ 
+[debug] [2019-11-17T14:27:11.035Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Using node@10 from host.
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "F:\EveA_Project\functions" for Cloud Functions...
+[debug] [2019-11-17T14:27:12.809Z] [worker-~diagnostic~-01759756-2d26-4b6d-a253-de649166ddb4]: BUSY
+[debug] [2019-11-17T14:27:13.626Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-17T14:27:13.628Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-17T14:27:13.657Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-17T14:27:13.684Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:27:13.685Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[addFirestoreDataToAlgolia]: http function initialized (http://localhost:5001/evea-prj/us-central1/addFirestoreDataToAlgolia).
+[info] +  functions[api]: http function initialized (http://localhost:5001/evea-prj/us-central1/api).
+[debug] [2019-11-17T14:27:17.571Z] [worker-~diagnostic~-01759756-2d26-4b6d-a253-de649166ddb4]: exited
+[debug] [2019-11-17T14:27:17.571Z] [worker-~diagnostic~-01759756-2d26-4b6d-a253-de649166ddb4]: FINISHED
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:09.089Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-11-17T14:29:09.120Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:29:10.236Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-17T14:29:10.240Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-17T14:29:10.247Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-17T14:29:10.250Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:10.252Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:11.463Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:11.468Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:11.468Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:11.479Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:11.486Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:11.504Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:11.990Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~2s
+[debug] [2019-11-17T14:29:13.606Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/login to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:28.686Z] Accepted request POST /evea-prj/us-central1/api/api/v1/login --> api
+[debug] [2019-11-17T14:29:28.687Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:29:28.689Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:28.873Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:28.873Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:28.874Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:28.879Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:29.063Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:29.131Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:29.998Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:30.283Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-11-17T14:29:30.283Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:29:30.283Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:30.350Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:30.351Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:30.353Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:30.355Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:30.360Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:30.360Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:31.569Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getAllProfiles to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:34.436Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:29:34.436Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:29:34.439Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:34.443Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:34.444Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:34.446Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:34.451Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:34.455Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getAllProfiles --> api
+[debug] [2019-11-17T14:29:34.477Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: BUSY
+[debug] [2019-11-17T14:29:34.485Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:34.494Z] [runtime-status] Ephemeral server survived. {}
+[info] [hosting] Rewriting /api/v1/getfriendRequestList/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:34.599Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getfriendRequestList/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:29:34.618Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: BUSY
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:34.738Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:29:34.846Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:29:34.846Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:29:34.847Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:34.929Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:34.930Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:34.931Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:34.934Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:29:34.940Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:34.942Z] [runtime-status] Ephemeral server survived. {}
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:35.115Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[debug] [2019-11-17T14:29:35.902Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-17T14:29:35.907Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-17T14:29:35.913Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-17T14:29:35.917Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:35.919Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:35.920Z] [runtime-status] Functions runtime initialized. {"cwd":"F:\\EveA_Project\\functions","node_version":"10.16.3"}
+[debug] [2019-11-17T14:29:35.925Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-17T14:29:35.932Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-11-17T14:29:35.935Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:35.938Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"F:\\EveA_Project\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-11-17T14:29:37.185Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:37.187Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:37.187Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:37.200Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:29:37.203Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:29:37.219Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:29:37.280Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:37.281Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:29:37.282Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:29:37.282Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:29:37.284Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:29:37.305Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:29:37.460Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:29:37.507Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:37.880Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: IDLE
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:29:37.969Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: IDLE
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:30:47.109Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-11-17T14:30:47.110Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:30:47.111Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:30:47.310Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:30:47.310Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:30:47.311Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:47.313Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:47.317Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:30:47.318Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:30:48.336Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getAllProfiles to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getfriendRequestList/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:30:52.148Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:30:52.149Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:30:52.150Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getAllProfiles --> api
+[debug] [2019-11-17T14:30:52.151Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: BUSY
+[debug] [2019-11-17T14:30:52.151Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:30:52.153Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:30:52.154Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:30:52.155Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getfriendRequestList/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:30:52.156Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: BUSY
+[debug] [2019-11-17T14:30:52.156Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:30:52.158Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:30:52.159Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:30:52.159Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:30:52.161Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:30:52.162Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:52.164Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:52.172Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:30:52.176Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:30:52.177Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:30:52.178Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:30:52.180Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:30:52.183Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:30:52.183Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:30:52.183Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:30:52.183Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:30:52.185Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:30:52.186Z] [runtime-status] Ephemeral server survived. {}
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:30:52.363Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:30:52.463Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:30:52.556Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: IDLE
+[debug] [2019-11-17T14:30:52.627Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:30:52.627Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:30:52.629Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:30:52.631Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:30:52.631Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:30:52.632Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:52.633Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:30:52.637Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:30:52.638Z] [runtime-status] Ephemeral server survived. {}
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:30:52.889Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/events to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:36:51.048Z] Accepted request GET /evea-prj/us-central1/api/api/v1/events --> api
+[debug] [2019-11-17T14:36:51.049Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:36:51.052Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:36:51.150Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:36:51.150Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:36:51.150Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:36:51.152Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:36:51.157Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:36:51.159Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:36:52.163Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getAllProfiles to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getfriendRequestList/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:42:23.089Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getAllProfiles --> api
+[debug] [2019-11-17T14:42:23.089Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:42:23.091Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:23.091Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: BUSY
+[debug] [2019-11-17T14:42:23.092Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getfriendRequestList/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:23.092Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: BUSY
+[debug] [2019-11-17T14:42:23.093Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:23.095Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:23.095Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:23.095Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:23.097Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:23.097Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:23.098Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:23.102Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:23.102Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:23.103Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:42:23.104Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\20740"}
+[debug] [2019-11-17T14:42:23.105Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:23.106Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:23.110Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:42:23.112Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:42:23.118Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:23.119Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:42:23.119Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:23.119Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:42:23.120Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:23.125Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:23.604Z] [worker-api-dce7790a-a463-43bf-ad66-453af0b4ff64]: IDLE
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:23.716Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: IDLE
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:23.803Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:42:23.820Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:23.820Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:42:23.821Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:23.984Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:23.985Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:23.986Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:23.988Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:23.992Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:23.996Z] [runtime-status] Ephemeral server survived. {}
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:24.096Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getAllProfiles to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[debug] [2019-11-17T14:42:46.546Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:46.546Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:42:46.549Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:46.551Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:46.552Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:46.553Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:46.555Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:46.556Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getAllProfiles --> api
+[debug] [2019-11-17T14:42:46.557Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: BUSY
+[debug] [2019-11-17T14:42:46.561Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:46.667Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:46.668Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:46.669Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:46.669Z] [runtime-status] Ephemeral server survived. {}
+[info] >  index:userData []
+[debug] [2019-11-17T14:42:46.673Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:42:46.675Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:46.887Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
+[debug] [2019-11-17T14:42:46.890Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:46.890Z] [runtime-status] Ephemeral server survived. {}
+[info] [hosting] Rewriting /api/v1/getProfile/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/v1/getfriendRequestList/netraj11@gmail.com to http://localhost:5001/evea-prj/us-central1/api for local Function api
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:47.104Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: IDLE
+[debug] [2019-11-17T14:42:47.112Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getProfile/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:47.112Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: BUSY
+[debug] [2019-11-17T14:42:47.113Z] Accepted request GET /evea-prj/us-central1/api/api/v1/getfriendRequestList/netraj11@gmail.com --> api
+[debug] [2019-11-17T14:42:47.113Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: BUSY
+[debug] [2019-11-17T14:42:47.115Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:47.193Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:47.194Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:47.195Z] [runtime-status] Trigger "api" has been found, beginning invocation! {}
+[info] i  functions: Beginning execution of "api"
+[debug] [2019-11-17T14:42:47.198Z] [runtime-status]  {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2019-11-17T14:42:47.198Z] [runtime-status] Running api in mode HTTPS {}
+[debug] [2019-11-17T14:42:47.199Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:42:47.200Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\14128"}
+[debug] [2019-11-17T14:42:47.204Z] {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:47.205Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\F:\\EveA_Project\\functions\\16800"}
+[debug] [2019-11-17T14:42:47.213Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:47.213Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-11-17T14:42:47.214Z] [runtime-status] Ephemeral server survived. {}
+[debug] [2019-11-17T14:42:47.216Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:47.436Z] [worker-api-510361cf-366a-43e5-a62f-831c13469caf]: IDLE
+[info] >  index:userData []
+[info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-17T14:42:47.444Z] [worker-api-93095c0a-ee29-4dec-8033-1bef8e972e80]: IDLE
