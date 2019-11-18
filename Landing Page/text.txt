@@ -1,2 +1,0 @@
-Page displaying upcoming and free events category
-Card Components usage
