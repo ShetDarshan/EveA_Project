@@ -1,0 +1,4 @@
+node_modules/
+functions/firebase-debug.log
+__pycache__
+.DS_Store
