@@ -89,7 +89,7 @@ import "./navbar.css";
 
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" id="Search"/>
-            <Link className="nav-link" to="/Search" style={{paddingLeft:"800px"}}>Browse Events</Link>
+          <Link className="nav-link" to="/Search">Search</Link>
         </form>
       </div>
     );
@@ -99,13 +99,13 @@ import "./navbar.css";
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
         
-            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px', height:'50px'}}/></Link>
+            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
             
           <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
     </button>
          
-         {/*} <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+         {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon"></span>
     </button>*/}
     
