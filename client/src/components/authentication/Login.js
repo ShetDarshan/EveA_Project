@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import './index.css'
 import Face from '../layout/Face';
 
+
  class Login extends Component {
     constructor() {
         super();
@@ -53,7 +54,7 @@ import Face from '../layout/Face';
           <div className="row">
             <div className="col-md-8 m-auto">
     
-               <h1 className="display-4 text-center">Log In</h1>
+            <h4 className="display-4 text-center">EveA</h4>
               
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
@@ -76,7 +77,7 @@ import Face from '../layout/Face';
                  <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
                 Forgot Password?
               </Link>
-                <input type="submit" className="btn btn-danger btn-block mt-4" value="Login" />
+                <input type="submit" className="btn btn-danger btn-block"  value="Login" />
                 <Face/>
               </form>
             </div>

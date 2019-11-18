@@ -48,12 +48,13 @@ class App extends Component {
           <Navbar />
             <Route exact path="/" component={Landing} />
             <div className="container-flex jumbotron_home mb-0">
+              
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/eventBoard" component={MainCorousel}/>
                 {/* <Route exact path="/eventBoard" component={eventCategories}/> */}
-                <Route exact path="/event/:title" component={EventDetails} />
+                <Route exact path="/event/:title" component={EventDetails}/>
                 <Route exact path="/guestuser" component={Guestuser}/>
                 <Route exact path="/profile" component={CreateProfile}/>
                 <Route exact path="/updateProfile" component={UpdateProfile}/>

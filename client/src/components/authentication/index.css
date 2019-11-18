@@ -11,6 +11,8 @@ body {
       monospace;
   }
 
+
+
   .login .container{
     position:absolute;
     top:40%;
@@ -46,8 +48,4 @@ body {
   background-image: url('../../img/event.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.firebaseui-idp-facebook {
-
 }
