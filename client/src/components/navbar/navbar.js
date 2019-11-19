@@ -75,18 +75,20 @@ import "./navbar.css";
       <div className="collapse navbar-collapse" id="navbarColor02">
         <ul className="navbar-nav mr-auto text-white">
         
-          <li className="nav-item active">
+          {/*<li className="nav-item active">
             <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
           </li>
           <li className="nav-item">
              <Link className="nav-link" to="/About">About Us</Link>
-          </li>
-          {/* <li className="nav-item">
-           <Link className="nav-link " to="/guestuser">Guest User</Link>
-          </li> */}
-          <li className="nav-item">
+            
+    </li>
+    <li className="nav-item">
                  <Link className="nav-link" to="/Register">Sign Up</Link>
-          </li>
+          </li>*/}
+           <li className="nav-item">
+           <Link className="nav-link " to="/guestuser">Guest User</Link>
+          </li> 
+          
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" id="Search"/>
