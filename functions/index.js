@@ -361,10 +361,10 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
       let friendList = doc.data()['friends'];
       let toList = doc.data()['to'];
       if(!friendList){ friendList = []; } 
+      if(!toList){ toList = []; }
       if(fromList.includes(requestToAccept)){ 
         fromList.splice(fromList.indexOf(requestToAccept),1)
       }
-      if(!toList){ toList = []; }
       if(toList.includes(requestToAccept)){
         toList.splice(toList.indexOf(requestToAccept),1)
       }
@@ -380,11 +380,12 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
           let fromList = doc.data()['from'];
           let friendList = doc.data()['friends'];
           let toList = doc.data()['to'];
-          if(!friendList){ friendList = []; } 
+          if(!friendList){ friendList = []; }
+          if(!fromList){ fromList = []; }
           if(toList.includes(loggedEmail)){ 
             toList.splice(toList.indexOf(loggedEmail),1)
           }
-          if(!fromList){ fromList = []; }
+
           if(fromList.includes(loggedEmail)){
             fromList.splice(fromList.indexOf(loggedEmail),1)
           }
@@ -401,5 +402,29 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
             res.status(500).json({ error: err.code });
           });  
 })
-
+//reject friend request list data
+app.post('/api/v1/rejectRequest/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  requestToReject = 'test@gmail.com';
+  db.collection('connections').doc(loggedEmail).get().then(doc => {
+    let fromList = doc.data()['from'];
+    let friendList = doc.data()['friends'];
+    let toList = doc.data()['to'];
+    if(!friendList){ friendList = []; } 
+    if(!toList){ toList = []; }
+    if(fromList.includes(requestToReject)){
+      fromList.splice(fromList.indexOf(requestToReject),1)
+    }
+    db.collection('connections').doc(loggedEmail).set({
+      from : fromList,
+      friends: friendList,
+      to :toList
+    }, { merge: true })
+  }).then(function () {
+    res.status(200);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+})
 exports.api = functions.https.onRequest(app);
