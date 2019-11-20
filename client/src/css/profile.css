@@ -23,7 +23,7 @@
 }
 .friendAvtar,
 .profile .avtar {
-    width: auto;
+    width: 16rem;
     max-height: 18rem;
     overflow: hidden;
     cursor: pointer;

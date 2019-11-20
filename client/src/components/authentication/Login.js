@@ -76,7 +76,7 @@ import Face from '../layout/Face';
                  <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
                 Forgot Password?
               </Link>
-                <input type="submit" className="btn btn-danger btn-block mt-4" value="Login" />
+                <input type="submit" className="btn btn-danger btn-block" value="Login" />
                 <Face/>
               </form>
             </div>

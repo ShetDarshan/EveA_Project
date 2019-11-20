@@ -13,12 +13,11 @@ body {
 
   .login .container{
     position:absolute;
-    top:40%;
+    top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     background:rgba(0,0,0,.5);
-    width:400px;
-    height:350px;
+    width:50%;
     box-sizing:border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.9);
     border-radius:10px;
@@ -29,12 +28,11 @@ body {
   .register .container{
     padding-top:20px;
     position:absolute;
-    top:40%;
+    top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     background:rgba(0,0,0,.5);
-    width:400px;
-    height:500px;
+    width:50%;
     box-sizing:border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.9);
     border-radius:10px;
@@ -46,4 +44,11 @@ body {
   background-image: url('../../img/event.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media(max-width:576px){
+  .register .container ,.login .container{
+    width: 90%;
+  }
 }

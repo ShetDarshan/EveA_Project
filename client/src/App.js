@@ -20,6 +20,7 @@ import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
 import Search from './components/dashboard/Search';
+
 import Friend from './components/friends/Friend';
 
 
@@ -47,7 +48,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
             <Route exact path="/" component={Landing} />
-            <div className="container-flex jumbotron_home mb-0">
+            <div className="container-flex mb-0" style={{height:'650px'}}>
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -59,9 +60,15 @@ class App extends Component {
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
        <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
+
+
                 <Route exact path="/search" component={Search}/>
+            
+          
+
                 <Route exact path="/friend/:email" component={Friend}/>
             </div>  
+
         </div>  
         <Footer />
         </Router>

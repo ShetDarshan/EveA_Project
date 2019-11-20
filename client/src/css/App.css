@@ -2,6 +2,13 @@ img {
   width: 100%;
 }
 
+
+.App{
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+
 .landing {
   position: relative;
   /* background: url('../img/evea.jpg') no-repeat;
@@ -144,4 +151,7 @@ footer.footer-custom {
 }
 img {
   cursor:pointer !important;
+}
+.navbar {
+  z-index: 5;
 }

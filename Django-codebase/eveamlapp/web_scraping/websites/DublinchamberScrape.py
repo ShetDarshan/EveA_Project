@@ -23,7 +23,7 @@ class DubChamberIE:
         
         article = page_soup.find_all('div',{"class":"c-feed-box-outer"})
         #print(len(article))
-        print(article[0])
+        #print(article[0])
         for arti in article:
             url2 = 'https://portal.dublinchamberhosting.com' + arti.a["href"]
             #Opening connection to second page, grabbing the page
@@ -32,8 +32,12 @@ class DubChamberIE:
             uClient.close()
             #Parsing2
             page_soup = soup(page_html, "html.parser")
-            print(page_soup)
-            image = page_soup.find_all('div',{"class":"c-banner_background-image o-cropcontent o-crop_content--center"})[0].img["src"]
+            #print(page_soup)
+            try:
+                image = page_soup.find_all('div',{"class":"c-banner_background-image o-cropcontent o-crop_content--center"})[0].img["src"]
+            except:
+                image = 'https://uindia.net/assets/img/MediaTechnology.jpg'
+                    
             desc = page_soup.find_all('div',{"class":"description"})[0].p.text.strip()
             try:
                 desc = desc.span.text.strip()
@@ -52,7 +56,7 @@ class DubChamberIE:
             date = date + (' ') + month + (' ')+ year
             time = event_box[2].text.strip()
             address = event_box[3].text.strip()
-            category = "EDUCATION,BUSINESS & TECHNOLOGY"
+            category = "EDUCATION, BUSINESS & TECHNOLOGY"
 
             data = EventData()
 

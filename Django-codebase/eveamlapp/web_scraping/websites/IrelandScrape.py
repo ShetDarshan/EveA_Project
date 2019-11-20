@@ -40,7 +40,9 @@ class IrelandIe:
     
                 read_more = container.a['href']
                 read = 'https://www.ireland.com/'+ read_more
-                category = 'TRAVEL'
+                category = 'TOURISM & SIGHTSEEING'
+                if category == 'TOURISM & SIGHTSEEING' and img == 'None':
+                    img = 'https://www.fhi.no/globalassets/bilder/vaksine/oversikt-reisevaksine.jpg?preset=mainbodywidth'
 
                 data = EventData()
 

@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup as soup
 import uuid
 import re
 import pandas as pd
-
-
 from eveamlapp.web_scraping.models import EventData
 
 
@@ -46,7 +44,7 @@ class DBSScrape:
                 fulldate = Date +' '+ month + year
                 summary = div_tags[1].text.strip()
                 location = "Dublin Business School, Dublin"
-                category = "EDUCATION,BUSINESS & TECHNOLOGY"
+                category = "EDUCATION, BUSINESS & TECHNOLOGY"
                 img = item[0].a.img['src']
 
             

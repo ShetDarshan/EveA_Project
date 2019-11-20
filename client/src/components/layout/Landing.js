@@ -31,6 +31,13 @@ firebase.initializeApp(config)
     props.getEvents();
   }
    render() {
+
+    let showItems = 4
+
+    if(window.innerWidth <= 576)showItems=1
+    else if(window.innerWidth <= 768)showItems=2
+    else if(window.innerWidth <= 1024)showItems=3
+    else showItems=4
       const dataset  = this.props.events.events;
      if (Object.keys(dataset).length < 1 ){
       console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
@@ -42,7 +49,7 @@ firebase.initializeApp(config)
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: showItems,
         slidesToScroll: 1
       };
       return (
