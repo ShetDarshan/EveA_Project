@@ -9,7 +9,7 @@
 }
 .customFriendList {
     overflow:hidden;
-    height:12rem;
+    height:14rem;
 
 }
 .customFriendList li{
@@ -40,7 +40,6 @@
     margin: 0 auto;
 }
 .friendAvtar {
-    width: 12rem;
     max-width: 12rem;
     max-height: 12rem;
 }
