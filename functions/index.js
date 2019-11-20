@@ -427,4 +427,29 @@ app.post('/api/v1/rejectRequest/:email', (req, res) => {
       res.status(500).json({ error: err.code });
     });
 })
+//going events activty tracking
+app.post('/api/v1/goingActivities/:event', (req, res) => {
+  loggedEmail = 'hgadarsha@gmail.com';
+  eventID = req.params.event;
+  db.collection('goingActivities').doc(eventID).get().then(doc =>{
+    if (!doc.exists) {
+      db.collection('goingActivities').doc(eventID).set({
+        going: [loggedEmail]
+      }, { merge: true })
+    } else {
+      let going = doc.data()['going'];
+      going.push(loggedEmail);
+      db.collection('goingActivities').doc(eventID).set({
+        going : going
+      },{merge : true})
+    }
+  }).then(function () {
+    res.status(200);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+
+  })
+
 exports.api = functions.https.onRequest(app);
