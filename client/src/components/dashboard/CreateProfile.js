@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
 class CreateProfile extends Component {
@@ -16,7 +17,6 @@ class CreateProfile extends Component {
     super(props);
     const { user } = this.props.auth;
     const profile = this.props.getProfile(user.email);
-      console.log("Constructor",profile);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
     
@@ -26,12 +26,22 @@ class CreateProfile extends Component {
     console.log("user",user);
     this.props.getProfile(user.email);
     }
+  acceptRequest = () => {
+      this.props.acceptFriendRequest(this.state)
+  }
+  rejectRequest = () => {
+    this.props.rejectFriendRequest(this.state)
+}
   render() {
 
     // let { imagePreviewUrl } = this.state;
     const { profile, profiles } = this.props.users;
-    const {request} = this.props.friends;
+   // var { request  } =  this.props.friends;
     console.log("Profile",this.props.users);
+    let allRequests=[];
+     allRequests = this.props.friends.request.from;
+    console.log("console request",allRequests);
+    
     if (profile) {
       profile.map(values => {
         userEmail = values.email;
@@ -44,12 +54,10 @@ class CreateProfile extends Component {
         userlocation = values.location;
         userBirthday = values.birthday;
         userImageUrl = values.imageUrl;
+
         userGender = values.gender;
       });
       
-    }
-    if(request){
-        console.log("list of requests",request)
     }
     return (
       <div className="profile-page">
@@ -82,6 +90,35 @@ class CreateProfile extends Component {
 	                        </div>
 	                    </div>
     	            </div>
+                </div>
+                          
+                <div className="row">
+                  <h5>Requests Recieved</h5>
+                  <ul className="customFriendList">
+                    {
+                      allRequests && allRequests.map(data => {  
+                           return (
+                            <li className="m-2">
+                               <h6 className="m-2 text-white">{data}</h6>
+                               <button className="btn btn-lg btn-info btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.acceptRequest()
+                                  }}> Accept Request
+                              </button>
+                              <button className="btn btn-lg btn-danger btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.rejectRequest()
+                                  }}> Reject Request
+                              </button>
+                            </li>
+                           )
+                         })
+                    }
+                  </ul>
                 </div>
                 <div className="row">
                   <div className="col-md-12 ml-auto mr-auto">

@@ -350,17 +350,31 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
       res.status(500).json({ error: err.code });
     });
 })
-app.get('/api/v1/acceptRequest/:email', (req, res) => {
-  loggedEmail = req.params.email;
-  db.collection('connections').doc(loggedEmail).get()
-    .then(snapshot => {
-      from = snapshot.data().from;
-      db.collection('connections').doc(loggedEmail).update({ status: 'friends' });
-      db.collection('connections').doc(from).update({ status: 'friends' });
-      res.status(200).send(snapshot.data());
-    }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+//accept friend request
+  app.post('/api/v1/acceptRequest/:email', (req, res) => {
+    loggedEmail = req.params.email;
+    //logged user has to accept the request
+    requestToAccept = 'd.shet@arithon.com';
+    //get the logged user details
+    db.collection('connections').doc(loggedEmail).get().then(doc => {
+      let fromList = doc.data()['from'];
+      let friendList = doc.data()['friends'];
+      let toList = doc.data()['to'];
+      if(!friendList){ friendList = []; } 
+      if(fromList.includes(requestToAccept)){ 
+        fromList.splice(fromList.indexOf(requestToAccept),1)
+      }
+      if(!toList){ toList = []; }
+      if(toList.includes(requestToAccept)){
+        toList.splice(toList.indexOf(requestToAccept),1)
+      }
+      friendList.push(requestToAccept)
+      db.collection('connections').doc(loggedEmail).set({
+        from : fromList,
+        friends: friendList,
+        to :toList
+      }, { merge: true })
+    })
 })
+
 exports.api = functions.https.onRequest(app);
