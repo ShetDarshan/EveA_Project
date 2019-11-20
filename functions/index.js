@@ -452,7 +452,7 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
 
   })
 
-  //going events activty tracking
+  //interested events activty tracking
 app.post('/api/v1/interestedActivities/:event', (req, res) => {
   loggedEmail = 'hgadarsha@gmail.com';
   eventID = req.params.event;
@@ -466,6 +466,31 @@ app.post('/api/v1/interestedActivities/:event', (req, res) => {
       interested.push(loggedEmail);
       db.collection('interestedActivities').doc(eventID).set({
         interested : interested
+      },{merge : true})
+    }
+  }).then(function () {
+    res.status(200);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+
+  })
+
+  // Not going events activty tracking
+app.post('/api/v1/notGoingActivities/:event', (req, res) => {
+  loggedEmail = 'hgadarsha@gmail.com';
+  eventID = req.params.event;
+  db.collection('notGoingActivities').doc(eventID).get().then(doc =>{
+    if (!doc.exists) {
+      db.collection('notGoingActivities').doc(eventID).set({
+        notGoing: [loggedEmail]
+      }, { merge: true })
+    } else {
+      let notGoing = doc.data()['going'];
+      notGoing.push(loggedEmail);
+      db.collection('notGoingActivities').doc(eventID).set({
+        notGoing : notGoing
       },{merge : true})
     }
   }).then(function () {
