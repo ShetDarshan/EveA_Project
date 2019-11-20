@@ -71,10 +71,10 @@ class CreateProfile extends Component {
                     <div className="w-75">
         	           <div className="profile">
                         <div  className="avtar float-left">
-                             {/* <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div> */}
-                             <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div>
+                             <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
+                             {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
                           </div>
-	                      <div className="name float-left">
+	                      <div className="name float-left p-5">
 	                            <h3 className="title text-capitalize">{userName}</h3>
                                 {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                                 <div className="description text-center mt-2">

@@ -23,8 +23,8 @@
 }
 .friendAvtar,
 .profile .avtar {
-    width: 16rem;
-    max-height: 18rem;
+    /* width: 16rem; */
+    /* max-height: 18rem; */
     overflow: hidden;
     cursor: pointer;
   }
@@ -40,8 +40,8 @@
     margin: 0 auto;
 }
 .friendAvtar {
-    max-width: 12rem;
-    max-height: 12rem;
+    max-width: 3rem;
+    max-height: 3rem;
 }
 .friendAvtar .avtarImg {
     width: 6rem;
