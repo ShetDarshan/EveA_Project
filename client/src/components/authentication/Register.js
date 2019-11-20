@@ -71,14 +71,13 @@ verifiedChange = e => {
     // const { signUp } = this.props.auth;
     return (
       <div className="register">
-       <div className="container">
+       <div className="container" >
         <div className="row">
           <div className="col-md-8 m-auto">
-          <h5 className="display-4 text-center">Sign Up</h5>
-           <h6 className="lead text-center">Let Friends Identify You By</h6>
+           <h4 className="display-5 text-center">Create Account with EveA</h4>
            <form noValidate onSubmit={this.onSubmit}>
            <TextFieldGroup
-                  placeholder="User Name"
+                  placeholder="Let your friend identify you by this name"
                   name="handle"
                   required=""
                   value={this.state.handle}
@@ -86,7 +85,7 @@ verifiedChange = e => {
                   error={errors.handle}
                 />
                 <TextFieldGroup
-                  placeholder="Email"
+                  placeholder="Email Address"
                   name="email"
                   type="email"
                   value={this.state.email}
@@ -119,10 +118,9 @@ verifiedChange = e => {
       <label for="verified">
        <h6> By Signing Up, You Agree to Our <Link to="/datapolicy" target="_blank">Terms & Conditions </Link> </h6>
       </label>
-               
                 <input 
                       type="submit" 
-                      className="btn btn-danger btn-block mt-4" 
+                      className="btn btn-danger btn-block" 
                       disabled={!this.state.verified} 
                       value="Sign Up" 
                       // onClick={()=> {
@@ -159,6 +157,10 @@ verifiedChange = e => {
                             }
                         />
                     </Snackbar>
+                    <label for="verified">
+       <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> I'm already a member  <Link  to="/Login">
+          Log In</Link> </h6>
+      </label>
         </div>
       </div>
     </div>

@@ -50,7 +50,8 @@ import TextFieldGroup from '../common/TextFieldGroup';
             <div className="col-md-8 m-auto">
     
               {/* <h1 className="display-4 text-center">Log In</h1> */}
-              <p className="lead text-center" style={{color:"white", paddingTop:"55px"}}>Enter Your Registered Email Address to <b>Reset Password</b></p>
+              <h1 className="lead text-center" style={{color:"white", paddingTop:"55px"}}>Enter Your Registered Email Address to
+               Reset Password</h1>
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
                   placeholder="Email Address"
@@ -61,6 +62,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
                   error={errors.email}
                 />
                  <input type="submit" className="btn btn-danger btn-block mt-4" value="Submit" disabled={!this.state.email}/>
+                 <input type="submit" className="btn btn-danger btn-block mt-4" value="Cancel" />
               </form>
             </div>
           </div>
