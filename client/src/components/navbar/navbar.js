@@ -62,9 +62,6 @@ import "./navbar.css";
                 Logout
                 </a> */}
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/eventBoard">Event Board</Link>
-              </li>
             </ul>
     );
     const searchClient = algoliasearch(
@@ -73,7 +70,7 @@ import "./navbar.css";
     );
     const guestLinks = (    
       <div className="collapse navbar-collapse" id="navbarColor02">
-        <ul className="navbar-nav mr-auto text-white">
+        {/*<ul className="navbar-nav mr-auto text-white">
         
           <li className="nav-item active">
             <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
@@ -83,14 +80,16 @@ import "./navbar.css";
           </li>
           {/* <li className="nav-item">
            <Link className="nav-link " to="/guestuser">Guest User</Link>
-          </li> */}
+          </li> 
           <li className="nav-item">
                  <Link className="nav-link" to="/Register">Sign Up</Link>
           </li>
-        </ul>
+        </ul>*/}
+
+
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" id="Search"/>
-            <Link className="nav-link" to="/Search">Search</Link>
+            <Link className="nav-link" to="/Search" style={{paddingLeft:"800px"}}>Browse Events</Link>
         </form>
       </div>
     );
@@ -100,15 +99,15 @@ import "./navbar.css";
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
         
-            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
+            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px', height:'50px'}}/></Link>
             
-            <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
-            </button>
+    </button>
          
-          {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+         {/*} <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon"></span>
-          </button> */}
+    </button>*/}
     
           
             {isAuthenticated? authLinks : guestLinks} 
