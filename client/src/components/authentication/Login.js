@@ -53,7 +53,7 @@ import Face from '../layout/Face';
           <div className="row">
             <div className="col-md-8 m-auto">
     
-               <h1 className="display-4 text-center">Log In</h1>
+               <h4 className="display-5 text-center">Explore Events in Dublin!</h4>
               {/* <h5 className="lead text-center">Sign in to your account</h5> */}
               <form onSubmit={this.onSubmit}>
               <TextFieldGroup
@@ -78,6 +78,10 @@ import Face from '../layout/Face';
               </Link>
                 <input type="submit" className="btn btn-danger btn-block" value="Login" />
                 <Face/>
+                <label>
+                <h6 style={{fontSize:"2.3vh", alignContent:"center"}}>Not yet a member?<Link  to="/Register">
+          Sign Up</Link> </h6>
+      </label>
               </form>
             </div>
           </div>
