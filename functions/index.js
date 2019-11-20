@@ -334,9 +334,9 @@ app.post('/api/v1/sendFriendRequest', (req, res) => {
   }).then(function () {
     res.status(200);
   }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 });
 
 //get individual friends list data
@@ -351,56 +351,56 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
     });
 })
 //accept friend request
-  app.post('/api/v1/acceptRequest/:email', (req, res) => {
-    loggedEmail = req.params.email;
-    //logged user has to accept the request
-    requestToAccept = 'test@gmail.com';
-    //get the logged user details and make the changes
-    db.collection('connections').doc(loggedEmail).get().then(doc => {
-      let fromList = doc.data()['from'];
-      let friendList = doc.data()['friends'];
-      let toList = doc.data()['to'];
-      if(!friendList){ friendList = []; } 
-      if(!toList){ toList = []; }
-      if(fromList.includes(requestToAccept)){ 
-        fromList.splice(fromList.indexOf(requestToAccept),1)
-      }
-      if(toList.includes(requestToAccept)){
-        toList.splice(toList.indexOf(requestToAccept),1)
-      }
-      friendList.push(requestToAccept)
-      db.collection('connections').doc(loggedEmail).set({
-        from : fromList,
-        friends: friendList,
-        to :toList
-      }, { merge: true })
-    })
-        //get the accept user details and make the changes
-        db.collection('connections').doc(requestToAccept).get().then(doc => {
-          let fromList = doc.data()['from'];
-          let friendList = doc.data()['friends'];
-          let toList = doc.data()['to'];
-          if(!friendList){ friendList = []; }
-          if(!fromList){ fromList = []; }
-          if(toList.includes(loggedEmail)){ 
-            toList.splice(toList.indexOf(loggedEmail),1)
-          }
+app.post('/api/v1/acceptRequest/:email', (req, res) => {
+  loggedEmail = req.params.email;
+  //logged user has to accept the request
+  requestToAccept = 'test@gmail.com';
+  //get the logged user details and make the changes
+  db.collection('connections').doc(loggedEmail).get().then(doc => {
+    let fromList = doc.data()['from'];
+    let friendList = doc.data()['friends'];
+    let toList = doc.data()['to'];
+    if (!friendList) { friendList = []; }
+    if (!toList) { toList = []; }
+    if (fromList.includes(requestToAccept)) {
+      fromList.splice(fromList.indexOf(requestToAccept), 1)
+    }
+    if (toList.includes(requestToAccept)) {
+      toList.splice(toList.indexOf(requestToAccept), 1)
+    }
+    friendList.push(requestToAccept)
+    db.collection('connections').doc(loggedEmail).set({
+      from: fromList,
+      friends: friendList,
+      to: toList
+    }, { merge: true })
+  })
+  //get the accept user details and make the changes
+  db.collection('connections').doc(requestToAccept).get().then(doc => {
+    let fromList = doc.data()['from'];
+    let friendList = doc.data()['friends'];
+    let toList = doc.data()['to'];
+    if (!friendList) { friendList = []; }
+    if (!fromList) { fromList = []; }
+    if (toList.includes(loggedEmail)) {
+      toList.splice(toList.indexOf(loggedEmail), 1)
+    }
 
-          if(fromList.includes(loggedEmail)){
-            fromList.splice(fromList.indexOf(loggedEmail),1)
-          }
-          friendList.push(loggedEmail)
-          db.collection('connections').doc(requestToAccept).set({
-            from : fromList,
-            friends: friendList,
-            to :toList
-          }, { merge: true })
-        }).then(function () {
-          res.status(200);
-        }).catch(err => {
-            console.error(err);
-            res.status(500).json({ error: err.code });
-          });  
+    if (fromList.includes(loggedEmail)) {
+      fromList.splice(fromList.indexOf(loggedEmail), 1)
+    }
+    friendList.push(loggedEmail)
+    db.collection('connections').doc(requestToAccept).set({
+      from: fromList,
+      friends: friendList,
+      to: toList
+    }, { merge: true })
+  }).then(function () {
+    res.status(200);
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 })
 //reject friend request list data
 app.post('/api/v1/rejectRequest/:email', (req, res) => {
@@ -410,28 +410,28 @@ app.post('/api/v1/rejectRequest/:email', (req, res) => {
     let fromList = doc.data()['from'];
     let friendList = doc.data()['friends'];
     let toList = doc.data()['to'];
-    if(!friendList){ friendList = []; } 
-    if(!toList){ toList = []; }
-    if(fromList.includes(requestToReject)){
-      fromList.splice(fromList.indexOf(requestToReject),1)
+    if (!friendList) { friendList = []; }
+    if (!toList) { toList = []; }
+    if (fromList.includes(requestToReject)) {
+      fromList.splice(fromList.indexOf(requestToReject), 1)
     }
     db.collection('connections').doc(loggedEmail).set({
-      from : fromList,
+      from: fromList,
       friends: friendList,
-      to :toList
+      to: toList
     }, { merge: true })
   }).then(function () {
     res.status(200);
-    }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 })
 //going events activty tracking
 app.post('/api/v1/goingActivities/:event', (req, res) => {
   loggedEmail = 'hgadarsha@gmail.com';
   eventID = req.params.event;
-  db.collection('goingActivities').doc(eventID).get().then(doc =>{
+  db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('goingActivities').doc(eventID).set({
         going: [loggedEmail]
@@ -440,23 +440,23 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
       let going = doc.data()['going'];
       going.push(loggedEmail);
       db.collection('goingActivities').doc(eventID).set({
-        going : going
-      },{merge : true})
+        going: going
+      }, { merge: true })
     }
   }).then(function () {
     res.status(200);
-    }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 
-  })
+})
 
-  //interested events activty tracking
+//interested events activty tracking
 app.post('/api/v1/interestedActivities/:event', (req, res) => {
   loggedEmail = 'hgadarsha@gmail.com';
   eventID = req.params.event;
-  db.collection('interestedActivities').doc(eventID).get().then(doc =>{
+  db.collection('interestedActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('interestedActivities').doc(eventID).set({
         interested: [loggedEmail]
@@ -465,23 +465,23 @@ app.post('/api/v1/interestedActivities/:event', (req, res) => {
       let interested = doc.data()['interested'];
       interested.push(loggedEmail);
       db.collection('interestedActivities').doc(eventID).set({
-        interested : interested
-      },{merge : true})
+        interested: interested
+      }, { merge: true })
     }
   }).then(function () {
     res.status(200);
-    }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 
-  })
+})
 
-  // Not going events activty tracking
+// Not going events activty tracking
 app.post('/api/v1/notGoingActivities/:event', (req, res) => {
   loggedEmail = 'hgadarsha@gmail.com';
   eventID = req.params.event;
-  db.collection('notGoingActivities').doc(eventID).get().then(doc =>{
+  db.collection('notGoingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('notGoingActivities').doc(eventID).set({
         notGoing: [loggedEmail]
@@ -490,15 +490,42 @@ app.post('/api/v1/notGoingActivities/:event', (req, res) => {
       let notGoing = doc.data()['going'];
       notGoing.push(loggedEmail);
       db.collection('notGoingActivities').doc(eventID).set({
-        notGoing : notGoing
-      },{merge : true})
+        notGoing: notGoing
+      }, { merge: true })
     }
   }).then(function () {
     res.status(200);
-    }).catch(err => {
-      console.error(err);
-      res.status(500).json({ error: err.code });
-    });
+  }).catch(err => {
+    console.error(err);
+    res.status(500).json({ error: err.code });
+  });
 
-  })
+})
+
+//friends going list for each event
+app.post('/api/v1/friendsGoing/:event', (req, res) => {
+  loggedEmail = 'd.shet@arithon.com';
+  eventID = req.params.event;
+  let myFriendsGoing = [];
+  db.collection('goingActivities').doc(eventID).get().then(doc => {
+    if (doc.exists) {
+      goingList = doc.data()['going'];
+      db.collection('connections').doc(loggedEmail).get().then(connection => {
+        if (connection.exists) {
+          let friendsList = connection.data()['friends']
+          if (friendsList) {
+            friendsList.forEach(friend => {
+              console.log("friend", friend);
+              console.log("goingList", goingList);
+              if (goingList.includes(friend)) {
+                myFriendsGoing.push(friend);
+              }
+            });
+            res.status(200).send(myFriendsGoing);
+          }
+        }
+      });
+    }
+  });
+})
 exports.api = functions.https.onRequest(app);
