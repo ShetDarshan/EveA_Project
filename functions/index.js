@@ -452,4 +452,28 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
 
   })
 
+  //going events activty tracking
+app.post('/api/v1/interestedActivities/:event', (req, res) => {
+  loggedEmail = 'hgadarsha@gmail.com';
+  eventID = req.params.event;
+  db.collection('interestedActivities').doc(eventID).get().then(doc =>{
+    if (!doc.exists) {
+      db.collection('interestedActivities').doc(eventID).set({
+        interested: [loggedEmail]
+      }, { merge: true })
+    } else {
+      let interested = doc.data()['interested'];
+      interested.push(loggedEmail);
+      db.collection('interestedActivities').doc(eventID).set({
+        interested : interested
+      },{merge : true})
+    }
+  }).then(function () {
+    res.status(200);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({ error: err.code });
+    });
+
+  })
 exports.api = functions.https.onRequest(app);
