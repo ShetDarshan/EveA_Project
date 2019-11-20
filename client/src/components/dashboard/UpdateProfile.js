@@ -125,26 +125,25 @@ class UpdateProfile extends Component {
 
 
         return (
-            <div className="container" style={{ borderStyle: "inset", backgroundColor: "black", marginTop: "50px" }}>
-
+            <div className="container" style={{ borderStyle: "inset", backgroundColor: "black", marginTop: "50px" }}>   
                 <Form onSubmit={this.onSubmit}>
-                    <Row form>
-                        <Col md={6}>
+                    <Row form className="m-3">
+                        <Col md={6} className="p-3">
                             <FormGroup>
-                                <Label for="exampleEmail"><b style={{ color: "white", fontSize: "20px" }}>Email</b></Label>
+                                <Label for="exampleEmail"><b style={{ color: "white", fontSize: "18px" }}>Email</b></Label>
                                 <Input type="email" name="email" id="exampleEmail" placeholder={userEmail} disabled />
                             </FormGroup>
                         </Col>
-                        <Col md={6}>
+                        <Col md={6} className="p-3">
                             <FormGroup>
-                                <Label for="examplePassword"><b style={{ color: "white", fontSize: "20px" }}>User-Id</b></Label>
+                                <Label for="examplePassword"><b style={{ color: "white", fontSize: "18px" }}>User-Id</b></Label>
                                 <Input type="password" name="password" id="examplePassword" placeholder={userId} readOnly />
                             </FormGroup>
                         </Col>
                     </Row>
-                    <Row form>
-                        <Col md={6}>
-                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "20px" }}>Gender</b></Label>
+                    <Row form className="m-3">
+                        <Col md={6} className="p-3">
+                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "18px" }}>Gender</b></Label>
                             <Input type="select"
                                 value={this.state.gender}
                                 onChange={event => {
@@ -159,7 +158,7 @@ class UpdateProfile extends Component {
                             </Input>
 
                         </Col>
-                        <Col md={6} style={{ backgroundColor: "white", fontSize: "20px" }}>
+                        <Col md={6} style={{ backgroundColor: "white", fontSize: "18px" }}>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <Grid container justify="space-around">
                                     <KeyboardDatePicker
@@ -173,42 +172,14 @@ class UpdateProfile extends Component {
                                             'aria-label': 'change date',
                                         }}
                                     />
-
                                 </Grid>
                             </MuiPickersUtilsProvider>
                         </Col>
-
                     </Row>
-                    <FormGroup>
-                        <Label for="exampleSelectMulti"><b style={{ color: "white", fontSize: "20px" }}>Select Your Interests</b></Label>
-                        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple
-                            value={this.state.interests}
-                            onChange={event => {
-                                let value = Array.from(event.target.selectedOptions, option => option.value);
-                                this.setState({ interests: value });
-                            }}>
-                            <option>Sports and Health</option>
-                            <option>Fashion and Art</option>
-                            <option>Education Business and Technology</option>
-                            <option>Community and Festivals</option>
-                            <option>Music and Entertainment</option>
-                        </Input>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="exampleText"><b style={{ color: "white", fontSize: "20px" }}>Add Bio</b></Label>
-                        <Input type="textarea" value={this.state.bio} placeholder="Tell us more about you"
-                            onChange={event => {
-                                let bio = event.target.value;
-                                this.setState({
-                                    bio: bio
-                                });
-                            }}>
-                        </Input>
-                    </FormGroup>
-                    <Row>
-                        <Col md={6}>
+                    <Row className="m-3">
+                        <Col md={6} className="p-3">
                             <FormGroup>
-                                <Label for="exampleAddress"><b style={{ color: "white", fontSize: "20px" }}>Address</b></Label>
+                                <Label for="exampleAddress"><b style={{ color: "white", fontSize: "18px" }}>Address</b></Label>
                                 <Input type="text" name="address" id="exampleAddress" placeholder={userAddress}
                                     value={this.state.address}
                                     onChange={event => {
@@ -220,8 +191,8 @@ class UpdateProfile extends Component {
                                 </Input>
                             </FormGroup>
                         </Col>
-                        <Col md={6}>
-                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "20px" }}>Location</b></Label>
+                        <Col md={6} className="p-3">
+                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "18px" }}>Location</b></Label>
                             <Input type="select"
                                 value={this.state.location}
                                 onChange={event => {
@@ -236,6 +207,33 @@ class UpdateProfile extends Component {
                             </Input>
                         </Col>
                     </Row>
+                    <FormGroup className="m-3">
+                        <Label for="exampleSelectMulti"><b style={{ color: "white", fontSize: "18px" }}>Select Your Interests</b></Label>
+                        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple
+                            value={this.state.interests}
+                            onChange={event => {
+                                let value = Array.from(event.target.selectedOptions, option => option.value);
+                                this.setState({ interests: value });
+                            }}>
+                            <option>Sports and Health</option>
+                            <option>Fashion and Art</option>
+                            <option>Education Business and Technology</option>
+                            <option>Community and Festivals</option>
+                            <option>Music and Entertainment</option>
+                        </Input>
+                    </FormGroup>
+                    <FormGroup className="m-3">
+                        <Label for="exampleText"><b style={{ color: "white", fontSize: "18px" }}>Add Bio</b></Label>
+                        <Input type="textarea" value={this.state.bio} placeholder="Tell us more about you"
+                            onChange={event => {
+                                let bio = event.target.value;
+                                this.setState({
+                                    bio: bio
+                                });
+                            }}>
+                        </Input>
+                    </FormGroup>
+                  
                     <FileUploader
                         accept="image/*"
                         name='image'
