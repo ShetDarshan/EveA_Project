@@ -54,7 +54,7 @@ import "./navbar.css";
     const authLinks = (
       <ul className="navbar-nav ml-auto">
          <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+                <Link className="nav-link" to="/register">Sign Up</Link>
               </li>
               <li className="nav-item">
                    <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
