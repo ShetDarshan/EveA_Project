@@ -433,9 +433,12 @@ app.post('/api/v1/rejectRequest', (req, res) => {
   });
 })
 //going events activty tracking
-app.post('/api/v1/goingActivities/:event', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+app.post('/api/v1/goingActivities', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
+  //loggedEmail = 'hgadarsha@gmail.com';
+  //eventID = req.params.event;
   db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('goingActivities').doc(eventID).set({
@@ -458,7 +461,7 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
 })
 
 //interested events activty tracking
-app.post('/api/v1/interestedActivities/:event', (req, res) => {
+app.post('/api/v1/interestedActivities', (req, res) => {
   loggedEmail = 'hgadarsha@gmail.com';
   eventID = req.params.event;
   db.collection('interestedActivities').doc(eventID).get().then(doc => {
@@ -483,9 +486,12 @@ app.post('/api/v1/interestedActivities/:event', (req, res) => {
 })
 
 // Not going events activty tracking
-app.post('/api/v1/notGoingActivities/:event', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+app.post('/api/v1/notGoingActivities', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
+  // loggedEmail = 'hgadarsha@gmail.com';
+  // eventID = req.params.event;
   db.collection('notGoingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('notGoingActivities').doc(eventID).set({

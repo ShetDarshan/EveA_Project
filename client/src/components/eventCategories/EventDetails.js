@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEventDetails,getRecmdEvents,getLocationEvents } from '../../actions/eventActions';
+import { goingEvent, notGoingEvent} from '../../actions/friendActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
@@ -15,13 +16,23 @@ class EventDetails extends Component {
   }
 constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      eventId :'',
+      user : ''
+    };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
+}
+goingActivity = () => {
+  this.props.goingEvent(this.state)
+}
+notGoingActivity = () => {
+  this.props.notGoingEvent(this.state)
 }
   render() {
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
+    const { user } = this.props.auth;
       // console.log("Recommendation",recom);
       // console.log("locationData",locationData);
     if (Object.keys(recom).length < 1 ){
@@ -64,7 +75,23 @@ constructor(props) {
                         <h5 key={data.title+"-date"} className="mb-2">Date:</h5><p className="card-text mb-2">{data.date}</p>
                         <h5 key={data.title+"-address"} className="mb-2">Address:</h5><p className="card-text mb-2">{data.address}</p>
                         <h5 key={data.title+"-price"} className="mb-2">Price:</h5> <p className="card-text mb-2">{data.price}</p>
-                          <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-danger">Event Details</a>
+                        <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-danger">Event Details</a>
+                        <button class="btn btn-sm btn-info btn-sm mr-2" 
+                              onClick={() => {
+                                this.setState({
+                                  eventId : data.title,
+                                  user :  user.email
+                                })
+                                this.goingActivity()
+                            }}>Going</button>
+                        <button class="btn btn-sm btn-danger btn-sm"
+                              onClick={() => {
+                                this.setState({
+                                  eventId : data.title,
+                                  user :  user.email
+                                })
+                                this.notGoingActivity()
+                            }}>Not Going</button>
                       </div>
                   </div>
                   )})}
@@ -129,7 +156,8 @@ EventDetails.propTypes = {
 const mapStateToProps = state => ({
   eventDetails: state.events,
   recom: state.events,
-  locationData: state.events
+  locationData: state.events,
+  auth: state.auth
   
 });
-export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents })(EventDetails);
+export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents,goingEvent,notGoingEvent })(EventDetails);
