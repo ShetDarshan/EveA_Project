@@ -32,6 +32,14 @@ import Spinner from '../common/Spinner'
     super(props);
     this.state = {lat:"",lon:""};
     props.getEvents();
+    this.state={
+      showMe:true
+    }
+  }
+
+  operation(){
+
+    alert("hello")
   }
    render() {
     let showItems = 4;
@@ -60,7 +68,12 @@ import Spinner from '../common/Spinner'
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">     
                       <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
+
+
                       <div >
+
+
+
                       <div key={categoriesList+"-container"} className="card text-white  mb-3 card-slider">
                       <Slider {...settings}>
                       {
@@ -80,8 +93,12 @@ import Spinner from '../common/Spinner'
                               </div>  
                         ))}
                         </Slider>
-                        </div>  
-                        </div>    
+                        </div>
+
+<button onClick={()=>this.operation()}>Click Me</button>
+                        </div>   
+
+
                   </div>
               ))} 
           </div>
