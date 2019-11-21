@@ -94,18 +94,10 @@ import Spinner from '../common/Spinner'
                               </div>  
                         ))}
                         </Slider>
+                        <button onClick={()=>this.operation()}>Click Me</button>
                         </div>
                         :null
                       }
-
-
-
-                      
-
-<button onClick={()=>this.operation()}>Click Me</button>
-                       
-
-
                   </div>
               ))} 
           </div>
