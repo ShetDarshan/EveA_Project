@@ -13,6 +13,7 @@ from .search import Search
 from .recommend import Recommend
 from .Nearby import Nearby
 from django.http import JsonResponse
+from .UserSuggestion import UserRecommend
 
 
 def processwebdata(request):
@@ -57,6 +58,15 @@ def nearby(req,inputstr = 'Book of Kells'):
     events = list(map(lambda x: to_json(x), nearByEventsList))
 
     return JsonResponse(events, safe=False)
+
+
+def usersrecommend(req, inputstr = ''):
+    print(inputstr)
+    usersrecommend_list = UserRecommend.userRecommendations(inputstr)
+   
+    #users = list(map(lambda x: users_json(x), usersrecomment_list))
+    print(usersrecommend_list)
+    return JsonResponse(usersrecommend_list, safe= False)
 
 
 def to_json(x):
