@@ -4,15 +4,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEventDetails,getRecmdEvents,getLocationEvents } from '../../actions/eventActions';
-import { goingEvent, notGoingEvent} from '../../actions/friendActions';
+import { goingEvent, notGoingEvent ,friendsGoing} from '../../actions/friendActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 import Spinner from '../common/Spinner'
 class EventDetails extends Component {
-  componentDidMount() {
+componentDidMount() {
     this.props.getRecmdEvents(this.props.match.params.title);
     this.props.getLocationEvents(this.props.match.params.title);
+    this.props.friendsGoing(this.goingDetails);
   }
 constructor(props) {
     super(props);
@@ -23,6 +24,10 @@ constructor(props) {
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
 }
+goingDetails = {
+  eventID : this.props.match.params.title,
+  loggedEmail : this.props.auth.user.email 
+};
 goingActivity = () => {
   this.props.goingEvent(this.state)
 }
@@ -30,6 +35,7 @@ notGoingActivity = () => {
   this.props.notGoingEvent(this.state)
 }
   render() {
+
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
     const { user } = this.props.auth;
@@ -160,4 +166,4 @@ const mapStateToProps = state => ({
   auth: state.auth
   
 });
-export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents,goingEvent,notGoingEvent })(EventDetails);
+export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents,goingEvent,notGoingEvent,friendsGoing })(EventDetails);
