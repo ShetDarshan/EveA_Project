@@ -30,24 +30,20 @@ import evealogo from '../../img/logo.png'
     const authLinks = (
       <ul className="navbar-nav ml-auto">
          <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+                <Link className="nav-link" to="/register">Sign Up</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
+              <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Login</Link>
                 {/* <a href=""  onClick={this.onLogoutClick.bind(this)} className = "nav-link">{' '}
                 Logout
                 </a> */}
               </li>
             </ul>
     );
-<<<<<<< HEAD
-
-=======
     const searchClient = algoliasearch(
       '7Z6VFB8JQD',
       'fe812c7ddbd852cb3074294b24c7e641'
     );
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
     const guestLinks = (    
       <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">
@@ -63,19 +59,16 @@ import evealogo from '../../img/logo.png'
       <li className="nav-item">
        <Link className="nav-link" to="/guestuser"> Guest User</Link>
       </li>
-<<<<<<< HEAD
-=======
       <li className="nav-item">
        <Link className="nav-link" to="/search"> Search</Link>
       </li>
-      {/* <li>
+      <li>
       <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <SearchBox />
             <Hits hitComponent={Hit} />
           <Pagination />
         </InstantSearch>
-      </li> */}
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+      </li> 
     </ul>
       </div>
   

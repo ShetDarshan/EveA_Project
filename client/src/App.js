@@ -19,16 +19,10 @@ import UpdateProfile from './components/dashboard/UpdateProfile';
 import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
-<<<<<<< HEAD
-
-=======
 import Search from './components/dashboard/Search';
-<<<<<<< HEAD
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
-=======
+
 import Friend from './components/friends/Friend';
 
->>>>>>> 59b924183aa5f74b64fb3b128041b2ad92062613
 
 if(localStorage.jwtToken){
   setAuthToken(localStorage.jwtToken);
@@ -54,7 +48,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
             <Route exact path="/" component={Landing} />
-            <div className="container-flex mb-0">
+            <div className="container-flex mb-0" style={{minHeight:'650px'}}>
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -66,21 +60,15 @@ class App extends Component {
                 <Route exact path="/updateProfile" component={UpdateProfile}/>
        <Route exact path="/forgotpwd" component={ForgotPassword}/>
                 <Route exact path="/datapolicy" component={DataPolicy}/>
-<<<<<<< HEAD
-=======
-                <Route exact path="/search" component={Search}/>
-<<<<<<< HEAD
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
-            </div>
 
-            
-            <Footer />
+
+                <Route exact path="/search" component={Search}/>
             
           
-=======
+
                 <Route exact path="/friend/:email" component={Friend}/>
             </div>  
->>>>>>> 59b924183aa5f74b64fb3b128041b2ad92062613
+
         </div>  
         <Footer />
         </Router>

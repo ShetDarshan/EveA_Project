@@ -20,28 +20,21 @@ class Search extends Component {
       <div className="ais-InstantSearch">
         <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <div className="right-panel">
-            <SearchBox />
-            <Hits hitComponent={Hit} />
+            <SearchBox/>
+            <Hits hitComponent={Hit}/>
           </div>
-          <Pagination />
+          <Pagination/>
         </InstantSearch>
       </div>
     );
   }
 }
-const style = {
-  image: {
-    border: '1px solid #ccc',
-    background: '#fefefe',
-  },
-};
 function Hit(props) {
   return (
     <div>
-      <div className="imageContainer" >
-        
+      <div className="imageContainer">
         <Link to={`/event/${props.hit.title}`} className="card-link">
-        <img className="imageBg"  src = {props.hit.image}/>
+            <img className="imageBg"  src = {props.hit.image}/>
         </Link>
       </div>
       <span className="hit-name">

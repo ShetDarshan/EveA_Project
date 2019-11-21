@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
 class CreateProfile extends Component {
@@ -16,7 +17,6 @@ class CreateProfile extends Component {
     super(props);
     const { user } = this.props.auth;
     const profile = this.props.getProfile(user.email);
-      console.log("Constructor",profile);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
     
@@ -26,12 +26,22 @@ class CreateProfile extends Component {
     console.log("user",user);
     this.props.getProfile(user.email);
     }
+  acceptRequest = () => {
+      this.props.acceptFriendRequest(this.state)
+  }
+  rejectRequest = () => {
+    this.props.rejectFriendRequest(this.state)
+}
   render() {
 
     // let { imagePreviewUrl } = this.state;
     const { profile, profiles } = this.props.users;
-    const {request} = this.props.friends;
+   // var { request  } =  this.props.friends;
     console.log("Profile",this.props.users);
+    let allRequests=[];
+     allRequests = this.props.friends.request.from;
+    console.log("console request",allRequests);
+    
     if (profile) {
       profile.map(values => {
         userEmail = values.email;
@@ -44,12 +54,10 @@ class CreateProfile extends Component {
         userlocation = values.location;
         userBirthday = values.birthday;
         userImageUrl = values.imageUrl;
+
         userGender = values.gender;
       });
       
-    }
-    if(request){
-        console.log("list of requests",request)
     }
     return (
       <div className="profile-page">
@@ -59,29 +67,99 @@ class CreateProfile extends Component {
           <div className="main main-raised">
             <div className="profile-content">
               <div className="container">
-                <div className="row">
-                    <div className="col-md-6 ml-auto mr-auto">
+                <div className="row m-4">
+                    <div className="w-75">
         	           <div className="profile">
-                        <div  className="avtar">
+                        <div  className="avtar float-left">
                              <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
+                             {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
                           </div>
-	                        {/* <div className="avtar">
-	                            <img src={} alt="Circle Image" className="img-raised rounded-circle img-fluid"/>
-	                        </div> */}
-	                        <div className="name">
-	                            <h3 className="title">{userName}</h3>
-							                	
-                                <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link>
+	                      <div className="name float-left m-5">
+	                            <h3 className="title text-capitalize">{userName}</h3>
+                              <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
+                                {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                                 <div className="description text-center mt-2">
-                                    <p>{userBio}</p>
-                                    {/* <h6> Addresss: <b className="text-white bold">{userlocation}</b> </h6> */}
-                                    <h6> Interest: <b className="text-white bold">{userInterests}</b> </h6>
+                                    <p className="text-capitalize">{userBio}</p>
                                     <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
-                                   
+                                    <h6> Joined at: <b className="text-white bold">{userlocation}</b> </h6>
                                 </div>
 	                        </div>
-	                    </div>
+                        <div className="clearfix"></div>
+                      </div>
     	            </div>
+                    <div className="w-25">
+                        <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
+                        {/* <Link to="/deleteProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Delete Profile</Link> */}
+                    </div>
+                </div>
+                <div className="row m-4">
+                    <h6 className="w-100">Interests: <b className="text-white bold">{userInterests}</b> </h6>
+                    <h6 className="w-100">Address: <b className="text-white bold">{userAddress}</b> </h6>
+                    <h6 className="w-100">Date Of Birth: <b className="text-white bold">{userBirthday}</b></h6>
+                    <h6 className="w-100">Email: <b className="text-white bold">{userEmail}</b></h6>
+                </div>
+                          
+                <div className="row">
+                  <h5>Requests Recieved</h5>
+                  <div class="col-md-12 ml-auto mr-auto">
+<ul class="friendRequestList ">
+	<li class="m-2 card border-primary ">
+		<div class=""><div class="friendAvtar text-center">
+			<div class="avtarImg" style={{backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)`}}></div>
+			
+			<h6 class="m-2 text-white">d.shet@arithon.com</h6>
+			<button class="btn btn-sm btn-info btn-sm mr-2"> Accept Request</button>
+			<button class="btn btn-sm btn-danger btn-sm"> Reject Request</button>
+			</div>
+		</div>
+	</li>
+</ul>
+</div>
+                  {/* <ul className="friendRequestList ">
+                    {
+                      allRequests && allRequests.map(data => {  
+                           return (
+                            <li className="m-2">
+                              <div className="card border-primary mb-3 text-center">
+                                  <div className="friendAvtar">
+                                      <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
+                                      <h6 className="m-2 text-white">{data}</h6>
+                                      <button className="btn btn-md btn-info btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.acceptRequest()
+                                  }}> Accept Request
+                              </button>
+                              <button className="btn btn-md btn-danger btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.rejectRequest()
+                                  }}> Reject Request
+                              </button>
+                                    </div>
+                              </div>
+                               {/* <h6 className="m-2 text-white">{data}</h6>
+                               <button className="btn btn-md btn-info btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.acceptRequest()
+                                  }}> Accept Request
+                              </button>
+                              <button className="btn btn-md btn-danger btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.rejectRequest()
+                                  }}> Reject Request
+                              </button> */}
+                            {/* </li>
+                           )
+                         })
+                    }
+                  </ul> */} 
                 </div>
                 <div className="row">
                   <div className="col-md-12 ml-auto mr-auto">
@@ -91,19 +169,17 @@ class CreateProfile extends Component {
                         profiles && profiles.map(data => {
                         return(
                        
-                          <li className="m-2">
-                             <div className="card border-primary mb-3 text-center">
-                             <div className="friendAvtar">
-                              <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
-      
-                                    {/* <img src={data.imageUrl} alt="Circle Image" className="img-raised rounded-circle img-fluid"/> */}
-                                    <h6 className="m-2 text-white">{data.handle}</h6>
-                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
-                                    {/* <a href="#" className="btn btn-lg btn-info btn-sm mr-2">View Profile</a>  */}
-                                  {/* <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
-                                  <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link> */}
+                          <li className="card border-primary m-2">
+                             <div className="text-center float-left">
+                                <div className="friendAvtar ">
+                                     <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
                                 </div>
-                                 </div>
+                             </div>
+                             <div className="float-left text-center">
+                                  <h6 className="m-2 text-white">{data.handle}</h6>
+                                  <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
+                             </div>
+                             <div className="clearfix"></div>
                           </li>
                        
                          )})}
