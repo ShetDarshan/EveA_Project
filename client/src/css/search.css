@@ -93,9 +93,9 @@
   }
   
   .ais-SearchBox {
-    position: absolute;
-    width: 300px;
-    height: 33px;
+    position: static;
+    width: 400px;
+    height: 35px;
     white-space: nowrap;
     box-sizing: border-box;
     font-size: 14px;
