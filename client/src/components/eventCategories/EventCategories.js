@@ -8,7 +8,6 @@ import Slider from "react-slick";
 import "../../css/App.css";
 import { bool } from "prop-types";
 import Spinner from '../common/Spinner'
-import { Alert } from 'reactstrap';
 
  class EventCategories extends Component {
   componentDidMount() {
@@ -73,9 +72,7 @@ import { Alert } from 'reactstrap';
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">    
                   <button onClick={()=>this.operation()}>Click</button> 
-                  <Alert color="primary">
-                      <a href={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}</a>
-                      </Alert>
+                      <h2 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}</h2>
                       {
                         
                         this.state.showMe?
@@ -91,8 +88,8 @@ import { Alert } from 'reactstrap';
                                   <Link to={`/event/${data.title}`} className="card-link">
                                     <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
                                   </Link>
-                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0">{data.startdate}</h6>
-                                  
+                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
+                                  <Link to={`/event/${data.title}`} className="card-link">View Event</Link>
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
                                 </div>
                               </div>  
