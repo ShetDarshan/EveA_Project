@@ -74,8 +74,9 @@ class CreateProfile extends Component {
                              <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div>
                              {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
                           </div>
-	                      <div className="name float-left p-5">
+	                      <div className="name float-left m-5">
 	                            <h3 className="title text-capitalize">{userName}</h3>
+                              <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
                                 {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                                 <div className="description text-center mt-2">
                                     <p className="text-capitalize">{userBio}</p>
@@ -88,43 +89,77 @@ class CreateProfile extends Component {
     	            </div>
                     <div className="w-25">
                         <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
-                        <Link to="/deleteProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Delete Profile</Link>
+                        {/* <Link to="/deleteProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Delete Profile</Link> */}
                     </div>
                 </div>
                 <div className="row m-4">
                     <h6 className="w-100">Interests: <b className="text-white bold">{userInterests}</b> </h6>
-                    <h6 className="w-100">Address: <b className="text-white bold">A</b> </h6>
-                    <h6 className="w-100">Date Of Birth: <b className="text-white bold">d</b></h6>
-                    <h6 className="w-100">Email: <b className="text-white bold">asd</b></h6>
+                    <h6 className="w-100">Address: <b className="text-white bold">{userAddress}</b> </h6>
+                    <h6 className="w-100">Date Of Birth: <b className="text-white bold">{userBirthday}</b></h6>
+                    <h6 className="w-100">Email: <b className="text-white bold">{userEmail}</b></h6>
                 </div>
                           
                 <div className="row">
                   <h5>Requests Recieved</h5>
-                  <ul className="customFriendList">
+                  <div class="col-md-12 ml-auto mr-auto">
+<ul class="friendRequestList ">
+	<li class="m-2 card border-primary ">
+		<div class=""><div class="friendAvtar text-center">
+			<div class="avtarImg" style={{backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)`}}></div>
+			
+			<h6 class="m-2 text-white">d.shet@arithon.com</h6>
+			<button class="btn btn-sm btn-info btn-sm mr-2"> Accept Request</button>
+			<button class="btn btn-sm btn-danger btn-sm"> Reject Request</button>
+			</div>
+		</div>
+	</li>
+</ul>
+</div>
+                  {/* <ul className="friendRequestList ">
                     {
                       allRequests && allRequests.map(data => {  
                            return (
                             <li className="m-2">
-                               <h6 className="m-2 text-white">{data}</h6>
-                               <button className="btn btn-lg btn-info btn-sm mr-2"
+                              <div className="card border-primary mb-3 text-center">
+                                  <div className="friendAvtar">
+                                      <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
+                                      <h6 className="m-2 text-white">{data}</h6>
+                                      <button className="btn btn-md btn-info btn-sm mr-2"
                                   onClick={() => {
                                       this.setState({
                                       })
                                       this.acceptRequest()
                                   }}> Accept Request
                               </button>
-                              <button className="btn btn-lg btn-danger btn-sm mr-2"
+                              <button className="btn btn-md btn-danger btn-sm mr-2"
                                   onClick={() => {
                                       this.setState({
                                       })
                                       this.rejectRequest()
                                   }}> Reject Request
                               </button>
-                            </li>
+                                    </div>
+                              </div>
+                               {/* <h6 className="m-2 text-white">{data}</h6>
+                               <button className="btn btn-md btn-info btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.acceptRequest()
+                                  }}> Accept Request
+                              </button>
+                              <button className="btn btn-md btn-danger btn-sm mr-2"
+                                  onClick={() => {
+                                      this.setState({
+                                      })
+                                      this.rejectRequest()
+                                  }}> Reject Request
+                              </button> */}
+                            {/* </li>
                            )
                          })
                     }
-                  </ul>
+                  </ul> */} 
                 </div>
                 <div className="row">
                   <div className="col-md-12 ml-auto mr-auto">
@@ -134,19 +169,17 @@ class CreateProfile extends Component {
                         profiles && profiles.map(data => {
                         return(
                        
-                          <li className="m-2">
-                             <div className="card border-primary mb-3 text-center">
-                             <div className="friendAvtar">
-                              <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
-      
-                                    {/* <img src={data.imageUrl} alt="Circle Image" className="img-raised rounded-circle img-fluid"/> */}
-                                    <h6 className="m-2 text-white">{data.handle}</h6>
-                                    <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
-                                    {/* <a href="#" className="btn btn-lg btn-info btn-sm mr-2">View Profile</a>  */}
-                                  {/* <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link>
-                                  <Link to="/updateProfile" className="btn btn-lg btn-info btn-sm">Edit Profile</Link> */}
+                          <li className="card border-primary m-2">
+                             <div className="text-center float-left">
+                                <div className="friendAvtar ">
+                                     <div className="avtarImg" style={{backgroundImage: `url(${data.imageUrl})`}}></div>
                                 </div>
-                                 </div>
+                             </div>
+                             <div className="float-left text-center">
+                                  <h6 className="m-2 text-white">{data.handle}</h6>
+                                  <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
+                             </div>
+                             <div className="clearfix"></div>
                           </li>
                        
                          )})}

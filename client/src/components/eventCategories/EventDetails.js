@@ -7,6 +7,7 @@ import { getEventDetails,getRecmdEvents,getLocationEvents } from '../../actions/
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
+import Spinner from '../common/Spinner'
 class EventDetails extends Component {
   componentDidMount() {
     this.props.getRecmdEvents(this.props.match.params.title);
@@ -25,7 +26,7 @@ constructor(props) {
       // console.log("locationData",locationData);
     if (Object.keys(recom).length < 1 ){
      console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-      return <div>Loading...</div>
+      return <div><Spinner /></div>
     } 
     else {
      //console.log("dataset",dataset);

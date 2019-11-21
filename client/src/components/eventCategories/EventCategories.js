@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 import { bool } from "prop-types";
+import Spinner from '../common/Spinner'
 
  class EventCategories extends Component {
   componentDidMount() {
@@ -43,7 +44,7 @@ import { bool } from "prop-types";
     const dataset  = this.props.events.events;
      if (Object.keys(dataset).length < 1 ){
       console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-       return <div>Loading...</div>
+       return <div><Spinner /></div>
      } 
      else {
       console.log("dataset",dataset);
