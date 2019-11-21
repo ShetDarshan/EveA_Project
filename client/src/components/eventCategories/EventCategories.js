@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import "../../css/App.css";
 import { bool } from "prop-types";
 import Spinner from '../common/Spinner'
+import { Alert } from 'reactstrap';
 
  class EventCategories extends Component {
   componentDidMount() {
@@ -72,7 +73,9 @@ import Spinner from '../common/Spinner'
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">    
                   <button onClick={()=>this.operation()}>Click</button> 
-                      <h1 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h1>
+                  <Alert color="primary">
+                      <h2 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}</h2>
+                      </Alert>
                       {
                         
                         this.state.showMe?
