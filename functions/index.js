@@ -514,9 +514,10 @@ app.post('/api/v1/notGoingActivities', (req, res) => {
 })
 
 //friends going list for each event
-app.post('/api/v1/friendsGoing/:event', (req, res) => {
-  loggedEmail = 'd.shet@arithon.com';
-  eventID = req.params.event;
+app.post('/api/v1/friendsGoing', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
   let myFriendsGoing = [];
   db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (doc.exists) {
