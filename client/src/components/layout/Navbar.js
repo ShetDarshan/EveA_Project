@@ -63,19 +63,16 @@ import evealogo from '../../img/logo.png'
       <li className="nav-item">
        <Link className="nav-link" to="/guestuser"> Guest User</Link>
       </li>
-<<<<<<< HEAD
-=======
       <li className="nav-item">
        <Link className="nav-link" to="/search"> Search</Link>
       </li>
-      {/* <li>
+      <li>
       <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <SearchBox />
             <Hits hitComponent={Hit} />
           <Pagination />
         </InstantSearch>
-      </li> */}
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
+      </li> 
     </ul>
       </div>
   
