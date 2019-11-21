@@ -69,7 +69,7 @@ constructor(props) {
                   </div>
                   )})}
                   <div key="recommended-events" className="recommended-events">
-                  <h4 key="recommended-events-heading" className="text-capitalise">Similar Events</h4>
+                  <h4 key="recommended-events-heading" className="text-capitalise">Similar Event</h4>
                     <Slider {...setting}>
                     {
                           recom && recom.map(data => (
