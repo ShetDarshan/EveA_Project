@@ -9,7 +9,7 @@ from geopy.extra.rate_limiter import RateLimiter
 
 def getOrdinates(address):
     #locator = nom.Nominatim(user_agent= "eba7f5230f2a6888e75a8a19573a4241f4cd1987", timeout= 3)
-    locator = Nominatim(user_agent= "http://evea-prj.firebaseapp.com")
+    locator = Nominatim(user_agent= "http://evea-prj.firebaseapp.com", timeout= 5)
     #geolocator = Nominatim(timeout=10)
     try:
         location = locator.geocode(address, timeout= None)
