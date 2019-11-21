@@ -30,10 +30,10 @@ import evealogo from '../../img/logo.png'
     const authLinks = (
       <ul className="navbar-nav ml-auto">
          <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+                <Link className="nav-link" to="/register">Sign Up</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
+              <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Login</Link>
                 {/* <a href=""  onClick={this.onLogoutClick.bind(this)} className = "nav-link">{' '}
                 Logout
                 </a> */}
