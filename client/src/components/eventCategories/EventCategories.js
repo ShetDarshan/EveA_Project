@@ -40,9 +40,11 @@ import Spinner from '../common/Spinner'
   operation(){
 
     this.setState({
-      showMe:this.state.showMe
+      showMe:!this.state.showMe
     })
   }
+
+
    render() {
     let showItems = 4;
     console.log("State",this.props.locationData);
