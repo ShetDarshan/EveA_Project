@@ -116,7 +116,7 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified">
-       <h6> By Signing Up, You Agree to Our <Link to="/datapolicy" target="_blank">Terms & Conditions </Link> </h6>
+       <h6> By Signing Up, You Agree to Our <Link to="/datapolicy" target="_blank">Privacy Policy</Link> </h6>
       </label>
                 <input 
                       type="submit" 
@@ -158,7 +158,7 @@ verifiedChange = e => {
                         />
                     </Snackbar>
                     <label for="verified">
-       <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> I'm already a member  <Link  to="/Login">
+       <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> Already a member? <Link  to="/Login">
           Log In</Link> </h6>
       </label>
         </div>

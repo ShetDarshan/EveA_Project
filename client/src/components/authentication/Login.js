@@ -93,7 +93,7 @@ import Face from '../layout/Face';
                 <input type="submit" className="btn btn-danger btn-block" value="Login" />
                 <Face/>
                 <label>
-                <h6 style={{fontSize:"2.3vh", alignContent:"center"}}>Not yet a member?<Link  to="/Register">
+                <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> Not yet a member?  <Link  to="/register">
           Sign Up</Link> </h6>
       </label>
               </form>
