@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getEvents } from '../../actions/eventActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
+import Box from "./eventCategories"
 import "../../css/App.css";
 import { bool } from "prop-types";
 import Spinner from '../common/Spinner'
@@ -31,8 +32,19 @@ import Spinner from '../common/Spinner'
   constructor(props) {
     super(props);
     this.state = {lat:"",lon:""};
+    this.state = {show: true};
+
+    this.toggleCat = this. toggleCat.bind(this)
     props.getEvents();
+
+
   }
+
+  toggleCat = () => {
+    const { show } = this.state;
+    this.setState({ show: !show})
+  }
+
    render() {
     let showItems = 4;
     console.log("State",this.props.locationData);
@@ -61,26 +73,11 @@ import Spinner from '../common/Spinner'
                   <div key={categoriesList+"-carousel"} className="carousel">     
                       <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
                       <div >
-                      <div key={categoriesList+"-container"} className="card text-white  mb-3 card-slider">
-                      <Slider {...settings}>
-                      {
-                        dataset[categoriesList].map(data => (
-                          <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                <div key={data.title+"-body"} className="card-body"  > 
-                                <div key={data.title+"-image-container"} className="imageContainer" >
-                                  <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
-                                </div>
-                                  <Link to={`/event/${data.title}`} className="card-link">
-                                    <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
-                                  </Link>
-                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
-                                  <Link to={`/event/${data.title}`} className="card-link">View Event</Link>
-                                  <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
-                                </div>
-                              </div>  
-                        ))}
-                        </Slider>
-                        </div>  
+                        <br/>
+                        <button onClick={this.toggleCat}>Open category</button>
+                        <br/><br/>
+                        {this.state.show && <Box/>}
+                     
                         </div>    
                   </div>
               ))} 
@@ -88,7 +85,10 @@ import Spinner from '../common/Spinner'
       );
      }
   }
-}
+  
+ }
+
+ 
 const mapStateToProps = state => ({
   events: state.events
 });
