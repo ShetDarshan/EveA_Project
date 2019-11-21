@@ -72,7 +72,7 @@ import Spinner from '../common/Spinner'
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">    
                   <button onClick={()=>this.operation()}>Click</button> 
-                      <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
+                      <h1 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h1>
                       {
                         
                         this.state.showMe?
@@ -98,12 +98,6 @@ import Spinner from '../common/Spinner'
                         </div>
                         :null
                       }
-
-
-
-                      
-
-
                   </div>
               ))} 
           </div>

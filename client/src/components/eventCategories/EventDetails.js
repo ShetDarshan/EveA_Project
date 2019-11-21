@@ -64,12 +64,12 @@ constructor(props) {
                         <h5 key={data.title+"-date"} className="mb-2">Date:</h5><p className="card-text mb-2">{data.date}</p>
                         <h5 key={data.title+"-address"} className="mb-2">Address:</h5><p className="card-text mb-2">{data.address}</p>
                         <h5 key={data.title+"-price"} className="mb-2">Price:</h5> <p className="card-text mb-2">{data.price}</p>
-                          <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-danger">Event Details</a>
+                          <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-danger">Visit Website</a>
                       </div>
                   </div>
                   )})}
                   <div key="recommended-events" className="recommended-events">
-                  <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
+                  <h4 key="recommended-events-heading" className="text-capitalise">Similar Events</h4>
                     <Slider {...setting}>
                     {
                           recom && recom.map(data => (
