@@ -40,14 +40,10 @@ import evealogo from '../../img/logo.png'
               </li>
             </ul>
     );
-<<<<<<< HEAD
-
-=======
     const searchClient = algoliasearch(
       '7Z6VFB8JQD',
       'fe812c7ddbd852cb3074294b24c7e641'
     );
->>>>>>> e4114923112235fcb72b38e5f032f71eb816b6db
     const guestLinks = (    
       <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">
