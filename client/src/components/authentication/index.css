@@ -53,10 +53,15 @@ body {
   
 }
 
+.btn-danger{
+  background-color: #518a23!important;
+  border-color:  #518a23!important;
+}
+
 
 .password-icon {
   position: absolute;
-  bottom:256px;
+  bottom:262px;
   color:black;
   right: 28px;
   cursor: pointer;
