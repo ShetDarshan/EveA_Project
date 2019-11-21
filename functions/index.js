@@ -283,6 +283,8 @@ app.post('/api/v1/updateProfile', (req, res) => {
 app.post('/api/v1/sendFriendRequest', (req, res) => {
   let sender = Object.values(req.body)[0];
   let receiver = Object.values(req.body)[1];
+  console.log("receiver",receiver)
+  console.log("receiver",receiver)
   db.collection('connections').doc(sender).get().then(doc => {
     let arr = [];
     if (!doc.exists) {
@@ -351,11 +353,12 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
     });
 })
 //accept friend request
-app.post('/api/v1/acceptRequest/:email', (req, res) => {
-  loggedEmail = req.params.email;
+app.post('/api/v1/acceptRequest', (req, res) => {
+  loggedEmail = Object.values(req.body)[0];
   //logged user has to accept the request
-  requestToAccept = 'test@gmail.com';
+  requestToAccept = Object.values(req.body)[1];
   //get the logged user details and make the changes
+
   db.collection('connections').doc(loggedEmail).get().then(doc => {
     let fromList = doc.data()['from'];
     let friendList = doc.data()['friends'];
@@ -403,9 +406,11 @@ app.post('/api/v1/acceptRequest/:email', (req, res) => {
   });
 })
 //reject friend request list data
-app.post('/api/v1/rejectRequest/:email', (req, res) => {
-  loggedEmail = req.params.email;
-  requestToReject = 'test@gmail.com';
+app.post('/api/v1/rejectRequest', (req, res) => {
+  loggedEmail = Object.values(req.body)[0];
+  //logged user has to accept the request
+  requestToReject = Object.values(req.body)[1];
+
   db.collection('connections').doc(loggedEmail).get().then(doc => {
     let fromList = doc.data()['from'];
     let friendList = doc.data()['friends'];
