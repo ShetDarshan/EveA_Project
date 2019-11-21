@@ -39,7 +39,9 @@ import Spinner from '../common/Spinner'
 
   operation(){
 
-    alert("hello")
+    this.setState({
+      showMe:false
+    })
   }
    render() {
     let showItems = 4;
