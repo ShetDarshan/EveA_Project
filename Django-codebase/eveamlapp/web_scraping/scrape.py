@@ -21,6 +21,7 @@ from .websites.DublinchamberScrape import DubChamberIE
 from .websites.DublintownScrape import DublintownScrape
 from .websites.TUD_BlanchardstownScrape import TUD_Blanchardstown
 from .websites.IrelandScrape import IrelandIe
+from .websites.Eventbrite_health import EventHealth
 import sys
 import time
 import re
@@ -74,11 +75,11 @@ class WebScrape:
             #     for data in dataList:
             #        data_list.append(data)
 
-            if url.referenceId=='DUBIE':
-               dataList = DublinIe.scrape(url.url)
+            # if url.referenceId=='DUBIE':
+            #    dataList = DublinIe.scrape(url.url)
 
-                for data in dataList:
-                   data_list.append(data)
+            #     for data in dataList:
+            #        data_list.append(data)
 
             # elif url.referenceId=='DBSScrape':
             #     dataList = DBSScrape.scrape(url.url)
@@ -123,5 +124,13 @@ class WebScrape:
 
             #     for data in dataList:
             #        data_list.append(data)       
+
+            ## category scrapping of eventbrite:
+            if url.referenceId == 'Eventbrite_health':
+                dataList = EventHealth.scrape(url.url)
+
+                for data in dataList:
+                    data_list.append(data)
+                
 
         return data_list
