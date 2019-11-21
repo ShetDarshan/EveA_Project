@@ -74,7 +74,7 @@ import { Alert } from 'reactstrap';
                   <div key={categoriesList+"-carousel"} className="carousel">    
                   <button onClick={()=>this.operation()}>Click</button> 
                   <Alert color="primary">
-                      <h2 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}</h2>
+                      <h3 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}</h3>
                       </Alert>
                       {
                         
