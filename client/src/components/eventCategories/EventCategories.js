@@ -40,7 +40,7 @@ import Spinner from '../common/Spinner'
   operation(){
 
     this.setState({
-      showMe:false
+      showMe:this.state.showMe
     })
   }
    render() {
