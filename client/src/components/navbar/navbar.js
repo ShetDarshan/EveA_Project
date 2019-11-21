@@ -54,7 +54,7 @@ import "./navbar.css";
     const authLinks = (
       <ul className="navbar-nav ml-auto">
          <li className="nav-item">
-                <Link className="nav-link" to="/register">Sign Up</Link>
+                <Link className="nav-link" to="/profile">Profile</Link>
               </li>
               <li className="nav-item">
                    <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
@@ -89,7 +89,7 @@ import "./navbar.css";
 
         <form className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2" type="text" placeholder="Search" id="Search"/>
-            <Link className="nav-link" to="/Search" style={{paddingLeft:"800px"}}>Browse Events</Link>
+            <Link className="nav-link" to="/Search">Browse Events</Link>
         </form>
       </div>
     );
