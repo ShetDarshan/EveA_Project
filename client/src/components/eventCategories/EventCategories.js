@@ -8,14 +8,13 @@ import Slider from "react-slick";
 import "../../css/App.css";
 import { bool } from "prop-types";
 import Spinner from '../common/Spinner'
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel } from 'react-bootstrap';
 import Car1 from '../../img/Carousel.PNG';
+import Car0 from '../../img/Carousel0.PNG';
+import Car3 from '../../img/Carousel2.PNG';
+import Car4 from '../../img/Carousel3.PNG';
 
-let styles = {
-  margin: 'auto',
-  width: '350px',
-};
 
  class EventCategories extends Component {
   componentDidMount() {
@@ -66,25 +65,28 @@ let styles = {
        
         <div className="eventCategories mt-8">
           
-           
-           <div style={styles}>
-		<Carousel>
-			<div>
-      <img src={Car1}  alt="Dublin"/>
-				<p className="legend">Hong Kong</p>
+          <Carousel>
+  <Carousel.Item >
+  <div>
+      <img src={Car1}   alt="Dublin"/>
 			</div>
-			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/c1cklkyp6ms02tougufx.webp" alt="Singapore"/>
+  </Carousel.Item>
+  <Carousel.Item>
+  <div>
+      <img src={Car0}  alt="Signup"/>
 			</div>
-			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/e8fnw35p6zgusq218foj.webp" alt="Japan"/>
-				<p className="legend">Japan</p>
+  </Carousel.Item>
+  <Carousel.Item>
+  <div>
+      <img src={Car3}   alt="Login"/>
 			</div>
-			<div>
-				<img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/liw377az16sxmp9a6ylg.webp" alt="Las Vegas"/>
+  </Carousel.Item>
+  <Carousel.Item>
+  <div>
+      <img src={Car4}  alt="Search"/>
 			</div>
-      </Carousel>
-	</div>
+  </Carousel.Item>
+</Carousel>
       
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">     
