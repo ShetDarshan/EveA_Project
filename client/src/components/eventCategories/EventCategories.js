@@ -108,32 +108,35 @@ import Car4 from '../../img/Carousel5.PNG';
                       {
                         dataset[categoriesList].map(data => (
                           <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                <div key={data.title+"-body"} className="card-body"  > 
+                                <div key={data.title+"-body"} className="card-body"  > <br></br>
 
 
 
                                 <div key={data.title+"-image-container"} className="imageContainer" >
-                                  <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`,width:"400px",height:"200px"}}>
+                                  <div key={data.title+"-background"} className="imageBg" 
+                                  style={{backgroundImage: `url(${data.img})`,width:"255px",height:"160px"}}>
                                 </div>
                                 </div>
 
 
 
 
-<Link to={`/event/${data.title}`} className="card-link">
-<h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
+<Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
+<h5 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " 
+style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h5>
 </Link>
 
-<div class="card-stats">
+{/*<div class="card-stats">
       <div class="value">89</div>
       <div class="type">Interested</div>
     </div>
     <div class="stat">
       <div class="value">32</div>
       <div class="type">Going</div>
-      </div>
-
+      </div>*/}
+      <div class="card-stats">
                                   <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0">{data.startdate}</h6>
+                                  </div>
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
                                 </div>
                               </div>  
