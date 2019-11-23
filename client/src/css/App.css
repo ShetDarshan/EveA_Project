@@ -159,8 +159,7 @@ img {
 /*Card*/
 
 .imageBg{
-  width: 300px!important;
-  height:300px!important;
+ 
   grid-area: image;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -170,7 +169,7 @@ img {
 
 .card.card-slider{
   display: grid!important;
-  grid-template-columns: 600px!important;
+  grid-template-columns: 400px!important;
   grid-template-areas: "image" "text" "stats"!important;
   border-radius: 18px!important;
   background: white!important;
@@ -184,23 +183,20 @@ img {
 
 }
 
-.card.card-slider:hover {
+{/*}.card.card-slider:hover {
   transform: scale(1.15);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-}
-
- 
-
+}*/}
 
 .card-body{
   grid-area: text!important;
-  margin:25px!important;
+  
 }
 
 .card-stats {
   grid-area: stats; 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: .1fr .1fr .1fr;
   grid-template-rows: 1fr;
   border-bottom-left-radius: 1px;
   border-bottom-right-radius: 1px;

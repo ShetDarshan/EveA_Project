@@ -113,7 +113,7 @@ import Car4 from '../../img/Carousel5.PNG';
 
 
                                 <div key={data.title+"-image-container"} className="imageContainer" >
-                                  <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}>
+                                  <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`,width:"400px",height:"200px"}}>
                                 </div>
                                 </div>
 
