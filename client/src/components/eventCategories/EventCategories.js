@@ -13,7 +13,7 @@ import { Carousel } from 'react-bootstrap';
 import Car1 from '../../img/Carousel.PNG';
 import Car0 from '../../img/Carousel0.PNG';
 import Car3 from '../../img/Carousel2.PNG';
-import Car4 from '../../img/Carousel3.PNG';
+import Car4 from '../../img/Carousel5.PNG';
 
 
  class EventCategories extends Component {
@@ -38,6 +38,16 @@ import Car4 from '../../img/Carousel3.PNG';
     super(props);
     this.state = {lat:"",lon:""};
     props.getEvents();
+    this.state={
+      showMe:true
+    }
+  }
+
+  operation(){
+
+    this.setState({
+      showMe:!this.state.showMe
+    })
   }
    render() {
     let showItems = 4;
@@ -68,7 +78,7 @@ import Car4 from '../../img/Carousel3.PNG';
           <Carousel>
   <Carousel.Item >
   <div>
-      <img src={Car1}   alt="Dublin"/>
+      <img src={Car1} alt="Dublin"/>
 			</div>
   </Carousel.Item>
   <Carousel.Item>
@@ -89,9 +99,12 @@ import Car4 from '../../img/Carousel3.PNG';
 </Carousel>
       
                {Object.keys(dataset).map(categoriesList => (
-                  <div key={categoriesList+"-carousel"} className="carousel">     
+                  <div key={categoriesList+"-carousel"} className="carousel">  
+                  <button onClick={()=>this.operation()}>Browse</button>   
                       <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
-                      <div >
+                      {
+                              this.state.showMe?
+
                       <div key={categoriesList+"-container"} className="card text-white  mb-3 card-slider">
                       <Slider {...settings}>
                       {
@@ -104,17 +117,20 @@ import Car4 from '../../img/Carousel3.PNG';
                                   <Link to={`/event/${data.title}`} className="card-link">
                                     <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
                                   </Link>
-                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
-                                  <Link to={`/event/${data.title}`} className="card-link">View Event</Link>
+                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0">{data.startdate}</h6>
+                                  {/*<Link to={`/event/${data.title}`} className="card-link">View Event</Link>*/}
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
                                 </div>
                               </div>  
                         ))}
                         </Slider>
-                        </div>  
-                        </div>    
+                        </div>
+                        :null
+                      }
                   </div>
+                  
               ))} 
+              
           </div>
       );
      }
