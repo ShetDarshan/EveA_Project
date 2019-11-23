@@ -155,3 +155,70 @@ img {
 .navbar {
   z-index: 5;
 }
+
+/*Card*/
+
+.imageBg{
+  width: 300px!important;
+  height:300px!important;
+  grid-area: image;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+  
+}
+
+.card.card-slider{
+  display: grid!important;
+  grid-template-columns: 600px!important;
+  grid-template-areas: "image" "text" "stats"!important;
+  border-radius: 18px!important;
+  background: white!important;
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.9)!important;
+  font-family: roboto!important;
+  text-align: center!important;
+  font-family: roboto!important;
+  text-align: center!important;
+  cursor: pointer!important;
+ 
+
+}
+
+.card.card-slider:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+ 
+
+
+.card-body{
+  grid-area: text!important;
+  margin:25px!important;
+}
+
+.card-stats {
+  grid-area: stats; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  background: rgb(255, 7, 110);
+}
+
+.card-stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  padding:10px;
+}
+
+
+
+
+
+
+
