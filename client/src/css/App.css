@@ -187,6 +187,14 @@ img {
   margin:10px auto!important;
   padding:10px!important;
   justify-content: center!important;
+  height:350px;
+  border-right: .5px solid white!important;
+}
+
+.card-body{
+  margin-bottom:200px!important;
+  margin-right:-15px!important;
+  grid-area: text!important;
 }
 
 .imageBg:hover {
@@ -195,9 +203,8 @@ img {
 }
 
 
-.card-body{
-  grid-area: text!important;
-  
+.text-capitalise{
+  color:black!important;
 }
 
 .card-stats {
@@ -206,11 +213,13 @@ img {
   grid-template-columns: .1fr .1fr .1fr!important;
   grid-template-rows: 1fr!important;
   border-bottom-left-radius: 15px!important;
-  border-bottom-right-radius: 15px!important;;
-  background: #1c0714!important;
+  border-bottom-right-radius: 15px!important;
+  border-top-right-radius: 15px!important;
+  border-top-left-radius: 15px!important;
+  background: white!important;
 }
 
-.card-stats .stat {
+.card-map {
   display: flex!important;
   align-items: cente!important;
   justify-content: center!important;

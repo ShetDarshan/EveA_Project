@@ -11,9 +11,9 @@ import Spinner from '../common/Spinner'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'react-bootstrap';
 import Car1 from '../../img/Carousel.PNG';
-import Car0 from '../../img/Carousel0.PNG';
-import Car3 from '../../img/Carousel2.PNG';
-import Car4 from '../../img/Carousel5.PNG';
+import Car0 from '../../img/Car2.PNG';
+import Car3 from '../../img/Car3.PNG';
+import Car4 from '../../img/Car4.PNG';
 
 
  class EventCategories extends Component {
@@ -110,34 +110,31 @@ import Car4 from '../../img/Carousel5.PNG';
                           <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
                                 <div key={data.title+"-body"} className="card-body"  > <br></br>
 
-
-
+                                <div>
+<div >
+<Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
+<h5 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title font-weight-bold mb-2" 
+style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h5>
+</Link>
+</div>
                                 <div key={data.title+"-image-container"} className="imageContainer" >
                                   <div key={data.title+"-background"} className="imageBg" 
                                   style={{backgroundImage: `url(${data.img})`,width:"255px",height:"160px"}}>
                                 </div>
                                 </div>
-
-
-
-
-<Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
-<h5 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " 
-style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h5>
-</Link>
-
-{/*<div class="card-stats">
-      <div class="value">89</div>
-      <div class="type">Interested</div>
-    </div>
-    <div class="stat">
-      <div class="value">32</div>
-      <div class="type">Going</div>
-      </div>*/}
-      <div class="card-stats">
-                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0">{data.startdate}</h6>
                                   </div>
-                                  <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
+                                  <div>
+     
+          <h6 key={data.startdate+"-startdate"} className="far fa-calendar pr-2" style="height:20px">{data.startdate}</h6>
+          </div>
+
+                                  {/*<div key={data.title+"-address"} className="card-text collapse">{data.address}</div>
+                                  <h6 className="card-text mb-2">{data.address}
+                        </h6>*/}                                
+                                  <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`}
+                                   target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right fa-lg p-1 my-1" 
+                                   data-toggle="tooltip" data-placement="top" title="See Location"></i></a>
+                               
                                 </div>
                               </div>  
                         ))}
