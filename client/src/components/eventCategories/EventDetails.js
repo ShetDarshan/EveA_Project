@@ -46,13 +46,13 @@ constructor(props) {
       //refreshPage();
      }
      function refreshPage(){ 
-      setTimeout(function(){  window.location.reload();},1e2); 
+      setTimeout(function(){  window.location.reload();},1e3); 
       }
     return (
         <div className="container pt-2">
           { eventDetails && eventDetails.map(data => {
               return(
-                  <div key={data.title+"-event-detail-container"} className="event-detail-container row">
+                  <div key={data.title+"-event-detail-container"} className="event-detail-container row text-white">
                     <div key={data.title+"-left-container"} className="left-container col-lg-8 col-md-12 col-sm-12 col-xs-12">
                       <h4 key={data.title+"-title"}>{data.title}</h4>
                       <img key={data.title+"-image"} src={data.img}/>
@@ -73,11 +73,12 @@ constructor(props) {
                     {
                           recom && recom.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                        <div key={data.title+"-body"} className="card-body"  > 
+                                        <div key={data.title+"-body"} className="card-body text-white"  > 
+                                        <Link to={`/event/${data.title}`} className="card-link">
                                         <div key={data.title+"-image-container"} className="imageContainer" onClick = {triggerRefresh}>
                                           <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
                                         </div>
-                                        <Link to={`/event/${data.title}`} className="card-link">
+                                        
                                           <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
                                           </Link>
                                           <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
@@ -97,7 +98,7 @@ constructor(props) {
                     {
                           locationData && locationData.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                        <div key={data.title+"-body"} className="card-body"  > 
+                                        <div key={data.title+"-body"} className="card-body text-white"  > 
                                         <div key={data.title+"-image-container"} className="imageContainer" >
                                           <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
                                         </div>

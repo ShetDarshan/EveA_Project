@@ -5,7 +5,7 @@ export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("frienReq:",friend);
     axios
-      .post('/api/v1/sendFriendRequest',friend)   
+      .post('http://localhost:5000/api/v1/sendFriendRequest',friend)   
       .then(res => 
         dispatch({
           type: SEND_REQ,
@@ -24,7 +24,7 @@ export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("getreq:",friend);
     axios
-      .get(`/api/v1/getfriendRequestList/${friend}`)   
+      .get(`http://localhost:5000/api/v1/getfriendRequestList/${friend}`)   
       .then(res => 
         dispatch({
           type: GET_REQ,

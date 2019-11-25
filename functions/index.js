@@ -168,9 +168,11 @@ app.post('/api/v1/forgotpwd', (req, res) => {
     })
 }
 )
+const eventDatabase = db.collection("events_test");
 //get events data
 app.get('/api/v1/events', (req, res) => {
-  db.collection('events_test').get()
+  eventDatabase.get()
+  db.collection('events_test').limit(1000).get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {

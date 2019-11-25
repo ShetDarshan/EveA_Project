@@ -1,7 +1,5 @@
 .profile-page{
     background-position: center;
-  
-  /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +8,6 @@
 .customFriendList {
     overflow:hidden;
     height:14rem;
-
 }
 .customFriendList li{
     list-style:none;
@@ -39,6 +36,20 @@
     background-repeat: no-repeat;
     margin: 0 auto;
 }
+
+.customFriendList li .friendAvtar .avtarImg {
+    width: 3rem;
+    height: 3rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 132px;
+}
+.customFriendList li .friendAvtar {
+    width: 3rem;
+    height: 3rem;
+}
+
 .friendAvtar {
     max-width: 12rem;
     max-height: 12rem;
