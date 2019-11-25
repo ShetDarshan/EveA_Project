@@ -83,7 +83,8 @@ class UserRecommend:
             print(idx)
 
             # creating a Series with the similarity scores in descending order
-            score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
+            #score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
+            score_series = pd.Series(cosine_sim[idx])
 
             # getting the indexes of the 5 most similar events
             top_5_indexes = list(score_series.iloc[1:6].index)

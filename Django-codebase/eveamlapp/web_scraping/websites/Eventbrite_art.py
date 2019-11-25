@@ -7,14 +7,15 @@ import datetime
 
 from eveamlapp.web_scraping.models import EventData
 
-class EventHealth:
+class EventbriteArt:
 
     @staticmethod
     def scrape(urlOriginal):
 
         data_list = []
+       
         i = 0
-        for value in range(1, 6):
+        for value in range(1,13):
             url = ""
             url = urlOriginal+format(value)
             print(url)
@@ -23,27 +24,36 @@ class EventHealth:
             uClient.close()
             #Parsing
             page_soup = soup(page_html, "html.parser")
-            article = page_soup.findAll('ul',class_='search-main-content__events-list')
+            #article = page_soup.findAll('ul',class_='search-main-content__events-list')
             article_1 = page_soup.findAll('div',class_='search-event-card-wrapper')
    
             # fetching each details
             for container in article_1:
                 title = container.findAll('div', class_='eds-event-card__formatted-name--is-clamped')[0].text
-                Date_time = container.findAll('div',class_='eds-text-bs--fixed eds-text-color--grey-600 eds-l-mar-top-1')[0].text
-                Location = container.findAll('div',class_='eds-text-bs--fixed eds-text-color--grey-600 eds-l-mar-top-1')[1].text
-                Price = container.findAll('div',class_='eds-text-bs--fixed eds-text-color--grey-600 eds-l-mar-top-1')[2].text
+            
+                try:
+                    Date_time = container.findAll('div',class_='eds-text-color--primary-brand eds-l-pad-bot-1 eds-text-weight--heavy eds-text-bs')[0].text
+                except:
+                    Date_time='None'
+                try:
+                    Location = container.findAll('div',class_='card-text--truncated__one')[0].text
+                except:
+                    Location='None'
+                try:
+                    Price = container.findAll('div',class_='eds-media-card-content__sub eds-text-bm eds-text-color--grey-600 eds-l-mar-top-1 eds-media-card-content__sub--cropped')[1].text
+                except:
+                    Price='None'
                 a_tags=container.findAll('a')
                 try:
                     image=a_tags[0].img['src']
                 except:
                     image = 'None'
-
                 read_more= a_tags[0]['href']
-               
+                #print(read_more)
                 # Date formatting
                 
                 date_split = Date_time.split(',')
-                time = date_split[2]
+                #time = date_split[2]
                 #print(time)
                 date_split_before = date_split[1]
                 date_split_1 = date_split_before.split(' ')
@@ -52,16 +62,15 @@ class EventHealth:
                 month = datetime.datetime.strptime(month_before,'%b').strftime('%B')
                 year = '2019'
                 Date = date + (' ') + month + (' ')+ year
-                
-                category = 'MUSIC & ENTERTAINMENT'
-                if category == 'MUSIC & ENTERTAINMENT' and image == 'None':
-                    image = 'https://livestyle.com/wp-content/uploads/2017/07/slider-4.jpg'
-           
-                
+            
+                category = 'FASHION, ART & THEATRE'
+                if category == 'FASHION, ART & THEATRE' and image == 'None':
+                    image = 'https://4.bp.blogspot.com/-haQkpIywgPA/W5L1p-6P5JI/AAAAAAAANv4/279R0n1im_MugfsnYTlbf5ZiTaG2s7NYQCLcBGAs/s1600/Six_photoby_IdilSukan_18.jpg'
+            
+                    
                 # description
                 
                 descurl = read_more
-                print(descurl)
                 #Opening connection , grabbing the page
                 uClient = uReq(descurl)
                 desc_html = uClient.read()
@@ -91,7 +100,7 @@ class EventHealth:
 
                 data.id = uuid.uuid1().__str__()
                 data.title = title
-                data.time = time
+                data.time = ''
                 data.location = Location
                 data.summary = description
                 data.img = image
