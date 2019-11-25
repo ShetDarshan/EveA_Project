@@ -11,3 +11,7 @@ export const GET_RCMD_DETAILS = 'GET_RCMD_DETAILS';
 export const GET_LOC_DETAILS = 'GET_LOC_DETAILS';
 export const SEND_REQ = 'SEND_REQ';
 export const GET_REQ = 'GET_REQ';
+export const ACC_REQ = 'ACC_REQ';
+export const REJ_REQ = 'REJ_REQ';
+export const GOING_REQ = 'GOING_REQ';
+export const N_GOING_REQ= 'N_GOING_REQ';

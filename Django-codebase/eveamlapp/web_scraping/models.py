@@ -27,3 +27,17 @@ class URLCollection(models.Model):
     urlType = models.CharField
     url = models.CharField
 
+
+class UsersData(models.Model):
+    address = models.CharField
+    bio = models.CharField
+    birthday = models.CharField
+    createdAt = models.CharField
+    email = models.CharField
+    gender = models.CharField
+    handle = models.CharField
+    imageUrl = models.CharField
+    interests = []
+    location = models.CharField
+    userId = models.CharField
+

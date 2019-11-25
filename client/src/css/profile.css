@@ -7,26 +7,36 @@
 }
 .customFriendList {
     overflow:hidden;
+<<<<<<< HEAD
     height:14rem;
+=======
+    height:10rem;
+>>>>>>> 29b739d1f31d38c0dfea35b98563fe9d38f8e7a5
 }
 .customFriendList li{
     list-style:none;
     display:inline-block;
     width: 12rem;
 }
-
 .profile-page .profile  {
     text-align:center;
 }
-.friendAvtar,
-.profile .avtar {
+.customFriendList li .profile .avtar {
+    overflow:hidden;
+}
+.friendRequestList  .profile .avtar .avtarImg {
     width: 16rem;
-    max-height: 18rem;
+    height: 16rem;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 140px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.profile .avtar {
     overflow: hidden;
     cursor: pointer;
   }
- 
-.friendAvtar .avtarImg, 
 .profile .avtar .avtarImg {
     width: 16rem;
     height: 16rem;
@@ -54,8 +64,20 @@
     max-width: 12rem;
     max-height: 12rem;
 }
-.friendAvtar .avtarImg {
-    width: 6rem;
-    height: 6rem;
+.friendRequestList  li .friendAvtar .avtarImg {
+    width: 5rem;
+    height: 5rem;
     margin: 0 auto;
+}
+.customFriendList li .friendAvtar .avtarImg {
+    width: 3rem;
+    height: 3rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 132px;
+}
+.customFriendList li .friendAvtar {
+    width: 3rem;
+    height: 3rem;
 }

@@ -9,6 +9,6 @@ urlpatterns = [
     path('saveData/', views.processwebdata, name='save'),
     path('getdata/<str:inputstr>',views.search, name = 'search'),
     path('recommendationData/<str:inputstr>',views.recommendations,name='recommendations'),
-    path('nearByData/<str:inputstr>', views.nearby, name = 'nearby')
-
+    path('nearByData/<str:inputstr>', views.nearby, name = 'nearby'),
+    path('userRecommendation/<str:inputstr>', views.usersrecommend, name = 'userrecommend')
 ]
