@@ -2,6 +2,12 @@
     position: absolute;
     width:100%;
   }
+
+.navbar-inner{
+  background:transparent;
+}
+
+
   @media (min-width: 576px) {
     .form-inline .form-control#Search {
     display:none;

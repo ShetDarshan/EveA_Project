@@ -14,7 +14,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {logoutuser} from '../../actions/authActions'
-import evealogo from '../../img/logo.png'
+import logo from '../../img/EA.png'
 
  class Navbar extends Component {
    onLogoutClick(e){
@@ -79,9 +79,10 @@ import evealogo from '../../img/logo.png'
          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
         
-            <Link className="navbar-brand" to="/"><img src={evealogo} alt="EVEA" style={{width:'100px'}}/></Link>
+            <Link className="navbar-brand" to="/"><img src={logo} alt="EVEA" style={{width:'100px'}}/></Link>
   
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
          

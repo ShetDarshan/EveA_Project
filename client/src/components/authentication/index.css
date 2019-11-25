@@ -36,9 +36,9 @@ body {
     transform:translate(-50%,-50%);
     background:rgba(0,0,0,.5);
     width:50%;
-    box-sizing:border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.9);
-    border-radius:10px;
+    box-sizing:content-box;
+    box-shadow: 0 10px 25px rgba(0,0,0,.9);
+    border-radius:5px;
     overflow-y: hidden;
     overflow-x: hidden;
   }
@@ -52,6 +52,20 @@ body {
   background-position: center;
   
 }
+
+.btn-danger{
+  background-color: #518a23!important;
+  border-color:  #518a23!important;
+}
+
+
+.password-icon {
+  position: absolute;
+  bottom:262px;
+  color:black;
+  right: 28px;
+  cursor: pointer;
+}	
 
 @media(max-width:576px){
   .register .container ,.login .container{

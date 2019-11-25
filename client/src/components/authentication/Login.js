@@ -44,9 +44,19 @@ import Face from '../layout/Face';
         };
         this.props.luser(user);
     }
+
+    state = {
+      isPasswordShown: false
+    };
+
+    togglePasswordVisiblity = () => {
+      const { isPasswordShown } = this.state;
+      this.setState({ isPasswordShown: !isPasswordShown });
+    };
    
   render() {
     const { errors } = this.state;
+    const { isPasswordShown } = this.state;
     return (
         <div className="login">
         <div className="container">
@@ -68,18 +78,22 @@ import Face from '../layout/Face';
                 <TextFieldGroup
                   placeholder="Password"
                   name="password"
-                  type="password"
+                  type={isPasswordShown ? "text" : "password"}
                   value={this.state.password}
                   onChange={this.onChange}
                  error={errors.password}
                 />
+                  <i
+                    className={`fa ${isPasswordShown ? "fa-eye" : "fa-eye-slash"} password-icon`}
+                    onClick={this.togglePasswordVisiblity}
+                  />
                  <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
                 Forgot Password?
               </Link>
-                <input type="submit" className="btn btn-danger btn-block" value="Login" />
+                <input type="submit" className="btn btn-danger btn-block"  value="Login" />
                 <Face/>
                 <label>
-                <h6 style={{fontSize:"2.3vh", alignContent:"center"}}>Not yet a member?<Link  to="/Register">
+                <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> Not yet a member?  <Link  to="/register">
           Sign Up</Link> </h6>
       </label>
               </form>

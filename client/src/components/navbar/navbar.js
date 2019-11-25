@@ -15,7 +15,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {logoutuser} from '../../actions/authActions';
-import evealogo from '../../img/logo.png';
+import evealogo from '../../img/EA.png';
 import "./navbar.css";
 
 
@@ -96,11 +96,11 @@ import "./navbar.css";
     
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{backgroundcolor: "#FF0000"}}>
         <div className="container">
         
-            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px', height:'50px'}}/></Link>
-            
+            <Link className="navbar-brand" to="/login"><img src={evealogo}  alt="EVEA" style={{width:'70px', height:'70px'}}/></Link>
+            <h3 >EveA</h3>
           <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
     </button>
