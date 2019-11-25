@@ -6,6 +6,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import { Link } from 'react-router-dom';
 import './index.css'
 import Face from '../layout/Face';
+import { BorderLeft } from '@material-ui/icons';
 
  class Login extends Component {
     constructor() {
@@ -87,9 +88,8 @@ import Face from '../layout/Face';
                     className={`fa ${isPasswordShown ? "fa-eye" : "fa-eye-slash"} password-icon`}
                     onClick={this.togglePasswordVisiblity}
                   />
-                 <Link to="/forgotpwd" style={{fontSize:"2.3vh"}} >
-                Forgot Password?
-              </Link>
+                <h6 style={{fontSize:"2.3vh",fontWeight:"bolder",textAlign:"right"}}> <Link to="/forgotpwd">
+          Forgot Password?</Link> </h6>
                 <input type="submit" className="btn btn-danger btn-block"  value="Login" />
                 <Face/>
                 <label>
