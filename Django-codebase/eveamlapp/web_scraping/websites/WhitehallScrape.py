@@ -35,7 +35,7 @@ class WhitehallIe:
             # date format change
             #month = datetime.datetime.strptime(month, '%m').strftime('%B')
             #date = date[0] + (' ') + month + (' ') + date[2]
-            date = date[2] + ('-')+ month +('-')+ date[0]
+            date = date[2] + (' ')+ month +(' ')+ date[0]
             #wh = container.p.text
             #wh = str(wh)
             location = 'Whitehall College of Further Education, Drumcondra, Dublin'
