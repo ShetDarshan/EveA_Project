@@ -118,7 +118,7 @@ notGoingActivity = () => {
                             
                       ))}
                    </Slider>      
-                  </div>
+                  </div>  
                   <div key="nearby-events" className="nearby-events">
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
                     <Slider {...setting}>

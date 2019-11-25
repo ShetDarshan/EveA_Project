@@ -98,45 +98,51 @@ import Car4 from '../../img/Car4.PNG';
   </Carousel.Item>
 </Carousel>
       
-               {Object.keys(dataset).map(categoriesList => (
+             {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">  
-                  <button onClick={()=>this.operation()}>Browse</button>   
-                      <h6 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h6>
+                  <button onClick={()=>this.operation()}>Browse Events</button>   
+                      <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
                       {
                               this.state.showMe?
                       <Slider {...settings}>
                       {
                         dataset[categoriesList].map(data => (
-                          <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                <div key={data.title+"-body"} className="card-body"  > <br></br>
+                          <div key={data.title+"card-slider"} className="card card-slider"  title= {data.title}>
+                            
+                                <div key={data.title+"-body"} className="card-body"  > 
+                                
+                                
+                                <br></br>
 
-                                <div>
-<div >
+                               
+
 <Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
-<h5 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title font-weight-bold mb-2" 
-style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h5>
-</Link>
-</div>
+<h4 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title" 
+style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h4>
+</Link> <br></br>
+
                                 <div key={data.title+"-image-container"} className="imageContainer" >
                                   <div key={data.title+"-background"} className="imageBg" 
                                   style={{backgroundImage: `url(${data.img})`,width:"255px",height:"160px"}}>
                                 </div>
-                                </div>
-                                  </div>
-                                  <div>
+                                </div><br></br>
      
-          <h6 key={data.startdate+"-startdate"} className="far fa-calendar pr-2" style="height:20px">{data.startdate}</h6>
-          </div>
+                               
 
-                                  {/*<div key={data.title+"-address"} className="card-text collapse">{data.address}</div>
+                                  <div key={data.title+"-address"} className="card-text collapse">{data.address}</div>
                                   <h6 className="card-text mb-2">{data.address}
-                        </h6>*/}                                
+                        </h6>                              
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`}
                                    target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right fa-lg p-1 my-1" 
                                    data-toggle="tooltip" data-placement="top" title="See Location"></i></a>
-                               
+
+                                  <h2 style={{paddingRight:"8rem",
+                               paddingTop:" 40px",textAlign:"end"}} key={data.startdate+"-startdate"} className="far fa-calendar pr-5" style={{color:"white",align:"left",paddingRight:"8rem!important",
+                              paddingTop:" 40px"}}>{data.startdate}</h2>
+</div>
+
                                 </div>
-                              </div>  
+                              
                         ))}
                         </Slider>
                         

@@ -96,7 +96,7 @@ import "./navbar.css";
     
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{backgroundcolor: "#FF0000"}}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{backgroundcolor: "#1c0714"}}>
         <div className="container">
         
             <Link className="navbar-brand" to="/login"><img src={evealogo}  alt="EVEA" style={{width:'70px', height:'70px'}}/></Link>
