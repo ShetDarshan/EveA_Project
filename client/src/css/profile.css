@@ -7,11 +7,7 @@
 }
 .customFriendList {
     overflow:hidden;
-<<<<<<< HEAD
-    height:14rem;
-=======
     height:10rem;
->>>>>>> 29b739d1f31d38c0dfea35b98563fe9d38f8e7a5
 }
 .customFriendList li{
     list-style:none;

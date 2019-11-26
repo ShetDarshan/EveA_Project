@@ -152,13 +152,7 @@ footer.footer-custom {
 .bg-secondary{
   background-color: black !important;
 }
-/*Privacy*/
-.privacy  .container .m-auto p{
-  color:white  !important;
-}
-.privacy  .container .m-auto b{
-  color:green !important;
-}
+
 
 .slick-prev:before,
 .slick-next:before{
@@ -170,3 +164,20 @@ img {
 .navbar {
   z-index: 5;
 }
+/*Privacy*/
+.privacy h2 {
+      color: #593096;
+    font-weight: bold;
+}
+.privacy .container .m-auto b {
+  color: #592f96 !important;
+  font-weight: bolder;
+  font-size: 16px;
+  padding-bottom: 10px;
+  display: block;
+}
+.privacy .container .m-auto p {
+    text-align: justify;
+    color:black;
+}
+/*-----------*/

@@ -51,11 +51,12 @@ import Face from '../layout/Face';
         <div className="login">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 m-auto">
+            <div className="col-sm-8 m-auto">
     
-               <h4 className="display-5 text-center">Explore Events in Dublin</h4>
+               <h2 className="display-5 text-center">Explore Events in Dublin</h2>
               {/* <h5 className="lead text-center">Sign in to your account</h5> */}
               <form onSubmit={this.onSubmit}>
+              <div className="form-group">
               <TextFieldGroup
                   placeholder="Email Address"
                   name="email"
@@ -72,15 +73,17 @@ import Face from '../layout/Face';
                   onChange={this.onChange}
                  error={errors.password}
                 />
-                <div className="form-group">
-                  <Link to="/forgotpwd" className="text-center btn btn-link">Forgot Password?</Link>
-                   <input type="submit" className="btn btn-danger btn-block" value="Login" />
+                 <Link to="/forgotpwd" className="text-center btn btn-link float-right">Forgot Password?</Link>
+                 <div className="clearfix"></div>
+                   <input type="submit" className="btn btn-primary btn-block" value="Login" />
+                  
                 </div>
-                <Face/>
-                <label>
-                <h6 style={{fontSize:"2.3vh", alignContent:"center"}}>Not yet a member?<Link  to="/Register">
-          Sign Up</Link> </h6>
-      </label>
+                <Face className="form-group"/>                
+                
+                <div className="form-group">
+                <p className="lead text-center">Not a member? 
+                <Link  className="btn btn-link" to="/Register">Sign Up</Link></p>
+                </div>
               </form>
             </div>
           </div>

@@ -1,3 +1,6 @@
+.navbar {
+  padding:0.2rem 1rem !important;
+}
 .sticky-container.navbar{
     position: absolute;
     width:100%;

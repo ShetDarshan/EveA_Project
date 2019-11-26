@@ -1,0 +1,30 @@
+.track-events li{
+    display: inline-block;
+    width:auto;
+}
+.interested {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor:pointer;
+  }
+  .interested > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size:24px;
+    color:yellow;
+  }
+  .interested.active > span:before,
+  .interested > span:hover:before,
+  .interested > span:hover ~ span:before {
+     content: "\2605";
+     position: absolute;
+  }
+  .going > div {
+      background:url("../../img/GoingIcon.png") no-repeat;
+      background-repeat: no-repeat;
+      background-size: 55%;
+  }
+  .going.active > div{
+    background:url("../../img/GoingIconActive.png") no-repeat;
+  }

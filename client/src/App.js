@@ -48,7 +48,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
             <Route exact path="/" component={Landing} />
-            <div className="container-flex mb-0" style={{minHeight:'650px'}}>
+            <div className="container-flex mb-0"  >
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
