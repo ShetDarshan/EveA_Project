@@ -18,9 +18,6 @@ const config = {
 };
 const firebase = require('firebase')
 firebase.initializeApp(config)
-// import { Link } from 'react-router-dom'
-// import Face from "../../components/layout/Face";
-// import evea from "../../img/evea.jpg"
  class Landing extends Component {
   componentDidMount() {
     console.log("Loading Component Mounted");
@@ -87,29 +84,6 @@ firebase.initializeApp(config)
       );
      }
   }
-  // render() {
-  //   console.log({evea});
-  //   return (
-  //       <div className="landing jumbotron">
-  //        <div className="landing-inner text-light"> 
-  //         <div className="container">
-  //           <div className="row">
-  //             <div className="col-md-12 text-center">
-  //             <img src={evea}></img>
-  //               {/* <img src="../img/evea.jpg"></img> */}
-  //               {/* <h1 className="display-3 mb-4">Never Miss an Event
-  //               </h1> */}
-  //               <hr />
-  //                {/* <Link to="/register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
-  //               <Link to="/login" className="btn btn-lg btn-info mr-2">Login</Link>
-  //               <Face /> */}
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
 }
 const mapStateToProps = state => ({
   events: state.events
