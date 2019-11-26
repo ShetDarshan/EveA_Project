@@ -465,7 +465,9 @@ app.post('/api/v1/goingActivities', (req, res) => {
       }, { merge: true })
     } else {
       let going = doc.data()['going'];
-      going.push(loggedEmail);
+      if(!going.includes(loggedEmail)){
+        going.push(loggedEmail);
+      }
       db.collection('goingActivities').doc(eventID).set({
         going: going
       }, { merge: true })
@@ -490,7 +492,9 @@ app.post('/api/v1/interestedActivities', (req, res) => {
       }, { merge: true })
     } else {
       let interested = doc.data()['interested'];
-      interested.push(loggedEmail);
+      if(!interested.includes(loggedEmail)){
+        interested.push(loggedEmail);
+      }
       db.collection('interestedActivities').doc(eventID).set({
         interested: interested
       }, { merge: true })
@@ -518,7 +522,9 @@ app.post('/api/v1/notGoingActivities', (req, res) => {
       }, { merge: true })
     } else {
       let notGoing = doc.data()['going'];
+      if(!notGoing.includes(loggedEmail)){
       notGoing.push(loggedEmail);
+      }
       db.collection('notGoingActivities').doc(eventID).set({
         notGoing: notGoing
       }, { merge: true })
