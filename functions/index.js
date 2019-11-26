@@ -177,7 +177,26 @@ app.get('/api/v1/events', (req, res) => {
         let tempJSON = {};
         tempJSON = doc.data();
         tempJSON.eventId = doc.id;
-        eventsData.push(tempJSON);
+
+        var currentdate = new Date()
+        
+        // console.log(temp);
+        if(tempJSON.startDate=="" && tempJSON.enddate=="")
+        {
+
+          eventsData.push(tempJSON);
+        }
+        else if(tempJSON.enddate!=""){
+          var enddate = new Date(tempJSON.enddate)
+         if(enddate>currentdate)
+          eventsData.push(tempJSON);
+        }
+        else {
+          var startdate = new Date(tempJSON.startdate)
+          if(startdate>currentdate)
+            eventsData.push(tempJSON)
+        }
+        
       });
       res.status(200).send(eventsData);
     }).catch(err => {

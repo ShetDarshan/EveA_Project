@@ -21,7 +21,8 @@ from .websites.DublinchamberScrape import DubChamberIE
 from .websites.DublintownScrape import DublintownScrape
 from .websites.TUD_BlanchardstownScrape import TUD_Blanchardstown
 from .websites.IrelandScrape import IrelandIe
-from .websites.Eventbrite_health import EventHealth
+from .websites.Eventbrite_filmmedia import EventFilmmedia
+from .websites.Eventbrite_art import EventbriteArt
 import sys
 import time
 import re
@@ -87,11 +88,11 @@ class WebScrape:
             #     for data in dataList:
             #         data_list.append(data)
 
-            # elif url.referenceId=='DublintownScrape':
-            #     dataList = DublintownScrape.scrape(url.url)
+            # # elif url.referenceId=='DublintownScrape':
+            # #     dataList = DublintownScrape.scrape(url.url)
 
-            #     for data in dataList:
-            #         data_list.append(data)
+            # #     for data in dataList:
+            # #         data_list.append(data)
 
             # elif url.referenceId=='Knowledgeie':
             #     dataList = KnowIE.scrape(url.url)
@@ -123,11 +124,19 @@ class WebScrape:
             #     dataList = IrelandIe.scrape(url.url)
 
             #     for data in dataList:
-            #        data_list.append(data)       
+            #        data_list.append(data)   
+                
 
-            ## category scrapping of eventbrite:
-            if url.referenceId == 'Eventbrite_health':
-                dataList = EventHealth.scrape(url.url)
+            # ## category scrapping of eventbrite:
+            if url.referenceId == 'Eventbrite_filmmedia':
+                dataList = EventFilmmedia.scrape(url.url)
+
+                for data in dataList:
+                    data_list.append(data)
+
+             # ## category scrapping of eventbrite:
+            elif url.referenceId == 'Eventbrite_art':
+                dataList = EventbriteArt.scrape(url.url)
 
                 for data in dataList:
                     data_list.append(data)
