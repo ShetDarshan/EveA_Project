@@ -105,7 +105,7 @@ import Car4 from '../../img/Car4.PNG';
 <div className="card gradient-card">
 
 <div class="ico-wrap">
-                        <span class="mbr-iconfont fa-volume-up fa"></span>
+                        <i class="fas fa-theater-masks"></i>
                     </div>
                    <div className="text-white d-flex h-50 mask peach-gradient-rgba">
               <h5 key={categoriesList+"-heading"} className="first-content align-self-center p-3">{categoriesList.toUpperCase()}
@@ -143,11 +143,11 @@ style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h4>
      
                                                     
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`}
-                                   target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right fa-lg p-1 my-1" 
+                                   target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right icon-2x" 
                                    data-toggle="tooltip" data-placement="top" title="See Location"></i></a>
-                                        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+                                        <i class="fas fa-heart text-muted" data-toggle="tooltip" data-placement="top" title="I like it"></i>
 
-                                  <h6 style={{textAlign:"left"}} key={data.startdate+"-startdate"} ><i className="far fa-calendar float-left fa-lg" ></i>{data.startdate}</h6>
+                                  <h6 style={{textAlign:"left"}} key={data.startdate+"-startdate"} ><i className="far fa-calendar float-left fa-lg icon-4x" style={{paddingRight:".3em"}} ></i>{data.startdate}</h6>
 </div>
 
                                 </div>

@@ -100,7 +100,7 @@ import "./navbar.css";
         <div className="container">
         
            
-            <Link className="navbar-brand" to="/login"><img src={name}  alt="EVEA" style={{width:'80px', height:'60px'}}/></Link>
+            <Link className="navbar-brand" to="/login"><img src={name}  alt="EVEA" style={{width:'100px', height:'60px'}}/></Link>
           <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
     </button>
