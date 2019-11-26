@@ -171,6 +171,10 @@ img {
   
 }
 
+.far .fa-calendar{
+  padding-top: 0rem!important;
+}
+
 .card.card-slider{
   display: flex!important;
   grid-template-columns: 600px!important;
@@ -192,9 +196,16 @@ img {
 }
 
 .card-body{
-  margin-bottom:200px!important;
+  margin-bottom:100px!important;
   margin-right:-15px!important;
   grid-area: text!important;
+}
+
+.card-slider .card-body .imageContainer {
+  padding-top: 10px!important;
+  }
+.card-slider .card-body .card-title {
+padding-top: 10px!important;
 }
 
 .imageBg:hover {
@@ -248,8 +259,8 @@ img {
 }
 
 #pr-5{
-  padding-right: 8rem!important;
-  padding-top: 40px!important;
+  padding-top: 0rem!important;
+  padding-top: 0rem!important;
 }
 
 .far {
@@ -257,19 +268,52 @@ img {
   font-size: large;
 }
 
-i.far{
-  padding-right: 8rem!important;
-  padding-top: 40px!important;
+  .navbar{
+    border-block-start-color: black!important;
+  }
 
+
+  .card.gradient-card{
+    border: 4px solid white!important;
+    background-color: #1c0714!important;
+    border-bottom-left-radius: 15px!important;
+  border-bottom-right-radius: 15px!important;
+  border-top-right-radius: 15px!important;
+  border-top-left-radius: 15px!important;
+  background: linear-gradient(to right bottom, #5e3469, #1c0714);
+  }
+
+h4 :active{
+  color:#518a23;
 }
 
-.far .fa-calendar .pr-5{
-  padding-right: 8rem!important;
-  padding-top: 40px!important;
-  font-weight: 600;
-  font-size: large;
+ 
+
+
+   h4 button {
+    display:block;
+    width:10px;
+    height:10px;
+    line-height:50px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    background: #555777;
+    box-shadow: 0 0 3px gray;
+    float:right;
+    margin-right:0px;
+}
+h4 button:active {
+    background: #777555;
+    float:right;
+    
 }
 
+
+  .navbar .navbar-expand-lg {
+    background-color: #b2b2b2;
+  background-color: rgba(0, 0, 0, .3);
+  }
 
 
 

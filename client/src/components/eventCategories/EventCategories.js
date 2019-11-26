@@ -100,8 +100,24 @@ import Car4 from '../../img/Car4.PNG';
       
              {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">  
-                  <button onClick={()=>this.operation()}>Browse Events</button>   
-                      <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
+
+
+<div className="card gradient-card">
+
+<div class="ico-wrap">
+                        <span class="mbr-iconfont fa-volume-up fa"></span>
+                    </div>
+                   <div className="text-white d-flex h-50 mask peach-gradient-rgba">
+              <h5 key={categoriesList+"-heading"} className="first-content align-self-center p-3">{categoriesList.toUpperCase()}
+              <p>"All the world's a stage"</p>
+                       </h5>
+                       
+                       <button style={{borderRadius:"50%",}} onClick={()=>this.operation()}>
+                         <i class="fa fa-angle-double-down float-right fa-lg p-1 my-1" aria-hidden="true">
+                         </i></button> 
+              </div>
+              </div>
+                     
                       {
                               this.state.showMe?
                       <Slider {...settings}>
@@ -114,31 +130,24 @@ import Car4 from '../../img/Car4.PNG';
                                 
                                 <br></br>
 
-                               
-
-<Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
-<h4 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title" 
-style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h4>
-</Link> <br></br>
-
                                 <div key={data.title+"-image-container"} className="imageContainer" >
                                   <div key={data.title+"-background"} className="imageBg" 
                                   style={{backgroundImage: `url(${data.img})`,width:"255px",height:"160px"}}>
                                 </div>
                                 </div><br></br>
+                                
+<Link to={`/event/${data.title}`} className="card-link" style={{color:"white"}}>
+<h4 style={{color:"white"}} key={data.title+"-desc"} title= {data.title} className="card-title" 
+style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h4>
+</Link> <br></br>
      
-                               
-
-                                  <div key={data.title+"-address"} className="card-text collapse">{data.address}</div>
-                                  <h6 className="card-text mb-2">{data.address}
-                        </h6>                              
+                                                    
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`}
                                    target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right fa-lg p-1 my-1" 
                                    data-toggle="tooltip" data-placement="top" title="See Location"></i></a>
+                                        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
 
-                                  <h2 style={{paddingRight:"8rem",
-                               paddingTop:" 40px",textAlign:"end"}} key={data.startdate+"-startdate"} className="far fa-calendar pr-5" style={{color:"white",align:"left",paddingRight:"8rem!important",
-                              paddingTop:" 40px"}}>{data.startdate}</h2>
+                                  <h6 style={{textAlign:"left"}} key={data.startdate+"-startdate"} ><i className="far fa-calendar float-left fa-lg" ></i>{data.startdate}</h6>
 </div>
 
                                 </div>
