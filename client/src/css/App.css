@@ -187,7 +187,7 @@ img {
   font-family: roboto!important;
   text-align: center!important;
   cursor: pointer!important;
-  background-color:#0d4d5e!important;
+  background-color:#1c0714!important;
   margin:10px auto!important;
   padding:10px!important;
   justify-content: center!important;
@@ -215,8 +215,8 @@ padding-top: 10px!important;
 
 
 .text-capitalise{
-  color:black!important;
-  font-size:bold!important;
+  color:white!important;
+  font-size:10!important;
   font-weight: 20px!important;
 }
 
@@ -281,6 +281,7 @@ padding-top: 10px!important;
   border-top-right-radius: 15px!important;
   border-top-left-radius: 15px!important;
   background: linear-gradient(to right bottom, #5e3469, #1c0714);
+  height:100px!important;
   }
 
 h4 :active{
@@ -290,7 +291,7 @@ h4 :active{
  
 
 
-   h4 button {
+  .button {
     display:block;
     width:10px;
     height:10px;
@@ -302,36 +303,26 @@ h4 :active{
     box-shadow: 0 0 3px gray;
     float:right;
     margin-right:0px;
+    height: fit-content!important;
+    margin-inline-start: auto!important;
 }
-h4 button:active {
-    background: #777555;
-    float:right;
+.button:active {
+    background: #1c0714;
     
+}
+
+.buttoon{
+  height: fit-content!important;
+    margin-inline-start: auto!important;
 }
 
 /*catcard*/
 
-section {
-  padding-top: 4rem;
-  padding-bottom: 5rem;
-  background-color: #f1f4fa;
-}
-.wrap {
-  display: flex;
-  background: white;
-  padding: 1rem 1rem 1rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
-}
 
-.wrap:hover {
-  background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
-  color: white;
-}
+
 
 .ico-wrap {
-  margin: auto;
+  float: left!important;
 }
 
 .mbr-iconfont {
@@ -340,30 +331,20 @@ section {
   margin: 1rem;
   padding-right: 1rem;
 }
-.vcenter {
-  margin: auto;
-}
 
-.mbr-section-title3 {
-  text-align: left;
-}
 h2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem!important;
+  margin-bottom: 0.5rem!important;
 }
 .display-5 {
-  font-family: 'Source Sans Pro',sans-serif;
-  font-size: 1.4rem;
+  font-family: 'Source Sans Pro',sans-serif!important;
+  font-size: 1.4rem!important;
 }
 .mbr-bold {
-  font-weight: 700;
+  font-weight: 700!important;
 }
 
-p {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  line-height: 25px;
-}
+
 .display-6 {
   font-family: 'Source Sans Pro',sans-serif;
   font-size: 1re

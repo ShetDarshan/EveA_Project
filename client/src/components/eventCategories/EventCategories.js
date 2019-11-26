@@ -100,23 +100,23 @@ import Car4 from '../../img/Car4.PNG';
       
              {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">  
+<div class="card gradient-card">
 
-
-<div className="card gradient-card">
-
-<div class="ico-wrap">
-                        <i class="fas fa-theater-masks"></i>
-                    </div>
+                        
                    <div className="text-white d-flex h-50 mask peach-gradient-rgba">
-              <h5 key={categoriesList+"-heading"} className="first-content align-self-center p-3">{categoriesList.toUpperCase()}
-              <p>"All the world's a stage"</p>
+                   <i class="fas fa-theater-masks fa-lg" style={{paddingRight:".3em"}}></i>
+              <h5 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toUpperCase()}
                        </h5>
-                       
-                       <button style={{borderRadius:"50%",}} onClick={()=>this.operation()}>
+                       <div class="buttoon">
+                       <button style={{borderRadius:"50%", height:" fit-content!important",
+    marginInlineStart: "auto!important"}} onClick={()=>this.operation()}>
                          <i class="fa fa-angle-double-down float-right fa-lg p-1 my-1" aria-hidden="true">
-                         </i></button> 
-              </div>
-              </div>
+                         </i></button> </div>
+                      </div>
+            </div>
+            
+            
+            
                      
                       {
                               this.state.showMe?
@@ -143,9 +143,8 @@ style={{paddingTop:"50px", textAlign:"left"}}>{data.title}</h4>
      
                                                     
                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`}
-                                   target="_blank" className="card-link"><i class="fas fa-map-marker text-muted float-right icon-2x" 
+                                   target="_blank" className="card-link"><i class="fas fa-map-marker text-muted" style={{height:"10px",width:"10px"}} 
                                    data-toggle="tooltip" data-placement="top" title="See Location"></i></a>
-                                        <i class="fas fa-heart text-muted" data-toggle="tooltip" data-placement="top" title="I like it"></i>
 
                                   <h6 style={{textAlign:"left"}} key={data.startdate+"-startdate"} ><i className="far fa-calendar float-left fa-lg icon-4x" style={{paddingRight:".3em"}} ></i>{data.startdate}</h6>
 </div>

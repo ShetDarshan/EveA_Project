@@ -76,15 +76,23 @@ import logo from '../../img/EA.png'
     
 
     return (
-         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+         <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
         <div className="container">
         
             <Link className="navbar-brand" to="/"><img src={logo} alt="EVEA" style={{width:'100px'}}/></Link>
   
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
+            <div class="btn-group open">
+  <a class="btn btn-primary" href="#"><i class="icon-user"></i> User</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="icon-caret-down"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="icon-fixed-width icon-pencil"></i> Edit</a></li>
+    <li><a href="#"><i class="icon-fixed-width icon-trash"></i> Delete</a></li>
+    <li><a href="#"><i class="icon-fixed-width icon-ban-circle"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="i"></i> Make admin</a></li>
+  </ul>
+</div>
          
           {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon"></span>
