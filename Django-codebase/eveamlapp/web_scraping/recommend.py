@@ -80,8 +80,9 @@ class Recommend:
             print(idx)
 
             # creating a Series with the similarity scores in descending order
-            score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
-
+            #score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
+            
+            score_series = pd.Series(cosine_sim[idx])
             # getting the indexes of the 10 most similar events
             top_10_indexes = list(score_series.iloc[1:11].index)
             # populating the list with the titles of the best 10 matching events
