@@ -3713,3 +3713,9 @@ SyntaxError: Unexpected token <<
 [debug] [2019-11-25T12:43:46.298Z] [runtime-status] Ephemeral server used! {}
 [debug] [2019-11-25T12:43:46.304Z] [runtime-status] Ephemeral server survived. {}
 [info] i  functions: Finished "api" in ~1s
+[debug] [2019-11-25T13:04:52.616Z] File /Volumes/Coll/TUD/EveA_Project/functions/index.js changed, reloading triggers
+[debug] [2019-11-25T13:04:54.321Z] [runtime-status] Functions runtime initialized. {"cwd":"/Volumes/Coll/TUD/EveA_Project/functions","node_version":"11.9.0"}
+[debug] [2019-11-25T13:04:54.322Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-11-25T13:04:54.326Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.0","resolution":"/Volumes/Coll/TUD/EveA_Project/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-11-25T13:04:54.327Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Volumes/Coll/TUD/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-11-25T13:04:54.328Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Volumes/Coll/TUD/EveA_Project/functions/node_modules/firebase-functions/lib/index.js"}
