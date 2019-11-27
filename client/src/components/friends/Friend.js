@@ -51,13 +51,15 @@ class Friend extends Component {
                                                            <div className="avtarImg" style={{backgroundImage: `url(${value.imageUrl})`}}>></div>
                                                         </div>
                                                         <div className="name float-left">
-                                                                <h3 className="title text-capitalize">{value.handle}</h3>
+                                                                <h2 className="title text-capitalize font-weight-bold text-priamry">{value.handle}</h2>
                                                                 {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
-                                                                <div className="description text-center mt-2">
+                                                                <div className="description text-center m-5">
                                                                     <p className="text-capitalize">{}</p>
-                                                                    <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6>
-                                                                    <h6> Joined at: <b className="text-white bold">{}</b> </h6>
-                                                                    <button className="btn btn-lg btn-danger btn-sm mr-2"
+                                                                    <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
+                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    {/* <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6> */}
+                                                                    <button className="btn btn-lg btn-primary btn-sm mr-2"
                                                                     onClick={() => {
                                                                         this.setState({
                                                                             loggedEmail: user.email,
@@ -74,10 +76,15 @@ class Friend extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row m-4">
-                                                    <h6 className="w-100">Interests: <b className="text-white bold">{value.interests}</b> </h6>
+                                                    <h6 className="w-100"><span className="text-muted">Interests:</span> <b className="bold">{value.interests}</b> </h6>
+                                                    <h6 className="w-100"><span className="text-muted">Address:</span> <b className="bold">{value.address}</b> </h6>
+                                                    <h6 className="w-100"><span className="text-muted">Date Of Birth:</span> <b className="bold">{value.birthday}</b> </h6>
+                                                    <h6 className="w-100"><span className="text-muted">Email:</span> <b className="bold">{value.email}</b> </h6>
+
+                                                    {/* <h6 className="w-100">Interests: <b className="text-white bold">{value.interests}</b> </h6>
                                                     <h6 className="w-100">Address: <b className="text-white bold">{value.address}</b> </h6>
                                                     <h6 className="w-100">Date Of Birth: <b className="text-white bold">{value.birthday}</b></h6>
-                                                    <h6 className="w-100">Email: <b className="text-white bold">{value.email}</b></h6>
+                                                    <h6 className="w-100">Email: <b className="text-white bold">{value.email}</b></h6> */}
                                                 </div>
                                                 </div>
                                             </div>
@@ -101,7 +108,9 @@ class Friend extends Component {
                     )
                 })
                 }
+            
             </div>
+
         )
 
     }
