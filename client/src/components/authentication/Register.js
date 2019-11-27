@@ -123,8 +123,7 @@ verifiedChange = e => {
                       />
         </div>
               </form>
-            
-              <Snackbar
+              {/* <Snackbar
                         anchorOrigin={{
                             vertical: "top",
                             horizontal: "right"
@@ -149,8 +148,11 @@ verifiedChange = e => {
                                     : ""
                             }
                         />
-                    </Snackbar>
-                    <p className="text-center lead"> I'm already a member  <Link  to="/Login">Log In</Link> </p>
+                    </Snackbar> */}
+                    <label for="verified">
+       <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> I'm already a member  <Link  to="/Login">
+          Log In</Link> </h6>
+      </label>
         </div>
       </div>
     </div>
