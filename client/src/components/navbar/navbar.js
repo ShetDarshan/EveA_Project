@@ -47,25 +47,39 @@ import "./navbar.css";
 
   render() {
     const { isAuthenticated } = this.props.auth;
-    const authLinks = (
-          <ul className="navbar-nav ml-auto ">
-              <li className="nav-item ">
-                  <Link className="nav-link" to="/profile">Profile</Link>
-              </li>
-              <li className="nav-item">
-                   <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
-              </li>
-            </ul>
-    );
+    function AuthorisedLink(props) {
+      return (
+        <ul className="navbar-nav ml-auto ">
+            <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li>
+          </ul>
+      );
+    } 
+    function GuestUser(props) {
+      return (
+        <ul className="navbar-nav ml-auto ">
+             <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+             <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
+          </ul>
+      );
+    }
+    // const authLinks = (
+    //   <ul className="navbar-nav ml-auto ">
+    //       <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
+    //       <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li>
+    //     </ul>
+    // );
+    // const guestLinks = (    
+    //   <ul className="navbar-nav ml-auto ">
+    //       <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
+    //       <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+    //   </ul>
+    // );
     const searchClient = algoliasearch(
       '7Z6VFB8JQD',
       'fe812c7ddbd852cb3074294b24c7e641'
     );
-    const guestLinks = (    
-      <div className="collapse navbar-collapse" id="navbarColor02">
-        
-      </div>
-    );
+    
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'75px'}}/></Link>         
@@ -77,17 +91,17 @@ import "./navbar.css";
               <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search"/>
                 {/* <Link className="nav-link" to="/Search">Browse Events</Link> */}
             </form>
-          
-           <ul className="navbar-nav ml-auto ">
+                {isAuthenticated && <AuthorisedLink />}
+                {!isAuthenticated && <GuestUser />}
+            {/* <li>{isAuthenticated? authLinks : guestLinks}</li> */}
+           {/* <ul className="navbar-nav ml-auto ">
               <li className="nav-item ">
                   <Link className="nav-link" to="/profile">Profile</Link>
               </li>
               <li className="nav-item">
                    <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
               </li>
-            </ul>
-            {/* {isAuthenticated? authLinks : guestLinks} */}
-          
+            </ul> */}
           <div className="clearfix"></div>
       </nav>
     )

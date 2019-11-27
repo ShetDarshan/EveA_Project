@@ -124,8 +124,8 @@ footer.footer-custom {
     transform: scale(1.5);
 } */
 .card-slider .card-body .card-title {
-  max-height: 2rem;
-  min-height:2rem;
+  max-height: 2.3rem;
+  min-height:2.3rem;
   line-height: 1.2rem;
   padding-top: 25px;
 }

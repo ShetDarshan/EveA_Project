@@ -42,37 +42,17 @@ notGoingActivity = () => {
   console.log(this.state);
 }
   render() {
+    const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
     const { user } = this.props.auth;
-      console.log("Recommendation",recom);
-      console.log("locationData",locationData);
-      console.log(typeof recom )
     if (Object.keys(recom).length < 1  ){
      console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
       return <div><Spinner /></div>
     } 
     else {
+      console.log("isAuthenticated",isAuthenticated)
      console.log("dataset",dataset);
-     let showItems = 4
-
-    if(window.innerWidth <= 576)showItems=1
-    else if(window.innerWidth <= 768)showItems=2
-    else if(window.innerWidth <= 1024)showItems=3
-    else showItems=4
-     const setting = {
-       dots: false,
-       infinite: true,
-       speed: 500,
-       slidesToShow: showItems,
-       slidesToScroll: 1
-     };
-     function triggerRefresh(){
-      //refreshPage();
-     }
-     function refreshPage(){ 
-      setTimeout(function(){  window.location.reload();},1e3); 
-      }
     return (
         <div className="container pt-2">
           { eventDetails && eventDetails.map(data => {
@@ -108,7 +88,91 @@ notGoingActivity = () => {
                                 this.notGoingActivity()
                             }}>Not Going</button> */}
                             <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-primary">Visit Webpage</a>
-                            <ul className=" track-events mt-2">
+                            {isAuthenticated  && <Activities/>}
+                            {/* <div>data:{data.title} <span>Email:{user.email}</span></div> */}
+                      </div>
+                  </div>
+                  )})}
+                  {isAuthenticated  && <ShowRecommendation/>}
+            </div>
+    );
+   }
+   function ShowRecommendation() {
+    let showItems = 4
+
+    if(window.innerWidth <= 576)showItems=1
+    else if(window.innerWidth <= 768)showItems=2
+    else if(window.innerWidth <= 1024)showItems=3
+    else showItems=4
+     const setting = {
+       dots: false,
+       infinite: true,
+       speed: 500,
+       slidesToShow: showItems,
+       slidesToScroll: 1
+     };
+    return(
+      <div className="recommendation-section">
+      <div key="recommended-events" className="recommended-events">
+              <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
+                <Slider {...setting}>
+                {
+                      recom && recom.map(data => (
+                              <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
+                                    <div key={data.title+"-body"} className="card-body text-white"  > 
+                                    <Link to={`/event/${data.title}`} className="card-link">
+                                    <div key={data.title+"-image-container"} className="imageContainer" onClick = {triggerRefresh}>
+                                      <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
+                                    </div>
+                                    
+                                      <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0  " style={{paddingTop:"50px"}}>{data.title}</h6>
+                                      </Link>
+                                      <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 text-primary"><b>Date: </b>{data.startdate}</h6>
+                                      <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage }>
+                                             View Event
+                                     </Link>
+                                      <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
+                                    </div>
+                                  </div>                                
+                        
+                  ))}
+               </Slider>      
+              </div>
+              <div key="nearby-events" className="nearby-events">
+              <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
+                <Slider {...setting}>
+                {
+                      locationData && locationData.map(data => (
+                              <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
+                                    <div key={data.title+"-body"} className="card-body text-white"  > 
+                                    <div key={data.title+"-image-container"} className="imageContainer" >
+                                      <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
+                                    </div>
+                                    <Link to={`/event/${data.title}`} className="card-link" >
+                                      <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
+                                      </Link>
+                                      <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 text-primary"><b>Date: </b>{data.startdate}</h6>
+                                      <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage } >
+                                             View Event
+                                     </Link>
+                                      <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
+                                    </div>
+                                  </div>                                
+                  ))}
+               </Slider>      
+              </div>
+        </div>
+    )
+    function triggerRefresh(){
+      //refreshPage();
+     }
+     function refreshPage(){ 
+        setTimeout(function(){  window.location.reload();},1e3); 
+      }
+    }
+    function Activities(){
+        return(
+          <ul className=" track-events mt-2">
                             <li className="">
                                     <div className= {this.state.interested ? "interested active" : "interested" }
                                           onClick={this.intersted.bind(this)}>
@@ -122,61 +186,8 @@ notGoingActivity = () => {
                                     </div>
                                 </li>
                               </ul>
-                            {/* <div>data:{data.title} <span>Email:{user.email}</span></div> */}
-                      </div>
-                  </div>
-                  )})}
-                  <div key="recommended-events" className="recommended-events">
-                  <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
-                    <Slider {...setting}>
-                    {
-                          recom && recom.map(data => (
-                                  <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                        <div key={data.title+"-body"} className="card-body text-white"  > 
-                                        <Link to={`/event/${data.title}`} className="card-link">
-                                        <div key={data.title+"-image-container"} className="imageContainer" onClick = {triggerRefresh}>
-                                          <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
-                                        </div>
-                                        
-                                          <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0  " style={{paddingTop:"50px"}}>{data.title}</h6>
-                                          </Link>
-                                          <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 text-primary"><b>Date: </b>{data.startdate}</h6>
-                                          <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage }>
-                                                 View Event
-                                         </Link>
-                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
-                                        </div>
-                                      </div>                                
-                            
-                      ))}
-                   </Slider>      
-                  </div>
-                  <div key="nearby-events" className="nearby-events">
-                  <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
-                    <Slider {...setting}>
-                    {
-                          locationData && locationData.map(data => (
-                                  <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                        <div key={data.title+"-body"} className="card-body text-white"  > 
-                                        <div key={data.title+"-image-container"} className="imageContainer" >
-                                          <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
-                                        </div>
-                                        <Link to={`/event/${data.title}`} className="card-link" >
-                                          <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
-                                          </Link>
-                                          <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 text-primary"><b>Date: </b>{data.startdate}</h6>
-                                          <Link to={`/event/${data.title}`} className="card-link" onClick={ refreshPage } >
-                                                 View Event
-                                         </Link>
-                                          <a href={"https://maps.google.com/?q="+ data.latitude +","+ data.longitude } target="_blank" className="card-link">View Map</a>
-                                        </div>
-                                      </div>                                
-                      ))}
-                   </Slider>      
-                  </div>
-            </div>
-    );
-   }
+        )
+    }
   }
 }
 EventDetails.propTypes = {
