@@ -123,9 +123,6 @@ notGoingActivity = () => {
                                 </li>
                               </ul>
                             {/* <div>data:{data.title} <span>Email:{user.email}</span></div> */}
-                            
-                            
-                            
                       </div>
                   </div>
                   )})}
