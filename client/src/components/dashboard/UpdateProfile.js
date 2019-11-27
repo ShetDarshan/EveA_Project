@@ -246,7 +246,6 @@ class UpdateProfile extends Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => ({
