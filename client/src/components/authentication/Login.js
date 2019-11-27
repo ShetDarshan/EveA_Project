@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import './index.css'
 import Face from '../layout/Face';
 
+
  class Login extends Component {
     constructor() {
         super();
@@ -49,13 +50,15 @@ import Face from '../layout/Face';
     const { errors } = this.state;
     return (
 
-        <div className="container-fluid">
-          <div className="row">
+        <div className="container-fluid bg">
+          <div className="row justify-content-center">
             <div className="col-12 col-sm=6 col-md-3">
+            
     
               {/* <h5 className="lead text-center">Sign in to your account</h5> */}
-              <form onSubmit={this.onSubmit}>
+              <form className="form-container" onSubmit={this.onSubmit}>
               <div className="form-group">
+                <h4 className="text-center" style={{color:"#593196",paddingTop:"10px"}}>Explore Your Events in Dublin!</h4>
               <TextFieldGroup
                   placeholder="Email Address"
                   name="email"
@@ -87,12 +90,11 @@ import Face from '../layout/Face';
             </div>
           </div>
         </div>
-     
-    
-     
+       
     )
   }
 }
+
 Login.propTypes = {
   luser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
