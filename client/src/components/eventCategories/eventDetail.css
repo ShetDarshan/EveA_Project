@@ -1,0 +1,37 @@
+.event-detail-container h2,
+.event-detail-container h3{
+  color: #593096;
+}
+.track-events {
+    padding:0;
+}
+.track-events li{
+    display: inline-block;
+    width:auto;
+}
+.interested {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    cursor:pointer;
+  }
+  .interested > div {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size:24px;
+    color:black;
+  }
+  .interested.active > div:before,
+  .interested > div:hover:before,
+  .interested > div:hover ~ div:before {
+     content: "\2605";
+     position: absolute;
+  }
+  .going > div {
+      background:url("../../img/GoingIcon.png") no-repeat;
+      background-repeat: no-repeat;
+      background-size: 55%;
+  }
+  .going.active > div{
+    background:url("../../img/GoingIconActive.png") no-repeat;
+  }

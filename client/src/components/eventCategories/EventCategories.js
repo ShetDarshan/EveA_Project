@@ -59,23 +59,33 @@ import Spinner from '../common/Spinner'
         <div className="eventCategories mt-2">
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">     
-                      <h4 key={categoriesList+"-heading"} className="text-capitalise">{categoriesList.toLowerCase()}</h4>
-                      <div >
-                      <div key={categoriesList+"-container"} className="card text-white  mb-3 card-slider">
+                      <h2 key={categoriesList+"-heading"} className="text-capitalise text-primary">{categoriesList.toLowerCase()}</h2>
+                      <div> 
+                      {/* {dataset[categoriesList].length} */}
+                      <div key={categoriesList+"-container"} className="card  mb-3 card-slider">
+                      {/* {{
+                        if(dataset[categoriesList].length > 4){
+
+                        } else {
+
+                        }
+                      }} */}
                       <Slider {...settings}>
                       {
                         dataset[categoriesList].map(data => (
-                          <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
-                                <div key={data.title+"-body"} className="card-body"  > 
-                                <div key={data.title+"-image-container"} className="imageContainer" >
+                          <div key={data.title+"card-slider"} className="card card-slider">
+                             {/* title= {data.title} */}
+                                <div key={data.title+"-body"} className="card-body"> 
+                                <Link to={`/event/${data.title}`} className="card-link">
+                                <div key={data.title+"-image-container"} className="imageContainer" title="Click to see more details">
                                   <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
                                 </div>
-                                  <Link to={`/event/${data.title}`} className="card-link">
-                                    <h6 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 " style={{paddingTop:"50px"}}>{data.title}</h6>
+                                  
+                                    <h5 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>{data.title}</h5>
                                   </Link>
-                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0"><b>Date: </b>{data.startdate}</h6>
-                                  <Link to={`/event/${data.title}`} className="card-link">View Event</Link>
-                                  <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a>
+                                  <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead"><b>{data.startdate}</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
                                 </div>
                               </div>  
                         ))}
