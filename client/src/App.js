@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
-import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
+import Landing from './components/layout/Landing';
+import Splash from './components/layout/Splash';
 import Dashboard from './components/dashboard/Dashboard';
 import MainCorousel from './components/eventboard/eventMainPage';
 import Guestuser from './components/guestUser/Guestuser';
@@ -22,6 +23,7 @@ import EventDetails from './components/eventCategories/EventDetails';
 import Search from './components/dashboard/Search';
 
 import Friend from './components/friends/Friend';
+import { FirstPage } from '@material-ui/icons';
 
 
 if(localStorage.jwtToken){
@@ -47,7 +49,7 @@ class App extends Component {
         <Router>
         <Navbar/>
         <div className="App">
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Splash} />
             <div className="container-flex mb-0"  >
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
