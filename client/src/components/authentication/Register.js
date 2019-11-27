@@ -131,7 +131,7 @@ verifiedChange = e => {
                       // }}
                       />
               </form>
-              <Snackbar
+              {/* <Snackbar
                         anchorOrigin={{
                             vertical: "top",
                             horizontal: "right"
@@ -156,7 +156,7 @@ verifiedChange = e => {
                                     : ""
                             }
                         />
-                    </Snackbar>
+                    </Snackbar> */}
                     <label for="verified">
        <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> I'm already a member  <Link  to="/Login">
           Log In</Link> </h6>
