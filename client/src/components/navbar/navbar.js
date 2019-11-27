@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {logoutuser} from '../../actions/authActions';
 import evealogo from '../../img/Evea.png';
+// import {Search} from "../dashboard/Search";
 import "./navbar.css";
 
  class Navbar extends Component {
@@ -43,15 +44,14 @@ import "./navbar.css";
         document.getElementsByClassName("navbar-collapse")[0].classList.remove("show");
      }
    }
-  
-
+   
   render() {
     const { isAuthenticated } = this.props.auth;
     function AuthorisedLink(props) {
       return (
         <ul className="navbar-nav ml-auto ">
             <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-            {/* <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li> */}
+            <li className="nav-item"><Link className="nav-link" to="/Search">Logout</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/login" onClick= {()=>this.onLogoutClick.bind(this)}>Logout</Link></li>
           </ul>
       );
@@ -60,22 +60,15 @@ import "./navbar.css";
       return (
         <ul className="navbar-nav ml-auto ">
              <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+             <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li>
              <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
           </ul>
       );
     }
-    // const authLinks = (
-    //   <ul className="navbar-nav ml-auto ">
-    //       <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-    //       <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li>
-    //     </ul>
-    // );
-    // const guestLinks = (    
-    //   <ul className="navbar-nav ml-auto ">
-    //       <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
-    //       <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
-    //   </ul>
-    // );
+    function  handleKeydown() {
+      window.location.href = '/Search';
+      console.log("Keydown Clicked");
+    }
     const searchClient = algoliasearch(
       '7Z6VFB8JQD',
       'fe812c7ddbd852cb3074294b24c7e641'
@@ -89,7 +82,9 @@ import "./navbar.css";
           </button>
            <Link className="nav-link home-link" to="/login">Home</Link>
             <form className="form-inline-block my-2 my-lg-0 w-25">
-              <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search"/>
+              {/* <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search" onKeyDown={handleKeydown}/>
+             */}
+             {/* <SearchBox/> */}
                 {/* <Link className="nav-link" to="/Search">Browse Events</Link> */}
             </form>
                 {isAuthenticated && <AuthorisedLink />}
