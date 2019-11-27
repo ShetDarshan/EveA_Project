@@ -9,6 +9,9 @@
     display: inline-block;
     width:auto;
 }
+.track-events li > div {
+  cursor:pointer;
+}
 .interested {
     unicode-bidi: bidi-override;
     direction: rtl;
@@ -17,9 +20,8 @@
   .interested > div {
     display: inline-block;
     position: relative;
-    width: 1.1em;
-    font-size:24px;
-    color:black;
+    font-size:2.2rem;
+    color: #EFA31D;
   }
   .interested.active > div:before,
   .interested > div:hover:before,
@@ -27,11 +29,19 @@
      content: "\2605";
      position: absolute;
   }
+  .going {
+    width:2rem;
+    height:2rem;
+  }
   .going > div {
       background:url("../../img/GoingIcon.png") no-repeat;
-      background-repeat: no-repeat;
-      background-size: 55%;
+      background-size: 100%;
+      width:inherit;
+      height:inherit;
   }
+  .going.active > div:hover,
   .going.active > div{
     background:url("../../img/GoingIconActive.png") no-repeat;
+    background-size: 100%;
   }
+   
