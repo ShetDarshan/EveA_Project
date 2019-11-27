@@ -119,10 +119,10 @@ footer.footer-custom {
   overflow: hidden;
   cursor:pointer;
 }
-.card-slider .card-body .imageContainer:hover{
+/* .card-slider .card-body .imageContainer:hover{
   transition: transform 0.2s;
     transform: scale(1.5);
-}
+} */
 .card-slider .card-body .card-title {
   max-height: 2rem;
   min-height:2rem;

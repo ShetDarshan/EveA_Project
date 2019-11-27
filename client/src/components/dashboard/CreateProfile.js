@@ -67,7 +67,7 @@ class CreateProfile extends Component {
     return (
       <div className="profile-page">
         {/* style={{backgroundImage:  "url(http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png)"}} */}
-        <div className="page-header header-filter"   ></div>
+        <div className="page-header header-filter"></div>
         {/* `url(${data.img})` */}
         <div className="main main-raised">
           <div className="profile-content">
@@ -80,44 +80,30 @@ class CreateProfile extends Component {
                       {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
                     </div>
                     <div className="name float-left m-5">
-                      <h3 className="title text-capitalize">{userName}</h3>
-                      <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
+                      <h2 className="title text-capitalize font-weight-bold text-priamry">{userName}</h2>
+                      <Link to="/updateProfile" className="btn btn-sm btn-primary btn-sm d-lg-block m-2">Edit Profile</Link>
                       {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
                       <div className="description text-center mt-2">
                         <p className="text-capitalize">{userBio}</p>
-                        <h6> Lives at: <b className="text-white bold">{userlocation}</b> </h6>
-                        <h6> Joined at: <b className="text-white bold">{userlocation}</b> </h6>
+                        <h6><span className="text-muted">Lives at:</span> <b className="bold">{userlocation}</b> </h6>
+                        <h6><span className="text-muted">Joined at:</span><b className="bold">{userlocation}</b> </h6>
                       </div>
                     </div>
                     <div className="clearfix"></div>
                   </div>
-                </div>
+                </div>                
                 <div className="w-25">
-                  <Link to="/updateProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Edit Profile</Link>
-                  {/* <Link to="/deleteProfile" className="btn btn-sm btn-danger btn-sm d-lg-block m-2">Delete Profile</Link> */}
-                </div>
-              </div>
-              <div className="row m-4">
-                <h6 className="w-100">Interests: <b className="text-white bold">{userInterests}</b> </h6>
-                <h6 className="w-100">Address: <b className="text-white bold">{userAddress}</b> </h6>
-                <h6 className="w-100">Date Of Birth: <b className="text-white bold">{userBirthday}</b></h6>
-                <h6 className="w-100">Email: <b className="text-white bold">{userEmail}</b></h6>
-              </div>
-
-
-              <div className="row">
-                <div class="col-md-12 ml-auto mr-auto">
-                <h5>Requests Received</h5>
-                  <ul class="friendRequestList ">
+                <h4 className="text-primary">Requests Received</h4>
+                  <ul className="friendRequestList ">
                     {
                       allRequests && allRequests.map(data => {
                         return (
-                          <li class="m-2 card border-primary ">
-                            <div class=""><div class="friendAvtar text-center">
-                              <div class="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div>
+                          <li className="m-2 card border-primary ">
+                            <div className=""><div class="friendAvtar text-center">
+                              <div className="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div>
 
-                              <h6 class="m-2 text-white">{data}</h6>
-                              <button class="btn btn-sm btn-info btn-sm mr-2" 
+                              <h6 className="m-2 text-white">{data}</h6>
+                              <button className="btn btn-sm btn-info btn-sm mr-2" 
                               onClick={() => {
                                 this.setState({
                                   loggedUser: userEmail,
@@ -125,7 +111,7 @@ class CreateProfile extends Component {
                                 })
                                 this.acceptRequest()
                             }}> Accept Request</button>
-                              <button class="btn btn-sm btn-danger btn-sm"
+                              <button className="btn btn-sm btn-primary btn-sm"
                               onClick={() => {
                                 this.setState({
                                   loggedUser: userEmail,
@@ -140,31 +126,37 @@ class CreateProfile extends Component {
                       })
                     }
                   </ul>
-                </div>
-  
+                </div> 
               </div>
+              <div className="row m-4">
+                <h6 className="w-100"><span className="text-muted">Interests:</span> <b className="bold">{userInterests}</b> </h6>
+                <h6 className="w-100"><span className="text-muted">Address:</span><b className="bold">{userAddress}</b> </h6>
+                <h6 className="w-100"><span className="text-muted">Date Of Birth:</span> <b className="bold">{userBirthday}</b></h6>
+                <h6 className="w-100"><span className="text-muted">Email:</span> <b className="bold">{userEmail}</b></h6>
+              </div>
+              {/* <div className="row">
+                <div className="col-md-12 ml-auto mr-auto">
+                </div>
+              </div> */}
 
               <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
-                  <h5>Suggested Friends</h5>
+                  <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
                     {
                       profiles && profiles.map(data => {
                         return (
 
-                          <li className="card border-primary m-2">
-                            <div className="text-center float-left">
-                              <div className="friendAvtar ">
-                                <div className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                              </div>
-                            </div>
-                            <div className="float-left text-center">
-                              <h6 className="m-2 text-white">{data.handle}</h6>
-                              <Link to={`/friend/${data.email}`} className="btn btn-lg btn-danger btn-sm mr-2">View Profile</Link>
-                            </div>
-                            <div className="clearfix"></div>
+                          <li key={"profile-"+data} className="card border-primary m-2 p-2">
+                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
+                                <div key={"profile-container-"+data.handle} className="text-center">
+                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                    <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                                  </div>
+                                </div>
+                                <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
+                            </Link>
                           </li>
-
                         )
                       })}
                   </ul>
@@ -176,9 +168,7 @@ class CreateProfile extends Component {
       </div>
     )
   }
-
 }
-
 const mapStateToProps = state => ({
   //getting the user list from profileReducer and auth from authReducer
   users: state.users,

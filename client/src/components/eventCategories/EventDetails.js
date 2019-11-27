@@ -20,16 +20,18 @@ constructor(props) {
     this.state = {
       eventId :'',
       user : '',
-      condition: false
+      interested: false,
+      going: false
     };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
 }
-toggle() {
-  this.setState({
-    condition : !this.state.condition
-  });
-  console.log(this.state.condition);  
+intersted() {
+  this.setState({ interested : !this.state.interested });
+
+}
+going(){
+  this.setState({going : !this.state.going })
 }
 goingActivity = () => {
   this.props.goingEvent(this.state)
@@ -40,22 +42,18 @@ notGoingActivity = () => {
   console.log(this.state);
 }
   render() {
-    let interested = ["interested"];
-    if(this.state.addClass) {
-      interested.push('interested');
-    }
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
     const { user } = this.props.auth;
-      // console.log("Recommendation",recom);
-      // console.log("locationData",locationData);
+      console.log("Recommendation",recom);
+      console.log("locationData",locationData);
       console.log(typeof recom )
-    if (recom === undefined || Object.keys(recom).length < 1  ){
-     console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-      return <div><Spinner /></div>
-    } 
-    else {
-     //console.log("dataset",dataset);
+    // if (Object.keys(recom).length < 1  ){
+    //  console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
+    //   return <div><Spinner /></div>
+    // } 
+    // else {
+    //  console.log("dataset",dataset);
      let showItems = 4
 
     if(window.innerWidth <= 576)showItems=1
@@ -86,10 +84,12 @@ notGoingActivity = () => {
                       <p className="mt-2 text-justify">{data.summary}</p>
                       </div>
                       <div key={data.title+"-right-container"} className="right-container col-lg-4 col-md-12 col-sm-12 col-xs-12 pt-5">
-                        <h3 key={data.title+"-category"} className="mb-2">Category:</h3><p className="card-text mb-2"> {data.category}</p>
-                        <h3 key={data.title+"-date"} className="mb-2">Date:</h3><p className="card-text mb-2">{data.date}</p>
-                        <h3 key={data.title+"-address"} className="mb-2">Address:</h3><p className="card-text mb-2">{data.address}</p>
-                        <h3 key={data.title+"-price"} className="mb-2">Price:</h3> <p className="card-text mb-2">{data.price}</p>
+                        {/* <h3 key={data.title+"-category"} className="mb-2">Category:</h3><p className="card-text mb-2"> {data.category}</p> */}
+                        {/* <h3 key={data.title+"-date"} className="mb-2">Date:</h3><p className="card-text mb-2">{data.date}</p> */}
+                        <p key={data.title+"-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.date}</p></p>
+                        <p key={data.title+"-address"} className="mb-2"><span className="text-muted">Address:</span><p>{data.address}</p></p>
+                        <p key={data.title+"-price"} className="mb-2"><span className="text-muted">Price:</span><p>{data.price}</p></p>
+                        {/* <h3 key={data.title+"-price"} className="mb-2">Price:</h3> <p className="card-text mb-2">{data.price}</p> */}
                         {/* <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-primary">Event Details</a> */}
                         {/* <button className="btn btn-sm btn-info btn-sm mr-2" 
                               onClick={() => {
@@ -107,24 +107,22 @@ notGoingActivity = () => {
                                 })
                                 this.notGoingActivity()
                             }}>Not Going</button> */}
-                            <ul className=" track-events">
-                              <li>
-                              <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-primary">Event Details</a>
-                              </li>
-                                <li className="">
-                                    <div className= {this.state.condition ? "interested active" : "interested" }
-                                          onClick={this.toggle.bind(this)}>
+                            <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-primary">Visit Webpage</a>
+                            <ul className=" track-events mt-2">
+                            <li className="">
+                                    <div className= {this.state.interested ? "interested active" : "interested" }
+                                          onClick={this.intersted.bind(this)}>
                                         <div>☆</div>
                                     </div>
                                 </li>
-                                <li className="">
-                                        <div className= {this.state.condition ? "going active" : "going" }
-                                              onClick={this.toggle.bind(this)}>
+                              <li className="">
+                                        <div className= {this.state.going ? "going active" : "going" }
+                                              onClick={this.going.bind(this)}>
                                         <div></div>
                                     </div>
                                 </li>
                               </ul>
-                            <div>data:{data.title} <span>Email:{user.email}</span></div>
+                            {/* <div>data:{data.title} <span>Email:{user.email}</span></div> */}
                             
                             
                             
@@ -156,7 +154,7 @@ notGoingActivity = () => {
                       ))}
                    </Slider>       */}
                   </div>
-                  <div key="nearby-events" className="nearby-events">
+                  {/* <div key="nearby-events" className="nearby-events">
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
                     <Slider {...setting}>
                     {
@@ -178,11 +176,11 @@ notGoingActivity = () => {
                                       </div>                                
                       ))}
                    </Slider>      
-                  </div>
+                  </div> */}
             </div>
     );
-  }
-  }
+   }
+  //}
 }
 EventDetails.propTypes = {
     getEventDetails: PropTypes.func.isRequired,
