@@ -94,7 +94,6 @@ import "./navbar.css";
   }
 }
 Navbar.propTypes = {
- 
   logoutuser: PropTypes.func.isRequired,
   auth: PropTypes.func.isRequired
 }

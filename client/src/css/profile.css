@@ -51,7 +51,7 @@
     background-size: 100%;
     border-radius: 132px;
 }
-.customFriendList li .friendAvtar {
+.customFriendList li .friendAvtar { 
     width: 5rem;
     height: 5rem;
 }

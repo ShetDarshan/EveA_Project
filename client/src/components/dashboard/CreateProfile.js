@@ -37,15 +37,13 @@ class CreateProfile extends Component {
     this.props.rejectFriendRequest(this.state)
   }
   render() {
-
-    // let { imagePreviewUrl } = this.state;
     const { profile, profiles } = this.props.users;
     // var { request  } =  this.props.friends;
     console.log("Profile", this.props.users);
     let allRequests = [];
     allRequests = this.props.friends.request.from;
-    console.log("this.props.friends.request.from",this.props.friends.request.from);
-    console.log("console request", allRequests);
+    // console.log("this.props.friends.request.from",this.props.friends.request.from);
+    // console.log("console request", allRequests);
 
     if (profile) {
       profile.map(values => {

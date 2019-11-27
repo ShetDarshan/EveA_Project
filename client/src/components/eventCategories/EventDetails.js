@@ -193,6 +193,5 @@ const mapStateToProps = state => ({
   recom: state.events,
   locationData: state.events,
   auth: state.auth
-  
 });
 export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents,goingEvent,notGoingEvent })(EventDetails);
