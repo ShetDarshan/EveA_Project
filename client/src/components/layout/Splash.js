@@ -21,7 +21,7 @@ return (
     
         <div>  
 
-        <div><a href="./eventboard" className="btn btn-primary btn-lg btn-block" role="button" style={{backgroundColor:"white",color:"purple"}} aria-pressed="true">Click here to browse events by category</a></div>
+        <div><a href="./eventboard" className="btn btn-primary btn-lg btn-block" role="button" style={{backgroundColor:"white",color:"purple"}} aria-pressed="true"> GO TO EVENTBOARD </a></div>
 
           <Carousel>
             <Carousel.Item >
