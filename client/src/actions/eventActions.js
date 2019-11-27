@@ -4,7 +4,7 @@ export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios({
       method: 'get',
-      url: 'http://localhost:5000/api/v1/events',
+      url: '/api/v1/events',
       params: {
         limit: 1000
       }
@@ -69,7 +69,7 @@ export const getEvents = () => dispatch => {
   export const getLearning = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get('http://localhost:5000/api/v1/learning') 
+      .get('/api/v1/learning') 
       .then(res => 
         dispatch({
           type: GET_LEARNING,
@@ -86,7 +86,7 @@ export const getEvents = () => dispatch => {
   export const getEventDetails = title => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`http://localhost:5000/api/v1/eventDetails/${title}`) 
+      .get(`/api/v1/eventDetails/${title}`) 
       .then(res => 
         dispatch({
           type: GET_EVENT_DETAILS,

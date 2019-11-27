@@ -51,7 +51,8 @@ import "./navbar.css";
       return (
         <ul className="navbar-nav ml-auto ">
             <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li>
+            {/* <li className="nav-item"><Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link></li> */}
+            <li className="nav-item"><Link className="nav-link" to="/login" onClick= {()=>this.onLogoutClick.bind(this)}>Logout</Link></li>
           </ul>
       );
     } 
