@@ -48,12 +48,11 @@ import Face from '../layout/Face';
   render() {
     const { errors } = this.state;
     return (
-        <div className="login">
-        <div className="container">
+
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-8 m-auto">
+            <div className="col-12 col-sm=6 col-md-3">
     
-               <h2 className="display-5 text-center">Explore Events in Dublin</h2>
               {/* <h5 className="lead text-center">Sign in to your account</h5> */}
               <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -88,7 +87,8 @@ import Face from '../layout/Face';
             </div>
           </div>
         </div>
-      </div>
+     
+    
      
     )
   }
