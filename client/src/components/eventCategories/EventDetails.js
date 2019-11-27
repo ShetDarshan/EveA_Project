@@ -20,16 +20,18 @@ constructor(props) {
     this.state = {
       eventId :'',
       user : '',
-      condition: false
+      interested: false,
+      going: false
     };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
 }
-toggle() {
-  this.setState({
-    condition : !this.state.condition
-  });
-  console.log(this.state.condition);  
+intersted() {
+  this.setState({ interested : !this.state.interested });
+
+}
+going(){
+  this.setState({going : !this.state.going })
 }
 goingActivity = () => {
   this.props.goingEvent(this.state)
@@ -40,22 +42,18 @@ notGoingActivity = () => {
   console.log(this.state);
 }
   render() {
-    let interested = ["interested"];
-    if(this.state.addClass) {
-      interested.push('interested');
-    }
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset  = this.props.getRecmdEvents;
     const { user } = this.props.auth;
-      // console.log("Recommendation",recom);
-      // console.log("locationData",locationData);
+      console.log("Recommendation",recom);
+      console.log("locationData",locationData);
       console.log(typeof recom )
-    // if (Object.keys(recom).length < 1  ){
-    //  console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-    //   return <div><Spinner /></div>
-    // } 
-    // else {
-     //console.log("dataset",dataset);
+    if (Object.keys(recom).length < 1  ){
+     console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
+      return <div><Spinner /></div>
+    } 
+    else {
+     console.log("dataset",dataset);
      let showItems = 4
 
     if(window.innerWidth <= 576)showItems=1
@@ -112,28 +110,25 @@ notGoingActivity = () => {
                             <a key={data.title+"-link"} target="_blank" href={data.read_more} className="btn btn-primary">Visit Webpage</a>
                             <ul className=" track-events mt-2">
                             <li className="">
-                                    <div className= {this.state.condition ? "interested active" : "interested" }
-                                          onClick={this.toggle.bind(this)}>
+                                    <div className= {this.state.interested ? "interested active" : "interested" }
+                                          onClick={this.intersted.bind(this)}>
                                         <div>☆</div>
                                     </div>
                                 </li>
-                              {/* <li className="">
-                                        <div className= {this.state.condition ? "going active" : "going" }
-                                              onClick={this.toggle.bind(this)}>
+                              <li className="">
+                                        <div className= {this.state.going ? "going active" : "going" }
+                                              onClick={this.going.bind(this)}>
                                         <div></div>
                                     </div>
-                                </li> */}
+                                </li>
                               </ul>
                             {/* <div>data:{data.title} <span>Email:{user.email}</span></div> */}
-                            
-                            
-                            
                       </div>
                   </div>
                   )})}
                   <div key="recommended-events" className="recommended-events">
                   <h4 key="recommended-events-heading" className="text-capitalise">Recommended Events</h4>
-                    {/* <Slider {...setting}>
+                    <Slider {...setting}>
                     {
                           recom && recom.map(data => (
                                   <div key={data.title+"card-slider"} className="card card-slider "  title= {data.title}>
@@ -154,9 +149,9 @@ notGoingActivity = () => {
                                       </div>                                
                             
                       ))}
-                   </Slider>       */}
+                   </Slider>      
                   </div>
-                  {/* <div key="nearby-events" className="nearby-events">
+                  <div key="nearby-events" className="nearby-events">
                   <h4 key="nearby-events-heading" className="text-capitalise">Nearby Events</h4>
                     <Slider {...setting}>
                     {
@@ -178,10 +173,10 @@ notGoingActivity = () => {
                                       </div>                                
                       ))}
                    </Slider>      
-                  </div> */}
+                  </div>
             </div>
     );
-  // }
+   }
   }
 }
 EventDetails.propTypes = {
@@ -195,6 +190,5 @@ const mapStateToProps = state => ({
   recom: state.events,
   locationData: state.events,
   auth: state.auth
-  
 });
 export default connect(mapStateToProps, { getEventDetails,getRecmdEvents,getLocationEvents,goingEvent,notGoingEvent })(EventDetails);

@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from 'reactstrap';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import MapContainer from '../mapContainer/MapContainer'
+
 import {
   IconButton
 } from "@material-ui/core";
@@ -130,10 +130,7 @@ export default props => {
                          </Button>
           </ModalHeader>
 
-          <MapContainer
-            lat={+event.latitude}
-            long={+event.longitude}
-          />
+    
         </Modal>
         <Modal isOpen={showModal}>
           <ModalHeader>{event.title}</ModalHeader>

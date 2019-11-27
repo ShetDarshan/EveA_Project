@@ -44,36 +44,31 @@
 }
 
 .customFriendList li .friendAvtar .avtarImg {
-    width: 3rem;
-    height: 3rem;
+    width: inherit;
+    height: inherit;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 132px;
 }
-.customFriendList li .friendAvtar {
-    width: 3rem;
-    height: 3rem;
+.customFriendList li .friendAvtar { 
+    width: 5rem;
+    height: 5rem;
 }
-
 .friendAvtar {
     max-width: 12rem;
     max-height: 12rem;
 }
 .friendRequestList  li .friendAvtar .avtarImg {
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
     margin: 0 auto;
 }
 .customFriendList li .friendAvtar .avtarImg {
-    width: 3rem;
-    height: 3rem;
+    width: inherit;
+    height: inherit;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 132px;
-}
-.customFriendList li .friendAvtar {
-    width: 3rem;
-    height: 3rem;
 }

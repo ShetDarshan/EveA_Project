@@ -15,9 +15,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {logoutuser} from '../../actions/authActions';
-import evealogo from '../../img/logo.png';
+import evealogo from '../../img/Evea.png';
 import "./navbar.css";
-
 
  class Navbar extends Component {
    constructor(props){
@@ -28,11 +27,9 @@ import "./navbar.css";
       this.headerClick = this.headerClick.bind(this);
    }
    onLogoutClick(e){
-     //e.preventDefault();
      this.props.logoutuser();
    }
    headerClick(e) {
-
       this.setState(state => ({
         headerToggle: !state.headerToggle
       }));
@@ -45,22 +42,18 @@ import "./navbar.css";
         e.currentTarget.dataset.toggle = "collapse";
         document.getElementsByClassName("navbar-collapse")[0].classList.remove("show");
      }
-     //console.dir(e.currentTarget.dataset.toggle);
    }
   
 
   render() {
     const { isAuthenticated } = this.props.auth;
     const authLinks = (
-      <ul className="navbar-nav ml-auto">
-         <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+          <ul className="navbar-nav ml-auto ">
+              <li className="nav-item ">
+                  <Link className="nav-link" to="/profile">Profile</Link>
               </li>
               <li className="nav-item">
                    <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
-                {/* <a href=""  onClick={this.onLogoutClick.bind(this)} className = "nav-link">{' '}
-                Logout
-                </a> */}
               </li>
             </ul>
     );
@@ -70,55 +63,37 @@ import "./navbar.css";
     );
     const guestLinks = (    
       <div className="collapse navbar-collapse" id="navbarColor02">
-        {/*<ul className="navbar-nav mr-auto text-white">
         
-          <li className="nav-item active">
-            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-          </li>
-          <li className="nav-item">
-             <Link className="nav-link" to="/About">About Us</Link>
-          </li>
-          {/* <li className="nav-item">
-           <Link className="nav-link " to="/guestuser">Guest User</Link>
-          </li> 
-          <li className="nav-item">
-                 <Link className="nav-link" to="/Register">Sign Up</Link>
-          </li>
-        </ul>*/}
-
-
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="text" placeholder="Search" id="Search"/>
-            <Link className="nav-link" to="/Search">Browse Events</Link>
-        </form>
       </div>
     );
-    
-
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-        
-            <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'100px', height:'50px'}}/></Link>
-            
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          <Link className="navbar-brand" to="/login"><img src={evealogo} alt="EVEA" style={{width:'75px'}}/></Link>         
           <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
-    </button>
-         
-         {/*} <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-            <span className="navbar-toggler-icon"></span>
-    </button>*/}
-    
+          </button>
+           <Link className="nav-link home-link" to="/login">Home</Link>
+            <form className="form-inline-block my-2 my-lg-0 w-25">
+              <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search"/>
+                {/* <Link className="nav-link" to="/Search">Browse Events</Link> */}
+            </form>
           
-            {isAuthenticated? authLinks : guestLinks} 
-            
-          </div>
+           <ul className="navbar-nav ml-auto ">
+              <li className="nav-item ">
+                  <Link className="nav-link" to="/profile">Profile</Link>
+              </li>
+              <li className="nav-item">
+                   <Link className="nav-link" to="/login" onClick={this.onLogoutClick.bind(this)}>Logout</Link>
+              </li>
+            </ul>
+            {/* {isAuthenticated? authLinks : guestLinks} */}
+          
+          <div className="clearfix"></div>
       </nav>
     )
   }
 }
 Navbar.propTypes = {
- 
   logoutuser: PropTypes.func.isRequired,
   auth: PropTypes.func.isRequired
 }

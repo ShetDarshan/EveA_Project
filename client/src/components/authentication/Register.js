@@ -73,9 +73,10 @@ verifiedChange = e => {
       <div className="register">
        <div className="container" >
         <div className="row">
-          <div className="col-md-8 m-auto">
-           <h4 className="display-5 text-center">Create Account with EveA</h4>
+          <div className="col-sm-8 m-auto">
+           <h2 className="display-5 text-center">Create Account</h2>
            <form noValidate onSubmit={this.onSubmit}>
+           <div className="form-group">
            <TextFieldGroup
                   placeholder="Let your friend identify you by this name"
                   name="handle"
@@ -108,28 +109,19 @@ verifiedChange = e => {
                   onChange={this.onChange}
                   error={errors.confirmPassword}
                 />
-                    <input
-          type="checkbox"
-          name="verified"
-          id="verified"
-          onChange={this.verifiedChange} // Triggers the function in the Part 2
+          <input type="checkbox" name="verified" id="verified" className="mr-2" onChange={this.verifiedChange} // Triggers the function in the Part 2
           value={this.state.verified}
       />
-      <label for="verified">
-       <h6> By Signing Up, You Agree to Our <Link to="/datapolicy" target="_blank">Terms & Conditions </Link> </h6>
+      <label for="verified" className="lead">
+       <h6>  By continuing, I accept the EveA  <Link to="/datapolicy" target="_blank">Privacy Policy </Link> </h6>
       </label>
                 <input 
                       type="submit" 
-                      className="btn btn-danger btn-block" 
-                      disabled={!this.state.verified} 
+                      className="btn btn-primary btn-block" 
+                      // disabled={!this.state.verified} 
                       value="Sign Up" 
-                      // onClick={()=> {
-                      //   if(!errors)
-                      //   this.setState({
-                      //     signUp:true
-                      //   })
-                      // }}
                       />
+        </div>
               </form>
               {/* <Snackbar
                         anchorOrigin={{

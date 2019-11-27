@@ -152,11 +152,11 @@ footer.footer-custom {
 .bg-secondary{
   background-color: black !important;
 }
-
-
 .slick-prev:before,
 .slick-next:before{
   font-size: 25px !important;
+  opacity:1 !important;
+  color: #593096 !important;
 }
 img {
   cursor:pointer !important;
@@ -181,3 +181,9 @@ img {
     color:black;
 }
 /*-----------*/
+.locationIcon {
+    padding: 1rem;
+    background-position: top;
+    background: url(/static/media/LocationIcon.0f8495e1.jpg) no-repeat center;
+    background-size: 100%;
+}
