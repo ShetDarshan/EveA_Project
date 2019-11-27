@@ -70,15 +70,17 @@ verifiedChange = e => {
     const { errors } = this.state;
     // const { signUp } = this.props.auth;
     return (
-      <div className="register">
-       <div className="container" >
-        <div className="row">
-          <div className="col-sm-8 m-auto">
-           <h2 className="display-5 text-center">Create Account</h2>
-           <form noValidate onSubmit={this.onSubmit}>
+      <div className="container-fluid bg">
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm=6 col-md-3">
+         
+   
+           <form className="form-container" noValidate onSubmit={this.onSubmit}>
+             
            <div className="form-group">
+           <h4 className="text-center" style={{color:"#593196",paddingTop:"10px"}}>Create Account</h4>
            <TextFieldGroup
-                  placeholder="Let your friend identify you by this name"
+                  placeholder="User Name"
                   name="handle"
                   required=""
                   value={this.state.handle}
@@ -113,15 +115,20 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified" className="lead">
-       <h6>  By continuing, I accept the EveA  <Link to="/datapolicy" target="_blank">Privacy Policy </Link> </h6>
+       <h6>  By continuing, I accept EveA  <Link to="/datapolicy" target="_blank">Privacy Policy </Link> </h6>
       </label>
                 <input 
                       type="submit" 
                       className="btn btn-primary btn-block" 
-                      // disabled={!this.state.verified} 
+                       disabled={!this.state.verified} 
                       value="Sign Up" 
                       />
+                    
         </div>
+        <label for="verified">
+        <p className="lead text-center">Already a member? 
+                <Link  className="btn btn-link" to="/login">Log In</Link></p>
+      </label>
               </form>
               {/* <Snackbar
                         anchorOrigin={{
@@ -149,13 +156,10 @@ verifiedChange = e => {
                             }
                         />
                     </Snackbar> */}
-                    <label for="verified">
-       <h6 style={{fontSize:"2.3vh", paddingTop:'10px'}}> I'm already a member  <Link  to="/Login">
-          Log In</Link> </h6>
-      </label>
+                   
         </div>
       </div>
-    </div>
+   
   </div>
     )
   }
