@@ -26,9 +26,13 @@ import "./navbar.css";
         className: ""
       };
       this.headerClick = this.headerClick.bind(this);
+      this.onLogoutClick =  this.onLogoutClick.bind(this);
    }
-   onLogoutClick(e){
-     this.props.logoutuser();
+   onLogoutClick(e) {
+    //  e.preventDefault();
+    //  e.stopPropogation();
+     console.log("Inisde Logout------------------------------",e);
+    this.props.logoutuser();
    }
    headerClick(e) {
       this.setState(state => ({
@@ -47,24 +51,24 @@ import "./navbar.css";
    
   render() {
     const { isAuthenticated } = this.props.auth;
-    function AuthorisedLink(props) {
-      return (
+    const  authorisedLink  =  (
         <ul className="navbar-nav ml-auto ">
             <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/Search">Logout</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/login" onClick= {()=>this.onLogoutClick.bind(this)}>Logout</Link></li>
+            {/* <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li> */}
+            <li key="logout" className="nav-item">
+                <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>Logout</Link></li>
           </ul>
       );
-    } 
-    function GuestUser(props) {
-      return (
+    
+      const guestUser = (
         <ul className="navbar-nav ml-auto ">
-             <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
-             <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li>
              <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
+             <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
+             {/* <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li> */}
+             
           </ul>
       );
-    }
+    
     function  handleKeydown() {
       window.location.href = '/Search';
       console.log("Keydown Clicked");
@@ -82,13 +86,14 @@ import "./navbar.css";
           </button>
            <Link className="nav-link home-link" to="/login">Home</Link>
             <form className="form-inline-block my-2 my-lg-0 w-25">
-              {/* <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search" onKeyDown={handleKeydown}/>
-             */}
+              <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search" onKeyDown={handleKeydown}/>
+            
              {/* <SearchBox/> */}
                 {/* <Link className="nav-link" to="/Search">Browse Events</Link> */}
             </form>
-                {isAuthenticated && <AuthorisedLink />}
-                {!isAuthenticated && <GuestUser />}
+                {/* {isAuthenticated && AuthorisedLink}
+                {!isAuthenticated && <GuestUser />} */}
+                {isAuthenticated? authorisedLink : guestUser }
             {/* <li>{isAuthenticated? authLinks : guestLinks}</li> */}
            {/* <ul className="navbar-nav ml-auto ">
               <li className="nav-item ">

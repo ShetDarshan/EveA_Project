@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { GET_EVENTS,LOADING_DATA,GET_LEARNING,GET_EVENT_DETAILS,GET_RCMD_DETAILS,GET_LOC_DETAILS } from './types';
+var path ="http://localhost:5000";
 export const getEvents = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios({
       method: 'get',
-      url: '/api/v1/events',
+      url: path+'/api/v1/events',
       params: {
         limit: 1000
       }
@@ -86,7 +87,7 @@ export const getEvents = () => dispatch => {
   export const getEventDetails = title => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`/api/v1/eventDetails/${title}`) 
+      .get(path+`/api/v1/eventDetails/${title}`) 
       .then(res => 
         dispatch({
           type: GET_EVENT_DETAILS,

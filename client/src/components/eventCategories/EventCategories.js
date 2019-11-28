@@ -61,15 +61,7 @@ import Spinner from '../common/Spinner'
                   <div key={categoriesList+"-carousel"} className="carousel">     
                       <h2 key={categoriesList+"-heading"} className="text-capitalise text-primary">{categoriesList.toLowerCase()}</h2>
                       <div> 
-                      {/* {dataset[categoriesList].length} */}
                       <div key={categoriesList+"-container"} className="card  mb-3 card-slider">
-                      {/* {{
-                        if(dataset[categoriesList].length > 4){
-
-                        } else {
-
-                        }
-                      }} */}
                       <Slider {...settings}>
                       {
                         dataset[categoriesList].map(data => (
@@ -85,7 +77,7 @@ import Spinner from '../common/Spinner'
                                   </Link>
                                   <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>{data.startdate}</b></h6>
                                   {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
-                                   <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a> 
+                                   <a href={`https://www.google.com/maps?saddr=${this.props.lat},${this.props.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a> 
                                   {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
                                   <div className="clear-fix"></div>
                                 </div>
