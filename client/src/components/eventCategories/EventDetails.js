@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEventDetails, getRecmdEvents, getLocationEvents } from '../../actions/eventActions';
-import { goingEvent, interestedEvent } from '../../actions/friendActions';
+import { goingEvent, interestedEvent ,friendsGoing } from '../../actions/friendActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
@@ -18,7 +18,11 @@ class EventDetails extends Component {
         lon: location.coords.longitude
       })
     });
-
+    let details = {
+      eventId : this.props.match.params.title,
+      user :  this.props.auth.user.email
+    } 
+    this.props.friendsGoing(details);
     this.props.getRecmdEvents(this.props.match.params.title);
     this.props.getLocationEvents(this.props.match.params.title);
   }
@@ -67,6 +71,7 @@ class EventDetails extends Component {
     const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset = this.props.getRecmdEvents;
+    console.log("friedsGoinf",this.props.friends.friendsGoing)
     const activities = (<ul className=" track-events mt-2">
       <li className="">
       <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
@@ -199,6 +204,7 @@ const mapStateToProps = state => ({
   eventDetails: state.events,
   recom: state.events,
   locationData: state.events,
-  auth: state.auth
+  auth: state.auth,
+  friends : state.friends
 });
-export default connect(mapStateToProps, { getEventDetails, getRecmdEvents, getLocationEvents, goingEvent, interestedEvent })(EventDetails);
+export default connect(mapStateToProps, { getEventDetails, getRecmdEvents, getLocationEvents, goingEvent, interestedEvent, friendsGoing })(EventDetails);
