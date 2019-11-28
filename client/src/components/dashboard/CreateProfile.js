@@ -136,7 +136,7 @@ class CreateProfile extends Component {
                 <div className="col-md-12 ml-auto mr-auto">
                 </div>
               </div> */}
-
+              <Link className="nav-link" to="/searchUsers">Search Users</Link>
               <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
                   <h4 className="text-primary">Suggested Friends</h4>

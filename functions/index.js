@@ -65,6 +65,35 @@ exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
 
 })
 
+
+//add users to algolia
+
+exports.addFirestoreDataToAlgoliaUsers = functions.https.onRequest((req, res) => {
+  var algoArr = [];
+  admin.firestore().collection('users').get().then((docs) => {
+    docs.forEach((doc) => {
+      let individualUser = doc.data();
+      const record = {
+        objectID: doc.id,
+        name : individualUser.handle,
+        email : individualUser.email,
+        imageUrl: individualUser.imageUrl
+        //summary: individualEvent.summary
+      };
+
+      // individualEvent.objectID = doc.eventId;
+      // console.log("individualEvent",individualEvent)
+      algoArr.push(record);
+    })
+    var client = algoliaSearch(ALGOLIA_APP_ID, ALGOLIA_ADMIN_KEY);
+    var index = client.initIndex('users');
+    index.saveObjects(algoArr, function (err, content) {
+      res.status(200).send("users")
+    })
+  })
+
+})
+
 //regitser user route
 
 app.post('/api/v1/register', (req, res) => {
