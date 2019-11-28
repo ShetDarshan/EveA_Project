@@ -54,6 +54,7 @@ import "./navbar.css";
     const  authorisedLink  =  (
         <ul className="navbar-nav ml-auto ">
             <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
+            <li><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
             {/* <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li> */}
             <li key="logout" className="nav-item">
                 <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>Logout</Link></li>
@@ -62,6 +63,7 @@ import "./navbar.css";
     
       const guestUser = (
         <ul className="navbar-nav ml-auto ">
+             <li><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
              <li className="nav-item "><Link className="nav-link" to="/register">Signup</Link></li>
              <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
              {/* <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li> */}
@@ -84,9 +86,9 @@ import "./navbar.css";
           <button onClick={this.headerClick} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
           </button>
-           <Link className="nav-link home-link" to="/login">Home</Link>
+           {/* <Link className="nav-link home-link" to="/login">Home</Link> */}
             <form className="form-inline-block my-2 my-lg-0 w-25">
-              <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search" onKeyDown={handleKeydown}/>
+              {/* <input className="form-control mr-sm-2" type="text" placeholder="Search Events" id="Search" onKeyDown={handleKeydown}/> */}
             
              {/* <SearchBox/> */}
                 {/* <Link className="nav-link" to="/Search">Browse Events</Link> */}

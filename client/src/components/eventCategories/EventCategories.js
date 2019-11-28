@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 import { bool } from "prop-types";
+import Search from "../dashboard/Search";
 import Spinner from '../common/Spinner'
 
  class EventCategories extends Component {
@@ -55,7 +56,10 @@ import Spinner from '../common/Spinner'
         slidesToShow: showItems,
         slidesToScroll: 1
       };
-      return (
+      return (<div>
+        <div className="search-container">
+            <Search/>
+        </div>
         <div className="eventCategories mt-2">
                {Object.keys(dataset).map(categoriesList => (
                   <div key={categoriesList+"-carousel"} className="carousel">     
@@ -66,19 +70,15 @@ import Spinner from '../common/Spinner'
                       {
                         dataset[categoriesList].map(data => (
                           <div key={data.title+"card-slider"} className="card card-slider">
-                             {/* title= {data.title} */}
-                                <div key={data.title+"-body"} className="card-body"> 
-                                <Link to={`/event/${data.title}`} className="card-link">
-                                <div key={data.title+"-image-container"} className="imageContainer" title="Click to see more details">
-                                  <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
-                                </div>
-                                  
+                                  <div key={data.title+"-body"} className="card-body"> 
+                                    <Link to={`/event/${data.title}`} className="card-link">
+                                      <div key={data.title+"-image-container"} className="imageContainer" title="Click to see more details">
+                                      <div key={data.title+"-background"} className="imageBg" style={{backgroundImage: `url(${data.img})`}}></div>
+                                    </div>
                                     <h5 key={data.title+"-desc"} title= {data.title} className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>{data.title}</h5>
                                   </Link>
                                   <h6 key={data.startdate+"-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>{data.startdate}</b></h6>
-                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
-                                   <a href={`https://www.google.com/maps?saddr=${this.props.lat},${this.props.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a> 
-                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                   <a href={`https://www.google.com/maps?saddr=${this.state.lat},${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a> 
                                   <div className="clear-fix"></div>
                                 </div>
                               </div>  
@@ -89,6 +89,7 @@ import Spinner from '../common/Spinner'
                   </div>
               ))} 
           </div>
+      </div>
       );
      }
   }
