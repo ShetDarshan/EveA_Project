@@ -84,7 +84,7 @@ import Face from '../layout/Face';
                 
                 <div className="form-group">
                 <p className="lead text-center">Not a member? 
-                <Link  className="lead text-center" to="/Register" style={{color:"#0099CC"}}>Sign Up</Link></p>
+                <Link  className="lead text-center" to="/Register" style={{color:"#0099CC"}}> Sign Up</Link></p>
                 </div>
               </form>
             </div>
