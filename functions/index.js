@@ -492,7 +492,9 @@ app.post('/api/v1/goingActivities', (req, res) => {
       }, { merge: true })
     } else {
       let going = doc.data()['going'];
-      going.push(loggedEmail);
+      if(!going.includes(loggedEmail)) {
+        going.push(loggedEmail);
+      }
       db.collection('goingActivities').doc(eventID).set({
         going: going
       }, { merge: true })
@@ -508,8 +510,9 @@ app.post('/api/v1/goingActivities', (req, res) => {
 
 //interested events activty tracking
 app.post('/api/v1/interestedActivities', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
   db.collection('interestedActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('interestedActivities').doc(eventID).set({
@@ -517,7 +520,9 @@ app.post('/api/v1/interestedActivities', (req, res) => {
       }, { merge: true })
     } else {
       let interested = doc.data()['interested'];
-      interested.push(loggedEmail);
+      if(!interested.includes(loggedEmail)) {
+        interested.push(loggedEmail);
+      }
       db.collection('interestedActivities').doc(eventID).set({
         interested: interested
       }, { merge: true })
