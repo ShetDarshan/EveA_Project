@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfile } from '../../actions/profileActions';
 import { get } from 'https';
-import { Button } from '@material-ui/core';
+import { Button,Snackbar,
+    SnackbarContent } from '@material-ui/core';
 import { Alert } from 'reactstrap';
 import { sendFriendRequest } from '../../actions/friendActions';
 let myEmail = ''
@@ -16,7 +17,8 @@ class Friend extends Component {
         this.state = {
             loggedEmail: [],
             friendEmail: [],
-            status: ''
+            status: '',
+            msg: false
         };
         this.props.getProfile(this.props.match.params.email);
         
@@ -64,7 +66,8 @@ class Friend extends Component {
                                                                         this.setState({
                                                                             loggedEmail: user.email,
                                                                             friendEmail: value.email,
-                                                                            status: 'sendRequest'
+                                                                            status: 'sendRequest',
+                                                                            msg:true
                                                                         })
                                                                         this.addFriend()
                                                                     }}> Add Friend
@@ -90,7 +93,32 @@ class Friend extends Component {
                                             </div>
                                             </div>
 </div> 
-                                                        
+                                                          <Snackbar
+                        anchorOrigin={{
+                            vertical: "top",
+                            horizontal: "right"
+                        }}
+                        autoHideDuration={3000}
+                        open={this.state.msg}
+                        onClose={() => {
+                            this.setState({
+                                msg: false
+                            });
+                        }}
+                    >
+                        <SnackbarContent
+                            style={{
+                                backgroundColor: this.state.msg
+                                    ? "green"
+                                    : ""
+                            }}
+                            message={
+                                this.state.msg
+                                    ? "Friend Request Sent"
+                                    : ""
+                            }
+                        />
+                    </Snackbar>
 
                             {/* <p className="lead text-muted">Welcome {user.email} </p>
                             <h4>Name: {value.email}</h4>
