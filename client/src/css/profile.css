@@ -7,7 +7,7 @@
 }
 .customFriendList {
     overflow:hidden;
-    height:10rem;
+    height:9rem;
 }
 .customFriendList li{
     list-style:none;
@@ -71,4 +71,26 @@
     background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 132px;
+}
+.profile .name .title {
+    font-size: 2vw;
+}
+.description p.text-capitalize {
+    font-size: 1.3vw;
+}
+.profile-content .row h6 {
+    font-size: 1.2vw;
+}
+.updateProfile {
+    border-style: inset;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 75vh;
+    width: 75vw;
+    overflow: hidden;
 }
