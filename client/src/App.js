@@ -21,7 +21,7 @@ import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
 import Search from './components/dashboard/Search';
-
+import SearchUsers from './components/dashboard/SearchUsers';
 import Friend from './components/friends/Friend';
 import { FirstPage } from '@material-ui/icons';
 
@@ -66,7 +66,7 @@ class App extends Component {
 
                 <Route exact path="/search" component={Search}/>
             
-          
+                <Route exact path="/searchUsers" component={SearchUsers}/>
 
                 <Route exact path="/friend/:email" component={Friend}/>
             </div>  
