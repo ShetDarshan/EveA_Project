@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ} from './types';
-
+var path = "http://localhost:5000";
 export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("frienReq:",friend);
     axios
-      .post('/api/v1/sendFriendRequest',friend)   
+      .post(path+'/api/v1/sendFriendRequest',friend)   
       .then(res => 
         dispatch({
           type: SEND_REQ,
@@ -24,7 +24,7 @@ export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("getreq:",friend);
     axios
-      .get(`/api/v1/getfriendRequestList/${friend}`)   
+      .get(path+`/api/v1/getfriendRequestList/${friend}`)   
       .then(res => 
         dispatch({
           type: GET_REQ,
@@ -42,7 +42,7 @@ export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("frienReqACC:",friend);
     axios
-      .post('/api/v1/acceptRequest',friend)   
+      .post(path+'/api/v1/acceptRequest',friend)   
       .then(res => 
         dispatch({
           type: ACC_REQ,
@@ -60,7 +60,7 @@ export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("frienReqREJ:",friend);
     axios
-      .post('/api/v1/rejectRequest',friend)   
+      .post(path+'/api/v1/rejectRequest',friend)   
       .then(res => 
         dispatch({
           type: REJ_REQ,
@@ -78,7 +78,7 @@ export const sendFriendRequest = (friend) => dispatch => {
         // dispatch({ type: LOADING_DATA });
         console.log("getreq:",friend);
         axios
-          .post('/api/v1/goingActivities',friend) 
+          .post(path+'/api/v1/goingActivities',friend) 
           .then(res => 
             dispatch({
               type: GOING_REQ,
@@ -96,7 +96,7 @@ export const sendFriendRequest = (friend) => dispatch => {
         // dispatch({ type: LOADING_DATA });
         console.log("getreq:",friend);
         axios
-          .post('/api/v1/notGoingActivities',friend)   
+          .post(path+'/api/v1/notGoingActivities',friend)   
           .then(res => 
             dispatch({
               type: N_GOING_REQ,
