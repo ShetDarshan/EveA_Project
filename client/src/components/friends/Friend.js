@@ -7,6 +7,7 @@ import { get } from 'https';
 import { Button } from '@material-ui/core';
 import { Alert } from 'reactstrap';
 import { sendFriendRequest } from '../../actions/friendActions';
+import SearchUsers from "../dashboard/SearchUsers";
 let myEmail = ''
 
 class Friend extends Component {
@@ -43,7 +44,7 @@ class Friend extends Component {
                                     <div className="main main-raised">
                                         <div className="profile-content">
                                             <div className="container">
-                                                <div className="row m-4">
+                                                <div className="row m-4 view-friends">
                                                     <div className="w-75">
                                                     <div className="profile">
                                                         <div  className="avtar float-left">
@@ -56,8 +57,8 @@ class Friend extends Component {
                                                                 <div className="description text-center m-5">
                                                                     <p className="text-capitalize">{}</p>
                                                                     <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
-                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
-                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    {/* <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6> */}
                                                                     {/* <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6> */}
                                                                     <button className="btn btn-lg btn-primary btn-sm mr-2"
                                                                     onClick={() => {
@@ -73,6 +74,10 @@ class Friend extends Component {
                                                             </div>
                                                         <div className="clearfix"></div>
                                                     </div>
+                                                    </div>
+                                                    <div className="w-25" style={{height:"65vh",overflow:"auto"}}>
+                                                        <h4 className="text-primary">Search Friends</h4>
+                                                        <SearchUsers/>
                                                     </div>
                                                 </div>
                                                 <div className="row m-4">
