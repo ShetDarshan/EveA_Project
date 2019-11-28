@@ -47,8 +47,8 @@ import "./navbar.css";
     const { isAuthenticated } = this.props.auth;
     const  authorisedLink  =  (
         <ul className="navbar-nav ml-auto ">
+          <li className="nav-item "><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
             <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-            <li><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
             <li key="logout" className="nav-item">
                 <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>Logout</Link></li>
           </ul>
@@ -66,7 +66,7 @@ import "./navbar.css";
           <button onClick={this.headerClick} className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
           </button>
-          <div id="navbarResponsive" className="navbar-collapse collapse">
+          <div id="navbarResponsive" className="navbar-collapse collapse ">
               {isAuthenticated? authorisedLink : guestUser }
           </div>
           <div className="clearfix"></div>
