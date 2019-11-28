@@ -92,11 +92,11 @@ export const sendFriendRequest = (friend) => dispatch => {
             })
           );
       };
-      export const notGoingEvent = (friend) => dispatch => {
+      export const interestedEvent = (friend) => dispatch => {
         // dispatch({ type: LOADING_DATA });
         console.log("getreq:",friend);
         axios
-          .post(path+'/api/v1/notGoingActivities',friend)   
+          .post(path+'/api/v1/interestedActivities',friend)   
           .then(res => 
             dispatch({
               type: N_GOING_REQ,
