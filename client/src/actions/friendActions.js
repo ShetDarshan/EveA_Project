@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ} from './types';
-var path = "http://localhost:5000";
+var path = "";
 export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("frienReq:",friend);
@@ -92,11 +92,11 @@ export const sendFriendRequest = (friend) => dispatch => {
             })
           );
       };
-      export const notGoingEvent = (friend) => dispatch => {
+      export const interestedEvent = (friend) => dispatch => {
         // dispatch({ type: LOADING_DATA });
         console.log("getreq:",friend);
         axios
-          .post(path+'/api/v1/notGoingActivities',friend)   
+          .post(path+'/api/v1/interestedActivities',friend)   
           .then(res => 
             dispatch({
               type: N_GOING_REQ,

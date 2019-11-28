@@ -41,7 +41,10 @@ class CreateProfile extends Component {
     // var { request  } =  this.props.friends;
     console.log("Profile", this.props.users);
     let allRequests = [];
-    allRequests = this.props.friends.request.from;
+    if(this.props.friends.request.from){
+      allRequests = this.props.friends.request.from;  
+    }
+    
     // console.log("this.props.friends.request.from",this.props.friends.request.from);
     // console.log("console request", allRequests);
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_USERS,GET_USER,UPDATE_USER } from './types';
 
-var path = "http://localhost:5000";
+var path = "";
 export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     
