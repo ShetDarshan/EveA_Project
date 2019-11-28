@@ -115,7 +115,7 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified" className="lead">
-       <h6>  By continuing, I accept EveA  <Link to="/datapolicy" target="_blank">Privacy Policy </Link> </h6>
+       <h6>  By continuing, I accept EveA  <Link to="/datapolicy" target="_blank" style={{color:"#0099CC"}}>Privacy Policy </Link> </h6>
       </label>
                 <input 
                       type="submit" 
@@ -126,8 +126,8 @@ verifiedChange = e => {
                     
         </div>
         <label for="verified">
-        <p className="lead text-center">Already a member? 
-                <Link  className="btn btn-link" to="/login">Log In</Link></p>
+        <p className="lead text-center">Already a member?  
+                <Link  className="lead text-center" to="/login" style={{color:"#0099CC"}}> Log In</Link></p>
       </label>
               </form>
               {/* <Snackbar

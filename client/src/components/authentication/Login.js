@@ -75,7 +75,7 @@ import Face from '../layout/Face';
                   onChange={this.onChange}
                  error={errors.password}
                 />
-                 <Link to="/forgotpwd" className="text-center btn btn-link float-right">Forgot Password?</Link>
+                 <Link to="/forgotpwd" className="text-center btn btn-link float-right" style={{color:"#0099CC"}}>Forgot Password?</Link>
                  <div className="clearfix"></div>
                    <input type="submit" className="btn btn-primary btn-block" value="Login" />
                   
@@ -84,7 +84,7 @@ import Face from '../layout/Face';
                 
                 <div className="form-group">
                 <p className="lead text-center">Not a member? 
-                <Link  className="btn btn-link" to="/Register">Sign Up</Link></p>
+                <Link  className="lead text-center" to="/Register" style={{color:"#0099CC"}}>Sign Up</Link></p>
                 </div>
               </form>
             </div>
