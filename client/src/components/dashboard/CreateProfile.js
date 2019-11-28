@@ -41,7 +41,7 @@ class CreateProfile extends Component {
     // var { request  } =  this.props.friends;
     console.log("Profile", this.props.users);
     let allRequests = [];
-    if(this.props.friends.request.from){
+    if(this.props.friends.request.from ){
       allRequests = this.props.friends.request.from;  
     }
     
@@ -102,8 +102,7 @@ class CreateProfile extends Component {
                           <li className="m-2 card border-primary ">
                             <div className=""><div class="friendAvtar text-center">
                               <div className="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div>
-
-                              <h6 className="m-2 text-white">{data}</h6>
+                              <Link  to={`/friend/${data}`}>{data}</Link>
                               <button className="btn btn-sm btn-info btn-sm mr-2" 
                               onClick={() => {
                                 this.setState({
