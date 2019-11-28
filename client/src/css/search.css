@@ -441,3 +441,44 @@
     height: 10rem;
     overflow: hidden;
   }
+  /*Custtom sttyle*/
+  .ais-SearchBox {
+    position: initial;
+    width: auto !important;
+    height: auto;
+    left: initial;
+    border-radius: 55px;
+    border: 1px solid #593096;
+  }
+  .ais-InstantSearch ul.ais-Hits-list li.ais-Hits-item {
+    vertical-align: top;
+    margin: 1rem 1rem;
+    width:18rem;
+    height:15.6rem;
+    text-align: start;
+    overflow:hidden;
+  }
+  .ais-InstantSearch ul.ais-Hits-list li.ais-Hits-item {
+    padding:1rem;
+  }
+  .imageContainer .imageBg {
+    width: inherit;
+    height: 10rem;
+  }
+  .ais-Hits-item{
+    border: 1px solid rgba(0,0,0,0.125);
+   }
+   .ais-Pagination-item.ais-Pagination-item--selected.ais-Pagination-item--page {
+    background: #593096;
+   }
+   .ais-Pagination,
+   .ais-Hits {
+     display: none;
+   }
+   .ais-SearchBox-input {
+     background: url("../img/searchIcon.png") no-repeat right center;
+     background-size: 2rem;
+     background-position: right; 
+     animation: 1s all linear;
+
+   }
