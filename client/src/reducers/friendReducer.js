@@ -1,7 +1,8 @@
-import { SEND_REQ,GET_REQ } from '../actions/types';
+import { SEND_REQ,GET_REQ ,FRNDS_GOING } from '../actions/types';
 const initialState = {
     friend: [],
     request: [],
+    friendsGoing : [],
     loading: false
 };
 
@@ -20,6 +21,12 @@ export default function(state = initialState,action) {
             request: action.payload,
             loading:false
  };
+ case FRNDS_GOING:
+    return {
+        ...state,
+        friendsGoing: action.payload,
+        loading:false
+};
         default: 
             return state;
 
