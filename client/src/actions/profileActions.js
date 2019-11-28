@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { GET_USERS,GET_USER,UPDATE_USER } from './types';
 
+var path = "";
 export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
+    
     axios
-      .get('/api/v1/getAllProfiles') 
+      .get(path+'/api/v1/getAllProfiles') 
       .then(res => 
         dispatch({
           type: GET_USERS,
@@ -22,7 +24,7 @@ export const getAllProfiles = () => dispatch => {
   export const getProfile = (email) => dispatch => {
     // dispatch({ type: LOADING_DATA });
     axios
-      .get(`/api/v1/getProfile/${email}`) 
+      .get(path+`/api/v1/getProfile/${email}`) 
       .then(res => 
         dispatch({
           type: GET_USER,
@@ -42,7 +44,7 @@ export const getAllProfiles = () => dispatch => {
     // dispatch({ type: LOADING_DATA });
     console.log("updateprofile:",userDetails)
     axios
-      .post('/api/v1/updateProfile',userDetails) 
+      .post(path+'/api/v1/updateProfile',userDetails) 
       .then(res => 
         dispatch({
           type: UPDATE_USER,

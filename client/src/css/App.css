@@ -16,9 +16,9 @@ img {
 
 .App{
   overflow-x: hidden;
-font-family: 'Source Sans Pro' !important;
+  font-family: 'Source Sans Pro' !important;
+height:100vh;
 }
-
 
 .landing {
   position: relative;
@@ -184,6 +184,6 @@ img {
 .locationIcon {
     padding: 1rem;
     background-position: top;
-    background: url(/static/media/LocationIcon.0f8495e1.jpg) no-repeat center;
+    background: url("../img/LocationIcon.jpg") no-repeat center;
     background-size: 100%;
 }
