@@ -448,6 +448,7 @@
     height: auto;
     left: initial;
     border-radius: 55px;
+    border: 1px solid #593096;
   }
   .ais-InstantSearch ul.ais-Hits-list li.ais-Hits-item {
     vertical-align: top;
@@ -473,4 +474,11 @@
    .ais-Pagination,
    .ais-Hits {
      display: none;
+   }
+   .ais-SearchBox-input {
+     background: url("../img/searchIcon.png") no-repeat right center;
+     background-size: 2rem;
+     background-position: right; 
+     animation: 1s all linear;
+
    }
