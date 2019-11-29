@@ -61,8 +61,8 @@ import TextFieldGroup from '../common/TextFieldGroup';
                   onChange={this.onChange}
                   error={errors.email}
                 />
-                 <input type="submit" className="btn btn-danger btn-block mt-4" value="Submit" disabled={!this.state.email}/>
-                 <input type="submit" className="btn btn-danger btn-block mt-4" value="Cancel" />
+                 <input type="submit" className="btn btn-primary btn-block mt-4" value="Submit" disabled={!this.state.email}/>
+                 <input type="submit" className="btn btn-secondary btn-block mt-4" value="Cancel" />
               </form>
             </div>
           </div>

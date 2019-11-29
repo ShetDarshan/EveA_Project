@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfile } from '../../actions/profileActions';
 import { get } from 'https';
-import { Button } from '@material-ui/core';
+import { Button,Snackbar,
+    SnackbarContent } from '@material-ui/core';
 import { Alert } from 'reactstrap';
 import { sendFriendRequest } from '../../actions/friendActions';
+import SearchUsers from "../dashboard/SearchUsers";
 let myEmail = ''
 
 class Friend extends Component {
@@ -16,7 +18,8 @@ class Friend extends Component {
         this.state = {
             loggedEmail: [],
             friendEmail: [],
-            status: ''
+            status: '',
+            msg: false
         };
         this.props.getProfile(this.props.match.params.email);
         
@@ -43,7 +46,7 @@ class Friend extends Component {
                                     <div className="main main-raised">
                                         <div className="profile-content">
                                             <div className="container">
-                                                <div className="row m-4">
+                                                <div className="row m-4 view-friends">
                                                     <div className="w-75">
                                                     <div className="profile">
                                                         <div  className="avtar float-left">
@@ -56,15 +59,16 @@ class Friend extends Component {
                                                                 <div className="description text-center m-5">
                                                                     <p className="text-capitalize">{}</p>
                                                                     <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
-                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
-                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    {/* <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
+                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6> */}
                                                                     {/* <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6> */}
                                                                     <button className="btn btn-lg btn-primary btn-sm mr-2"
                                                                     onClick={() => {
                                                                         this.setState({
                                                                             loggedEmail: user.email,
                                                                             friendEmail: value.email,
-                                                                            status: 'sendRequest'
+                                                                            status: 'sendRequest',
+                                                                            msg:true
                                                                         })
                                                                         this.addFriend()
                                                                     }}> Add Friend
@@ -73,6 +77,10 @@ class Friend extends Component {
                                                             </div>
                                                         <div className="clearfix"></div>
                                                     </div>
+                                                    </div>
+                                                    <div className="w-25" style={{height:"65vh",overflow:"auto"}}>
+                                                        <h4 className="text-primary">Search Friends</h4>
+                                                        <SearchUsers/>
                                                     </div>
                                                 </div>
                                                 <div className="row m-4">
@@ -90,7 +98,32 @@ class Friend extends Component {
                                             </div>
                                             </div>
 </div> 
-                                                        
+                                                          <Snackbar
+                        anchorOrigin={{
+                            vertical: "top",
+                            horizontal: "right"
+                        }}
+                        autoHideDuration={3000}
+                        open={this.state.msg}
+                        onClose={() => {
+                            this.setState({
+                                msg: false
+                            });
+                        }}
+                    >
+                        <SnackbarContent
+                            style={{
+                                backgroundColor: this.state.msg
+                                    ? "green"
+                                    : ""
+                            }}
+                            message={
+                                this.state.msg
+                                    ? "Friend Request Sent"
+                                    : ""
+                            }
+                        />
+                    </Snackbar>
 
                             {/* <p className="lead text-muted">Welcome {user.email} </p>
                             <h4>Name: {value.email}</h4>

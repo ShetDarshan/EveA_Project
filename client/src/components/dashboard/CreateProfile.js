@@ -8,7 +8,8 @@ import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+import { Button,Snackbar,SnackbarContent } from '@material-ui/core';
+
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
 class CreateProfile extends Component {
@@ -17,7 +18,8 @@ class CreateProfile extends Component {
     super(props);
     this.state = {
       loggedUser :'',
-      requestedUser : ''
+      requestedUser : '',
+      msg:false
     };
     const { user } = this.props.auth;
     const profile = this.props.getProfile(user.email);
@@ -80,14 +82,13 @@ class CreateProfile extends Component {
                       <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
                       {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
                     </div>
-                    <div className="name float-left m-5">
+                    <div className="name float-left p-5">
                       <h2 className="title text-capitalize font-weight-bold text-priamry">{userName}</h2>
                       <Link to="/updateProfile" className="btn btn-sm btn-primary btn-sm d-lg-block m-2">Edit Profile</Link>
                       {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
-                      <div className="description text-center mt-2">
+                      <div className="description text-center">
                         <p className="text-capitalize">{userBio}</p>
-                        <h6><span className="text-muted">Lives at:</span> <b className="bold">{userlocation}</b> </h6>
-                        <h6><span className="text-muted">Joined at:</span><b className="bold">{userlocation}</b> </h6>
+                        {/* <h6><span className="text-muted">Lives at:</span> <b className="bold">{userlocation}</b> </h6> */}
                       </div>
                     </div>
                     <div className="clearfix"></div>
@@ -108,6 +109,7 @@ class CreateProfile extends Component {
                                 this.setState({
                                   loggedUser: userEmail,
                                   requestedUser: data,
+                                  msg:true
                                 })
                                 this.acceptRequest()
                             }}> Accept Request</button>
@@ -129,10 +131,10 @@ class CreateProfile extends Component {
                 </div> 
               </div>
               <div className="row m-4">
-                <h6 className="w-100"><span className="text-muted">Interests:</span> <b className="bold">{userInterests}</b> </h6>
-                <h6 className="w-100"><span className="text-muted">Address:</span><b className="bold">{userAddress}</b> </h6>
-                <h6 className="w-100"><span className="text-muted">Date Of Birth:</span> <b className="bold">{userBirthday}</b></h6>
-                <h6 className="w-100"><span className="text-muted">Email:</span> <b className="bold">{userEmail}</b></h6>
+                <h6 className="w-100"><span className="text-muted mr-2">Interests:</span> <b className="bold">{userInterests}</b> </h6>
+                <h6 className="w-100"><span className="text-muted mr-2">Address:</span><b className="bold">{userAddress}</b> </h6>
+                <h6 className="w-100"><span className="text-muted mr-2">Date Of Birth:</span> <b className="bold">{userBirthday}</b></h6>
+                <h6 className="w-100"><span className="text-muted mr-2">Email:</span> <b className="bold">{userEmail}</b></h6>
               </div>
               {/* <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
@@ -161,11 +163,38 @@ class CreateProfile extends Component {
                       })}
                   </ul>
                 </div>
+                <Snackbar
+                        anchorOrigin={{
+                            vertical: "top",
+                            horizontal: "right"
+                        }}
+                        autoHideDuration={3000}
+                        open={this.state.msg}
+                        onClose={() => {
+                            this.setState({
+                                msg: false
+                            });
+                        }}
+                    >
+                        <SnackbarContent
+                            style={{
+                                backgroundColor: this.state.msg
+                                    ? "green"
+                                    : ""
+                            }}
+                            message={
+                                this.state.msg
+                                    ? "You Are Now Friends"
+                                    : ""
+                            }
+                        />
+                    </Snackbar>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     )
   }
 }
