@@ -71,7 +71,12 @@ class EventDetails extends Component {
     const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset = this.props.getRecmdEvents;
+    let showItems = 4;
     console.log("friedsGoinf",this.props.friends.friendsGoing)
+    if (window.innerWidth <= 576) showItems = 1
+    else if (window.innerWidth <= 768) showItems = 2
+    else if (window.innerWidth <= 1024) showItems = 3
+    else showItems = 4
     const activities = (<ul className=" track-events mt-2">
       <li className="">
       <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
@@ -80,7 +85,7 @@ class EventDetails extends Component {
       </li>
       <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div title="going"></div></div>
       </li></ul>);
-    let showItems = 4
+    
     const setting = {
       dots: false,
       infinite: true,
@@ -88,11 +93,6 @@ class EventDetails extends Component {
       slidesToShow: showItems,
       slidesToScroll: 1
     };
-
-    if (window.innerWidth <= 576) showItems = 1
-    else if (window.innerWidth <= 768) showItems = 2
-    else if (window.innerWidth <= 1024) showItems = 3
-    else showItems = 4
 
     const ShowRecommendation = (
       <div className="recommendation-section">
