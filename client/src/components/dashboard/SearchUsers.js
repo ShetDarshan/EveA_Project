@@ -9,7 +9,7 @@ import {
 } from 'react-instantsearch-dom';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './../../css/searchUser.css';
+// import './../../css/searchUser.css';
 const searchClient = algoliasearch(
   '7Z6VFB8JQD',
   'fe812c7ddbd852cb3074294b24c7e641'
