@@ -75,10 +75,10 @@ class EventDetails extends Component {
     const activities = (<ul className=" track-events mt-2">
       <li className="">
       <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
-        <div>☆</div>
+        <div title="intrested">☆</div>
       </div>  
       </li>
-      <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div></div></div>
+      <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div title="going"></div></div>
       </li></ul>);
     let showItems = 4
     const setting = {
