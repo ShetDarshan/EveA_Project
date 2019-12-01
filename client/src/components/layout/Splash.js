@@ -21,8 +21,6 @@ return (
     
         <div>  
 
-       
-
           <Carousel>
             <Carousel.Item >
          <div><a href="./eventboard"><img src={Car1}  alt="Dublin"/>/</a></div>

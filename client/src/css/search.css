@@ -395,20 +395,20 @@
   
   .ais-Pagination-item .ais-Pagination-link {
     display: block;
-    color: #ff585b;
+    color: #593196;
     line-height: 30px;
     width: 30px;
     height: 30px;
   }
   
   .ais-Pagination-item.ais-Pagination-item--selected.ais-Pagination-item--page {
-    background: #ff585b;
+    background: #593196;
   }
   
   .ais-Pagination-item.ais-Pagination-item--selected.ais-Pagination-item--page
     .ais-Pagination-link {
     color: #ffffff;
-    border-color: #ff585b;
+    border-color: #593196;
   }
   
   .ais-Pagination-item--disabled {
