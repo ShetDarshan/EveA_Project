@@ -116,7 +116,7 @@ verifiedChange = e => {
       />
       <label for="verified" className="lead">
        <h6>  By continuing, I accept EveA  
-         <Link to="/datapolicy" target="_blank" data-toggle="modal" data-target="#exampleModalLong">
+         <Link to="/datapolicy" target="_blank" data-toggle="modal" data-target="#exampleModalLong" style={{color:"#0099CC"}}>
   Privacy Policy
 </Link>
 
@@ -125,7 +125,7 @@ verifiedChange = e => {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Privacy Policy</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">EveA Privacy Policy</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
