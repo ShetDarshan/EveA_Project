@@ -329,25 +329,37 @@ app.post('/api/v1/updateProfile', (req, res) => {
 app.post('/api/v1/sendFriendRequest', (req, res) => {
   let sender = Object.values(req.body)[0];
   let receiver = Object.values(req.body)[1];
-  console.log("receiver",receiver)
-  console.log("receiver",receiver)
   db.collection('connections').doc(sender).get().then(doc => {
     let arr = [];
+    let fromList = [];
+    let friendList = []
+    //check if the sender has made any requests , if not then create a new request to connections
     if (!doc.exists) {
       db.collection('connections').doc(sender).set({
         to: [receiver]
       }, { merge: true })
     } else {
+      // check if any requests has made, if not made then create " mTO" array  
       if (!doc.data()['to']) {
         arr.push(receiver);
         db.collection('connections').doc(sender).set({
           to: arr
         }, { merge: true })
       } else {
+        // check if any requests are received or friends with the sender
         arr = doc.data()['to'];
-        if (!arr.includes(receiver)) {
+        if (doc.data()['from']) { fromList = doc.data()['from'];}
+        if (doc.data()['friends']) { friendList = doc.data()['friends'];}
+        // check if already friends
+        if(friendList.includes(receiver)) {
+          return res.status(200).send("You are Already Friends !")
+        }
+        // check if request receives from sender
+        else if (fromList.includes(receiver)) {
+          return res.status(200).send("You have received a request ")
+        }
+        else if (!arr.includes(receiver) ) {
           arr.push(receiver);
-          console.log("final", arr)
           db.collection('connections').doc(sender).set({
             to: arr
           }, { merge: true })
@@ -413,7 +425,7 @@ app.post('/api/v1/acceptRequest', (req, res) => {
     if (!toList) { toList = []; }
     if (fromList.includes(requestToAccept)) {
       fromList.splice(fromList.indexOf(requestToAccept), 1)
-    }
+    } 
     if (toList.includes(requestToAccept)) {
       toList.splice(toList.indexOf(requestToAccept), 1)
     }
