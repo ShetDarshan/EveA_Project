@@ -99,7 +99,7 @@ class EventDetails extends Component {
                 <div key={data.title + "card-slider"} className="card card-slider">
                   {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
                       <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
                         <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
                       </div>
@@ -119,13 +119,11 @@ class EventDetails extends Component {
             {
               locationData && locationData.map(data => (
                 <div key={data.title + "card-slider"} className="card card-slider">
-                  {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
-                      <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
-                        <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
-                      </div>
-
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
+                        <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
+                          <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
+                        </div>
                       <h5 key={data.title + "-desc"} title={data.title} className="card-title mb-2 mt-2 pt-0 lead " style={{ paddingTop: "50px" }}>{data.title}</h5>
                     </Link>
                     <h6 key={data.startdate + "-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>{data.startdate}</b></h6>
@@ -179,14 +177,10 @@ class EventDetails extends Component {
         {isAuthenticated ? ShowRecommendation : ""}
       </div>
     );
-
-    function triggerRefresh() {
-      //refreshPage();
-    }
-    function refreshPage() {
-      setTimeout(function () { window.location.reload(); }, 1e3);
-    }
-
+  }
+  refreshPage() {
+    console.log("Refresh Page");
+    setTimeout(function () { window.location.reload(); }, 1e3);
   }
 }
 EventDetails.propTypes = {
