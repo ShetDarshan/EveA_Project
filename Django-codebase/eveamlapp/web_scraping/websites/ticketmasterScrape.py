@@ -6,6 +6,7 @@ import json
 import uuid
 import re
 import datetime
+from .geocoding_check import getOrdinates
 
 from eveamlapp.web_scraping.models import EventData
 
@@ -65,6 +66,9 @@ class TicketmasterIe:
                 Venue =var1['_embedded']['venues'][0]['name']
                 #Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
                 Location = Venue + "Dublin"
+
+                ordinates = getOrdinates(Location)
+
                 if d1>d2:
                     data = EventData()
 
@@ -77,7 +81,9 @@ class TicketmasterIe:
                     data.category = category
                     data.startdate = date
                     data.read_more = URL
-                    #data.address = address
+                    data.address = ordinates[2]
+                    data.latitude = ordinates[0]
+                    data.longitude = ordinates[1]
                     data.enddate = ''
                     data.price = ''
                     data_list.append(data)
