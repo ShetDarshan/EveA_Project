@@ -194,21 +194,46 @@ class CreateProfile extends Component {
                   <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
                     {
-                      sugessted && sugessted.map(data => {
+
+// sugessted && sugessted.map((e,i )=>{ e.map((f,j)=> {console.log(f.email,"final")})}) 
+
+sugessted && sugessted.map((data,i) =>{ return(data.map((f,j)=> {
+  return (
+
+    <li key={"profile-"+f} className="card border-primary m-2 p-2">
+      <Link key={"profile-link-"+f.handle} to={`/friend/${f.email}`}>
+          <div key={"profile-container-"+f.handle} className="text-center">
+            <div key={"profile-friendAvtar-"+f.handle} className="friendAvtar m-auto">
+              <div key={"profile-background-"+f.handle} className="avtarImg" style={{ backgroundImage: `url(${f.imageUrl})` }}></div>
+            </div>
+          </div>
+          <h5 key={"profile-handle-"+f.handle} className="mt-2 text-primary text-center font-weight-bold">{f.handle}</h5>
+      </Link>
+    </li>
+  )
+}
+  ) )} ) 
+
+             
+                                 /* {
+                      sugessted && sugessted.map(data,i => {
+                      
                         return (
 
                           <li key={"profile-"+data} className="card border-primary m-2 p-2">
-                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
-                                <div key={"profile-container-"+data.handle} className="text-center">
-                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
-                                    <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                            <Link key={"profile-link-"+data.handle} to={`/friend/${data[i].email}`}>
+                                <div key={"profile-container-"+data[i].handle} className="text-center">
+                                  <div key={"profile-friendAvtar-"+data[i].handle} className="friendAvtar m-auto">
+                                    <div key={"profile-background-"+data[i].handle} className="avtarImg" style={{ backgroundImage: `url(${data[i].imageUrl})` }}></div>
                                   </div>
                                 </div>
-                                <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
+                                <h5 key={"profile-handle-"+data[i].handle} className="mt-2 text-primary text-center font-weight-bold">{data[i].handle}</h5>
                             </Link>
                           </li>
                         )
-                      })}
+                      })} */
+                    }
+
                   </ul>
                 </div>
                 <Snackbar
