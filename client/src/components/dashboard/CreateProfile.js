@@ -9,6 +9,8 @@ import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
 import { Button,Snackbar,SnackbarContent } from '@material-ui/core';
+import card from "../../img/cover.png";
+import user from "../../img/user.png";
 
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
@@ -68,32 +70,75 @@ class CreateProfile extends Component {
 
     }
     return (
-      <div className="profile-page">
-        {/* style={{backgroundImage:  "url(http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png)"}} */}
-        <div className="page-header header-filter"></div>
-        {/* `url(${data.img})` */}
-        <div className="main main-raised">
-          <div className="profile-content">
-            <div className="container">
-              <div className="row m-4">
-                <div className="w-75">
-                  <div className="profile">
-                    <div className="avtar float-left">
-                      <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
-                      {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
+     
+     
+          <div className="main-content-container container-fluid px-4">
+            
+              <div className="row mt-4">
+                
+                  <div className="col-sm-12 col-lg-4">
+                   <div className="card card-small user-details mb-4">
+                     <div className="card-header p-0">
+                       <div className="user-details_bg">
+                         <img src={card} /></div> 
+                         </div>
+                        <div className="card-body p-0">
+                    <div className="user-details__avatar mx-auto">
+                       {/* <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
+                       <img src={user}></img> 
                     </div>
-                    <div className="name float-left p-5">
-                      <h2 className="title text-capitalize font-weight-bold text-priamry">{userName}</h2>
-                      <Link to="/updateProfile" className="btn btn-sm btn-primary btn-sm d-lg-block m-2">Edit Profile</Link>
-                      {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
-                      <div className="description text-center">
-                        <p className="text-capitalize">{userBio}</p>
-                        {/* <h6><span className="text-muted">Lives at:</span> <b className="bold">{userlocation}</b> </h6> */}
-                      </div>
+                   
+                    <h4 class="text-center m-0 mt-2">{userName}</h4>
+        <p class="text-center text-light m-0 mb-2" style={{color:"black"}}>{userBio}</p>
+        
+        <div class="user-details__user-data border-top border-bottom p-4">
+          <div class="row mb-3">
+            <div class="col w-50">
+              <span>Email</span>
+              <span>sierra@example.com</span>
+            </div>
+            <div class="col w-50">
+              <span>Location</span>
+              <span>Remote</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col w-50">
+              <span>Phone</span>
+              <span>+40 1234 567 890</span>
+            </div>
+            <div class="col w-50">
+              <span>Account Number</span>
+              <span>123456789</span>
+            </div>
+          </div>
+        </div>
+        <div class="user-details__tags p-4" >
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>User Experience</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>UI Design</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>React JS</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>HTML &amp; CSS</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>JavaScript</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>Bootstrap 4</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+                   
+                     
                     </div>
-                    <div className="clearfix"></div>
-                  </div>
-                </div>                
+                   
+                   </div>
+                  
+                  </div>    
+                        
                 <div className="w-25">
                 <h4 className="text-primary">Requests Received</h4>
                   <ul className="friendRequestList ">
@@ -190,10 +235,10 @@ class CreateProfile extends Component {
                         />
                     </Snackbar>
               </div>
-            </div>
+            
           </div>
-        </div>
-      </div>
+        
+     
       
     )
   }
