@@ -35,26 +35,23 @@ import Spinner from '../common/Spinner'
     props.getEvents();
   }
    render() {
-    let showItems = 4;
-    console.log("State",this.props.locationData);
-        if(window.innerWidth <= 576)showItems=1
-        else if(window.innerWidth <= 768)showItems=2
-        else if(window.innerWidth <= 1024)showItems=3
-        else showItems=4
-
     const dataset  = this.props.events.events;
      if (Object.keys(dataset).length < 1 ){
-      console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-       return <div><Spinner /></div>
+        console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
+         return <div><Spinner /></div>
      } 
      else {
-      console.log("dataset",dataset);
       const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: showItems,
-        slidesToScroll: 1
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+          { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: false} },
+          {breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 2, initialSlide: 1, dots: false } },
+          { breakpoint: 600, settings: { slidesToShow: 1,slidesToScroll: 1, dots: false}}
+        ]
       };
       return (<div>
         <div className="search-container">

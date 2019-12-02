@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 
 exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
   var algoArr = [];
-  admin.firestore().collection('events_test').get().then((docs) => {
+  admin.firestore().collection('events_details').get().then((docs) => {
     docs.forEach((doc) => {
       let individualEvent = doc.data();
       const record = {
@@ -197,11 +197,11 @@ app.post('/api/v1/forgotpwd', (req, res) => {
     })
 }
 )
-const eventDatabase = db.collection("events_test");
+const eventDatabase = db.collection("events_details");
 //get events data
 app.get('/api/v1/events', (req, res) => {
   eventDatabase.get()
-  db.collection('events_test').limit(1000).get()
+  db.collection('events_details').limit(1000).get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {
@@ -238,7 +238,7 @@ app.get('/api/v1/events', (req, res) => {
 
 app.get('/api/v1/learning', (req, res) => {
 
-  db.collection('events_test').where('category', '==', 'learning').get()
+  db.collection('events_details').where('category', '==', 'learning').get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {
@@ -292,7 +292,7 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
     });
 })
 app.get('/api/v1/eventDetails/:title', (req, res) => {
-  db.collection('events_test').where('title', '==', req.params.title).get()
+  db.collection('events_details').where('title', '==', req.params.title).get()
     .then(snapshot => {
       let eventData = [];
       snapshot.forEach(doc => {
