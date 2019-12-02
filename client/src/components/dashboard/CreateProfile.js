@@ -152,19 +152,21 @@ class CreateProfile extends Component {
                               <button className="btn btn-sm btn-info btn-sm mr-2" 
                               onClick={() => {
                                 this.setState({
-                                  loggedUser: userEmail,
-                                  requestedUser: data,
                                   msg:true
                                 })
-                                this.acceptRequest()
+                                const request = ({
+                                  loggedUser: userEmail,
+                                  requestedUser: data
+                                })
+                                this.acceptRequest(request)
                             }}> Accept Request</button>
                               <button className="btn btn-sm btn-primary btn-sm"
                               onClick={() => {
-                                this.setState({
+                                const request = ({
                                   loggedUser: userEmail,
-                                  requestedUser: data,
+                                  requestedUser: data
                                 })
-                                this.rejectRequest()
+                                this.rejectRequest(request)
                             }}> Reject Request</button>
                             </div>
                             </div>

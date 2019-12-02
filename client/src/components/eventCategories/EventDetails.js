@@ -36,8 +36,6 @@ class EventDetails extends Component {
     };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
-    // this.interested = this.interested.bind(this);
-    // this.going = this.going.bind(this);
   }
   wrapperGoingFunction = () =>{
     this.setState({
@@ -71,21 +69,33 @@ class EventDetails extends Component {
     const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset = this.props.getRecmdEvents;
-    let showItems = 4;
     console.log("friedsGoinf",this.props.friends.friendsGoing)
-    if (window.innerWidth <= 576) showItems = 1
-    else if (window.innerWidth <= 768) showItems = 2
-    else if (window.innerWidth <= 1024) showItems = 3
-    else showItems = 4
     const activities = (<ul className=" track-events mt-2">
       <li className="">
-      <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
-        <div title="intrested">☆</div>
+      <div className={this.state.interested ? "interested active" : "interested"} 
+        	onClick={ () => {
+            this.setState({ interested: !this.state.interested })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.interestedEvent(request)
+          }}>
+        <div title = "Interested">☆</div>
       </div>  
       </li>
-      <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div title="going"></div></div>
+      <li className=""><div className={this.state.going ? "going active" : "going"} 
+        	onClick={ () => {
+            this.setState({ going: !this.state.going })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.goingEvent(request)
+          }}>
+        <div title = "Going"></div></div>
       </li></ul>);
-    
+    let showItems = 4
     const setting = {
       dots: false,
       infinite: true,
@@ -93,6 +103,11 @@ class EventDetails extends Component {
       slidesToShow: showItems,
       slidesToScroll: 1
     };
+
+    if (window.innerWidth <= 576) showItems = 1
+    else if (window.innerWidth <= 768) showItems = 2
+    else if (window.innerWidth <= 1024) showItems = 3
+    else showItems = 4
 
     const ShowRecommendation = (
       <div className="recommendation-section">
@@ -156,7 +171,7 @@ class EventDetails extends Component {
                 <p className="mt-2 text-justify">{data.summary}</p>
               </div>
               <div key={data.title + "-right-container"} className="right-container col-lg-4 col-md-12 col-sm-12 col-xs-12 pt-5">
-                <p key={data.title + "-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.startdate}</p></p>
+                <p key={data.title + "-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.date}</p></p>
                 <p key={data.title + "-address"} className="mb-2"><span className="text-muted">Address:</span><p>{data.address}</p></p>
                 <p key={data.title + "-price"} className="mb-2"><span className="text-muted">Price:</span><p>{data.price}</p></p>
                 {/* <button className="btn btn-sm btn-info btn-sm mr-2" 
