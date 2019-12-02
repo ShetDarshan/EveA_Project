@@ -36,8 +36,6 @@ class EventDetails extends Component {
     };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
-    // this.interested = this.interested.bind(this);
-    // this.going = this.going.bind(this);
   }
   wrapperGoingFunction = () =>{
     this.setState({
