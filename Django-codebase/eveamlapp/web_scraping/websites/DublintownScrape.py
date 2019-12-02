@@ -5,14 +5,16 @@ import uuid
 import re
 import pandas as pd
 import datetime
+from .GetMonth import month_string_to_number
+from .geocoding_check import getOrdinates
+
 
 
 from eveamlapp.web_scraping.models import EventData
 
 class DublintownScrape:
     @staticmethod
-    def scrape(urlOriginal):
-        data_list = []
+    def scrape(urlOriginal,data_list):
         for value in range(1,5):
             url = ""
             url = urlOriginal+format(value)+'/'
@@ -68,6 +70,17 @@ class DublintownScrape:
                 date = container.cite.text.strip('\n\t\t')
                 split_date = date.split('-')
                 start_date = split_date[0]
+
+                # date formatting for start_Date
+                format_date = start_date.split(' ')
+                date = format_date[0]
+                month = format_date[1]
+                year = format_date[2]
+                monthfull = datetime.datetime.strptime(month, '%b').strftime('%B')
+                start_date = date + ' ' + monthfull + ' ' + year
+                d1 = datetime.datetime(int(year),int(month_string_to_number(monthfull)),int(date))
+                start_date = start_date.strip('\t\t')
+
                 try:
                     end_date = split_date[1]
                 except:
@@ -79,16 +92,9 @@ class DublintownScrape:
                     month = format_date[2]
                     year = format_date[3]
                     monthfull = datetime.datetime.strptime(month,'%b').strftime('%B')
-                    end_date = date + (' ')+ monthfull + (' ')+ year
-    
-        # date formatting for start_Date
-                format_date = start_date.split(' ')
-                date = format_date[0]
-                month = format_date[1]
-                year = format_date[2]
-                monthfull = datetime.datetime.strptime(month,'%b').strftime('%B')
-                start_date = date + (' ')+ monthfull + (' ')+ year
-                start_date = start_date.strip('\t\t')
+                    end_date = date + ' '+ monthfull + ' '+ year
+                    d1 = datetime.datetime(int(year), int(month_string_to_number(monthfull)), int(date))
+
         
         # date formatting for end_date
     
@@ -99,21 +105,38 @@ class DublintownScrape:
                 location = a_tags[2].text
                 location= location.split('|')
                 location = location[0]
-                data = EventData()
+                if location == 'The Grafton Quarter' or location == 'The Grafton Quarter Dublin':
+                    location = 'The Grafton street'
+                elif location == 'Dublin One':
+                    location = 'Parnell street'
+                else:
+                    location = location
+                location = location +(' ')+ "Dublin"
 
-                data.id = uuid.uuid1().__str__()
-                data.title = Title
-                data.time = ''
-                data.location = location
-                data.summary = ''
-                data.img = image
-                data.category = category
-                data.startdate = start_date
-                data.read_more = URL
-                #data.address = address
-                data.enddate = end_date
-                data.price = ''
-                data_list.append(data)
+                  
+
+                ordinates = getOrdinates(location)
+                if str(ordinates) == 'None':
+                    ordinates = getOrdinates("Dublin")                    
+
+                if d1>datetime.datetime.now():
+                    data = EventData()
+
+                    data.id = uuid.uuid1().__str__()
+                    data.title = Title
+                    data.time = ''
+                    data.location = location
+                    data.summary = ''
+                    data.img = image
+                    data.category = category
+                    data.startdate = start_date
+                    data.read_more = URL
+                    data.address = ordinates[2]
+                    data.latitude = ordinates[0]
+                    data.longitude = ordinates[1]                       
+                    data.enddate = end_date
+                    data.price = ''
+                    data_list.append(data)
 
         print(len(data_list))
 

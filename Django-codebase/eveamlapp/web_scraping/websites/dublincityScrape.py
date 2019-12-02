@@ -3,15 +3,15 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import uuid
 import re
-
+from datetime import datetime
+from .GetMonth import month_string_to_number
 from eveamlapp.web_scraping.models import EventData
 
 
 class dublincity:
 
     @staticmethod
-    def scrape(url):
-        data_list = []
+    def scrape(url,data_list):
 
         uClient = uReq(url)
         page_html = uClient.read()
@@ -55,7 +55,9 @@ class dublincity:
             Date2 = end_date.split(',')[0].split(' ')[1]
             Month2 = end_date.split(',')[0].split(' ')[2]
             end_date = Date2 + " " + Month2 + " " + Year2
-
+            print(end_date)
+            d1 = datetime(int(Year2.split('.')[0]), int(month_string_to_number(Month2)), int(Date2))
+            d2 = datetime.now()
 # # #        description
             desc = event.div.text.strip()
 
@@ -94,26 +96,25 @@ class dublincity:
                 if category == 'SPORTS & HEALTH' and image == 'None':
                     image = 'https://previews.123rf.com/images/tnn103eda/tnn103eda1705/tnn103eda170500019/79377445-huge-multi-sports-collage-soccer-basketball-football-hockey-baseball-boxing-etc.jpg'
     
+            if d1>d2:
+                data = EventData()
 
-            data = EventData()
-
-            data.id = uuid.uuid1().__str__()
-            data.title = title
-            data.img = image
-            data.startdate = start_date
-            data.enddate = end_date
-            data.summary = desc
-            data.time = my_dict["Time:"]
-            data.location = my_dict["Location:"] + my_dict["Address:"]
-            #data.address = my_dict["Address:"]
-            data.read_more = read_more
-            try:
-                data.price = my_dict["Price:"]
-            except:
-                data.price = "SEE DESCRIPTION"
-            data.category = category
-            data_list.append(data)
-
+                data.id = uuid.uuid1().__str__()
+                data.title = title
+                data.img = image
+                data.startdate = start_date
+                data.enddate = end_date
+                data.summary = desc
+                data.time = my_dict["Time:"]
+                data.location = my_dict["Location:"] + my_dict["Address:"]
+                #data.address = my_dict["Address:"]
+                data.read_more = read_more
+                try:
+                    data.price = my_dict["Price:"]
+                except:
+                    data.price = "SEE DESCRIPTION"
+                data.category = category
+                data_list.append(data)
 
         print(len(data_list))
         return data_list

@@ -10,8 +10,7 @@ from eveamlapp.web_scraping.models import EventData
 
 class TUD_Blanchardstown:
     @staticmethod
-    def scrape(url):
-        data_list = []
+    def scrape(url,data_list):
 
         uClient = uReq(url)
         page_html = uClient.read()
@@ -31,11 +30,15 @@ class TUD_Blanchardstown:
             datesplit =olddate.split('/')
             date = datesplit[0]
             month = datesplit[1]
+            monthTemp = month
             month = datetime.datetime.strptime(month,'%m').strftime('%B')
             year = datesplit[2].split(' ')
             year = year[0]
     
-            date = date + (' ')+ month + (' ')+ year
+            date = date + ' '+ month + ' '+ year
+
+            d1 = datetime.datetime(int(year),int(monthTemp), int(date))
+
             summary = p_tags[1].text.strip()
             read_more = container.a['href']
             read_more = 'https://www.itb.ie/NewsEvents/' + read_more
@@ -43,20 +46,21 @@ class TUD_Blanchardstown:
             Category='EDUCATION, BUSINESS & TECHNOLOGY'
             image = 'https://uindia.net/assets/img/MediaTechnology.jpg'
 
-            data = EventData()
+            if d1>datetime.datetime.now():
+                data = EventData()
 
-            data.id = uuid.uuid1().__str__()
-            data.title = title
-            data.img = image
-            data.startdate = date
-            data.enddate = ' '
-            data.price = ' '
-            data.summary = summary
-            data.time = ''
-            data.location = location
-            data.read_more = read_more
-            data.category = Category
-            data_list.append(data)
+                data.id = uuid.uuid1().__str__()
+                data.title = title
+                data.img = image
+                data.startdate = date
+                data.enddate = ' '
+                data.price = ' '
+                data.summary = summary
+                data.time = ''
+                data.location = location
+                data.read_more = read_more
+                data.category = Category
+                data_list.append(data)
 
 
         print(len(data_list))
