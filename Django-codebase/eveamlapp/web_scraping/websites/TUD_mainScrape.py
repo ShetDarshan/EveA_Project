@@ -4,15 +4,14 @@ from bs4 import BeautifulSoup as soup
 import uuid
 import re
 import datetime
-
+from .GetMonth import month_string_to_number
 from eveamlapp.web_scraping.models import EventData
 
 
 class TUD_main:
 
     @staticmethod
-    def scrape(url):
-        data_list = []
+    def scrape(url,data_list):
 
         uClient = uReq(url)
         page_html = uClient.read()
@@ -32,9 +31,12 @@ class TUD_main:
             new_date = date.split(',')[0].split(' ')[0]
             month = date.split(',')[0].split(' ')[1]
             year = date.split(',')[1].strip()
-    
+        
+            monthTemp = month
             month = datetime.datetime.strptime(month,'%b').strftime('%B')
             date = new_date+" "+month+" "+year
+    
+            d1 = datetime.datetime(int(year),int(month_string_to_number(monthTemp)),int(new_date))
 
             category = "EDUCATION, BUSINESS & TECHNOLOGY"
             location = arti.find_all('li',{"class":"article-list__location"})[0].text.strip()
@@ -43,20 +45,21 @@ class TUD_main:
             image = "https://tudublin.ie" + arti.img["src"]
             time = arti.find_all('li',{"class":"article-list__time"})[0].text.strip()
 
-            data = EventData()
+            if d1>datetime.datetime.now():
+                data = EventData()
 
-            data.id = uuid.uuid1().__str__()
-            data.title = title
-            data.img = image
-            data.startdate = date
-            data.enddate = ' '
-            data.price = ' '
-            data.summary = desc
-            data.time = time
-            data.location = location
-            data.read_more = read_more
-            data.category = category
-            data_list.append(data)
+                data.id = uuid.uuid1().__str__()
+                data.title = title
+                data.img = image
+                data.startdate = date
+                data.enddate = ' '
+                data.price = ' '
+                data.summary = desc
+                data.time = time
+                data.location = location
+                data.read_more = read_more
+                data.category = category
+                data_list.append(data)
 
 
         print(len(data_list))

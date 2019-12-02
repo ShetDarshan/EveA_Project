@@ -14,12 +14,13 @@ from .recommend import Recommend
 from .Nearby import Nearby
 from django.http import JsonResponse
 from .UserSuggestion import UserRecommend
+import time
 
 
 def processwebdata(request):
 
     event_list = WebScrape.scrapeweb()
-    print(len(event_list))
+    time.sleep(2)
     eventdatalist = DataProcess.saveeventdata(event_list)
     
     return HttpResponse(eventdatalist)
@@ -67,6 +68,18 @@ def usersrecommend(req, inputstr = ''):
     #users = list(map(lambda x: users_json(x), usersrecomment_list))
     print(usersrecommend_list)
     return JsonResponse(usersrecommend_list, safe= False)
+
+
+def deletePastEvents(request):
+
+    print('begin delete')
+
+    DataProcess.deletePastEvents()
+    print("finish delete")
+
+    return HttpResponse("events deleted successfully")
+
+
 
 
 def to_json(x):

@@ -16,10 +16,11 @@ class Recommend:
     def eventsrecommendations(title):
 
         def to_dict(x):
+            print(x)
             return {"title": x.title, "time": x.time, "location": x.location, "summary": x.summary, "img": x.img,
                     "startdate": x.startdate, "enddate": x.enddate, "price": x.price, "read_more": x.read_more,
                     "category": x.category}
-
+        
         # events = list()
         events = DataProcess.getevents()
         eventdicts = list(map(lambda x: to_dict(x), events))
@@ -80,9 +81,8 @@ class Recommend:
             print(idx)
 
             # creating a Series with the similarity scores in descending order
-            #score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
-            
-            score_series = pd.Series(cosine_sim[idx])
+            score_series = pd.Series(cosine_sim[idx]).sort_values(ascending=False)
+
             # getting the indexes of the 10 most similar events
             top_10_indexes = list(score_series.iloc[1:11].index)
             # populating the list with the titles of the best 10 matching events

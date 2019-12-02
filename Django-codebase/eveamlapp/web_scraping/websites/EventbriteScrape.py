@@ -14,9 +14,8 @@ from eveamlapp.web_scraping.models import EventData
 class EventIe:
 
     @staticmethod
-    def scrape(urlOriginal):
+    def scrape(urlOriginal,data_list):
 
-        data_list = []
         i = 0
         for value in range(1, 67):
             url = ""
@@ -68,7 +67,7 @@ class EventIe:
                 month = start_date[1]
                 year = start_date[0]
                 month = datetime.datetime.strptime(month, '%m').strftime('%B')
-                start_date = date + (' ') + month+(' ') + year
+                start_date = date + ' ' + month+' ' + year
 
                 # end_date
                 end_datetime = events['end']['local']
@@ -81,9 +80,12 @@ class EventIe:
                 end_date = end_date.split('-')
                 date = end_date[2]
                 month = end_date[1]
+                monthTemp = end_date[1]
                 year = end_date[0]
                 month = datetime.datetime.strptime(month, '%m').strftime('%B')
                 end_date = date + (' ') + month+(' ') + year
+
+                d1 = datetime.datetime(int(year), int(monthTemp), int(date))
                 # event price
                 free_event = events['is_free']
                 if free_event == True:
@@ -139,23 +141,22 @@ class EventIe:
                 except:
                     location = location[0]
         
+                if d1>datetime.datetime.now():
+                    data = EventData()
 
-                data = EventData()
-
-                data.id = uuid.uuid1().__str__()
-                data.title = name
-                data.time = time
-                data.location = location
-                data.summary = description
-                data.img = img
-                data.category = category
-                data.startdate = start_date
-                data.read_more = link
-                # data.address = address
-                data.enddate = end_date
-                data.price = price
-                data_list.append(data)
-                i = i+1
+                    data.id = uuid.uuid1().__str__()
+                    data.title = name
+                    data.time = time
+                    data.location = location
+                    data.summary = description
+                    data.img = img
+                    data.category = category
+                    data.startdate = start_date
+                    data.read_more = link
+                    # data.address = address
+                    data.enddate = end_date
+                    data.price = price
+                    data_list.append(data)
 
             # print(len(data))
 

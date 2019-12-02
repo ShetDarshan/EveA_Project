@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'eveamlapp'
+
 ]
+
+# ALGOLIA = {
+#     'APPLICATION_ID': 'RPK4QHS3WC',
+#     'API_KEY': '8fa8a55177bc1eae5c040bf3ca83f676'
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
