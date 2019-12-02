@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
+import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
 import { getfriendRequestList,acceptFriendRequest,rejectFriendRequest } from '../../actions/friendActions';
 
 import "../../css/profile.css";
@@ -42,9 +42,9 @@ class CreateProfile extends Component {
     this.props.rejectFriendRequest(this.state)
   }
   render() {
-    const { profile, profiles,suggested } = this.props.users;
+    const { profile, profiles,sugessted } = this.props.users;
     // var { request  } =  this.props.friends;
-    console.log("Profile", this.props.users);
+    console.log("suggested",sugessted);
     let allRequests = [];
     if(this.props.friends.request.from ){
       allRequests = this.props.friends.request.from;  
@@ -194,7 +194,7 @@ class CreateProfile extends Component {
                   <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
                     {
-                      suggested && suggested.map(data => {
+                      sugessted && sugessted.map(data => {
                         return (
 
                           <li key={"profile-"+data} className="card border-primary m-2 p-2">

@@ -1,4 +1,4 @@
-import { GET_USERS,GET_USER,UPDATE_USER } from '../actions/types';
+import { GET_USERS,GET_USER,UPDATE_USER,GET_SUG_DETAILS } from '../actions/types';
 const initialState = {
     profiles: [],
     profile:[],
