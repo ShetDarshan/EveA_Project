@@ -3,10 +3,11 @@ import { GET_ERRORS,SET_CURRENT_USER,GET_EVENTS,LOADING_DATA } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode'
 
+var path= "";
 
 export const reguser = (userInfo,history) => dispatch => {
     axios
-      .post('/api/v1/register', userInfo)
+      .post(path+'/api/v1/register', userInfo)
       .then(res => {
         const { token } = res.data;
         setAuthToken(token);
@@ -20,7 +21,7 @@ export const reguser = (userInfo,history) => dispatch => {
 };
 export const luser = (userData) => (dispatch) => {
     axios
-        .post('/api/v1/login',userData)
+        .post(path+'/api/v1/login',userData)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken',token);
@@ -41,7 +42,7 @@ export const luser = (userData) => (dispatch) => {
 
 export const forgotpwd = (pwd,history) => (dispatch) =>{
     axios
-        .post('/api/v1/forgotpwd',pwd)   
+        .post(path+'/api/v1/forgotpwd',pwd)   
         .then(
             history.push('/login')
         )    

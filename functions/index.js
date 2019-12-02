@@ -65,6 +65,35 @@ exports.addFirestoreDataToAlgolia = functions.https.onRequest((req, res) => {
 
 })
 
+
+//add users to algolia
+
+exports.addFirestoreDataToAlgoliaUsers = functions.https.onRequest((req, res) => {
+  var algoArr = [];
+  admin.firestore().collection('users').get().then((docs) => {
+    docs.forEach((doc) => {
+      let individualUser = doc.data();
+      const record = {
+        objectID: doc.id,
+        name : individualUser.handle,
+        email : individualUser.email,
+        imageUrl: individualUser.imageUrl
+        //summary: individualEvent.summary
+      };
+
+      // individualEvent.objectID = doc.eventId;
+      // console.log("individualEvent",individualEvent)
+      algoArr.push(record);
+    })
+    var client = algoliaSearch(ALGOLIA_APP_ID, ALGOLIA_ADMIN_KEY);
+    var index = client.initIndex('users');
+    index.saveObjects(algoArr, function (err, content) {
+      res.status(200).send("users")
+    })
+  })
+
+})
+
 //regitser user route
 
 app.post('/api/v1/register', (req, res) => {
@@ -168,16 +197,37 @@ app.post('/api/v1/forgotpwd', (req, res) => {
     })
 }
 )
+const eventDatabase = db.collection("events_test");
 //get events data
 app.get('/api/v1/events', (req, res) => {
-  db.collection('events_test').get()
+  eventDatabase.get()
+  db.collection('events_test').limit(1000).get()
     .then(snapshot => {
       let eventsData = [];
       snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
         tempJSON.eventId = doc.id;
-        eventsData.push(tempJSON);
+
+        var currentdate = new Date()
+        
+        // console.log(temp);
+        if(tempJSON.startDate=="" && tempJSON.enddate=="")
+        {
+
+          eventsData.push(tempJSON);
+        }
+        else if(tempJSON.enddate!=""){
+          var enddate = new Date(tempJSON.enddate)
+         if(enddate>currentdate)
+          eventsData.push(tempJSON);
+        }
+        else {
+          var startdate = new Date(tempJSON.startdate)
+          if(startdate>currentdate)
+            eventsData.push(tempJSON)
+        }
+        
       });
       res.status(200).send(eventsData);
     }).catch(err => {
@@ -185,10 +235,6 @@ app.get('/api/v1/events', (req, res) => {
       res.status(500).json({ error: err.code });
     });
 })
-
-
-
-
 
 app.get('/api/v1/learning', (req, res) => {
 
@@ -283,6 +329,8 @@ app.post('/api/v1/updateProfile', (req, res) => {
 app.post('/api/v1/sendFriendRequest', (req, res) => {
   let sender = Object.values(req.body)[0];
   let receiver = Object.values(req.body)[1];
+  console.log("receiver",receiver)
+  console.log("receiver",receiver)
   db.collection('connections').doc(sender).get().then(doc => {
     let arr = [];
     if (!doc.exists) {
@@ -351,11 +399,12 @@ app.get('/api/v1/getfriendRequestList/:email', (req, res) => {
     });
 })
 //accept friend request
-app.post('/api/v1/acceptRequest/:email', (req, res) => {
-  loggedEmail = req.params.email;
+app.post('/api/v1/acceptRequest', (req, res) => {
+  loggedEmail = Object.values(req.body)[0];
   //logged user has to accept the request
-  requestToAccept = 'test@gmail.com';
+  requestToAccept = Object.values(req.body)[1];
   //get the logged user details and make the changes
+
   db.collection('connections').doc(loggedEmail).get().then(doc => {
     let fromList = doc.data()['from'];
     let friendList = doc.data()['friends'];
@@ -403,9 +452,11 @@ app.post('/api/v1/acceptRequest/:email', (req, res) => {
   });
 })
 //reject friend request list data
-app.post('/api/v1/rejectRequest/:email', (req, res) => {
-  loggedEmail = req.params.email;
-  requestToReject = 'test@gmail.com';
+app.post('/api/v1/rejectRequest', (req, res) => {
+  loggedEmail = Object.values(req.body)[0];
+  //logged user has to accept the request
+  requestToReject = Object.values(req.body)[1];
+
   db.collection('connections').doc(loggedEmail).get().then(doc => {
     let fromList = doc.data()['from'];
     let friendList = doc.data()['friends'];
@@ -428,9 +479,12 @@ app.post('/api/v1/rejectRequest/:email', (req, res) => {
   });
 })
 //going events activty tracking
-app.post('/api/v1/goingActivities/:event', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+app.post('/api/v1/goingActivities', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
+  //loggedEmail = 'hgadarsha@gmail.com';
+  //eventID = req.params.event;
   db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('goingActivities').doc(eventID).set({
@@ -438,7 +492,9 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
       }, { merge: true })
     } else {
       let going = doc.data()['going'];
-      going.push(loggedEmail);
+      if(!going.includes(loggedEmail)) {
+        going.push(loggedEmail);
+      }
       db.collection('goingActivities').doc(eventID).set({
         going: going
       }, { merge: true })
@@ -453,9 +509,10 @@ app.post('/api/v1/goingActivities/:event', (req, res) => {
 })
 
 //interested events activty tracking
-app.post('/api/v1/interestedActivities/:event', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+app.post('/api/v1/interestedActivities', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
   db.collection('interestedActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('interestedActivities').doc(eventID).set({
@@ -463,7 +520,9 @@ app.post('/api/v1/interestedActivities/:event', (req, res) => {
       }, { merge: true })
     } else {
       let interested = doc.data()['interested'];
-      interested.push(loggedEmail);
+      if(!interested.includes(loggedEmail)) {
+        interested.push(loggedEmail);
+      }
       db.collection('interestedActivities').doc(eventID).set({
         interested: interested
       }, { merge: true })
@@ -478,9 +537,12 @@ app.post('/api/v1/interestedActivities/:event', (req, res) => {
 })
 
 // Not going events activty tracking
-app.post('/api/v1/notGoingActivities/:event', (req, res) => {
-  loggedEmail = 'hgadarsha@gmail.com';
-  eventID = req.params.event;
+app.post('/api/v1/notGoingActivities', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
+  // loggedEmail = 'hgadarsha@gmail.com';
+  // eventID = req.params.event;
   db.collection('notGoingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('notGoingActivities').doc(eventID).set({
@@ -503,9 +565,11 @@ app.post('/api/v1/notGoingActivities/:event', (req, res) => {
 })
 
 //friends going list for each event
-app.post('/api/v1/friendsGoing/:event', (req, res) => {
-  loggedEmail = 'd.shet@arithon.com';
-  eventID = req.params.event;
+
+app.post('/api/v1/friendsGoing', (req, res) => {
+  eventID = Object.values(req.body)[0];
+  //logged user has to accept the request
+  loggedEmail = Object.values(req.body)[1];
   let myFriendsGoing = [];
   db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (doc.exists) {
@@ -528,4 +592,5 @@ app.post('/api/v1/friendsGoing/:event', (req, res) => {
     }
   });
 })
+
 exports.api = functions.https.onRequest(app);

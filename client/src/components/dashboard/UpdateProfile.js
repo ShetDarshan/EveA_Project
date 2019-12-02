@@ -125,25 +125,25 @@ class UpdateProfile extends Component {
 
 
         return (
-            <div className="container" style={{ borderStyle: "inset", backgroundColor: "black", marginTop: "50px" }}>   
+            <div className="container border-primary p-2 text-primary updateProfile" style={{ borderStyle: "inset", backgroundColor: "transparent"}}>   
                 <Form onSubmit={this.onSubmit}>
-                    <Row form className="m-3">
-                        <Col md={6} className="p-3">
+                    <Row form className="m-1">
+                        <Col md={6} className="">
                             <FormGroup>
-                                <Label for="exampleEmail"><b style={{ color: "white", fontSize: "18px" }}>Email</b></Label>
+                                <Label for="exampleEmail"><b style={{fontSize: "18px" }}>Email</b></Label>
                                 <Input type="email" name="email" id="exampleEmail" placeholder={userEmail} disabled />
                             </FormGroup>
                         </Col>
-                        <Col md={6} className="p-3">
+                        <Col md={6} className="">
                             <FormGroup>
-                                <Label for="examplePassword"><b style={{ color: "white", fontSize: "18px" }}>User-Id</b></Label>
+                                <Label for="examplePassword"><b style={{fontSize: "18px" }}>User-Id</b></Label>
                                 <Input type="password" name="password" id="examplePassword" placeholder={userId} readOnly />
                             </FormGroup>
                         </Col>
                     </Row>
-                    <Row form className="m-3">
-                        <Col md={6} className="p-3">
-                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "18px" }}>Gender</b></Label>
+                    <Row form className="m-1">
+                        <Col md={6} className="">
+                            <Label for="exampleSelect"><b style={{fontSize: "18px" }}>Gender</b></Label>
                             <Input type="select"
                                 value={this.state.gender}
                                 onChange={event => {
@@ -158,7 +158,7 @@ class UpdateProfile extends Component {
                             </Input>
 
                         </Col>
-                        <Col md={6} style={{ backgroundColor: "white", fontSize: "18px" }}>
+                        <Col md={6} style={{ backgroundColor: "transparent", fontSize: "18px" }}>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <Grid container justify="space-around">
                                     <KeyboardDatePicker
@@ -176,10 +176,10 @@ class UpdateProfile extends Component {
                             </MuiPickersUtilsProvider>
                         </Col>
                     </Row>
-                    <Row className="m-3">
-                        <Col md={6} className="p-3">
+                    <Row className="m-1">
+                        <Col md={6} className="">
                             <FormGroup>
-                                <Label for="exampleAddress"><b style={{ color: "white", fontSize: "18px" }}>Address</b></Label>
+                                <Label for="exampleAddress"><b style={{fontSize: "18px" }}>Address</b></Label>
                                 <Input type="text" name="address" id="exampleAddress" placeholder={userAddress}
                                     value={this.state.address}
                                     onChange={event => {
@@ -191,8 +191,8 @@ class UpdateProfile extends Component {
                                 </Input>
                             </FormGroup>
                         </Col>
-                        <Col md={6} className="p-3">
-                            <Label for="exampleSelect"><b style={{ color: "white", fontSize: "18px" }}>Location</b></Label>
+                        <Col md={6} className="">
+                            <Label for="exampleSelect"><b style={{fontSize: "18px" }}>Location</b></Label>
                             <Input type="select"
                                 value={this.state.location}
                                 onChange={event => {
@@ -208,7 +208,7 @@ class UpdateProfile extends Component {
                         </Col>
                     </Row>
                     <FormGroup className="m-3">
-                        <Label for="exampleSelectMulti"><b style={{ color: "white", fontSize: "18px" }}>Select Your Interests</b></Label>
+                        <Label for="exampleSelectMulti"><b style={{fontSize: "18px" }}>Select Your Interests</b></Label>
                         <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple
                             value={this.state.interests}
                             onChange={event => {
@@ -223,7 +223,7 @@ class UpdateProfile extends Component {
                         </Input>
                     </FormGroup>
                     <FormGroup className="m-3">
-                        <Label for="exampleText"><b style={{ color: "white", fontSize: "18px" }}>Add Bio</b></Label>
+                        <Label for="exampleText"><b style={{fontSize: "18px" }}>Add Bio</b></Label>
                         <Input type="textarea" value={this.state.bio} placeholder="Tell us more about you"
                             onChange={event => {
                                 let bio = event.target.value;
@@ -233,7 +233,7 @@ class UpdateProfile extends Component {
                             }}>
                         </Input>
                     </FormGroup>
-                  
+                    <FormGroup className="m-3">
                     <FileUploader
                         accept="image/*"
                         name='image'
@@ -241,12 +241,12 @@ class UpdateProfile extends Component {
                         onUploadStart={this.handleUploadStart}
                         onUploadSuccess={this.handleUploadSuccess}
                     />
-                    <Button style={{ backgroundColor: "red" }}><b>SUBMIT</b></Button>
+                    <Button className="btn btn-primary"><b>Update Profile</b></Button>
+                    </FormGroup>
                 </Form>
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => ({

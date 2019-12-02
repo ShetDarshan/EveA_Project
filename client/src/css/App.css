@@ -1,13 +1,24 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Regular.eot');
+  src: url('../fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SourceSansPro-Regular.woff2') format('woff2'),
+      url('../fonts/SourceSansPro-Regular.woff') format('woff'),
+      url('../fonts/SourceSansPro-Regular.ttf') format('truetype'),
+      url('../fonts/SourceSansPro-Regular.svg#SourceSansPro-Regular') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
 img {
   width: 100%;
 }
 
-
 .App{
-overflow-x: hidden;
-
+  overflow-x: hidden;
+  font-family: 'Source Sans Pro' !important;
+height:100vh;
 }
-
 
 .landing {
   position: relative;
@@ -108,9 +119,13 @@ footer.footer-custom {
   overflow: hidden;
   cursor:pointer;
 }
+/* .card-slider .card-body .imageContainer:hover{
+  transition: transform 0.2s;
+    transform: scale(1.5);
+} */
 .card-slider .card-body .card-title {
-  max-height: 2rem;
-  min-height:2rem;
+  max-height: 2.3rem;
+  min-height:2.3rem;
   line-height: 1.2rem;
   padding-top: 25px;
 }
@@ -137,21 +152,38 @@ footer.footer-custom {
 .bg-secondary{
   background-color: black !important;
 }
-/*Privacy*/
-.privacy  .container .m-auto p{
-  color:white  !important;
-}
-.privacy  .container .m-auto b{
-  color:green !important;
-}
-
 .slick-prev:before,
 .slick-next:before{
   font-size: 25px !important;
+  opacity:1 !important;
+  color: #593096 !important;
 }
 img {
   cursor:pointer !important;
 }
 .navbar {
   z-index: 5;
+}
+/*Privacy*/
+.privacy h2 {
+      color: #593096;
+    font-weight: bold;
+}
+.privacy .container .m-auto b {
+  color: #592f96 !important;
+  font-weight: bolder;
+  font-size: 16px;
+  padding-bottom: 10px;
+  display: block;
+}
+.privacy .container .m-auto p {
+    text-align: justify;
+    color:black;
+}
+/*-----------*/
+.locationIcon {
+    padding: 1rem;
+    background-position: top;
+    background: url("../img/LocationIcon.jpg") no-repeat center;
+    background-size: 100%;
 }

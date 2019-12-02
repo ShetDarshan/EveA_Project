@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
-import Landing from './components/layout/Landing';
 import Register from './components/authentication/Register';
+import Landing from './components/layout/Landing';
+import Splash from './components/layout/Splash';
 import Dashboard from './components/dashboard/Dashboard';
 import MainCorousel from './components/eventboard/eventMainPage';
 import Guestuser from './components/guestUser/Guestuser';
@@ -20,8 +21,9 @@ import ForgotPassword from './components/authentication/ForgotPassword'
 import DataPolicy from './components/authentication/DataPolicy'
 import EventDetails from './components/eventCategories/EventDetails';
 import Search from './components/dashboard/Search';
-
+import SearchUsers from './components/dashboard/SearchUsers';
 import Friend from './components/friends/Friend';
+import { FirstPage } from '@material-ui/icons';
 
 
 if(localStorage.jwtToken){
@@ -45,10 +47,10 @@ class App extends Component {
       
       <Provider store ={store}>
         <Router>
+        <Navbar/>
         <div className="App">
-          <Navbar />
-            <Route exact path="/" component={Landing} />
-            <div className="container-flex mb-0" style={{minHeight:'650px'}}>
+            <Route exact path="/" component={Splash} />
+            <div className="container-flex mb-0"  >
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
@@ -64,7 +66,7 @@ class App extends Component {
 
                 <Route exact path="/search" component={Search}/>
             
-          
+                <Route exact path="/searchUsers" component={SearchUsers}/>
 
                 <Route exact path="/friend/:email" component={Friend}/>
             </div>  

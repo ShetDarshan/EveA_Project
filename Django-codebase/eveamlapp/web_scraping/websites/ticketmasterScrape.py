@@ -64,7 +64,7 @@ class TicketmasterIe:
                 #Subcategory =var1['classifications'][0]['genre']['name']
                 Venue =var1['_embedded']['venues'][0]['name']
                 #Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
-                Location = Venue
+                Location = Venue + "Dublin"
                 if d1>d2:
                     data = EventData()
 
