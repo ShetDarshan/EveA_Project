@@ -442,11 +442,11 @@ app.post('/api/v1/acceptRequest', (req, res) => {
   })
   //get the accept user details and make the changes
   db.collection('connections').doc(requestToAccept).get().then(doc => {
-    let fromList = doc.data()['from'];
+    let fromList = doc.data()['from']; 
     let friendList = doc.data()['friends'];
     let toList = doc.data()['to'];
     if (!friendList) { friendList = []; }
-    if (!fromList) { fromList = []; }
+    if (!fromList) { fromList = []; } 
     if (toList.includes(loggedEmail)) {
       toList.splice(toList.indexOf(loggedEmail), 1)
     }
@@ -502,8 +502,6 @@ app.post('/api/v1/goingActivities', (req, res) => {
   eventID = Object.values(req.body)[0];
   //logged user has to accept the request
   loggedEmail = Object.values(req.body)[1];
-  //loggedEmail = 'hgadarsha@gmail.com';
-  //eventID = req.params.event;
   db.collection('goingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('goingActivities').doc(eventID).set({
@@ -560,8 +558,6 @@ app.post('/api/v1/notGoingActivities', (req, res) => {
   eventID = Object.values(req.body)[0];
   //logged user has to accept the request
   loggedEmail = Object.values(req.body)[1];
-  // loggedEmail = 'hgadarsha@gmail.com';
-  // eventID = req.params.event;
   db.collection('notGoingActivities').doc(eventID).get().then(doc => {
     if (!doc.exists) {
       db.collection('notGoingActivities').doc(eventID).set({
