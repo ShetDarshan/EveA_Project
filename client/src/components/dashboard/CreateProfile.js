@@ -27,6 +27,7 @@ class CreateProfile extends Component {
     const profile = this.props.getProfile(user.email);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
+    this.props.getSuggestedFrds(user.email)
 
   }
   componentDidMount() {
@@ -41,7 +42,7 @@ class CreateProfile extends Component {
     this.props.rejectFriendRequest(this.state)
   }
   render() {
-    const { profile, profiles } = this.props.users;
+    const { profile, profiles,suggested } = this.props.users;
     // var { request  } =  this.props.friends;
     console.log("Profile", this.props.users);
     let allRequests = [];
@@ -193,7 +194,7 @@ class CreateProfile extends Component {
                   <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
                     {
-                      profiles && profiles.map(data => {
+                      suggested && suggested.map(data => {
                         return (
 
                           <li key={"profile-"+data} className="card border-primary m-2 p-2">
@@ -252,4 +253,4 @@ const mapStateToProps = state => ({
   friends: state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList,rejectFriendRequest,acceptFriendRequest })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList,rejectFriendRequest,acceptFriendRequest,getSuggestedFrds })(CreateProfile);

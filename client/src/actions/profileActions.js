@@ -59,3 +59,24 @@ export const getAllProfiles = () => dispatch => {
       );
 
   };
+
+  export const getSuggestedFrds = email => dispatch => {
+
+    axios 
+      .get(`https://evea-prj.appspot.com/api/userRecommendation/${email}`)
+      .then(res => 
+        dispatch({
+          type: GET_SUG_DETAILS,
+          payload: res.data
+        })
+      )
+        .catch( err => 
+          dispatch ({
+          type: GET_SUG_DETAILS,
+          payload: null
+        })
+        
+          );
+
+
+  };
