@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as soup
 import uuid
 import re
 import datetime
-
+from .geocoding_check import getOrdinates
 from eveamlapp.web_scraping.models import EventData
 
 class SugarclubIe:
@@ -52,6 +52,12 @@ class SugarclubIe:
             div_tags = container.findAll('div')
             price = div_tags[1].p.text
             location = "Sugar Club, Leeson Street, Dublin"
+
+            
+                
+            ordinates = getOrdinates(location)
+            
+
             category = "MUSIC & ENTERTAINMENT"
             if category == 'MUSIC & ENTERTAINMENT' and image == 'None':
                 image = 'https://livestyle.com/wp-content/uploads/2017/07/slider-4.jpg'
@@ -68,7 +74,9 @@ class SugarclubIe:
                 data.category = category
                 data.startdate = date
                 data.read_more = url
-                #data.address = address
+                data.address = ordinates[2]
+                data.latitude = ordinates[0]
+                data.longitude = ordinates[1] 
                 data.enddate = ''
                 data.price = price
                 data_list.append(data)

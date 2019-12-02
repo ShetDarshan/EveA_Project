@@ -15,8 +15,8 @@ class EventbriteScience:
     def scrape(urlOriginal,data_list):
   
         i = 0
-        #12
-        for value in range(1,2):
+        #7
+        for value in range(1,7):
             url = ""
             url = urlOriginal+format(value)
             print(url)

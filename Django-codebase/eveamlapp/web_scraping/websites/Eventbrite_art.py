@@ -15,7 +15,7 @@ class EventbriteArt:
   
         i = 0
         #5
-        for value in range(1,2):
+        for value in range(1,5):
             url = ""
             url = urlOriginal+format(value)
             print(url)
@@ -124,14 +124,22 @@ class EventbriteArt:
                 location_div = desc_soup.findAll('div', class_='event-details__data')              
                 if len(location_div) > 0:
                     location_tags = location_div[1].findAll('p')
-                    locat = location_tags[1].text
-                    location = locat + "Dublin"
+                    locat = location_tags[0].text
+                    location = locat +(' ')+ "Dublin"
                 else:
                     location = 'Dublin'
-                    #print(location)  
+                
+                try:
 
+                    if location == 'Dublin':
+                        ordinates = getOrdinates(location)
+                    else:
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548
 
-                ordinates = getOrdinates(location)
+                except:
+                    continue
                                   
                         
                 try:

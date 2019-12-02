@@ -16,7 +16,7 @@ class EventbriteFashion:
   
         i = 0
         locate = []
-        #3
+        #2
 
         for value in range(1,2):
             url = ""

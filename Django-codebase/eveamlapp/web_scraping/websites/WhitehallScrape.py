@@ -5,7 +5,7 @@ import uuid
 import re
 import datetime
 from .GetMonth import month_string_to_number
-
+from .geocoding_check import getOrdinates
 from eveamlapp.web_scraping.models import EventData
 
 class WhitehallIe:
@@ -43,6 +43,8 @@ class WhitehallIe:
             #wh = container.p.text
             #wh = str(wh)
             location = 'Whitehall College of Further Education, Drumcondra, Dublin'
+            
+            ordinates = getOrdinates(location)            
             read_more = container.a['href']
             Category = 'EDUCATION, BUSINESS & TECHNOLOGY'
             img = 'https://whitehallcollege.com/uploads/pages/logo.jpg'
@@ -59,6 +61,9 @@ class WhitehallIe:
                 data.price = ''
                 data.summary = ''
                 data.location = location
+                data.address = ordinates[2]
+                data.latitude = ordinates[0]
+                data.longitude = ordinates[1]                 
                 data.img = img
                 data.read_more = read_more
                 data_list.append(data)

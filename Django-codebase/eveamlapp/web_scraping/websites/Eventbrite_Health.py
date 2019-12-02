@@ -14,8 +14,8 @@ class EventHealth:
     def scrape(urlOriginal,data_list):
   
         i = 0
-        #30
-        for value in range(1,2):
+        #13
+        for value in range(1,13):
             url = ""
             url = urlOriginal+format(value)
             print(url)

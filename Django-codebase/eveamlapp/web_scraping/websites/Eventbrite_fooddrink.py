@@ -14,8 +14,8 @@ class EventbriteFood:
     def scrape(urlOriginal,data_list):
   
         i = 0
-        #10
-        for value in range(1,2):
+        #8
+        for value in range(1,8):
             url = ""
             url = urlOriginal+format(value)
             print(url)

@@ -16,7 +16,7 @@ class EventbriteTravel:
   
         i = 0
         #5
-        for value in range(1,2):
+        for value in range(1,5):
             url = ""
             url = urlOriginal+format(value)
             print(url)

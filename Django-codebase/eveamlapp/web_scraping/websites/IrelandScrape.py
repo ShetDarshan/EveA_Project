@@ -10,7 +10,7 @@ class IrelandIe:
     @staticmethod
     def scrape(urlOriginal,data_list):
         #136
-        for value in range(1,3):
+        for value in range(1,100):
 
             url = ""
             url = urlOriginal+format(value)+'/'

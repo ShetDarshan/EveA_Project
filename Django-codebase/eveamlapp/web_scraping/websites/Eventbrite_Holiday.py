@@ -16,8 +16,8 @@ class EventbriteHoliday:
     def scrape(urlOriginal,data_list):
   
         i = 0
-        #7
-        for value in range(1,2):
+        #3
+        for value in range(1,3):
             url = ""
             url = urlOriginal+format(value)
             print(url)

@@ -8,7 +8,7 @@ import random
 def getOrdinates(location):
     #locator = nom.Nominatim(user_agent= "eba7f5230f2a6888e75a8a19573a4241f4cd1987", timeout= 3)
     ##websites=["https://evea-prj.firebaseapp.com","http://evea-prj.firebaseapp.com","https://evea-prj.appspot.com","https://evea-prj.appspot.com"]
-    print(location)
+    #print(location)
     locator = Nominatim(user_agent="AIzaSyDUhIA8M9ad-4bu2bvpuKu3jXnbAjpicBk", timeout= 5)
     geocode = RateLimiter(locator.geocode, min_delay_seconds=2)
     try:

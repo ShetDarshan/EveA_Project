@@ -15,8 +15,8 @@ class EventbriteMusic:
     def scrape(urlOriginal,data_list):
   
         i = 0
-        #31
-        for value in range(1,2):
+        #17
+        for value in range(1,17):
             url = ""
             url = urlOriginal+format(value)
             print(url)
@@ -90,7 +90,7 @@ class EventbriteMusic:
                 if len(time) > 0:
                     time_tags = time[0].findAll('p')
                     date_check = time_tags[0].text
-                    if date_check == 'Multiple Dates' or date_check == 'Multiple Dates GMT':
+                    if date_check == 'Multiple Dates' or date_check == 'Multiple Dates GMT' or date_check == 'Multiple Dates ' or date_check == 'Multiple Dates IST':
                         Final_Date = date_check
                         
                     else:
@@ -132,8 +132,18 @@ class EventbriteMusic:
                     location = locat +(' ')+ "Dublin"
                 else:
                     location = 'Dublin'
+                
+                try:
 
-                ordinates = getOrdinates(location)
+                    if location == 'Dublin':
+                        ordinates = getOrdinates(location)
+                    else:
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548
+
+                except:
+                    continue
 
 
                 try:

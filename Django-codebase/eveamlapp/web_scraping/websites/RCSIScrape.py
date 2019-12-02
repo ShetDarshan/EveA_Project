@@ -37,7 +37,6 @@ class RCSIIE:
                 # date formatting
                 date_split = date.split(' ')
                 date = date_split[1]
-                #print(date)
                 if "-" in date:
                     datecheck = date.split('-')
                     date = datecheck[0]
