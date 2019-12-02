@@ -5,13 +5,16 @@ import uuid
 import re
 import pandas as pd
 from eveamlapp.web_scraping.models import EventData
+from .GetMonth import month_string_to_number
+from .geocoding_check import getOrdinates
+from datetime import datetime
+
 
 
 class DBSScrape:
 
     @staticmethod
-    def scrape(urlOriginal):
-        data_list = []
+    def scrape(urlOriginal,data_list):
         for value in range(1,11):
             url = ""
             url = urlOriginal+format(value)+'/'
@@ -35,39 +38,49 @@ class DBSScrape:
                 title = container.a.text
                 div_tags = container.findAll('div')
                 date = div_tags[0].text.strip()
+
                 #date formatting
                 new = date.split(',')
                 year = new[2]
                 new1 = new[1].split(' ')
                 Date = new1[2]
                 month = new1[1]
-                fulldate = Date +' '+ month + year
+                fulldate = Date +''+ month + '' +year
                 summary = div_tags[1].text.strip()
                 location = "Dublin Business School, Dublin"
                 category = "EDUCATION, BUSINESS & TECHNOLOGY"
                 img = item[0].a.img['src']
 
-            
                 read_more = readmore[0].a['href']
                 read_more = 'https://www.dbs.ie/about-dbs/news-and-events/'+ read_more
-            
-            
 
-            
-                data = EventData()
+                monthInt:int = month_string_to_number(month)
 
-                data.id = uuid.uuid1().__str__()
-                data.title = title
-                data.startdate = fulldate
-                data.enddate = ''
-                data.time = ''
-                data.category = category
-                data.price = ''
-                data.summary = summary
-                data.location = location
-                data.img = img
-                data.read_more = read_more
-                data_list.append(data)
+                d1 = datetime(int(year),monthInt,int(Date))
+                d2 = datetime.now()
+
+                ordinates = getOrdinates(location)
+                if str(ordinates) == 'Dublin':
+                    ordinates = getOrdinates("Dublin")             
+
+                if d1>d2:
+                    data = EventData()
+
+                    data.id = uuid.uuid1().__str__()
+                    data.title = title
+                    data.startdate = fulldate
+                    data.enddate = ''
+                    data.time = ''
+                    data.category = category
+                    data.price = ''
+                    data.summary = summary
+                    data.address = ordinates[2]                    
+                    data.location = location
+                    data.img = img
+                    data.latitude = ordinates[0]
+                    data.longitude = ordinates[1]                   
+                    data.read_more = read_more
+                    data_list.append(data)
 
         print(len(data_list))   
         return data_list

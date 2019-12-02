@@ -16,10 +16,11 @@ class Recommend:
     def eventsrecommendations(title):
 
         def to_dict(x):
+            print(x)
             return {"title": x.title, "time": x.time, "location": x.location, "summary": x.summary, "img": x.img,
                     "startdate": x.startdate, "enddate": x.enddate, "price": x.price, "read_more": x.read_more,
                     "category": x.category}
-
+        
         # events = list()
         events = DataProcess.getevents()
         eventdicts = list(map(lambda x: to_dict(x), events))

@@ -2,15 +2,15 @@ from plistlib import Data
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import uuid
-
+from .geocoding_check import getOrdinates
 from eveamlapp.web_scraping.models import EventData
 
 class IrelandIe:
 
     @staticmethod
-    def scrape(urlOriginal):
-        data_list = []
-        for value in range(1,136):
+    def scrape(urlOriginal,data_list):
+        #136
+        for value in range(1,3):
 
             url = ""
             url = urlOriginal+format(value)+'/'
@@ -28,6 +28,8 @@ class IrelandIe:
                     title = 'None'
 
                 location = container.h3.text
+
+             
                 try:
                     description = container.p.text.strip('\n')
                     description = description.strip(' ')
@@ -44,6 +46,14 @@ class IrelandIe:
                 if category == 'TOURISM & SIGHTSEEING' and img == 'None':
                     img = 'https://www.fhi.no/globalassets/bilder/vaksine/oversikt-reisevaksine.jpg?preset=mainbodywidth'
 
+
+                ordinates = getOrdinates(location)
+
+
+                if str(ordinates) == 'Dublin':
+                    ordinates = getOrdinates("Dublin")   
+
+                                
                 data = EventData()
 
                 data.id = uuid.uuid1().__str__()
@@ -55,7 +65,9 @@ class IrelandIe:
                 data.category = category
                 data.startdate = ''
                 data.read_more = read
-                #data.address = address
+                data.address = ordinates[2]
+                data.latitude = ordinates[0]
+                data.longitude = ordinates[1]                  
                 data.enddate = ''
                 data.price = ''
                 data_list.append(data)

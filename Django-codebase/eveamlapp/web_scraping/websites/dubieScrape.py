@@ -3,14 +3,15 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import uuid
 import re
+from datetime import datetime
+from .GetMonth import month_string_to_number
 
 from eveamlapp.web_scraping.models import EventData
 
 class DublinIe:
 
     @staticmethod
-    def scrape(url):
-        data_list = []
+    def scrape(url,data_list):
 
         uClient = uReq(url)
         page_html = uClient.read()
@@ -79,10 +80,16 @@ class DublinIe:
             date = start.split(' ')
             date = start
             month = startdate[2]
-            year = "2019"
-            startdate = date + (' ')+ month+(' ')+ year
+            year = datetime.now().year
+            startdate = date + ' '+ month+' '+ year.__str__()
+            d1 = datetime(year,int(month_string_to_number(month)),int(date))
             try:
                 enddate = var2[1]
+                enddateArr = enddate.split(' ')
+                end=enddateArr[1].replace('th','').replace('nd','').replace('st','').replace('rd','')
+
+                d1 = datetime(year, int(month_string_to_number(enddateArr[2])), int(end))
+
             except:
                 enddate = 'None'
             title = page_soup.h1.text
@@ -92,22 +99,23 @@ class DublinIe:
             summary = p_tags[1].text.strip()
             read_more = url2
 
-            data = EventData()
+            if d1>datetime.now():
+                data = EventData()
 
-            data.id = uuid.uuid1().__str__()
-            data.title = title
-            data.time = time
-            data.location = location
-            data.summary = summary
-            data.img = img
-            data.category = category
-            data.startdate = startdate
-            data.read_more = read_more
-            #data.address = address
-            data.enddate = enddate
-            data.price = price
-            data_list.append(data)
+                data.id = uuid.uuid1().__str__()
+                data.title = title
+                data.time = time
+                data.location = location
+                data.summary = summary
+                data.img = img
+                data.category = category
+                data.startdate = startdate
+                data.read_more = read_more
+                #data.address = address
+                data.enddate = enddate
+                data.price = price
+                data_list.append(data)
 
-        print(len(data))
+        print(len(data_list))
         
         return data_list

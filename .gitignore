@@ -35,6 +35,7 @@ Django_codebase/eveamlapp/web_scraping/__pycache__
 Django_codebase/eveamlapp/web_scraping/websites/__pycache__
 .idea/
 venv/
+venv1/
 
 .vscode/
 public/

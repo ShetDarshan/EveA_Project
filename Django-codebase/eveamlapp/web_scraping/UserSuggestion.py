@@ -17,6 +17,7 @@ class UserRecommend:
     def userRecommendations(email):
 
         def to_dict(x):
+
             return {"address": x.address, "bio": x.bio, "birthday": x.birthday, "createdAt": x.createdAt,
                     "email" : x.email, "gender": x.gender, "handle": x.handle,
                     "imageUrl": x.imageUrl, "interests": json.dumps(x.interests),
@@ -25,6 +26,8 @@ class UserRecommend:
         users = DataProcess.getusers()
         usersdicts = list(map(lambda x: to_dict(x), users))
         print(usersdicts)
+        
+        
         df = pd.DataFrame(usersdicts)
 
         df['Key_words'] = ""
@@ -78,7 +81,7 @@ class UserRecommend:
 
             recommended_users = []
 
-            # gettin the index of the event that matches the title
+            # gettin the index of the event that matches the users
             idx = indices[indices == email].index[0]
             print(idx)
 

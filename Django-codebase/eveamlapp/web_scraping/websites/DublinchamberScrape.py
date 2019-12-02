@@ -11,8 +11,7 @@ from eveamlapp.web_scraping.models import EventData
 
 class DubChamberIE:
     @staticmethod
-    def scrape(url):
-        data_list = []
+    def scrape(url,data_list):
 
         uClient = uReq(url)
         page_html = uClient.read()
@@ -22,8 +21,6 @@ class DubChamberIE:
 
         
         article = page_soup.find_all('div',{"class":"c-feed-box-outer"})
-        #print(len(article))
-        #print(article[0])
         for arti in article:
             url2 = 'https://portal.dublinchamberhosting.com' + arti.a["href"]
             #Opening connection to second page, grabbing the page
@@ -53,26 +50,30 @@ class DubChamberIE:
             month = newdate[2]
             month = datetime.datetime.strptime(month,'%b').strftime('%B')
             year = newdate[3]
-            date = date + (' ') + month + (' ')+ year
+            date = date + ' ' + month + ' '+ year
             time = event_box[2].text.strip()
             address = event_box[3].text.strip()
             category = "EDUCATION, BUSINESS & TECHNOLOGY"
 
-            data = EventData()
+            d1 = datetime.datetime(int(year),int(newdate[2]),int(date))
+            d2 = datetime.datetime.now()
 
-            data.id = uuid.uuid1().__str__()
-            data.title = title
-            data.time = time
-            data.location = address
-            data.summary = desc
-            data.img = image
-            data.category = category
-            data.startdate = date
-            data.read_more = url2
-            #data.address = address
-            data.enddate = ''
-            data.price = ''
-            data_list.append(data)
+            if d1>d2:
+                data = EventData()
+
+                data.id = uuid.uuid1().__str__()
+                data.title = title
+                data.time = time
+                data.location = address
+                data.summary = desc
+                data.img = image
+                data.category = category
+                data.startdate = date
+                data.read_more = url2
+                #data.address = address
+                data.enddate = ''
+                data.price = ''
+                data_list.append(data)
 
         print(len(data_list))
 

@@ -1,3 +1,4 @@
+from builtins import staticmethod
 from plistlib import Data
 from urllib.request import urlopen as uReq
 import requests
@@ -11,9 +12,8 @@ from eveamlapp.web_scraping.models import EventData
 class TicketmasterIe:
 
     @staticmethod
-    def scrape(urlOriginal):
-
-        data_list = []
+    def scrape(urlOriginal, data_list):
+        #49
         for value in range(1,49):
             url = ""
             url = urlOriginal+format(value)
@@ -32,7 +32,9 @@ class TicketmasterIe:
                 date1= date1.split('-')
                 month = date1[1]
                 date2 = datetime.datetime.strptime(month,'%m').strftime('%B')
-                date = date1[2] + (' ')+ date2 + (' ') + date1[0]
+                date = date1[2] + ' ' + date2 + ' ' + date1[0]
+                d1 = datetime.datetime(int(date1[0]),int(date1[1]),int(date1[2]))
+                d2= datetime.datetime.now()
                 try:
                     Time = var1['dates']['start']['localTime']
                 except:
@@ -61,24 +63,24 @@ class TicketmasterIe:
                     category = 'MUSIC & ENTERTAINMENT'
                 #Subcategory =var1['classifications'][0]['genre']['name']
                 Venue =var1['_embedded']['venues'][0]['name']
-                Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
+                #Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
+                Location = Venue
+                if d1>d2:
+                    data = EventData()
 
-
-                data = EventData()
-
-                data.id = uuid.uuid1().__str__()
-                data.title = Title
-                data.time = Time
-                data.location = Location
-                data.summary = ''
-                data.img = img
-                data.category = category
-                data.startdate = date
-                data.read_more = URL
-                #data.address = address
-                data.enddate = ''
-                data.price = ''
-                data_list.append(data)
+                    data.id = uuid.uuid1().__str__()
+                    data.title = Title
+                    data.time = Time
+                    data.location = Location
+                    data.summary = ''
+                    data.img = img
+                    data.category = category
+                    data.startdate = date
+                    data.read_more = URL
+                    #data.address = address
+                    data.enddate = ''
+                    data.price = ''
+                    data_list.append(data)
 
         print(len(data_list))
 
