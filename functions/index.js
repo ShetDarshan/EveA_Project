@@ -423,13 +423,17 @@ app.post('/api/v1/acceptRequest', (req, res) => {
     let toList = doc.data()['to'];
     if (!friendList) { friendList = []; }
     if (!toList) { toList = []; }
+    // if request existis in  from list , then remove it from from list 
     if (fromList.includes(requestToAccept)) {
       fromList.splice(fromList.indexOf(requestToAccept), 1)
     } 
+    // if request existis in  To list , then remove it from To list 
     if (toList.includes(requestToAccept)) {
       toList.splice(toList.indexOf(requestToAccept), 1)
     }
-    friendList.push(requestToAccept)
+    if(!friendList.includes(requestToAccept)){
+      friendList.push(requestToAccept) 
+    }
     db.collection('connections').doc(loggedEmail).set({
       from: fromList,
       friends: friendList,
@@ -450,7 +454,10 @@ app.post('/api/v1/acceptRequest', (req, res) => {
     if (fromList.includes(loggedEmail)) {
       fromList.splice(fromList.indexOf(loggedEmail), 1)
     }
-    friendList.push(loggedEmail)
+    if(!friendList.includes(loggedEmail)) {
+      friendList.push(loggedEmail)
+    }
+
     db.collection('connections').doc(requestToAccept).set({
       from: fromList,
       friends: friendList,
@@ -571,7 +578,7 @@ app.post('/api/v1/notGoingActivities', (req, res) => {
     res.status(200);
   }).catch(err => {
     console.error(err);
-    res.status(500).json({ error: err.code });
+    res.status(500).json({ error: err.code }); 
   });
 
 })
@@ -594,6 +601,7 @@ app.post('/api/v1/friendsGoing', (req, res) => {
               console.log("friend", friend);
               console.log("goingList", goingList);
               if (goingList.includes(friend)) {
+                console.log("frind going to event",friend);
                 myFriendsGoing.push(friend);
               }
             });

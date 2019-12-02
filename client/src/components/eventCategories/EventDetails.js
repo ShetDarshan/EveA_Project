@@ -74,11 +74,28 @@ class EventDetails extends Component {
     console.log("friedsGoinf",this.props.friends.friendsGoing)
     const activities = (<ul className=" track-events mt-2">
       <li className="">
-      <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
-        <div>☆</div>
+      <div className={this.state.interested ? "interested active" : "interested"} 
+        	onClick={ () => {
+            this.setState({ interested: !this.state.interested })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.interestedEvent(request)
+          }}>
+        <div title = "Interested">☆</div>
       </div>  
       </li>
-      <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div></div></div>
+      <li className=""><div className={this.state.going ? "going active" : "going"} 
+        	onClick={ () => {
+            this.setState({ going: !this.state.going })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.goingEvent(request)
+          }}>
+        <div title = "Going"></div></div>
       </li></ul>);
     let showItems = 4
     const setting = {
