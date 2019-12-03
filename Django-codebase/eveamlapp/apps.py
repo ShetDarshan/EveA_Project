@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from .web_scraping import scheduler
 
 
 class EveamlappConfig(AppConfig):

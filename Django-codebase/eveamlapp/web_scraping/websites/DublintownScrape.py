@@ -58,7 +58,7 @@ class DublintownScrape:
                         image = 'https://4.bp.blogspot.com/-haQkpIywgPA/W5L1p-6P5JI/AAAAAAAANv4/279R0n1im_MugfsnYTlbf5ZiTaG2s7NYQCLcBGAs/s1600/Six_photoby_IdilSukan_18.jpg'
                 elif category=='':
                     category='OTHERS'
-                    if category == 'OTHER' and image == 'None':
+                    if category == 'OTHERS' and image == 'None':
                         image ='https://discuss.fm/images/max_topic_images/others.jpg'
                 elif category=='Beauty, Fitness':
                     category='SPORTS & HEALTH'

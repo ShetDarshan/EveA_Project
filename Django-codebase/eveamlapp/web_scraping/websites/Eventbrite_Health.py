@@ -19,7 +19,10 @@ class EventHealth:
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass    
             page_html = uClient.read()
             uClient.close()
             #Parsing
@@ -61,7 +64,10 @@ class EventHealth:
                 
                 descurl = read_more
                 #Opening connection , grabbing the page
-                uClient = uReq(descurl)
+                try:
+                    uClient = uReq(descurl)
+                except:
+                    pass    
                 desc_html = uClient.read()
                 uClient.close()
                 #Parsing
@@ -129,7 +135,20 @@ class EventHealth:
                 else:
                     location = 'Dublin'
 
-                ordinates = getOrdinates(location)
+                print(location)
+                
+                try:
+                        
+                    if location == 'Dublin':
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548                        
+                        
+                    else:
+                        ordinates = getOrdinates(location)
+
+                except:
+                    continue 
 
                                    
                 try:
