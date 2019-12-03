@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 
 import './index.css'
+import "./loginRegister.css";
 
 
  class Register extends Component {
@@ -71,11 +72,10 @@ verifiedChange = e => {
     // const { signUp } = this.props.auth;
     return (
       <div className="container-fluid bg">
-      <div className="row justify-content-center">
-        <div className="col-12 col-sm=6 col-md-3">
+       <div class="register">
          
    
-           <form className="form-container" noValidate onSubmit={this.onSubmit}>
+           <form className="form-container pt-3 pl-5 pr-5" noValidate onSubmit={this.onSubmit}>
              
            <div className="form-group">
            <h4 className="text-center" style={{color:"#593196",paddingTop:"10px"}}>Create Account</h4>
@@ -266,8 +266,6 @@ verifiedChange = e => {
                     </Snackbar> */}
                    
         </div>
-      </div>
-   
   </div>
     )
   }
