@@ -43,6 +43,45 @@
     margin: 0 auto;
 }
 
+.p-4 {
+    padding: 1.5rem!important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ededed!important;
+}
+
+.border-top {
+    border-top: 1px solid #ededed!important;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+}
+
+.user-details__tags .badge {
+    font-weight: 400;
+}
+
+
+
+.border {
+    border: 5px solid #e1e5eb!important;
+}
+
+.badge-pill {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    border-radius: 10rem;
+}
+
+.badge-light {
+    color: #212529;
+    background-color: #fbfbfb;
+}
+
 .customFriendList li .friendAvtar .avtarImg {
     width: inherit;
     height: inherit;
@@ -116,10 +155,10 @@
     box-sizing: border-box;
 }
 
-.div {
+/* .div {
     display: block;
-}
-
+} */
+/* 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
 .body {
     font-size: 13px;
@@ -141,7 +180,7 @@
  
     text-align: left;
  
-}
+} */
 .user_details_bg{
 width:100%;
 position:absolute;
@@ -167,17 +206,17 @@ max-height: 7.1875;
     overflow:hidden;
 }
 
-.user-details .card-body h4 {
+/* .user-details .card-body h4 {
     font-weight: 500;
-}
+} */
 
 .text-center {
     text-align: center!important;
 }
 
-.mt-2 {
+/* .mt-2 {
     margin-top: .5rem!important;
-}
+} */
 
 
 .m-0 {
@@ -210,12 +249,12 @@ max-height: 7.1875;
     margin-left: -15px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+/* @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
     .body {
         font-size: 13px;
         font-weight: 400;
     }
-    }
+    } */
 
 
 
@@ -232,7 +271,7 @@ max-height: 7.1875;
 
 
 
-.body {
+/* .body {
    
     color: #5a6169;
     background-color: #fff;
@@ -247,7 +286,7 @@ max-height: 7.1875;
     color: #212529;
     text-align: left;
     background-color: #fff;
-}
+} */
 
 @media (min-width: 576px){
 .col-sm-12 {
@@ -269,28 +308,28 @@ max-height: 7.1875;
     box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
 }
 
-.card {
+/* .card {
     background-color: #fff;
     border: none;
     border-radius: .625rem;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
-}
+} */
 
 .mb-4, .my-4 {
     margin-bottom: 1.5rem!important;
 }
 
-.user-details .card-body h4 {
+/* .user-details .card-body h4 {
     font-weight: 500;
-}
+} */
 
 .text-center {
     text-align: center!important;
 }
 
-.mt-2 {
+/* .mt-2 {
     margin-top: .5rem!important;
-}
+} */
 
 .m-0 {
     margin: 0!important;
@@ -307,7 +346,7 @@ max-height: 7.1875;
     margin-inline-end: 0px;
 }
 
-.card {
+/* .card {
 
     position: relative;
     display: -ms-flexbox;
@@ -320,15 +359,15 @@ max-height: 7.1875;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-}
+} */
 
 .card-header:first-child {
     border-radius: .625rem .625rem 0 0;
 }
 
-.card-small .card-body, .card-small .card-footer, .card-small .card-header {
+/* .card-small .card-body, .card-small .card-footer, .card-small .card-header {
     padding: 1rem 1rem;
-}
+} */
 
 .card-header {
     position: relative;
@@ -358,19 +397,28 @@ max-height: 7.1875;
 }
 
 
-.user-details .card-body{
+/* .user-details .card-body{
     margin-top:-3.125rem;
     z-index:1;
-}
+} */
 
 .p-0{
     padding:0!important;
 }
 
-.card-body {
+/* .card-body {
     
     flex: 1 1 auto;
    
+} */
+
+
+
+.avatarImg{
+    border-radius: 50%!important;
+    overflow: hidden!important;
+    max-width: 6.25rem!important;;
+    box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1)!important;;
 }
 
 .user-details__avatar {
@@ -389,7 +437,6 @@ max-height: 7.1875;
 }
 
 
-/* Sowmya */
 
 /*
 
