@@ -1,7 +1,8 @@
-import { GET_USERS,GET_USER,UPDATE_USER } from '../actions/types';
+import { GET_USERS,GET_USER,UPDATE_USER,GET_SUG_DETAILS } from '../actions/types';
 const initialState = {
     profiles: [],
     profile:[],
+    sugessted:[],
     loading: false
 };
 
@@ -26,6 +27,13 @@ export default function(state = initialState,action) {
                 profile: action.payload,
                 loading:false
      };
+     case GET_SUG_DETAILS:
+            
+        return {
+            ...state,
+            sugessted: action.payload,
+            loading: false
+        }
         default: 
             return state;
 

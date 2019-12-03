@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
-import { getfriendRequestList,acceptFriendRequest,rejectFriendRequest } from '../../actions/friendActions';
+import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
+import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest } from '../../actions/friendActions';
 
 import "../../css/profile.css";
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
-import { Button,Snackbar,SnackbarContent } from '@material-ui/core';
+import { Button, Snackbar, SnackbarContent } from '@material-ui/core';
 import card from "../../img/cover.png";
 import user from "../../img/user.png";
 
@@ -19,14 +19,15 @@ class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedUser :'',
-      requestedUser : '',
-      msg:false
+      loggedUser: '',
+      requestedUser: '',
+      msg: false
     };
     const { user } = this.props.auth;
     const profile = this.props.getProfile(user.email);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
+    this.props.getSuggestedFrds(user.email)
 
   }
   componentDidMount() {
@@ -34,21 +35,21 @@ class CreateProfile extends Component {
     console.log("user", user);
     this.props.getProfile(user.email);
   }
-  acceptRequest = () => {
-    this.props.acceptFriendRequest(this.state)
-  }
-  rejectRequest = () => {
-    this.props.rejectFriendRequest(this.state)
-  }
+  // acceptRequest = () => {
+  //   this.props.acceptFriendRequest(this.state)
+  // }
+  // rejectRequest = () => {
+  //   this.props.rejectFriendRequest(this.state)
+  // }
   render() {
-    const { profile, profiles } = this.props.users;
+    const { profile, profiles, sugessted } = this.props.users;
     // var { request  } =  this.props.friends;
-    console.log("Profile", this.props.users);
+    console.log("suggested", sugessted);
     let allRequests = [];
-    if(this.props.friends.request.from ){
-      allRequests = this.props.friends.request.from;  
+    if (this.props.friends.request.from) {
+      allRequests = this.props.friends.request.from;
     }
-    
+
     // console.log("this.props.friends.request.from",this.props.friends.request.from);
     // console.log("console request", allRequests);
 
@@ -70,6 +71,7 @@ class CreateProfile extends Component {
 
     }
     return (
+
      
      
           <div className="main-content-container container-fluid px-4">
@@ -113,6 +115,7 @@ class CreateProfile extends Component {
           <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"purple"}}>{userInterests}</span>
         
         </div>
+
 
                     </div>
                    
@@ -164,6 +167,7 @@ class CreateProfile extends Component {
                </div> */}
              
              <div className="row">
+
                 <div className="col-md-12 ml-auto mr-auto">
                   <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
@@ -186,6 +190,7 @@ class CreateProfile extends Component {
                   </ul>
                 </div>
                 </div>
+
               
               <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
@@ -242,7 +247,7 @@ class CreateProfile extends Component {
           </div>
           </div>
           </div>
-      
+
     )
   }
 }
@@ -253,4 +258,4 @@ const mapStateToProps = state => ({
   friends: state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList,rejectFriendRequest,acceptFriendRequest })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds })(CreateProfile);
