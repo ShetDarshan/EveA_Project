@@ -80,67 +80,54 @@ class CreateProfile extends Component {
                    <div className="card card-small user-details mb-4">
                      <div className="card-header p-0">
                        <div className="user-details_bg">
-                         <img src={card} /></div> 
+                         <img src={card}/></div> 
                          </div>
                         <div className="card-body p-0">
-                    <div className="user-details__avatar mx-auto">
-                       {/* <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
-                       <img src={user}></img> 
-                    </div>
+                    {/* <div className="user-details__ avatar mx-auto"> */}
+                    <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
+                       {/* <img src={user}></img>  */}
+                    {/* </div> */}
                    
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
-        <p class="text-center text-light m-0 mb-2" style={{color:"black"}}>{userBio}</p>
+        <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
         
         <div class="user-details__user-data border-top border-bottom p-4">
           <div class="row mb-3">
-            <div class="col w-50">
-              <span>Email</span>
-              <span>sierra@example.com</span>
+            <div class="col w-33">
+              <span><i class="far fa-envelope"></i></span>
+              <span>{userEmail}</span>
             </div>
-            <div class="col w-50">
-              <span>Location</span>
-              <span>Remote</span>
+            <div class="col w-33">
+              <span><i class="fas fa-location-arrow"></i> </span>
+              <span>{userAddress}</span>
             </div>
-          </div>
-          <div class="row">
-            <div class="col w-50">
-              <span>Phone</span>
-              <span>+40 1234 567 890</span>
-            </div>
-            <div class="col w-50">
-              <span>Account Number</span>
-              <span>123456789</span>
+            <div class="col w-33">
+              <span><i class="fas fa-birthday-cake"></i> </span>
+              <span>{userBirthday}</span>
             </div>
           </div>
         </div>
+
+
         <div class="user-details__tags p-4" >
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>User Experience</span>
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>UI Design</span>
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>React JS</span>
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>HTML &amp; CSS</span>
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>JavaScript</span>
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"black"}}>Bootstrap 4</span>
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"purple"}}>{userInterests}</span>
+        
         </div>
 
-
-
-
-
-
-
-
-
-
-                   
-                     
                     </div>
                    
                    </div>
                   
-                  </div>    
-                        
-                <div className="w-25">
-                <h4 className="text-primary">Requests Received</h4>
+                  </div>  
+                  <div className="col-sm-12 col-lg-4">
+<div className="card card-small user-details mb-4">
+<div className="card-header border-bottom">
+  <h6 className="m-0">FRIENDS</h6></div>
+ 
+<div className="card-body p-0">
+                  {/* <div className="row">
+                  <div className="col-md-12 ml-auto mr-auto"> */}
+                {/* <h4 className="text-primary">Requests Received</h4>
                   <ul className="friendRequestList ">
                     {
                       allRequests && allRequests.map(data => {
@@ -172,20 +159,34 @@ class CreateProfile extends Component {
                         )
                       })
                     }
-                  </ul>
-                </div> 
-              </div>
-              <div className="row m-4">
-                <h6 className="w-100"><span className="text-muted mr-2">Interests:</span> <b className="bold">{userInterests}</b> </h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Address:</span><b className="bold">{userAddress}</b> </h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Date Of Birth:</span> <b className="bold">{userBirthday}</b></h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Email:</span> <b className="bold">{userEmail}</b></h6>
-              </div>
-              {/* <div className="row">
+                  </ul> */}
+               {/* </div>
+               </div> */}
+             
+             <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
+                  <h4 className="text-primary">Suggested Friends</h4>
+                  <ul className="customFriendList">
+                    {
+                      profiles && profiles.map(data => {
+                        return (
+
+                          <li key={"profile-"+data} className="card border-primary m-2 p-2">
+                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
+                                <div key={"profile-container-"+data.handle} className="text-center">
+                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                    <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                                  </div>
+                                </div>
+                                <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
+                            </Link>
+                          </li>
+                        )
+                      })}
+                  </ul>
                 </div>
-              </div> */}
-              <Link className="nav-link" to="/searchUsers">Search Users</Link>
+                </div>
+              
               <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
                   <h4 className="text-primary">Suggested Friends</h4>
@@ -207,6 +208,7 @@ class CreateProfile extends Component {
                         )
                       })}
                   </ul>
+                </div>
                 </div>
                 <Snackbar
                         anchorOrigin={{
@@ -235,10 +237,11 @@ class CreateProfile extends Component {
                         />
                     </Snackbar>
               </div>
+              </div>
             
           </div>
-        
-     
+          </div>
+          </div>
       
     )
   }
