@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getAllProfiles, getProfile, updateProfile } from '../../actions/profileActions';
-import { getfriendRequestList,acceptFriendRequest,rejectFriendRequest } from '../../actions/friendActions';
+import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
+import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest } from '../../actions/friendActions';
 
 import "../../css/profile.css";
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
-import { Button,Snackbar,SnackbarContent } from '@material-ui/core';
+import { Button, Snackbar, SnackbarContent } from '@material-ui/core';
+import card from "../../img/cover.png";
+import user from "../../img/user.png";
 
 // import { url } from 'inspector';
 let userEmail, userName, userlocation, userInterests, userBirthday, userCreated, userId, userBio, userImageUrl, userAddress, userGender, userHandle = ""
@@ -17,14 +19,15 @@ class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedUser :'',
-      requestedUser : '',
-      msg:false
+      loggedUser: '',
+      requestedUser: '',
+      msg: false
     };
     const { user } = this.props.auth;
     const profile = this.props.getProfile(user.email);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
+    this.props.getSuggestedFrds(user.email)
 
   }
   componentDidMount() {
@@ -32,21 +35,21 @@ class CreateProfile extends Component {
     console.log("user", user);
     this.props.getProfile(user.email);
   }
-  acceptRequest = () => {
-    this.props.acceptFriendRequest(this.state)
-  }
-  rejectRequest = () => {
-    this.props.rejectFriendRequest(this.state)
-  }
+  // acceptRequest = () => {
+  //   this.props.acceptFriendRequest(this.state)
+  // }
+  // rejectRequest = () => {
+  //   this.props.rejectFriendRequest(this.state)
+  // }
   render() {
-    const { profile, profiles } = this.props.users;
+    const { profile, profiles, sugessted } = this.props.users;
     // var { request  } =  this.props.friends;
-    console.log("Profile", this.props.users);
+    console.log("suggested", sugessted);
     let allRequests = [];
-    if(this.props.friends.request.from ){
-      allRequests = this.props.friends.request.from;  
+    if (this.props.friends.request.from) {
+      allRequests = this.props.friends.request.from;
     }
-    
+
     // console.log("this.props.friends.request.from",this.props.friends.request.from);
     // console.log("console request", allRequests);
 
@@ -68,34 +71,66 @@ class CreateProfile extends Component {
 
     }
     return (
-      <div className="profile-page">
-        {/* style={{backgroundImage:  "url(http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png)"}} */}
-        <div className="page-header header-filter"></div>
-        {/* `url(${data.img})` */}
-        <div className="main main-raised">
-          <div className="profile-content">
-            <div className="container">
-              <div className="row m-4">
-                <div className="w-75">
-                  <div className="profile">
-                    <div className="avtar float-left">
-                      <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
-                      {/* <div className="avtarImg" style={{backgroundImage: `url(https://picsum.photos/id/237/200/300`}}></div> */}
+
+     
+     
+          <div className="main-content-container container-fluid px-4">
+            
+              <div className="row mt-4">
+                
+                  <div className="col-sm-12 col-lg-4">
+                   <div className="card card-small user-details mb-4">
+                     <div className="card-header p-0">
+                       <div className="user-details_bg">
+                         <img src={card}/></div> 
+                         </div>
+                        <div className="card-body p-0">
+                    {/* <div className="user-details__ avatar mx-auto"> */}
+                    <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
+                       {/* <img src={user}></img>  */}
+                    {/* </div> */}
+                   
+                    <h4 class="text-center m-0 mt-2">{userName}</h4>
+        <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
+        
+        <div class="user-details__user-data border-top border-bottom p-4">
+          <div class="row mb-3">
+            <div class="col w-33">
+              <span><i class="far fa-envelope"></i></span>
+              <span>{userEmail}</span>
+            </div>
+            <div class="col w-33">
+              <span><i class="fas fa-location-arrow"></i> </span>
+              <span>{userAddress}</span>
+            </div>
+            <div class="col w-33">
+              <span><i class="fas fa-birthday-cake"></i> </span>
+              <span>{userBirthday}</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="user-details__tags p-4" >
+          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"purple"}}>{userInterests}</span>
+        
+        </div>
+
+
                     </div>
-                    <div className="name float-left p-5">
-                      <h2 className="title text-capitalize font-weight-bold text-priamry">{userName}</h2>
-                      <Link to="/updateProfile" className="btn btn-sm btn-primary btn-sm d-lg-block m-2">Edit Profile</Link>
-                      {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
-                      <div className="description text-center">
-                        <p className="text-capitalize">{userBio}</p>
-                        {/* <h6><span className="text-muted">Lives at:</span> <b className="bold">{userlocation}</b> </h6> */}
-                      </div>
-                    </div>
-                    <div className="clearfix"></div>
-                  </div>
-                </div>                
-                <div className="w-25">
-                <h4 className="text-primary">Requests Received</h4>
+                   
+                   </div>
+                  
+                  </div>  
+                  <div className="col-sm-12 col-lg-4">
+<div className="card card-small user-details mb-4">
+<div className="card-header border-bottom">
+  <h6 className="m-0">FRIENDS</h6></div>
+ 
+<div className="card-body p-0">
+                  {/* <div className="row">
+                  <div className="col-md-12 ml-auto mr-auto"> */}
+                {/* <h4 className="text-primary">Requests Received</h4>
                   <ul className="friendRequestList ">
                     {
                       allRequests && allRequests.map(data => {
@@ -127,20 +162,36 @@ class CreateProfile extends Component {
                         )
                       })
                     }
-                  </ul>
-                </div> 
-              </div>
-              <div className="row m-4">
-                <h6 className="w-100"><span className="text-muted mr-2">Interests:</span> <b className="bold">{userInterests}</b> </h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Address:</span><b className="bold">{userAddress}</b> </h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Date Of Birth:</span> <b className="bold">{userBirthday}</b></h6>
-                <h6 className="w-100"><span className="text-muted mr-2">Email:</span> <b className="bold">{userEmail}</b></h6>
-              </div>
-              {/* <div className="row">
+                  </ul> */}
+               {/* </div>
+               </div> */}
+             
+             <div className="row">
+
                 <div className="col-md-12 ml-auto mr-auto">
+                  <h4 className="text-primary">Suggested Friends</h4>
+                  <ul className="customFriendList">
+                    {
+                      profiles && profiles.map(data => {
+                        return (
+
+                          <li key={"profile-"+data} className="card border-primary m-2 p-2">
+                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
+                                <div key={"profile-container-"+data.handle} className="text-center">
+                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                    <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                                  </div>
+                                </div>
+                                <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
+                            </Link>
+                          </li>
+                        )
+                      })}
+                  </ul>
                 </div>
-              </div> */}
-              <Link className="nav-link" to="/searchUsers">Search Users</Link>
+                </div>
+
+              
               <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
                   <h4 className="text-primary">Suggested Friends</h4>
@@ -162,6 +213,7 @@ class CreateProfile extends Component {
                         )
                       })}
                   </ul>
+                </div>
                 </div>
                 <Snackbar
                         anchorOrigin={{
@@ -190,11 +242,12 @@ class CreateProfile extends Component {
                         />
                     </Snackbar>
               </div>
-            </div>
+              </div>
+            
           </div>
-        </div>
-      </div>
-      
+          </div>
+          </div>
+
     )
   }
 }
@@ -205,4 +258,4 @@ const mapStateToProps = state => ({
   friends: state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList,rejectFriendRequest,acceptFriendRequest })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds })(CreateProfile);

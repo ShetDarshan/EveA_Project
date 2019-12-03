@@ -20,19 +20,19 @@ import Footer from './Footer'
 return (
     
         <div>  
-
+            
           <Carousel>
             <Carousel.Item >
-         <div><a href="./eventboard"><img src={Car1}  alt="Dublin"/>/</a></div>
+                <div><img src={Car1}  alt="Dublin"/></div>
             </Carousel.Item>
             <Carousel.Item>
-                <div><a href="./register"><img src={Car0}  alt="Signup"/></a></div>
+                <div><img src={Car0}  alt="Signup"/></div>
             </Carousel.Item>
             <Carousel.Item>
-                <div><a href="./login"><img src={Car3}   alt="Login"/></a></div>
+                <div><img src={Car3}   alt="Login"/></div>
             </Carousel.Item>
             <Carousel.Item>
-                <div><a href="./Search"><img src={Car4}  alt="Search"/></a></div>
+                <div><img src={Car4}  alt="Search"/></div>
             </Carousel.Item>
         </Carousel>
     

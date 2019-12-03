@@ -395,20 +395,20 @@
   
   .ais-Pagination-item .ais-Pagination-link {
     display: block;
-    color: #593196;
+    color: #ff585b;
     line-height: 30px;
     width: 30px;
     height: 30px;
   }
   
   .ais-Pagination-item.ais-Pagination-item--selected.ais-Pagination-item--page {
-    background: #593196;
+    background: #ff585b;
   }
   
   .ais-Pagination-item.ais-Pagination-item--selected.ais-Pagination-item--page
     .ais-Pagination-link {
     color: #ffffff;
-    border-color: #593196;
+    border-color: #ff585b;
   }
   
   .ais-Pagination-item--disabled {
@@ -431,17 +431,22 @@
   }
 
   .imageContainer .imageBg {
-    width: 16rem;
+    width: inherit;
     height: 10rem;
     background-position: center;
     background-size: cover;
   }
   .imageContainer {
-    width: 16rem;
-    height: 10rem;
+    width: inherit;
+    height: inherit;
     overflow: hidden;
   }
-  /*Custtom sttyle*/
+  /*Custtom style*/
+  .ais-Hits-list {
+    margin:0;
+    padding:0;
+    text-align: center;
+  }
   .ais-SearchBox {
     position: initial;
     width: auto !important;
@@ -453,8 +458,10 @@
   .ais-InstantSearch ul.ais-Hits-list li.ais-Hits-item {
     vertical-align: top;
     margin: 1rem 1rem;
-    width:18rem;
-    height:15.6rem;
+    width:inherit;
+    height:inherit;
+    max-width: 18rem !important;
+    max-height: 15.6rem !important;
     text-align: start;
     overflow:hidden;
   }
@@ -480,5 +487,15 @@
      background-size: 2rem;
      background-position: right; 
      animation: 1s all linear;
-
    }
+.search-events .ais-InstantSearch ul.ais-Hits-list li.ais-Hits-item {
+    display:inline-block !important;
+    vertical-align: top !important;
+    margin: 1rem !important;
+    width:inherit;
+    height:inherit;
+    max-width: 18rem !important;
+    max-height: 15.6rem !important;
+    text-align: start !important;
+    overflow: hidden !important;
+} 

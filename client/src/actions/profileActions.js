@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_USERS,GET_USER,UPDATE_USER } from './types';
+import { GET_USERS,GET_USER,UPDATE_USER,GET_SUG_DETAILS } from './types';
 
 var path = "";
 export const getAllProfiles = () => dispatch => {
@@ -57,5 +57,26 @@ export const getAllProfiles = () => dispatch => {
           payload: null
         })
       );
+
+  };
+
+  export const getSuggestedFrds = email => dispatch => {
+
+    axios 
+      .get(`https://evea-prj.appspot.com/api/userRecommendation/${email}`)
+      .then(res => 
+        dispatch({
+          type: GET_SUG_DETAILS,
+          payload: res.data
+        })
+      )
+        .catch( err => 
+          dispatch ({
+          type: GET_SUG_DETAILS,
+          payload: null
+        })
+        
+          );
+
 
   };

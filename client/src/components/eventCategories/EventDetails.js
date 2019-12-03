@@ -36,8 +36,6 @@ class EventDetails extends Component {
     };
     //props.getEvents();
     this.props.getEventDetails(this.props.match.params.title);
-    // this.interested = this.interested.bind(this);
-    // this.going = this.going.bind(this);
   }
   wrapperGoingFunction = () =>{
     this.setState({
@@ -71,21 +69,33 @@ class EventDetails extends Component {
     const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset = this.props.getRecmdEvents;
-    let showItems = 4;
     console.log("friedsGoinf",this.props.friends.friendsGoing)
-    if (window.innerWidth <= 576) showItems = 1
-    else if (window.innerWidth <= 768) showItems = 2
-    else if (window.innerWidth <= 1024) showItems = 3
-    else showItems = 4
     const activities = (<ul className=" track-events mt-2">
       <li className="">
-      <div className={this.state.interested ? "interested active" : "interested"} onClick={this.wrapperIntrestedFunction}>
-        <div title="intrested">☆</div>
+      <div className={this.state.interested ? "interested active" : "interested"} 
+        	onClick={ () => {
+            this.setState({ interested: !this.state.interested })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.interestedEvent(request)
+          }}>
+        <div title = "Interested">☆</div>
       </div>  
       </li>
-      <li className=""><div className={this.state.going ? "going active" : "going"} onClick={this.wrapperGoingFunction}><div title="going"></div></div>
+      <li className=""><div className={this.state.going ? "going active" : "going"} 
+        	onClick={ () => {
+            this.setState({ going: !this.state.going })
+            const request = {
+              eventId : this.props.match.params.title,
+              user :  this.props.auth.user.email
+            }
+            this.props.goingEvent(request)
+          }}>
+        <div title = "Going"></div></div>
       </li></ul>);
-    
+    let showItems = 4
     const setting = {
       dots: false,
       infinite: true,
@@ -93,6 +103,11 @@ class EventDetails extends Component {
       slidesToShow: showItems,
       slidesToScroll: 1
     };
+
+    if (window.innerWidth <= 576) showItems = 1
+    else if (window.innerWidth <= 768) showItems = 2
+    else if (window.innerWidth <= 1024) showItems = 3
+    else showItems = 4
 
     const ShowRecommendation = (
       <div className="recommendation-section">
@@ -104,7 +119,7 @@ class EventDetails extends Component {
                 <div key={data.title + "card-slider"} className="card card-slider">
                   {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
                       <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
                         <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
                       </div>
@@ -124,13 +139,11 @@ class EventDetails extends Component {
             {
               locationData && locationData.map(data => (
                 <div key={data.title + "card-slider"} className="card card-slider">
-                  {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
-                      <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
-                        <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
-                      </div>
-
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
+                        <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
+                          <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
+                        </div>
                       <h5 key={data.title + "-desc"} title={data.title} className="card-title mb-2 mt-2 pt-0 lead " style={{ paddingTop: "50px" }}>{data.title}</h5>
                     </Link>
                     <h6 key={data.startdate + "-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>{data.startdate}</b></h6>
@@ -184,14 +197,10 @@ class EventDetails extends Component {
         {isAuthenticated ? ShowRecommendation : ""}
       </div>
     );
-
-    function triggerRefresh() {
-      //refreshPage();
-    }
-    function refreshPage() {
-      setTimeout(function () { window.location.reload(); }, 1e3);
-    }
-
+  }
+  refreshPage() {
+    console.log("Refresh Page");
+    setTimeout(function () { window.location.reload(); }, 1e3);
   }
 }
 EventDetails.propTypes = {

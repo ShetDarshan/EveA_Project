@@ -115,9 +115,8 @@ verifiedChange = e => {
           value={this.state.verified}
       />
       <label for="verified" className="lead">
-       <h6>  By continuing, I accept EveA  
-         <Link to="/datapolicy" target="_blank" data-toggle="modal" data-target="#exampleModalLong" style={{color:"#0099CC"}}>
-  Privacy Policy
+      <h6>  By continuing, I accept EveA <Link to="/datapolicy" target="_blank" data-toggle="modal" data-target="#exampleModalLong" style={{color:"#0099CC"}}>
+   Privacy Policy
 </Link>
 
 
@@ -125,7 +124,7 @@ verifiedChange = e => {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">EveA Privacy Policy</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Privacy Policy</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -155,7 +154,7 @@ verifiedChange = e => {
             <br></br>* Send personal Recommendations</p>
 
             <b >The purpose and legal basis for collecting your data</b>
-          
+
             <p >The application will ensure that your data is processed fairly and
              lawfully in keeping with the principles of data protection. For the purposes outlined in this 
              privacy notice your personal data will be processed based on user’s consent.
@@ -218,7 +217,7 @@ verifiedChange = e => {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+
       </div>
     </div>
   </div>
@@ -235,7 +234,7 @@ verifiedChange = e => {
                     
         </div>
         <label for="verified">
-        <p className="lead text-center">Already a member?  
+        <p className="lead text-center">Already a member? 
                 <Link  className="lead text-center" to="/login" style={{color:"#0099CC"}}> Log In</Link></p>
       </label>
               </form>

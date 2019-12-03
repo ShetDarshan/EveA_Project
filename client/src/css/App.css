@@ -109,13 +109,14 @@ footer.footer-custom {
   
 }
 .card-slider .card-body {
-  min-width:15rem;
-  min-height: 15rem;
+  /* min-width:15rem;
+  min-height: 15rem; */
   max-height:15rem;
 }
 .card-slider .card-body .imageContainer {
-  width: 16rem;
-  height: 10rem;
+  width: inherit;
+  height: inherit;
+  
   overflow: hidden;
   cursor:pointer;
 }
@@ -128,6 +129,7 @@ footer.footer-custom {
   min-height:2.3rem;
   line-height: 1.2rem;
   padding-top: 25px;
+  overflow:hidden; 
 }
 .text-capitalise {
   text-transform: capitalize;
@@ -136,10 +138,11 @@ footer.footer-custom {
     padding: 1rem;
 }
 .card-slider .card-body .imageContainer .imageBg {
-  width: 16rem;
+  width: inherit;
   height: 10rem;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .slick-prev {
   left: -10px !important;
@@ -186,4 +189,10 @@ img {
     background-position: top;
     background: url("../img/LocationIcon.jpg") no-repeat center;
     background-size: 100%;
+}
+.slick-prev {
+  left: -25px!important;
+}
+.slick-next {
+  right: -25px!important;
 }
