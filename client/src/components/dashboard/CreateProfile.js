@@ -93,12 +93,12 @@ class CreateProfile extends Component {
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
         <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
         
-        <button type="button" class="btn btn-primary btn-lg btn-block" style={{backgroundColor:"#ffbb33"}} data-toggle="modal" data-target=".bd-example-modal-lg">
+        {/* <button type="button" class="btn btn-primary btn-lg btn-block" style={{backgroundColor:"#ffbb33"}} data-toggle="modal" data-target=".bd-example-modal-lg">
           INTERESTED EVENTS
           </button>
 <button type="button" class="btn btn-primary btn-lg btn-block" style={{backgroundColor:"#593196"}} data-toggle="modal" data-target=".bd-example-modal-lg2">
   GOING EVENTS
-  </button>
+  </button> */}
 
         <div class="user-details__user-data border-top border-bottom p-4">
           <div class="row mb-3">
