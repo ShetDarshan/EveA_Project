@@ -38,7 +38,7 @@ import Spinner from '../common/Spinner'
     const dataset  = this.props.events.events;
      if (Object.keys(dataset).length < 1 ){
         console.log(" %c Loading the data from ajax" ,"background-color:#fff; color :#000;");
-         return <div><Spinner /></div>
+         return <div class="spinner"></div>
      } 
      else {
       const settings = {
