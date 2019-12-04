@@ -15,7 +15,7 @@ class TicketmasterIe:
     def scrape(urlOriginal, data_list):
         #49
         #27
-        for value in range(27,39):
+        for value in range(1,27):
             url = ""
             url = urlOriginal+format(value)
             print(url)
