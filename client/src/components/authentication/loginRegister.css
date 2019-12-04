@@ -1,0 +1,26 @@
+.register,
+.login{ 
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    width: 35vw;
+    height: 35vh;
+}
+.register .form-container,
+.login .form-container {
+    position: static;
+    background: hsla(0,0%,100%,.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #593096;
+}
+  @media (max-width: 768px) {
+    .register,
+    .login {
+        width: 80vw;
+        height: 55vh;
+       
+    }
+  }

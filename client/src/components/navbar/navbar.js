@@ -69,7 +69,6 @@ import "./navbar.css";
           <div id="navbarResponsive" className="navbar-collapse collapse ">
               {isAuthenticated? authorisedLink : guestUser }
           </div>
-          <div className="clearfix"></div>
       </nav>
     )
   }
