@@ -190,9 +190,9 @@ img {
     background: url("../img/LocationIcon.jpg") no-repeat center;
     background-size: 100%;
 }
-.slick-prev {
-  left: -25px!important;
-}
+/* .slick-prev {
+  left: -15px!important;
+} 
 .slick-next {
-  right: -25px!important;
-}
+  right: -15px!important;
+} */

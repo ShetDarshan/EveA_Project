@@ -59,9 +59,12 @@ class DBSScrape:
                 d1 = datetime(int(year),monthInt,int(Date))
                 d2 = datetime.now()
 
-                ordinates = getOrdinates(location)
-                if str(ordinates) == 'Dublin':
-                    ordinates = getOrdinates("Dublin")             
+                try:
+                    ordinates = getOrdinates(location)
+                    # if str(ordinates) == 'Dublin':
+                    #     ordinates = getOrdinates("Dublin")             
+                except:
+                    continue
 
                 if d1>d2:
                     data = EventData()

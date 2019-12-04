@@ -16,11 +16,14 @@ class EventbriteMusic:
   
         i = 0
         #17
-        for value in range(1,17):
+        for value in range(1,15):
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass
             page_html = uClient.read()
             uClient.close()
             #Parsing
@@ -61,7 +64,10 @@ class EventbriteMusic:
                 
                 descurl = read_more
                 #Opening connection , grabbing the page
-                uClient = uReq(descurl)
+                try:
+                    uClient = uReq(descurl)
+                except:
+                    pass
                 desc_html = uClient.read()
                 uClient.close()
                 #Parsing
@@ -71,7 +77,7 @@ class EventbriteMusic:
                 desc = desc_soup.findAll('div', class_='js-xd-read-more-contents l-mar-top-3') or desc_soup.findAll('div',class_='structured-content-rich-text structured-content__module l-align-left l-mar-vert-6 l-sm-mar-vert-4 text-body-medium')
                 if len(desc) > 0:
                     try:
-                        p_tags = desc[0].findAll('p')
+                        p_tags = desc[1].findAll('p')
                     except:
                         continue
 
@@ -132,18 +138,21 @@ class EventbriteMusic:
                     location = locat +(' ')+ "Dublin"
                 else:
                     location = 'Dublin'
+
+                print(location)
                 
                 try:
-
+                        
                     if location == 'Dublin':
-                        ordinates = getOrdinates(location)
-                    else:
                         ordinates[2] = "The Spire,North City,Dublin"
                         ordinates[0] = 53.3498091
-                        ordinates[1] = -6.2602548
+                        ordinates[1] = -6.2602548                        
+                        
+                    else:
+                        ordinates = getOrdinates(location)
 
                 except:
-                    continue
+                    continue 
 
 
                 try:

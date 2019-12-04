@@ -19,7 +19,10 @@ class EventbriteFood:
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass    
             page_html = uClient.read()
             uClient.close()
             #Parsing
@@ -62,7 +65,10 @@ class EventbriteFood:
                 
                 descurl = read_more
                 #Opening connection , grabbing the page
-                uClient = uReq(descurl)
+                try:
+                    uClient = uReq(descurl)
+                except:
+                    pass
                 desc_html = uClient.read()
                 uClient.close()
                 #Parsing
@@ -131,9 +137,20 @@ class EventbriteFood:
                     location = locat +(' ')+ "Dublin"
                 else:
                     location = 'Dublin'
+                print(location)
+                
+                try:
+                        
+                    if location == 'Dublin':
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548                        
+                        
+                    else:
+                        ordinates = getOrdinates(location)
 
-                ordinates = getOrdinates(location)
-                print(ordinates)        
+                except:
+                    continue       
 
                 try:
                     d1=datetime.datetime(int(year),int(month_string_to_number(Month)),int(Date))

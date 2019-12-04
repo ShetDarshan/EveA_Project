@@ -5,8 +5,8 @@ import { luser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { Link } from 'react-router-dom';
 import './index.css'
+import "./loginRegister.css";
 import Face from '../layout/Face';
-
 
  class Login extends Component {
     constructor() {
@@ -51,12 +51,9 @@ import Face from '../layout/Face';
     return (
 
         <div className="container-fluid bg">
-          <div className="row justify-content-center">
-            <div className="col-12 col-sm=6 col-md-3">
-            
-    
+            <div class="login">
               {/* <h5 className="lead text-center">Sign in to your account</h5> */}
-              <form className="form-container" onSubmit={this.onSubmit}>
+              <form className="form-container pt-3 pl-5 pr-5" onSubmit={this.onSubmit}>
               <div className="form-group">
                 <h4 className="text-center" style={{color:"#593196",paddingTop:"10px"}}>Explore Your Events in Dublin!</h4>
               <TextFieldGroup
@@ -75,7 +72,7 @@ import Face from '../layout/Face';
                   onChange={this.onChange}
                  error={errors.password}
                 />
-                 <Link to="/forgotpwd" className="text-center btn btn-link float-right">Forgot Password?</Link>
+                 <Link to="/forgotpwd" className="text-center btn btn-link float-right" style={{color:"#0099CC"}}>Forgot Password?</Link>
                  <div className="clearfix"></div>
                    <input type="submit" className="btn btn-primary btn-block" value="Login" />
                   
@@ -84,13 +81,11 @@ import Face from '../layout/Face';
                 
                 <div className="form-group">
                 <p className="lead text-center">Not a member? 
-                <Link  className="btn btn-link" to="/Register">Sign Up</Link></p>
+                <Link  className="lead text-center" to="/Register" style={{color:"#0099CC"}}> Sign Up</Link></p>
                 </div>
               </form>
             </div>
-          </div>
         </div>
-       
     )
   }
 }
