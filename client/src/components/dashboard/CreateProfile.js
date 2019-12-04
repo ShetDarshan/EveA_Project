@@ -737,35 +737,36 @@ class CreateProfile extends Component {
                   <div class="card-group">
                   <ul className="card">
                     {
-                      profiles && profiles.map(data => {
-                        return (
-<div className="card-body">
-                          <li key={"profile-"+data} className="card">
-                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
-                                <div key={"profile-container-"+data.handle} className="text-center">
-                                  {/* <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
-                                    <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                  </div> */}
-                                   <div className="user-details__avatar float-left">
-                    {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
-                       <img src={user}></img> 
-                     </div> 
-                                </div>
-                                <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                
-                                <h5 key={"profile-handle-"+data.handle} className="text-center">{data.handle}</h5>
-                                <p key={"profile-Bio"+data.handle} className="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{data.Bio}</p>
-                                {/* <button type="button" className="btn btn-dark float-right" style={{backgroundColor:"purple"}}>Send Request</button> */}
-                                <div class="btn-container float-right">
-      <button class="btn btn-dark" style={{backgroundColor:"#593196",width:"100.08px",height:"34.80px"}}>Add Friend</button>
-      {/* <button class="btn btn-dark" style={{backgroundColor:"black",width:"106.08px",height:"34.80px"}}>Dismiss</button> */}
-    </div>
-                            </Link>
-                           
-                          </li>
-                          
-                          </div>
-                        )
+                      sugessted && sugessted.map((data,i) => {
+                        return (data.map((f,j)=> {    return (
+                          <div className="card-body">
+                                                    <li key={"profile-"+f} className="card">
+                                                      <Link key={"profile-link-"+f.handle} to={`/friend/${f.email}`}>
+                                                          <div key={"profile-container-"+f.handle} className="text-center">
+                                                            {/* <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                                              <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                                                            </div> */}
+                                                             <div className="user-details__avatar float-left">
+                                              {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
+                                                 <img src={f.imageUrl}></img> 
+                                               </div> 
+                                                          </div>
+                                                          <div key={"profile-background-"+f.handle} className="avatarImg" style={{ backgroundImage: `url(${f.imageUrl})` }}></div>
+                                                          
+                                                          <h5 key={"profile-handle-"+f.handle} className="text-center">{f.handle}</h5>
+                                                          <p key={"profile-Bio"+f.handle} className="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{f.Bio}</p>
+                                                          {/* <button type="button" className="btn btn-dark float-right" style={{backgroundColor:"purple"}}>Send Request</button> */}
+                                                          <div class="btn-container float-right">
+                                <button class="btn btn-dark" style={{backgroundColor:"#593196",width:"100.08px",height:"34.80px"}}>Add Friend</button>
+                                {/* <button class="btn btn-dark" style={{backgroundColor:"black",width:"106.08px",height:"34.80px"}}>Dismiss</button> */}
+                              </div>
+                                                      </Link>
+                                                     
+                                                    </li>
+                                                    
+                                                    </div>
+                                                  )}))
+                     
                       })}
                   </ul>
                 </div>

@@ -58,10 +58,10 @@ import "./navbar.css";
                 <i class="fas fa-user"></i>
 My Profile
                 </a>
-                <a class="dropdown-item" href="/updateProfile" style={{color:"#ffbb33"}}>
+                {/* <a class="dropdown-item" href="/updateProfile" style={{color:"#ffbb33"}}>
                 <i class="fas fa-edit"></i>
 Edit Profile
-                </a>
+                </a> */}
                 <a class="dropdown-item"  href="/login" onClick={this.onLogoutClick} style={{color:"red"}}>
                 <i class="fas fa-sign-out-alt"></i>
                 Logout</a>
