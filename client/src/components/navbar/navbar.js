@@ -48,9 +48,23 @@ import "./navbar.css";
     const  authorisedLink  =  (
         <ul className="navbar-nav ml-auto ">
           <li className="nav-item "><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
-            <li className="nav-item "><Link className="nav-link" to="/profile">Profile</Link></li>
-            <li key="logout" className="nav-item">
-                <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>Logout</Link></li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="/profile"
+              role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="d-none d-md-inline-block">Profile</span></a>
+              <div className="dropdown-menu dropdown-menu-small">
+                <a class="dropdown-item" href="/updateProfile">
+                <i class="fas fa-edit"></i>
+                               Edit Profile
+                </a>
+                
+                <a class="dropdown-item" href="/updateProfile">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout Profile</a>
+
+              </div>
+              </li>
+         
           </ul>
       );
       const guestUser = (
