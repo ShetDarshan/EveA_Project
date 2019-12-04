@@ -41,7 +41,7 @@ class Search extends Component {
   render() {
     return (
       <div className="ais-InstantSearch search-events">
-        <InstantSearch indexName="evea_events" searchClient={searchClient}>
+        <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <div className="right-panel">
             <div className="search-container m-4 w-70">
               <SearchBox className="form-control mr-sm-2 " onKeyDown={this.onKeyPressed} />
