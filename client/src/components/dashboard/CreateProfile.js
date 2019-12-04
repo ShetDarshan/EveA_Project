@@ -189,11 +189,15 @@ class CreateProfile extends Component {
             <div className="card-body"> 
             <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
                                       <div className="imageContainer" title="Click to see more details">
-                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                      <div className="user-details__avatar mx-auto">
+                    {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
+                       <img src={user}></img> 
+                     </div> 
+                                      {/* <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div> */}
                                     </div>
-                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>UserName</h5>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead  text-center" style={{paddingTop:"50px"}}>UserName</h5>
                                   </Link>
-                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead"><b>Software Developer</b></h6>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead text-center"><b>Software Developer</b></h6>
                                   {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
                                    {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
                                   {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
@@ -739,13 +743,23 @@ class CreateProfile extends Component {
                           <li key={"profile-"+data} className="card">
                             <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
                                 <div key={"profile-container-"+data.handle} className="text-center">
-                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                  {/* <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
                                     <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                  </div>
+                                  </div> */}
+                                   <div className="user-details__avatar float-left">
+                    {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
+                       <img src={user}></img> 
+                     </div> 
                                 </div>
                                 <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                <h5 key={"profile-handle-"+data.handle} className="card-title">{data.handle}</h5>
-                                <button type="button" className="btn btn-dark float-right" style={{backgroundColor:"purple",alignContent:"float-right"}}>Send Request</button>
+                                
+                                <h5 key={"profile-handle-"+data.handle} className="text-center">{data.handle}</h5>
+                                <p key={"profile-Bio"+data.handle} className="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{data.Bio}</p>
+                                {/* <button type="button" className="btn btn-dark float-right" style={{backgroundColor:"purple"}}>Send Request</button> */}
+                                <div class="btn-container float-right">
+      <button class="btn btn-dark" style={{backgroundColor:"#593196",width:"100.08px",height:"34.80px"}}>Add Friend</button>
+      {/* <button class="btn btn-dark" style={{backgroundColor:"black",width:"106.08px",height:"34.80px"}}>Dismiss</button> */}
+    </div>
                             </Link>
                            
                           </li>

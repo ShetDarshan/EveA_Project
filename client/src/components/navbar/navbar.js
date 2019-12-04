@@ -49,12 +49,16 @@ import "./navbar.css";
         <ul className="navbar-nav ml-auto ">
           <li className="nav-item "><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle text-nowrap" data-toggle="dropdown" href="/profile"
+              <Link className="nav-link dropdown-toggle text-nowrap" data-toggle="dropdown" to="/profile"
               role="button" aria-haspopup="true" aria-expanded="true">Profile
                 {/* <span class="d-none d-md-inline-block">Profile</span> */}
-                </a>
+                </Link>
               <div className="dropdown-menu dropdown-menu-small">
-                <a class="dropdown-item" href="/updateProfile" style={{color:"#593196"}}>
+              <a class="dropdown-item" href="/profile" style={{color:"#ffbb33"}}>
+                <i class="fas fa-user"></i>
+My Profile
+                </a>
+                <a class="dropdown-item" href="/updateProfile" style={{color:"#ffbb33"}}>
                 <i class="fas fa-edit"></i>
 Edit Profile
                 </a>
