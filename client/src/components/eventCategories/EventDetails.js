@@ -213,7 +213,7 @@ class EventDetails extends Component {
                 <p className="mt-2 text-justify">{data.summary}</p>
               </div>
               <div key={data.title + "-right-container"} className="right-container col-lg-4 col-md-12 col-sm-12 col-xs-12 pt-5">
-                <p key={data.title + "-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.date}</p></p>
+                <p key={data.title + "-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.startdate}</p></p>
                 <p key={data.title + "-address"} className="mb-2"><span className="text-muted">Address:</span><p>{data.address}</p></p>
                 <p key={data.title + "-price"} className="mb-2"><span className="text-muted">Price:</span><p>{data.price}</p></p>
 

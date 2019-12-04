@@ -77,7 +77,7 @@ import Face from '../layout/Face';
                    <input type="submit" className="btn btn-primary btn-block" value="Login" />
                   
                 </div>
-                <Face className="form-group"/>                
+                {/* <Face className="form-group"/>                 */}
                 
                 <div className="form-group">
                 <p className="lead text-center">Not a member? 
