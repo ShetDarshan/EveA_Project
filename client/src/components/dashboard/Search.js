@@ -41,7 +41,7 @@ class Search extends Component {
   render() {
     return (
       <div className="ais-InstantSearch search-events">
-        <InstantSearch indexName="evea_events" searchClient={searchClient}>
+        <InstantSearch indexName="algoevents" searchClient={searchClient}>
           <div className="right-panel">
             <div className="search-container m-4 w-70">
               <SearchBox className="form-control mr-sm-2 " onKeyDown={this.onKeyPressed} />
@@ -69,7 +69,7 @@ function Hit(props) {
         <div>
           <Link to={`/event/${props.hit.title}`} className="card-link">
               <div className="imageContainer" title={props.hit.title}>
-                  <div key={props.hit.title+"-background"} className="imageBg" style={{backgroundImage: `url(${props.hit.img})`}}></div>  
+                  <div key={props.hit.title+"-background"} className="imageBg" style={{backgroundImage: `url(${props.hit.image})`}}></div>  
               </div>
               <h5 className="card-title mb-2 mt-2 pt-0 lead ">
               <span className="hit-name">
