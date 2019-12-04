@@ -22,7 +22,10 @@ class EventbriteFashion:
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass    
             page_html = uClient.read()
             uClient.close()
             #Parsing
@@ -65,7 +68,10 @@ class EventbriteFashion:
                 
                 descurl = read_more
                 #Opening connection , grabbing the page
-                uClient = uReq(descurl)
+                try:
+                    uClient = uReq(descurl)
+                except:
+                    pass
                 desc_html = uClient.read()
                 uClient.close()
                 #Parsing
@@ -125,23 +131,45 @@ class EventbriteFashion:
                     Final_Date = 'None'
 
 
-                #location fetching
-                location_div = desc_soup.findAll('div', class_='event-details__data')              
+                # #location fetching
+                # location_div = desc_soup.findAll('div', class_='event-details__data')              
                 
+                # if len(location_div) > 0:
+                #     location_tags = location_div[1].findAll('p')
+                #     for i in range(0,2):
+                #         locat = location_tags[i].text
+                #         locat = locat + (' ')
+                #         locate.append(locat)
+                #     location = ''.join(str(e) for e in locate)
+                #     location = location + "Dublin"
+                #     print("location here")
+                #     print(location)
+                # else:
+                #     location = 'Dublin'
+
+                 #location fetching
+                location_div = desc_soup.findAll('div', class_='event-details__data')              
                 if len(location_div) > 0:
                     location_tags = location_div[1].findAll('p')
-                    for i in range(0,2):
-                        locat = location_tags[i].text
-                        locat = locat + (' ')
-                        locate.append(locat)
-                    location = ''.join(str(e) for e in locate)
-                    location = location + "Dublin"
-                    print("location here")
-                    print(location)
+                    locat = location_tags[0].text
+                    location = locat +(' ')+ "Dublin"
                 else:
-                    location = 'Dublin'
+                    location = 'Dublin'                
 
-                ordinates = getOrdinates(location)
+                print(location)
+                
+                try:
+                        
+                    if location == 'Dublin':
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548                        
+                        
+                    else:
+                        ordinates = getOrdinates(location)
+
+                except:
+                    continue
                    
 
                 try:

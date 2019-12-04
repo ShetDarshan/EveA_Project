@@ -17,8 +17,6 @@ class WhitehallIe:
         page_html = uClient.read()
         uClient.close()
 
-
-
         # Finding each events
         page_soup = soup(page_html, "html.parser")
 
