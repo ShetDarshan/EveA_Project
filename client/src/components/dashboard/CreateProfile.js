@@ -87,7 +87,7 @@ class CreateProfile extends Component {
                         <div className="card-body p-0">
                     <div className="user-details__avatar mx-auto">
                     {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
-                       <img src={user}></img> 
+                       <img src={userImageUrl}></img> 
                      </div> 
                    
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
