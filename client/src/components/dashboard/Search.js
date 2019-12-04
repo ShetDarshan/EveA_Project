@@ -69,7 +69,7 @@ function Hit(props) {
         <div>
           <Link to={`/event/${props.hit.title}`} className="card-link">
               <div className="imageContainer" title={props.hit.title}>
-                  <div key={props.hit.title+"-background"} className="imageBg" style={{backgroundImage: `url(${props.hit.image})`}}></div>  
+                  <div key={props.hit.title+"-background"} className="imageBg" style={{backgroundImage: `url(${props.hit.img})`}}></div>  
               </div>
               <h5 className="card-title mb-2 mt-2 pt-0 lead ">
               <span className="hit-name">
