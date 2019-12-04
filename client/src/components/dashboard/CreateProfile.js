@@ -91,7 +91,14 @@ class CreateProfile extends Component {
                      </div> 
                    
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
-        <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
+        <p class="text-center text-dark m-0 mb-2" style={{color:"#539196"}}>{userBio}</p>
+      
+      <button type="button" class="btn btn-primary btn-lg btn-block" style={{backgroundColor:"#ffbb33",borderBlockColor:"#ffbb33"}} data-toggle="modal" data-target=".bd-example-modal-lg1">
+  Interested events
+</button>
+<button type="button" class="btn btn-primary btn-lg btn-block" style={{backgroundColor:"#593196"}} data-toggle="modal" data-target=".bd-example-modal-lg2">
+  Going events
+</button>
         
         <div class="user-details__user-data border-top border-bottom p-4">
           <div class="row mb-3">
@@ -112,7 +119,8 @@ class CreateProfile extends Component {
 
 
         <div class="user-details__tags p-4" >
-          <span class="badge badge-pill badge-light text-light text-uppercase mb-2 border" style={{color:"purple"}}>{userInterests}</span>
+          <h4 className="text-primary">Interests</h4>
+          <span class="badge badge-pill badge-light text-dark text-uppercase mb-2 border" style={{color:"purple"}}>{userInterests}</span>
         
         </div>
                     </div>
@@ -352,6 +360,389 @@ class CreateProfile extends Component {
                 {/* </div>
                 </div> */}
 
+     
+ 
+
+<section id="Interested events">
+          <div class="container">
+
+{/* <ul class="nav nav-pills nav-stacked">
+  <li><a href="#lightbox" data-toggle="modal">Open Lightbox</a></li>
+</ul> */}
+
+
+{/* <div class="modal fade bd-example-modal-lg and carousel slide" id="lightbox"> */}
+<div class="modal fade bd-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Interested events</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+      <div class="container-fluid">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            <div class="carousel-item col-md-4 active">
+              <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "https://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>   
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+    </section>
+
+
+
+    <section id="Going events">
+          <div class="container">
+
+{/* <ul class="nav nav-pills nav-stacked">
+  <li><a href="#lightbox" data-toggle="modal">Open Lightbox</a></li>
+</ul> */}
+
+
+{/* <div class="modal fade bd-example-modal-lg and carousel slide" id="lightbox"> */}
+<div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Going events</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+      <div class="container-fluid">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            <div class="carousel-item col-md-4 active">
+              <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "https://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+            <div class="card card-slider">
+            <div className="card-body"> 
+                                    <Link to="https://towardsdatascience.com/recommender-system-a1e4595fc0f0" className="card-link">
+                                      <div className="imageContainer" title="Click to see more details">
+                                      <div className="imageBg" style={{backgroundImage: "ttps://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwik1aqSoJrmAhXDiFwKHXgjAV8QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.ecommercetimes.com%2Fstory%2F86230.html&psig=AOvVaw2cwwaIym-8Af6tZt3NIuCJ&ust=1575489031592418"}}></div>
+                                    </div>
+                                    <h5 title= "hyu event" className="card-title mb-2 mt-2 pt-0 lead " style={{paddingTop:"50px"}}>hyu event</h5>
+                                  </Link>
+                                  <h6 className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>03.05.2019</b></h6>
+                                  {/* <Link to={`/event/${data.title}` } className="card-link">View Event</Link> */}
+                                   {/* <a href={`https://www.google.com/maps?saddr=$66.77,${this.state.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link locationIcon float-right"></a>  */}
+                                  {/* <a href={`https://www.google.com/maps?saddr=${this.props.locationData.lat},${this.props.locationData.lon}&daddr=${data.latitude},${data.longitude}`} target="_blank" className="card-link">Show Route</a> */}
+                                  <div className="clear-fix"></div>
+                                </div>
+                                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+     <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>   
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+    </section>     
+      
               
 <div className="row">
 
@@ -367,13 +758,22 @@ class CreateProfile extends Component {
                           <li key={"profile-"+data} className="card">
                             <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
                                 <div key={"profile-container-"+data.handle} className="text-center">
-                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                  {/* <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
                                     <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                  </div>
+                                  </div> */}
+                                  <div className="user-details__avatar">
+                    {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
+                       <img src={user}></img> 
+                     </div> 
                                 </div>
                                 <div key={"profile-background-"+data.handle} className="avatarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
-                                <h5 key={"profile-handle-"+data.handle} className="card-title">{data.handle}</h5>
-                                <button type="button" className="btn btn-dark float-right" style={{backgroundColor:"purple",alignContent:"float-right"}}>Send Request</button>
+                                <h5 key={"profile-handle-"+data.handle} className="text primary" style={{marginBottom:"-4.25rem"}}>{data.handle}</h5>
+                                <ul id="button">
+<a href="link.php"><li class="newbutton">TEXT</li></a>
+<a href="link.php"><li class="newbutton">TEXT</li></a>
+</ul>
+                                <button type="button" className="btn btn float-right" style={{backgroundColor:"#593196",alignContent:"float-right",color:"white"}}>Send Request</button>
+                                <button type="button" className="btn btn float-right" style={{backgroundColor:"black",alignContent:"float-right",color:"white"}}>Dismiss</button>
                             </Link>
                            
                           </li>
