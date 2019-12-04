@@ -10,7 +10,7 @@ import Car4 from '../../img/Car4.png';
 import { purple } from "@material-ui/core/colors";
 import { PlayCircleFilledWhite, CenterFocusStrong } from "@material-ui/icons";
 import Footer from './Footer'
-import "../../css/splash.css"
+// import "../../css/splash.css"
 
 
  class Splash extends Component {
