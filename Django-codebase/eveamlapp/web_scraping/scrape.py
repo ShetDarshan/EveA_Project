@@ -52,7 +52,7 @@ class WebScrape:
 
             if url.referenceId == 'TicketMasterIE':
                 a = 1+2
-                data_list = TicketmasterIe.scrape(url.url,data_list)
+                #data_list = TicketmasterIe.scrape(url.url,data_list)
             
             # elif url.referenceId == 'Eventbrite_Others':
             #     data_list = EventOthers.scrape(url.url,data_list)
@@ -129,8 +129,8 @@ class WebScrape:
             #     a=1+3
             #     #data_list = TUD_main.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'IRELANDIE':
-            #     data_list = IrelandIe.scrape(url.url,data_list)
+            elif url.referenceId == 'IRELANDIE':
+                data_list = IrelandIe.scrape(url.url,data_list)
 
         # # #         ## category scrapping of eventbrite:
            

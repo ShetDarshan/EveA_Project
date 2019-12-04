@@ -12,7 +12,7 @@ class IrelandIe:
         data_list = []
         #136
         #100--added
-        for value in range(10,12):
+        for value in range(1,136):
 
             url = ""
             url = urlOriginal+format(value)+'/'

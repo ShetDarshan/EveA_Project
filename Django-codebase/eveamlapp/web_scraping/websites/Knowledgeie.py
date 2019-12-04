@@ -19,7 +19,10 @@ class KnowIE:
             url = "https://www.knowledgetransferireland.com/Events/Upcoming-Events/?pageNumber={}".format(value)
             #url = url.format(value)
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass
             page_html = uClient.read()
             uClient.close()
             page_soup = soup(page_html, "html.parser")

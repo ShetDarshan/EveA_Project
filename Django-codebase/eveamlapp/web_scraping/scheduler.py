@@ -21,7 +21,7 @@ def deletePastEvents():
 
 
 
-schedule.every().day.at("01:10").do(processwebdata)
+schedule.every().day.at("00:45").do(processwebdata)
 schedule.every().day.at("01:17").do(deletePastEvents)
 
 

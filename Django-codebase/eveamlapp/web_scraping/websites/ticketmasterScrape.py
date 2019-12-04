@@ -57,14 +57,16 @@ class TicketmasterIe:
                     Postal_Code =''    
                 img = var1['images'][2]['url']
                 category = var1['classifications'][0]['segment']['name']
-                if category == 'Arts & Theatre':
-                    category = 'FASHION, ART & THEATRE'
-                elif category == 'Sport':
-                    category = 'HEALTH & SPORTS'
+                if category == 'Arts & Theatre' or category == '':
+                    category = 'FASHION, ART & THEATRE' 
+                elif category == 'Sport' or category == 'Sports':
+                    category = 'SPORTS & HEALTH'
                 elif category == 'Family & Attractions':
                     category = 'COMMUNITY & FESTIVALS'
                 elif category == 'Music':
                     category = 'MUSIC & ENTERTAINMENT'
+                else:
+                    category = 'OTHERS'
                 #Subcategory =var1['classifications'][0]['genre']['name']
                 Venue =var1['_embedded']['venues'][0]['name']
                 #Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
