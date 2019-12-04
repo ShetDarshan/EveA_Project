@@ -12,8 +12,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './../../css/search.css';
 const searchClient = algoliasearch(
-  '7Z6VFB8JQD',
-  'fe812c7ddbd852cb3074294b24c7e641'
+  'RPK4QHS3WC',
+  '8fa8a55177bc1eae5c040bf3ca83f676'
 );
 
 Geocode.setApiKey("AIzaSyDUhIA8M9ad-4bu2bvpuKu3jXnbAjpicBk");
@@ -41,7 +41,7 @@ class Search extends Component {
   render() {
     return (
       <div className="ais-InstantSearch search-events">
-        <InstantSearch indexName="algoevents" searchClient={searchClient}>
+        <InstantSearch indexName="evea_events" searchClient={searchClient}>
           <div className="right-panel">
             <div className="search-container m-4 w-70">
               <SearchBox className="form-control mr-sm-2 " onKeyDown={this.onKeyPressed} />
