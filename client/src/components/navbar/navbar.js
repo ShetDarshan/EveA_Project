@@ -50,17 +50,16 @@ import "./navbar.css";
           <li className="nav-item "><Link className="nav-link home-link" to="/eventboard">Home</Link></li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="/profile"
-              role="button" aria-haspopup="true" aria-expanded="false">
+              role="button" aria-haspopup="true" aria-expanded="true">
                 <span class="d-none d-md-inline-block">Profile</span></a>
               <div className="dropdown-menu dropdown-menu-small">
-                <a class="dropdown-item" href="/updateProfile">
+                <a class="dropdown-item" href="/updateProfile" style={{color:"#593196"}}>
                 <i class="fas fa-edit"></i>
-                               Edit Profile
+Edit Profile
                 </a>
-                
-                <a class="dropdown-item" href="/updateProfile">
+                <a class="dropdown-item"  href="/login" onClick={this.onLogoutClick} style={{color:"red"}}>
                 <i class="fas fa-sign-out-alt"></i>
-                Logout Profile</a>
+                Logout</a>
 
               </div>
               </li>
