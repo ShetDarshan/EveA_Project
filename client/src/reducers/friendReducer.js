@@ -3,6 +3,7 @@ const initialState = {
     friend: [],
     request: [],
     friendsGoing : [],
+    friendsList:[],
     loading: false
 };
 
@@ -25,6 +26,12 @@ export default function(state = initialState,action) {
     return {
         ...state,
         friendsGoing: action.payload,
+        loading:false
+};
+case FRNDS_LIST:
+    return {
+        ...state,
+        friendsList: action.payload,
         loading:false
 };
         default: 
