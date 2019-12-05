@@ -203,24 +203,26 @@ class CreateProfile extends Component {
                                   <div className="m-2 card border-primary ">
                                     <div className=""><div class="text-center">
                                       {/* <div className="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div> */}
-                                      <Link  to={`/friend/${data}`}>{data}</Link>
-                                      <button className="btn btn-sm btn-info btn-sm ml-2 mr-2" 
-                                      onClick={() => {
-                                        this.setState({
-                                          loggedUser: userEmail,
-                                          requestedUser: data,
-                                          msg:true
-                                        })
-                                        this.acceptRequest()
-                                    }}> Accept Request</button>
-                                      <button className="btn btn-sm btn-primary btn-sm"
-                                      onClick={() => {
-                                        this.setState({
-                                          loggedUser: userEmail,
-                                          requestedUser: data,
-                                        })
-                                        this.rejectRequest()
-                                    }}> Reject Request</button>
+                                      <Link  style={{display:"block"}}to={`/friend/${data}`}>{data}</Link>
+                                      <button className="btn btn-sm btn-info btn-sm mr-2"
+                          onClick={() => {
+                            this.setState({
+                              msg: true
+                            })
+                            const request = ({
+                              loggedUser: userEmail,
+                              requestedUser: data
+                            })
+                            this.props.acceptFriendRequest(request)
+                          }}> Accept Request</button>
+                        <button className="btn btn-sm btn-primary btn-sm"
+                          onClick={() => {
+                            const request = ({
+                              loggedUser: userEmail,
+                              requestedUser: data
+                            })
+                            this.props.rejectFriendRequest(request)
+                          }}> Reject Request</button>
                                     </div>
                                     </div>
                                   </div>
@@ -230,7 +232,21 @@ class CreateProfile extends Component {
                          </Slider>
                     </div>
                     <div class="tab-pane fade " id="friends">
-                      <p>Friends</p>
+                      <Slider {...setting}>
+                                {
+                                  friendsList && friendsList.map(data => {
+                                  return (
+                                    <div className="m-2 card border-primary ">
+                                      <div className=""><div class="text-center">
+                                        {/* <div className="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div> */}
+                                        <Link  to={`/friend/${data}`}>{data}</Link>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  )
+                                })   
+                              }
+                          </Slider>
                     </div>
                     <div class="tab-pane fade" id="suggestedFriends">
                         <Slider {...setting}>
