@@ -1,4 +1,4 @@
-import { SEND_REQ,GET_REQ ,FRNDS_GOING } from '../actions/types';
+import { SEND_REQ,GET_REQ ,FRNDS_GOING,FRNDS_LIST } from '../actions/types';
 const initialState = {
     friend: [],
     request: [],
