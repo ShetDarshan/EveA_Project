@@ -130,11 +130,11 @@ export const sendFriendRequest = (friend) => dispatch => {
       }; 
 
       //getFriendsList
-      export const friendsGoing = (email) => dispatch => {
+      export const getFriendsList = (email) => dispatch => {
         // dispatch({ type: LOADING_DATA });
-        console.log("friends Going:",email);
+        console.log("friends list:",email);
         axios
-          .post(`/api/v1/getFriendsList/${email}`)   
+          .get(`/api/v1/getFriendsList/${email}`)   
           .then(res => 
             dispatch({
               type: FRNDS_LIST,
