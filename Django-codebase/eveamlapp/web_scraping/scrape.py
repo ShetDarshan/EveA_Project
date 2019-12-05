@@ -52,54 +52,54 @@ class WebScrape:
 
             if url.referenceId == 'TicketMasterIE':
                 a = 1+2
-                #data_list = TicketmasterIe.scrape(url.url,data_list)
+                data_list = TicketmasterIe.scrape(url.url,data_list)
             
-            # elif url.referenceId == 'Eventbrite_Others':
-            #     data_list = EventOthers.scrape(url.url,data_list)
+            elif url.referenceId == 'Eventbrite_Others':
+                data_list = EventOthers.scrape(url.url,data_list)
             
-            # elif url.referenceId == 'EventbriteBusiness':
-            #     data_list = EventbriteBusiness.scrape(url.url,data_list)
+            elif url.referenceId == 'EventbriteBusiness':
+                data_list = EventbriteBusiness.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'Eventbrite_art':
-            #     data_list = EventbriteArt.scrape(url.url,data_list) 
+            elif url.referenceId == 'Eventbrite_art':
+                data_list = EventbriteArt.scrape(url.url,data_list) 
 
-            # elif url.referenceId == 'Eventbrite_filmmedia':
-            #     data_list = EventFilmmedia.scrape(url.url,data_list) 
+            elif url.referenceId == 'Eventbrite_filmmedia':
+                data_list = EventFilmmedia.scrape(url.url,data_list) 
             
-            # elif url.referenceId == 'Eventbrite_community':
-            #     data_list = EventbriteCommunity.scrape(url.url,data_list) 
+            elif url.referenceId == 'Eventbrite_community':
+                data_list = EventbriteCommunity.scrape(url.url,data_list) 
 
-            # elif url.referenceId == 'Eventbrite_fooddrink':
-            #     data_list = EventbriteFood.scrape(url.url,data_list) 
+            elif url.referenceId == 'Eventbrite_fooddrink':
+                data_list = EventbriteFood.scrape(url.url,data_list) 
             
-            # elif url.referenceId == 'Eventbrite_health':
-            #     data_list = EventHealth.scrape(url.url,data_list)
+            elif url.referenceId == 'Eventbrite_health':
+                data_list = EventHealth.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'Events_travel':
-            #     data_list = EventbriteTravel.scrape(url.url,data_list) 
-            
-
-            # elif url.referenceId == 'Events_sciencetech':
-            #     data_list = EventbriteScience.scrape(url.url,data_list) 
-
-            # elif url.referenceId == 'Events_music':
-            #     data_list = EventbriteMusic.scrape(url.url,data_list) 
-
-            # elif url.referenceId == 'Events_fashion':
-            #     data_list = EventbriteFashion.scrape(url.url,data_list) 
-            
-            # elif url.referenceId == 'Eventbrite_holiday':
-            #     data_list = EventbriteHoliday.scrape(url.url,data_list) 
+            elif url.referenceId == 'Events_travel':
+                data_list = EventbriteTravel.scrape(url.url,data_list) 
             
 
-            # elif url.referenceId == 'RCSIIE':
-            #     data_list = RCSIIE.scrape(url.url,data_list)
+            elif url.referenceId == 'Events_sciencetech':
+                data_list = EventbriteScience.scrape(url.url,data_list) 
 
-            # elif url.referenceId == 'SugarclubIE':
-            #     data_list = SugarclubIe.scrape(url.url,data_list)
+            elif url.referenceId == 'Events_music':
+                data_list = EventbriteMusic.scrape(url.url,data_list) 
 
-            # elif url.referenceId == 'PoetryIreland':
-            #     data_list = PoetryIrelandIE.scrape(url.url,data_list)
+            elif url.referenceId == 'Events_fashion':
+                data_list = EventbriteFashion.scrape(url.url,data_list) 
+            
+            elif url.referenceId == 'Eventbrite_holiday':
+                data_list = EventbriteHoliday.scrape(url.url,data_list) 
+            
+
+            elif url.referenceId == 'RCSIIE':
+                data_list = RCSIIE.scrape(url.url,data_list)
+
+            elif url.referenceId == 'SugarclubIE':
+                data_list = SugarclubIe.scrape(url.url,data_list)
+
+            elif url.referenceId == 'PoetryIreland':
+                data_list = PoetryIrelandIE.scrape(url.url,data_list)
 
         #    # elif url.referenceId == 'dublincity':
         #    #     data_list = dublincity.scrape(url.url,data_list)
@@ -110,14 +110,14 @@ class WebScrape:
         #     # elif url.referenceId == 'DUBIE':
         #     #     data_list = DublinIe.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'DBSScrape':
-            #     data_list = DBSScrape.scrape(url.url,data_list)
+            elif url.referenceId == 'DBSScrape':
+                data_list = DBSScrape.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'DublintownScrape':
-            #     data_list = DublintownScrape.scrape(url.url,data_list)
+            elif url.referenceId == 'DublintownScrape':
+                data_list = DublintownScrape.scrape(url.url,data_list)
 
-            # elif url.referenceId == 'Knowledgeie':
-            #     data_list = KnowIE.scrape(url.url,data_list)
+            elif url.referenceId == 'Knowledgeie':
+                data_list = KnowIE.scrape(url.url,data_list)
 
         # # elif url.referenceId == 'EventbriteIE':
         # #     data_list = EventIe.scrape(url.url,data_list)

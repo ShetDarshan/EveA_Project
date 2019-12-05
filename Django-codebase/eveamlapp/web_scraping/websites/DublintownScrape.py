@@ -64,7 +64,11 @@ class DublintownScrape:
                     category='SPORTS & HEALTH'
                     if category == 'SPORTS & HEALTH' and image == 'None':
                         image = 'https://previews.123rf.com/images/tnn103eda/tnn103eda1705/tnn103eda170500019/79377445-huge-multi-sports-collage-soccer-basketball-football-hockey-baseball-boxing-etc.jpg'
-                        
+                else:
+                    category = 'OTHERS'
+                    if category == 'OTHERS' and image == 'None':
+                        image ='https://discuss.fm/images/max_topic_images/others.jpg'                    
+
                 URL= container.a['href']
                 
                 date = container.cite.text.strip('\n\t\t')
