@@ -214,6 +214,7 @@ class CreateProfile extends Component {
                               requestedUser: data
                             })
                             this.props.acceptFriendRequest(request)
+                            setTimeout(function () { window.location.reload(); }, 1e3);
                           }}> Accept Request</button>
                         <button className="btn btn-sm btn-primary btn-sm"
                           onClick={() => {
@@ -222,6 +223,7 @@ class CreateProfile extends Component {
                               requestedUser: data
                             })
                             this.props.rejectFriendRequest(request)
+                            setTimeout(function () { window.location.reload(); }, 1e3);
                           }}> Reject Request</button>
                                     </div>
                                     </div>

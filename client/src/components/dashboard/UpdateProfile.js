@@ -244,7 +244,7 @@ class UpdateProfile extends Component {
                         onUploadStart={this.handleUploadStart}
                         onUploadSuccess={this.handleUploadSuccess}
                     />
-                    <Button className="btn btn-primary" disabled={!enabled}><b>Update Profile</b></Button>
+                    <Button className="btn btn-primary" ><b>Update Profile</b></Button>
                     </FormGroup>
                 </Form>
             </div>
