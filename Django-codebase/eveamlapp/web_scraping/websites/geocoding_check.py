@@ -4,6 +4,7 @@ from geopy.distance import great_circle
 from geopy.exc import GeocoderTimedOut
 from geopy.extra.rate_limiter import RateLimiter
 import random
+import time
 
 def getOrdinates(location):
     #locator = nom.Nominatim(user_agent= "eba7f5230f2a6888e75a8a19573a4241f4cd1987", timeout= 3)
@@ -20,6 +21,7 @@ def getOrdinates(location):
     else:
         return locate.latitude , locate.longitude, locate.address
 
+    time.sleep(2)
 
 def getDistance(srcLatitude, srcLongitude, destLatitude, destLongitude):
     src = (float(srcLatitude), float(srcLongitude))

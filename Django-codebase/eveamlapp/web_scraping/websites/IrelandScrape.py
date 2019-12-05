@@ -9,13 +9,18 @@ class IrelandIe:
 
     @staticmethod
     def scrape(urlOriginal,data_list):
+        data_list = []
         #136
-        for value in range(1,100):
+        #100--added
+        for value in range(1,136):
 
             url = ""
             url = urlOriginal+format(value)+'/'
             print(url)
-            uClient = uReq(url)
+            try:
+                uClient = uReq(url)
+            except:
+                pass    
             page_html = uClient.read()
             uClient.close()
             # Finding each events
@@ -28,8 +33,6 @@ class IrelandIe:
                     title = 'None'
 
                 location = container.h3.text
-
-             
                 try:
                     description = container.p.text.strip('\n')
                     description = description.strip(' ')
@@ -45,15 +48,17 @@ class IrelandIe:
                 category = 'TOURISM & SIGHTSEEING'
                 if category == 'TOURISM & SIGHTSEEING' and img == 'None':
                     img = 'https://www.fhi.no/globalassets/bilder/vaksine/oversikt-reisevaksine.jpg?preset=mainbodywidth'
+                
+                print(location)
+    
 
+                if location == 'Dublin':
+                    ordinates[2] = "The Spire,North City,Dublin"
+                    ordinates[0] = 53.3498091
+                    ordinates[1] = -6.2602548  
+                else:
+                    ordinates = getOrdinates(location)
 
-                ordinates = getOrdinates(location)
-
-
-                if str(ordinates) == 'Dublin':
-                    ordinates = getOrdinates("Dublin")   
-
-                                
                 data = EventData()
 
                 data.id = uuid.uuid1().__str__()
@@ -67,7 +72,7 @@ class IrelandIe:
                 data.read_more = read
                 data.address = ordinates[2]
                 data.latitude = ordinates[0]
-                data.longitude = ordinates[1]                  
+                data.longitude = ordinates[1]
                 data.enddate = ''
                 data.price = ''
                 data_list.append(data)

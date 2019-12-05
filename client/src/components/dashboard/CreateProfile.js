@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
 import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest } from '../../actions/friendActions';
+import Slider from "react-slick";
 
-import "../../css/profile.css";
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
 import { isNull } from 'util';
 import { Link } from 'react-router-dom';
 import { Button, Snackbar, SnackbarContent } from '@material-ui/core';
+import "../../css/profile.css";
 import card from "../../img/cover.png";
 import user from "../../img/user.png";
 
@@ -45,13 +46,25 @@ class CreateProfile extends Component {
     const { profile, profiles, sugessted } = this.props.users;
     // var { request  } =  this.props.friends;
     console.log("suggested", sugessted);
+    const setting = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: false} },
+        {breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 2, initialSlide: 1, dots: false } },
+        { breakpoint: 600, settings: { slidesToShow: 1,slidesToScroll: 1, dots: false}}
+      ]
+    };
+    
     let allRequests = [];
     if (this.props.friends.request.from) {
       allRequests = this.props.friends.request.from;
     }
-
-    // console.log("this.props.friends.request.from",this.props.friends.request.from);
-    // console.log("console request", allRequests);
+    var uniqAllRequests = [ ...new Set(allRequests) ]; 
+    // let allRequestsUniq = a => [...new Set(allRequests)];
 
     if (profile) {
       profile.map(values => {
@@ -65,30 +78,25 @@ class CreateProfile extends Component {
         userlocation = values.location;
         userBirthday = values.birthday;
         userImageUrl = values.imageUrl;
-
         userGender = values.gender;
       });
-
+      //console.log("Profile Data",profile);
+      console.log("All request",allRequests);
     }
-    return (
-
-     
-     
-          <div className="main-content-container container-fluid px-4">
-            
+    return (    
+      <div className="main-content-container container-fluid px-4">
               <div className="row mt-4">
-                
-                  <div className="col-sm-12 col-lg-4">
+                  <div className="col-12">
                    <div className="card card-small user-details mb-4">
-                     <div className="card-header p-0">
-                       <div className="user-details_bg">
-                         <img src={card}/></div> 
+                     <div className="card-header p-0 ">
+                       {/* <div className="user-details_bg">
+                         <img src={card}/></div>  */}
                          </div>
-                        <div className="card-body p-0">
-                    {/* <div className="user-details__ avatar mx-auto"> */}
-                    <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
-                       {/* <img src={user}></img>  */}
-                    {/* </div> */}
+                        <div className="card-body p-0 profile">
+                          <div className=" avtar">
+                          <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
+                            {/* <img src={user}></img>  */}
+                          </div>
                    
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
         <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
@@ -122,10 +130,10 @@ class CreateProfile extends Component {
                    </div>
                   
                   </div>  
-                  <div className="col-sm-12 col-lg-4">
+                  <div className="col-12">
 <div className="card card-small user-details mb-4">
-<div className="card-header border-bottom">
-  <h6 className="m-0">FRIENDS</h6></div>
+{/* <div className="card-header border-bottom">
+  <h6 className="m-0 text-primary">Suggested Friends</h6></div> */}
  
 <div className="card-body p-0">
                   {/* <div className="row">
@@ -167,32 +175,85 @@ class CreateProfile extends Component {
                </div> */}
              
              <div className="row">
-
-                <div className="col-md-12 ml-auto mr-auto">
-                  <h4 className="text-primary">Suggested Friends</h4>
-                  <ul className="customFriendList">
-                    {
-                      profiles && profiles.map(data => {
-                        return (
-
-                          <li key={"profile-"+data} className="card border-primary m-2 p-2">
-                            <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`}>
-                                <div key={"profile-container-"+data.handle} className="text-center">
-                                  <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
-                                    <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                <div className="col-md-12 ml-auto mr-auto customFriendList">
+                <ul class="nav nav-tabs mb-2">
+                    <li class="nav-item mr-2">
+                      <a class="nav-link active" data-toggle="tab" href="#requests">Friend Reuqests</a>
+                    </li>
+                    <li class="nav-item mr-2">
+                      <a class="nav-link" data-toggle="tab" href="#friends">Friends</a>
+                    </li>
+                    <li class="nav-item mr-2">
+                      <a class="nav-link" data-toggle="tab" href="#suggestedFriends">Suggested Friends</a>
+                    </li>
+                </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade  active show" id="requests">
+                         <Slider {...setting}>
+                              {
+                                uniqAllRequests && uniqAllRequests.map(data => {
+                                return (
+                                  <div className="m-2 card border-primary ">
+                                    <div className=""><div class="text-center">
+                                      {/* <div className="avtarImg" style={{ backgroundImage: `url(https://i1.sndcdn.com/avatars-000316300368-x3f9sd-t500x500.jpg)` }}></div> */}
+                                      <Link  to={`/friend/${data}`}>{data}</Link>
+                                      <button className="btn btn-sm btn-info btn-sm ml-2 mr-2" 
+                                      onClick={() => {
+                                        this.setState({
+                                          loggedUser: userEmail,
+                                          requestedUser: data,
+                                          msg:true
+                                        })
+                                        this.acceptRequest()
+                                    }}> Accept Request</button>
+                                      <button className="btn btn-sm btn-primary btn-sm"
+                                      onClick={() => {
+                                        this.setState({
+                                          loggedUser: userEmail,
+                                          requestedUser: data,
+                                        })
+                                        this.rejectRequest()
+                                    }}> Reject Request</button>
+                                    </div>
+                                    </div>
                                   </div>
-                                </div>
-                                <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
-                            </Link>
-                          </li>
-                        )
-                      })}
-                  </ul>
+                                )
+                              })   
+                            }
+                         </Slider>
+                    </div>
+                    <div class="tab-pane fade " id="friends">
+                      <p>Friends</p>
+                    </div>
+                    <div class="tab-pane fade" id="suggestedFriends">
+                        <Slider {...setting}>
+                              {
+                                profiles && profiles.map(data => {
+                                  return (
+                                    <div key={"profile-"+data} className="card border-primary p-2">
+                                      <Link key={"profile-link-"+data.handle} to={`/friend/${data.email}`} target="_blank">
+                                          <div key={"profile-container-"+data.handle} className="text-center">
+                                            <div key={"profile-friendAvtar-"+data.handle} className="friendAvtar m-auto">
+                                              <div key={"profile-background-"+data.handle} className="avtarImg" style={{ backgroundImage: `url(${data.imageUrl})` }}></div>
+                                            </div>
+                                          </div>
+                                          <h5 key={"profile-handle-"+data.handle} className="mt-2 text-primary text-center font-weight-bold">{data.handle}</h5>
+                                      </Link>
+                                    </div>
+                                  )
+                                })}
+                         </Slider>
+                    </div>
+                  </div>
+                  {/* <h4 className="text-primary">Suggested  Friends</h4> */}
+                  {/* <ul className="customFriendList"> */}
+                 
+                  {/* </ul> */}
                 </div>
                 </div>
 
               
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-md-12 ml-auto mr-auto">
                   <h4 className="text-primary">Suggested Friends</h4>
                   <ul className="customFriendList">
@@ -214,7 +275,7 @@ class CreateProfile extends Component {
                       })}
                   </ul>
                 </div>
-                </div>
+                </div> */}
                 <Snackbar
                         anchorOrigin={{
                             vertical: "top",
@@ -246,13 +307,11 @@ class CreateProfile extends Component {
             
           </div>
           </div>
-          </div>
-
+          </div>   
     )
   }
 }
 const mapStateToProps = state => ({
-  //getting the user list from profileReducer and auth from authReducer
   users: state.users,
   auth: state.auth,
   friends: state.friends

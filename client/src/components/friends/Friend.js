@@ -38,15 +38,15 @@ class Friend extends Component {
             <div className="container">
                 {profile && profile.map((value, index) => {
                     return (
-                        <div className="profile-page">
+                        <div className="profile-friend-page">
                             <div className="page-header header-filter">
                                 <div className="main main-raised">
                                     <div className="profile-content">
                                         <div className="container">
                                             <div className="row m-4 view-friends">
                                                 <div className="w-75">
-                                                    <div className="profile">
-                                                        <div className="avtar float-left">
+                                                    <div className="friend-profile">
+                                                        <div className="avtar float-left m-auto">
                                                             {/* <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div> */}
                                                             <div className="avtarImg" style={{ backgroundImage: `url(${value.imageUrl})` }}>></div>
                                                         </div>
@@ -77,10 +77,10 @@ class Friend extends Component {
                                                         <div className="clearfix"></div>
                                                     </div>
                                                 </div>
-                                                <div className="w-25" style={{ height: "65vh", overflow: "auto" }}>
+                                                {/* <div className="w-25" style={{ height: "65vh", overflow: "auto" }}>
                                                     <h4 className="text-primary">Search Friends</h4>
                                                     <SearchUsers />
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div className="row m-4">
                                                 <h6 className="w-100"><span className="text-muted">Interests:</span> <b className="bold">{value.interests}</b> </h6>

@@ -6,10 +6,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getEventDetails, getRecmdEvents, getLocationEvents } from '../../actions/eventActions';
 import { goingEvent, interestedEvent ,friendsGoing } from '../../actions/friendActions';
+import { getProfile } from '../../actions/profileActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "../../css/App.css";
 import Spinner from '../common/Spinner'
+import { concat } from "bytebuffer";
+let  profiles ,newGoing =[];
 class EventDetails extends Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(location => {
@@ -26,6 +29,13 @@ class EventDetails extends Component {
     this.props.getRecmdEvents(this.props.match.params.title);
     this.props.getLocationEvents(this.props.match.params.title);
   }
+  myFriendsGoing(){
+    newGoing = this.props.friends.friendsGoing;
+    //console.log( this.props.getProfile(friend));
+    newGoing.forEach(friend => {
+      this.props.getProfile(friend);
+    })
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -35,42 +45,28 @@ class EventDetails extends Component {
       going: false
     };
     //props.getEvents();
-    this.props.getEventDetails(this.props.match.params.title);
-  }
-  wrapperGoingFunction = () =>{
-    this.setState({
-      eventId : this.props.match.params.title,
-      user :  this.props.auth.user.email
-    })
-    this.goingActivity()
-    this.setState({ going: !this.state.going })
-  }
-  // interested() {
-  //   this.setState({ interested: !this.state.interested });
-  // }
-  // going() {
-  //   this.setState({ going: !this.state.going })
-  // }
-  wrapperIntrestedFunction = () =>{
-    this.setState({
-      eventId : this.props.match.params.title,
-      user :  this.props.auth.user.email
-    })
-    this.interestedActivity()
-    this.setState({ going: !this.state.going })
-  }
-  goingActivity = () => {
-    this.props.goingEvent(this.state)
-  }
-  interestedActivity = () => {
-    this.props.interestedEvent(this.state)
+    this.props.getEventDetails(this.props.match.params.title)
   }
   render() {
     const { isAuthenticated } = this.props.auth;
     const { eventDetails, loading, recom, locationData } = this.props.eventDetails;
     const dataset = this.props.getRecmdEvents;
-    console.log("friedsGoinf",this.props.friends.friendsGoing)
-    const activities = (<ul className=" track-events mt-2">
+    newGoing = this.props.friends.friendsGoing;
+    const profile = this.props.users.profile;
+    //profile && finalList.push(profile)
+    // if ( profile ) {
+    //   //if(!profile.email.includes(finalList))
+    //   finalList.push(profile)
+    // }
+    // console.log("OutsideFunc Profile",finalList)
+    // if(newGoing){
+    //   newGoing.forEach(element => {
+    //     if(!friendsGoingList.includes(element)) {
+    //       friendsGoingList.push(element)
+    //     }
+    //   });
+    // }
+    const activities = (<div><ul className=" track-events mt-2">
       <li className="">
       <div className={this.state.interested ? "interested active" : "interested"} 
         	onClick={ () => {
@@ -94,7 +90,50 @@ class EventDetails extends Component {
             this.props.goingEvent(request)
           }}>
         <div title = "Going"></div></div>
-      </li></ul>);
+      </li>
+      <li className=""><div 
+        	onClick={ () => {
+            this.myFriendsGoing()
+          }}>
+        <div data-toggle="modal" data-target="#friendsGoing">Friends Going</div></div>
+      </li></ul>
+      <div className="modal fade" id="friendsGoing" role="dialog" aria-labelledby="friendsGoingList" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"> Your Friends who are going</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <ul className="customFriendList">
+              {
+
+                // sugessted && sugessted.map((e,i )=>{ e.map((f,j)=> {console.log(f.email,"final")})}) 
+
+                newGoing && newGoing.map((data, i) => {
+                    return (
+
+                      <li key={"profile-" + data} className=" m-2 p-2">
+                        <Link key={"profile-link-" +data} target="_black" to={`/friend/${data}`}>
+                          {/* <div key={"profile-container-" + f.handle} className="text-center">
+                            <div key={"profile-friendAvtar-" + f.handle} className="friendAvtar m-auto">
+                              <div key={"profile-background-" + f.handle} className="avtarImg" style={{ backgroundImage: `url(${f.imageUrl})` }}></div>
+                            </div>
+                          </div> */}
+                          <h5 key={"profile-handle-" +data} className="mt-2 text-primary text-center font-weight-bold">{data}</h5>
+                        </Link>
+                      </li>
+                    )
+                  })
+              }
+               </ul>    
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>);
     let showItems = 4
     const setting = {
       dots: false,
@@ -119,7 +158,7 @@ class EventDetails extends Component {
                 <div key={data.title + "card-slider"} className="card card-slider">
                   {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
+                    <Link to={`/event/${data.title}`} className="card-link">
                       <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
                         <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
                       </div>
@@ -139,11 +178,13 @@ class EventDetails extends Component {
             {
               locationData && locationData.map(data => (
                 <div key={data.title + "card-slider"} className="card card-slider">
+                  {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link" onClick={this.refreshPage}>
-                        <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
-                          <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
-                        </div>
+                    <Link to={`/event/${data.title}`} className="card-link">
+                      <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
+                        <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
+                      </div>
+
                       <h5 key={data.title + "-desc"} title={data.title} className="card-title mb-2 mt-2 pt-0 lead " style={{ paddingTop: "50px" }}>{data.title}</h5>
                     </Link>
                     <h6 key={data.startdate + "-startdate"} className="card-subtitle mb-2 mt-2 pt-0 lead float-left"><b>{data.startdate}</b></h6>
@@ -155,6 +196,9 @@ class EventDetails extends Component {
                 </div>
               ))}
           </Slider>
+        </div>
+        <div>
+
         </div>
       </div>
     )
@@ -172,23 +216,9 @@ class EventDetails extends Component {
                 <p key={data.title + "-date"} className="mb-2"><span className="text-muted">Date:</span><p>{data.startdate}</p></p>
                 <p key={data.title + "-address"} className="mb-2"><span className="text-muted">Address:</span><p>{data.address}</p></p>
                 <p key={data.title + "-price"} className="mb-2"><span className="text-muted">Price:</span><p>{data.price}</p></p>
-                {/* <button className="btn btn-sm btn-info btn-sm mr-2" 
-                              onClick={() => {
-                                this.setState({
-                                  eventId : data.title,
-                                  user :  user.email
-                                })
-                                this.goingActivity()
-                            }}>Going</button>
-                        <button className="btn btn-sm btn-danger btn-sm"
-                              onClick={() => {
-                                this.setState({
-                                  eventId : data.title,
-                                  user :  user.email
-                                })
-                                this.notGoingActivity()
-                            }}>Not Going</button> */}
+
                 <a key={data.title + "-link"} target="_blank" href={data.read_more} className="btn btn-primary">Visit Webpage</a>
+
                 {isAuthenticated ? activities : ""}
               </div>
             </div>
@@ -197,10 +227,11 @@ class EventDetails extends Component {
         {isAuthenticated ? ShowRecommendation : ""}
       </div>
     );
-  }
-  refreshPage() {
-    console.log("Refresh Page");
-    setTimeout(function () { window.location.reload(); }, 1e3);
+
+    function refreshPage() {
+      setTimeout(function () { window.location.reload(); }, 1e3);
+    }
+
   }
 }
 EventDetails.propTypes = {
@@ -214,6 +245,7 @@ const mapStateToProps = state => ({
   recom: state.events,
   locationData: state.events,
   auth: state.auth,
-  friends : state.friends
+  friends : state.friends,
+  users: state.users,
 });
-export default connect(mapStateToProps, { getEventDetails, getRecmdEvents, getLocationEvents, goingEvent, interestedEvent, friendsGoing })(EventDetails);
+export default connect(mapStateToProps, { getEventDetails, getRecmdEvents, getLocationEvents, goingEvent, interestedEvent, friendsGoing,getProfile })(EventDetails);

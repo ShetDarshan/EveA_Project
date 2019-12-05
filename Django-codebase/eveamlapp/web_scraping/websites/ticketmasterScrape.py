@@ -7,7 +7,6 @@ import uuid
 import re
 import datetime
 from .geocoding_check import getOrdinates
-
 from eveamlapp.web_scraping.models import EventData
 
 class TicketmasterIe:
@@ -15,11 +14,15 @@ class TicketmasterIe:
     @staticmethod
     def scrape(urlOriginal, data_list):
         #49
-        for value in range(1,49):
+        #27
+        for value in range(27,39):
             url = ""
             url = urlOriginal+format(value)
             print(url)
-            JSONContent = requests.get(url).json()
+            try:
+                JSONContent = requests.get(url).json()
+            except:
+                pass
             content = json.dumps(JSONContent, indent = 4, sort_keys= True)
             #print(content)  
             data = json.loads(content)
@@ -54,20 +57,34 @@ class TicketmasterIe:
                     Postal_Code =''    
                 img = var1['images'][2]['url']
                 category = var1['classifications'][0]['segment']['name']
-                if category == 'Arts & Theatre':
-                    category = 'FASHION, ART & THEATRE'
-                elif category == 'Sport':
-                    category = 'HEALTH & SPORTS'
+                if category == 'Arts & Theatre' or category == '':
+                    category = 'FASHION, ART & THEATRE' 
+                elif category == 'Sport' or category == 'Sports':
+                    category = 'SPORTS & HEALTH'
                 elif category == 'Family & Attractions':
                     category = 'COMMUNITY & FESTIVALS'
                 elif category == 'Music':
                     category = 'MUSIC & ENTERTAINMENT'
+                else:
+                    category = 'OTHERS'
                 #Subcategory =var1['classifications'][0]['genre']['name']
                 Venue =var1['_embedded']['venues'][0]['name']
                 #Location = Venue+(' ')+ Address_Line_1 +(' ')+ Address_Line_2 +(' ')+ Postal_Code
                 Location = Venue + "Dublin"
 
-                ordinates = getOrdinates(Location)
+
+                try:
+                        
+                    if Location == 'Dublin':
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548                        
+                        
+                    else:
+                        ordinates = getOrdinates(Location)
+
+                except:
+                    continue
 
                 if d1>d2:
                     data = EventData()

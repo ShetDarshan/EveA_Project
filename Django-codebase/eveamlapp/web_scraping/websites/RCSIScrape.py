@@ -57,6 +57,22 @@ class RCSIIE:
                 
                 Location = container.p.text.strip('\n')
                 
+
+                try:
+
+                    if Location == 'Dublin':
+                        ordinates[2] = "The Spire,North City,Dublin"
+                        ordinates[0] = 53.3498091
+                        ordinates[1] = -6.2602548
+                        
+                    else:
+                        ordinates = getOrdinates(Location)
+
+                except:
+                    continue
+
+
+
                 ordinates = getOrdinates(Location)
                 if str(ordinates) == 'Dublin':
                     ordinates = getOrdinates("Dublin")  

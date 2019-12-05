@@ -12,8 +12,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './../../css/search.css';
 const searchClient = algoliasearch(
-  '7Z6VFB8JQD',
-  'fe812c7ddbd852cb3074294b24c7e641'
+  'RPK4QHS3WC',
+  '8fa8a55177bc1eae5c040bf3ca83f676'
 );
 
 Geocode.setApiKey("AIzaSyDUhIA8M9ad-4bu2bvpuKu3jXnbAjpicBk");

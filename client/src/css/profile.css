@@ -5,20 +5,104 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.customFriendList {
-    overflow:hidden;
-    height:9rem;
-}
-.customFriendList li{
-    list-style:none;
-    display:inline-block;
-    width: 12rem;
-}
 .profile-page .profile  {
     text-align:center;
 }
-.customFriendList li .profile .avtar {
+.profile .avtar {
+    max-width: 15rem;
+    max-height: 15rem;
+    min-width: 15rem;
+    min-height: 15rem;
+    margin:auto;
+  }
+.profile .avtar .avtarImg {
+    width: inherit;
+    min-height: inherit;
+    min-width: inherit;
+    background-size: contain;
+    background-position: center;
+    border-radius: 132px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: inherit;
+}
+.friend-profile .avtar {
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 15rem;
+    max-height: 15rem;
+    min-width: 12rem;
+    min-height: 12rem;
+    /* position: absolute;
+    right: 0;
+    bottom: -58px;
+    left: 0; */
+    margin: auto;
+  }
+ 
+.friend-profile .avtar .avtarImg {
+    width: inherit;
+    min-height: 12rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: inherit;
+}
+/* .profile .name .title {
+    font-size: 2vw;
+}
+.description p.text-capitalize {
+    font-size: 1.3vw;
+}
+.profile-content .row h6 {
+    font-size: 1.2vw;
+} */
+
+/* Custom Frineds*/
+/* .customFriendList {
     overflow:hidden;
+    height:9rem;
+} */
+/* .customFriendList {
+    list-style:none;
+    display:inline-block;
+    width: 12rem;
+} */
+.customFriendList .card{
+    max-height: 15rem;
+}
+.customFriendList  .friendAvtar .avtarImg {
+    width: inherit;
+    height: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 132px;
+}
+.customFriendList  .friendAvtar { 
+    width: 5rem;
+    height: 5rem;
+}
+
+.customFriendList  .friendAvtar .avtarImg {
+    width: inherit;
+    height: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 132px;
+}
+/* Friend Request*/
+.friendAvtar {
+    max-width: 12rem;
+    max-height: 12rem;
+}
+.friendRequestList  li .friendAvtar .avtarImg {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
 }
 .friendRequestList  .profile .avtar .avtarImg {
     width: 16rem;
@@ -29,97 +113,7 @@
     background-repeat: no-repeat;
     margin: 0 auto;
 }
-.profile .avtar {
-    overflow: hidden;
-    cursor: pointer;
-  }
-.profile .avtar .avtarImg {
-    width: 16rem;
-    height: 16rem;
-    background-size: 100%;
-    background-position: center;
-    border-radius: 140px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-}
-
-.p-4 {
-    padding: 1.5rem!important;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #ededed!important;
-}
-
-.border-top {
-    border-top: 1px solid #ededed!important;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -15px;
-}
-
-.user-details__tags .badge {
-    font-weight: 400;
-}
-
-
-
-.border {
-    border: 5px solid #e1e5eb!important;
-}
-
-.badge-pill {
-    padding-right: .5rem;
-    padding-left: .5rem;
-    border-radius: 10rem;
-}
-
-.badge-light {
-    color: #212529;
-    background-color: #fbfbfb;
-}
-
-.customFriendList li .friendAvtar .avtarImg {
-    width: inherit;
-    height: inherit;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 132px;
-}
-.customFriendList li .friendAvtar { 
-    width: 5rem;
-    height: 5rem;
-}
-.friendAvtar {
-    max-width: 12rem;
-    max-height: 12rem;
-}
-.friendRequestList  li .friendAvtar .avtarImg {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto;
-}
-.customFriendList li .friendAvtar .avtarImg {
-    width: inherit;
-    height: inherit;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 132px;
-}
-.profile .name .title {
-    font-size: 2vw;
-}
-.description p.text-capitalize {
-    font-size: 1.3vw;
-}
-.profile-content .row h6 {
-    font-size: 1.2vw;
-}
+/* Update Profile*/
 .updateProfile {
     border-style: inset;
     background-color: transparent;
@@ -132,297 +126,4 @@
     height: 100vh;
     width: 75vw;
     overflow: hidden;
-}
-
-
-
-
-.main-content>.main-content-container.container-fluid {
-    min-height: calc(100vh - 7.5rem);
-}
-
-.px-4 {
-    padding-left: 1.5rem!important;
-}
-
-.container-fluid {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
-/* .div {
-    display: block;
-} */
-/* 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-.body {
-    font-size: 13px;
-    font-weight: 400;
-}
-}
-
-.body {
-   
-    color: #5a6169;
-   
-}
-
-.body {
-   
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  
-    line-height: 1.5;
- 
-    text-align: left;
- 
-} */
-.user_details_bg{
-width:100%;
-position:absolute;
-max-height: 7.1875;
-}
-
-
-
-
-
-
-.user-details_bg:after{
-    content:'';
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background: rgba(90, 95, 105, 0.3)
-}
-
-.user-details .card-header{
-    overflow:hidden;
-}
-
-/* .user-details .card-body h4 {
-    font-weight: 500;
-} */
-
-.text-center {
-    text-align: center!important;
-}
-
-/* .mt-2 {
-    margin-top: .5rem!important;
-} */
-
-
-.m-0 {
-    margin: 0!important;
-}
-
-.h4 {
-    font-size: 1.563rem;
-    line-height: 2rem;
-}
-
-.h4 {
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-.mt-4, .my-4 {
-    margin-top: 1.5rem!important;
-}
-
-.row {
-   
-    display: flex;
-  
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-/* @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
-    .body {
-        font-size: 13px;
-        font-weight: 400;
-    }
-    } */
-
-
-
-
-@media only screen and (min-width: 576px)
-{
-.col-sm-12 {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-}
-
-
-
-
-/* .body {
-   
-    color: #5a6169;
-    background-color: #fff;
-}
-
-.body {
-    margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fff;
-} */
-
-@media (min-width: 576px){
-.col-sm-12 {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-}
-
-.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.card-small {
-    box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
-}
-
-/* .card {
-    background-color: #fff;
-    border: none;
-    border-radius: .625rem;
-    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,.1), 0 0.9375rem 1.40625rem rgba(90,97,105,.1), 0 0.25rem 0.53125rem rgba(90,97,105,.12), 0 0.125rem 0.1875rem rgba(90,97,105,.1);
-} */
-
-.mb-4, .my-4 {
-    margin-bottom: 1.5rem!important;
-}
-
-/* .user-details .card-body h4 {
-    font-weight: 500;
-} */
-
-.text-center {
-    text-align: center!important;
-}
-
-/* .mt-2 {
-    margin-top: .5rem!important;
-} */
-
-.m-0 {
-    margin: 0!important;
-}
-
-.h4 {
-    font-size: 1.563rem;
-    line-height: 2rem;
-    color: #3d5170;
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-/* .card {
-
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-} */
-
-.card-header:first-child {
-    border-radius: .625rem .625rem 0 0;
-}
-
-/* .card-small .card-body, .card-small .card-footer, .card-small .card-header {
-    padding: 1rem 1rem;
-} */
-
-.card-header {
-    position: relative;
-}
-
-.card-header {
-    padding: 1.09375rem 1.875rem;
-    background-color: #fff;
-    border-bottom: none;
-}
-
-.p-0 {
-    padding: 0!important;
-}
-
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,.125);
-}
-
-.user-details__bg {
-    width: 100%;
-    position: relative;
-    max-height: 7.1875rem;
-}
-
-
-/* .user-details .card-body{
-    margin-top:-3.125rem;
-    z-index:1;
-} */
-
-.p-0{
-    padding:0!important;
-}
-
-/* .card-body {
-    
-    flex: 1 1 auto;
-   
-} */
-
-.avatarImg {
-    border-radius: 50%;
-    overflow: hidden;
-    max-width: 6.25rem;
-    box-shadow: 0 2px 0 rgba(90,97,105,.11), 0 4px 8px rgba(90,97,105,.12), 0 10px 10px rgba(90,97,105,.06), 0 7px 70px rgba(90,97,105,.1);
-}
-
-.mx-auto {
-    margin-left: auto!important;
-}
-
-.mx-auto {
-    margin-right: auto !important;
 }
