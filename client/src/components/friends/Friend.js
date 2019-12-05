@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfile } from '../../actions/profileActions';
 import { get } from 'https';
+import card from "../../img/cover.png";
 import {
     Button, Snackbar,
     SnackbarContent
@@ -38,24 +39,29 @@ class Friend extends Component {
             <div className="container">
                 {profile && profile.map((value, index) => {
                     return (
-                        <div className="profile-page">
-                            <div className="page-header header-filter">
-                                <div className="main main-raised">
-                                    <div className="profile-content">
-                                        <div className="container">
-                                            <div className="row m-4 view-friends">
-                                                <div className="w-75">
-                                                    <div className="profile">
-                                                        <div className="avtar float-left">
+                        <div className="main-content-container container-fluid px-4">
+                           <div className="row mt-4">
+                           <div className="col-sm-12 col-lg-4">
+                           <div className="card card-small user-details mb-4">
+
+                           <div className="card-header p-0">
+                       <div className="user-details_bg">
+                         <img src={card}/></div> 
+                         </div>
+                                        {/* <div className="container"> */}
+                                            {/* <div className="row m-4 view-friends"> */}
+                                            <div className="card-body p-0">
+                                                    
+                                            {/* <div className="user-details__avatar mx-auto"> */}
                                                             {/* <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div> */}
-                                                            <div className="avtarImg" style={{ backgroundImage: `url(${value.imageUrl})` }}>></div>
-                                                        </div>
-                                                        <div className="name float-left">
-                                                            <h2 className="title text-capitalize font-weight-bold text-priamry">{value.handle}</h2>
+                                                            <div className="user-details__avatar mx-auto" style={{ backgroundImage: `url(${value.imageUrl})` }}>></div>
+                                                        {/* </div> */}
+                                                        
+                                                            <h2 className="text-center m-0 mt-2">{value.handle}</h2>
                                                             {/* <Link to="/updateProfile" className="btn btn-lg btn-danger btn-sm">Edit Profile</Link> */}
-                                                            <div className="description text-center m-5">
-                                                                <p className="text-capitalize">{}</p>
-                                                                <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
+                                                            {/* <div className="description text-center m-5"> */}
+                                                                {/* <p className="text-capitalize">{}</p>
+                                                                <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6> */}
                                                                 {/* <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
                                                                     <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6> */}
                                                                 {/* <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6> */}
@@ -72,31 +78,31 @@ class Friend extends Component {
                                                                         this.props.sendFriendRequest(request)
                                                                     }}> Add Friend
                                                                 </button>
-                                                            </div>
+                                                            {/* </div> */}
                                                         </div>
                                                         <div className="clearfix"></div>
-                                                    </div>
+                                                   
                                                 </div>
-                                                <div className="w-25" style={{ height: "65vh", overflow: "auto" }}>
+                                                {/* <div className="w-25" style={{ height: "65vh", overflow: "auto" }}>
                                                     <h4 className="text-primary">Search Friends</h4>
                                                     <SearchUsers />
                                                 </div>
-                                            </div>
-                                            <div className="row m-4">
+                                            </div> */}
+                                            {/* <div className="row m-4">
                                                 <h6 className="w-100"><span className="text-muted">Interests:</span> <b className="bold">{value.interests}</b> </h6>
                                                 <h6 className="w-100"><span className="text-muted">Address:</span> <b className="bold">{value.address}</b> </h6>
                                                 <h6 className="w-100"><span className="text-muted">Date Of Birth:</span> <b className="bold">{value.birthday}</b> </h6>
-                                                <h6 className="w-100"><span className="text-muted">Email:</span> <b className="bold">{value.email}</b> </h6>
+                                                <h6 className="w-100"><span className="text-muted">Email:</span> <b className="bold">{value.email}</b> </h6> */}
 
                                                 {/* <h6 className="w-100">Interests: <b className="text-white bold">{value.interests}</b> </h6>
                                                     <h6 className="w-100">Address: <b className="text-white bold">{value.address}</b> </h6>
                                                     <h6 className="w-100">Date Of Birth: <b className="text-white bold">{value.birthday}</b></h6>
                                                     <h6 className="w-100">Email: <b className="text-white bold">{value.email}</b></h6> */}
-                                            </div>
-                                        </div>
+                                            {/* </div> */}
+                                        {/* </div> */}
                                     </div>
                                 </div>
-                            </div>
+                            
                             <Snackbar
                                 anchorOrigin={{
                                     vertical: "top",
@@ -137,6 +143,7 @@ class Friend extends Component {
                                 }}> Add Friend
                             </button> */}
                         </div>
+                        
                     )
                 })
                 }
