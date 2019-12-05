@@ -73,7 +73,7 @@ class CreateProfile extends Component {
     return (
 
      
-     
+      
           <div className="main-content-container container-fluid px-4">
             
               <div className="row mt-4">
@@ -89,7 +89,7 @@ class CreateProfile extends Component {
                     {/* <div className="avtarImg mx-auto" style={{ backgroundImage: `url(${userImageUrl})` }}></div> */}
                        <img src={userImageUrl}></img> 
                      </div> 
-                   
+                     <Link  to={`/updateProfile`}>Edit Profile</Link>
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
         <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
         
