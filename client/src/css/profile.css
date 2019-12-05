@@ -132,9 +132,9 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    height: 100vh;
+    height: 60vh;
     width: 75vw;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 
