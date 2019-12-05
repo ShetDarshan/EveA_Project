@@ -158,7 +158,7 @@ class EventDetails extends Component {
                 <div key={data.title + "card-slider"} className="card card-slider">
                   {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={()=>{ setTimeout(function () { window.location.reload(); }, 1e3);}}>
                       <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
                         <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
                       </div>
@@ -180,7 +180,7 @@ class EventDetails extends Component {
                 <div key={data.title + "card-slider"} className="card card-slider">
                   {/* title= {data.title} */}
                   <div key={data.title + "-body"} className="card-body">
-                    <Link to={`/event/${data.title}`} className="card-link">
+                    <Link to={`/event/${data.title}`} className="card-link" onClick={()=>{ setTimeout(function () { window.location.reload(); }, 1e3);}}>
                       <div key={data.title + "-image-container"} className="imageContainer" title="Click to see more details">
                         <div key={data.title + "-background"} className="imageBg" style={{ backgroundImage: `url(${data.img})` }}></div>
                       </div>
@@ -229,6 +229,7 @@ class EventDetails extends Component {
     );
 
     function refreshPage() {
+      console.log("Refresh P")
       setTimeout(function () { window.location.reload(); }, 1e3);
     }
 
