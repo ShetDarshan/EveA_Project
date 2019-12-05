@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
-import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest } from '../../actions/friendActions';
 import Slider from "react-slick";
+import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest ,getFriendsList} from '../../actions/friendActions';
 
 import firebase from 'firebase';
 import noPic from '../../img/noPic.jpg';
@@ -25,7 +25,8 @@ class CreateProfile extends Component {
       msg: false
     };
     const { user } = this.props.auth;
-    const profile = this.props.getProfile(user.email);
+    this.props.getProfile(user.email);
+    this.props.getFriendsList(user.email);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
     this.props.getSuggestedFrds(user.email)
@@ -44,6 +45,7 @@ class CreateProfile extends Component {
   // }
   render() {
     const { profile, profiles, sugessted } = this.props.users;
+    const { friendsList } = this.props.friends
     // var { request  } =  this.props.friends;
     console.log("suggested", sugessted);
     const setting = {
@@ -59,6 +61,7 @@ class CreateProfile extends Component {
       ]
     };
     
+    console.log("friendsList!!!!!!!!!!", friendsList);
     let allRequests = [];
     if (this.props.friends.request.from) {
       allRequests = this.props.friends.request.from;
@@ -92,12 +95,16 @@ class CreateProfile extends Component {
                        {/* <div className="user-details_bg">
                          <img src={card}/></div>  */}
                          </div>
+
                         <div className="card-body p-0 profile">
                           <div className=" avtar">
                           <div className="avtarImg" style={{ backgroundImage: `url(${userImageUrl})` }}></div>
                             {/* <img src={user}></img>  */}
                           </div>
+                          <Link  to={`/updateProfile`}>Edit Profile</Link>
+
                    
+
                     <h4 class="text-center m-0 mt-2">{userName}</h4>
         <p class="text-center text-dark m-0 mb-2" style={{color:"grey"}}>{userBio}</p>
         
@@ -317,4 +324,4 @@ const mapStateToProps = state => ({
   friends: state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds,getFriendsList })(CreateProfile);

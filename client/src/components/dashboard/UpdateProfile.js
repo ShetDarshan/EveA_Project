@@ -38,6 +38,7 @@ class UpdateProfile extends Component {
 
 
         };
+       
         this._handleImageChange = this._handleImageChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
         const { profile } = this.props.users;
@@ -60,6 +61,7 @@ class UpdateProfile extends Component {
 
     }
     
+
     //const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
     handleDateChange = date => {
@@ -122,8 +124,9 @@ class UpdateProfile extends Component {
         this.props.history.push('/profile');
     }
     render() {
+        const { address, bio, location, gender, birthday, interests} = this.state;
 
-
+        const enabled = address.length> 0 && bio.length>0 && location.length>0 && gender.length>0 && birthday.length>0 && interests.length>0;
         return (
             <div className="container border-primary p-2 text-primary updateProfile" style={{ borderStyle: "inset", backgroundColor: "transparent"}}>   
                 <Form onSubmit={this.onSubmit}>
@@ -241,7 +244,7 @@ class UpdateProfile extends Component {
                         onUploadStart={this.handleUploadStart}
                         onUploadSuccess={this.handleUploadSuccess}
                     />
-                    <Button className="btn btn-primary"><b>Update Profile</b></Button>
+                    <Button className="btn btn-primary" disabled={!enabled}><b>Update Profile</b></Button>
                     </FormGroup>
                 </Form>
             </div>
