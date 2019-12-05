@@ -19,8 +19,10 @@ export const getEvents = () => dispatch => {
             for (const key of categoriesList) {
                 dataset[key] =  [];
             }  
+            console.log("Data Category",data);
           data.forEach(data => {
-            if(dataset[data.category].length <15){ console.log(dataset[data.category].length );
+            if(dataset[data.category].length <15){ 
+              //console.log(dataset[data.category] );
               dataset[data.category].push(data);
             }
               
