@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getAllProfiles, getProfile, updateProfile, getSuggestedFrds } from '../../actions/profileActions';
-import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest } from '../../actions/friendActions';
+import { getfriendRequestList, acceptFriendRequest, rejectFriendRequest ,getFriendsList} from '../../actions/friendActions';
 
 import "../../css/profile.css";
 import firebase from 'firebase';
@@ -24,7 +24,8 @@ class CreateProfile extends Component {
       msg: false
     };
     const { user } = this.props.auth;
-    const profile = this.props.getProfile(user.email);
+    this.props.getProfile(user.email);
+    this.props.getFriendsList(user.email);
     this.props.getAllProfiles();
     this.props.getfriendRequestList(user.email);
     this.props.getSuggestedFrds(user.email)
@@ -43,8 +44,9 @@ class CreateProfile extends Component {
   // }
   render() {
     const { profile, profiles, sugessted } = this.props.users;
+    const { friendsList } = this.props.friends
     // var { request  } =  this.props.friends;
-    console.log("suggested", sugessted);
+    console.log("friendsList!!!!!!!!!!", friendsList);
     let allRequests = [];
     if (this.props.friends.request.from) {
       allRequests = this.props.friends.request.from;
@@ -70,7 +72,7 @@ class CreateProfile extends Component {
       });
 
     }
-    return (
+    return (  
 
      
       
@@ -818,4 +820,4 @@ const mapStateToProps = state => ({
   friends: state.friends
 
 })
-export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds })(CreateProfile);
+export default connect(mapStateToProps, { getAllProfiles, getProfile, getfriendRequestList, rejectFriendRequest, acceptFriendRequest, getSuggestedFrds,getFriendsList })(CreateProfile);

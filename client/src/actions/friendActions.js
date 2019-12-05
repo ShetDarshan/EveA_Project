@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ ,FRNDS_GOING} from './types';
+import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ ,FRNDS_GOING,FRNDS_LIST} from './types';
 var path = "";
 export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
@@ -124,6 +124,26 @@ export const sendFriendRequest = (friend) => dispatch => {
           .catch(err =>
             dispatch({
               type: FRNDS_GOING,
+              payload: null
+            })
+          );
+      }; 
+
+      //getFriendsList
+      export const getFriendsList = (email) => dispatch => {
+        // dispatch({ type: LOADING_DATA });
+        console.log("friends list:",email);
+        axios
+          .get(`/api/v1/getFriendsList/${email}`)   
+          .then(res => 
+            dispatch({
+              type: FRNDS_LIST,
+              payload: res.data
+            })
+          )
+          .catch(err =>
+            dispatch({
+              type: FRNDS_LIST,
               payload: null
             })
           );

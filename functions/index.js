@@ -609,4 +609,31 @@ app.post('/api/v1/friendsGoing', (req, res) => {
   });
 })
 
+
+//My friends  list for each event
+
+
+app.get('/api/v1/getFriendsList/:email', (req, res) => {
+  // eventID = Object.values(req.body)[0];
+  // //logged user has to accept the request
+  // loggedEmail = Object.values(req.body)[1];
+  loggedEmail = req.params.email
+  console.log("loggedEmail",loggedEmail)
+  let friendsList = [];
+      db.collection('connections').doc(loggedEmail).get().then(connection => {
+        if (connection.exists) {
+          friendsList = connection.data()['friends']
+          if (friendsList) {
+            res.status(200).send(friendsList);
+          }else {
+            res.status(500).send("You have no Friends")
+          }
+        }else {
+          res.status(500).send("You Have Not received Or Sent Any Requests")
+        }
+      }).catch(err => {
+        console.error(err);
+        res.status(500).json({ error: err.code });
+      });;
+    })
 exports.api = functions.https.onRequest(app);

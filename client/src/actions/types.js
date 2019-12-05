@@ -16,4 +16,5 @@ export const REJ_REQ = 'REJ_REQ';
 export const GOING_REQ = 'GOING_REQ';
 export const N_GOING_REQ= 'N_GOING_REQ';
 export const FRNDS_GOING= 'FRNDS_GOING';
+export const FRNDS_LIST= 'FRNDS_LIST';
 export const GET_SUG_DETAILS= 'GET_SUG_DETAILS';
