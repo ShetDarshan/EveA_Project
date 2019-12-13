@@ -75,6 +75,7 @@ class Friend extends Component {
 
                                                                             })
                                                                             this.props.sendFriendRequest(request)
+                                                                            setTimeout(function () { window.location.reload(); }, 1e3);
                                                                         }}> Add Friend </button> : <button className="btn btn-lg btn-primary btn-sm mr-2">{friendStatus}</button>
                                                                 }
 
