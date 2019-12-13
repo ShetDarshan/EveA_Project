@@ -634,15 +634,15 @@ app.get('/api/v1/getFriendsList/:email', (req, res) => {
       console.log("FriendEmail",FriendEmail)
       //loggedEmail  = "darshan3400@gmail.com"
       //FriendEmail = req.params.email
-      status = '';
+      status = 'Add Friend';
       let toList  = [];
       let fromList  = [];
       let friendList  = [];
       db.collection('connections').doc(loggedEmail).get().then(doc => {
         if (doc.exists) {
-          toList = doc.data()['to'];
-          fromList = doc.data()['from'];
-          friendList = doc.data()['friends'];
+          if (doc.data()['to'] ) {toList =  doc.data()['to']}
+          if (doc.data()['from'] ) {fromList = doc.data()['from']}
+          if (doc.data()['friends'] ) {friendList = doc.data()['friends']}
             if ( toList.includes(FriendEmail) ) {
               status = "Request already Sent"
               res.status(200).send(status);
