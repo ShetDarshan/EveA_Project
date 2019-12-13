@@ -9,7 +9,7 @@ import {
     SnackbarContent
 } from '@material-ui/core';
 import { Alert } from 'reactstrap';
-import { sendFriendRequest,checkFriendshipStatus } from '../../actions/friendActions';
+import { sendFriendRequest, checkFriendshipStatus } from '../../actions/friendActions';
 import SearchUsers from "../dashboard/SearchUsers";
 let myEmail = ''
 
@@ -27,17 +27,17 @@ class Friend extends Component {
         };
         this.props.getProfile(this.props.match.params.email);
         //this.addFriend = this.addFriend.bind(this);
-         let friendData = {
+        let friendData = {
             loggedEmail: this.props.auth.user.email,
             friendEmail: this.props.match.params.email
-         }
-         this.props.checkFriendshipStatus(friendData);
+        }
+        this.props.checkFriendshipStatus(friendData);
 
     }
 
     render() {
         const { friendStatus } = this.props.friends;
-        console.log("friendStatus",friendStatus)
+        console.log("friendStatus", friendStatus)
         const { user } = this.props.auth;
         myEmail = user.email;
         const { profile } = this.props.users;
@@ -63,22 +63,21 @@ class Friend extends Component {
                                                             <div className="description text-center m-5">
                                                                 <p className="text-capitalize">{}</p>
                                                                 <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
-                                                                {/* <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6>
-                                                                    <h6 className="w-100"><span className="text-muted">Joined at: :</span> <b className="bold"></b> </h6> */}
-                                                                {/* <h6> Lives at: <b className="text-white bold">{value.location}</b> </h6> */}
-                                                                <button className="btn btn-lg btn-primary btn-sm mr-2"
-                                                                    onClick={() => {
-                                                                        this.setState({
-                                                                            msg: true
-                                                                        })
-                                                                        const request = ({
-                                                                            loggedEmail: this.props.auth.user.email,
-                                                                            friendEmail: this.props.match.params.email,
-                                                                            
-                                                                        })
-                                                                        this.props.sendFriendRequest(request)
-                                                                    }}> Add Friend
-                                                                </button>
+                                                                {
+                                                                    friendStatus === 'Add Friend' ? <button className="btn btn-lg btn-primary btn-sm mr-2"
+                                                                        onClick={() => {
+                                                                            this.setState({
+                                                                                msg: true
+                                                                            })
+                                                                            const request = ({
+                                                                                loggedEmail: this.props.auth.user.email,
+                                                                                friendEmail: this.props.match.params.email,
+
+                                                                            })
+                                                                            this.props.sendFriendRequest(request)
+                                                                        }}> Add Friend </button> : <button className="btn btn-lg btn-primary btn-sm mr-2">{friendStatus}</button>
+                                                                }
+
                                                             </div>
                                                         </div>
                                                         <div className="clearfix"></div>
@@ -159,6 +158,6 @@ class Friend extends Component {
 const mapStateToProps = state => ({
     auth: state.auth,
     users: state.users,
-    friends : state.friends
+    friends: state.friends
 });
-export default connect(mapStateToProps, { getProfile, sendFriendRequest ,checkFriendshipStatus})(Friend);
+export default connect(mapStateToProps, { getProfile, sendFriendRequest, checkFriendshipStatus })(Friend);
