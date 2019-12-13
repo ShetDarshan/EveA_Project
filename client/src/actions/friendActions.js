@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ ,FRNDS_GOING,FRNDS_LIST} from './types';
+import { SEND_REQ,GET_REQ ,ACC_REQ,REJ_REQ ,GOING_REQ ,N_GOING_REQ ,FRNDS_GOING,FRNDS_LIST,CHK_FRND} from './types';
 var path = "";
 export const sendFriendRequest = (friend) => dispatch => {
     // dispatch({ type: LOADING_DATA });
@@ -148,3 +148,22 @@ export const sendFriendRequest = (friend) => dispatch => {
             })
           );
       }; 
+          //CheckIfFriends
+          export const checkFriendshipStatus = (friend) => dispatch => {
+            // dispatch({ type: LOADING_DATA });
+            console.log("checkFriendshipStatus:",friend);
+            axios
+              .post('/api/v1/checkFriendshipStatus',friend)   
+              .then(res => 
+                dispatch({
+                  type: CHK_FRND,
+                  payload: res.data
+                })
+              )
+              .catch(err =>
+                dispatch({
+                  type: CHK_FRND,
+                  payload: null
+                })
+              );
+          }; 
