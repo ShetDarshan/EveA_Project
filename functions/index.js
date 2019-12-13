@@ -139,7 +139,7 @@ app.post('/api/v1/register', (req, res) => {
       return res.status(201).json({ token });
     })
     .catch((err) => {
-      console.error(err);
+    
       if (err.code === 'auth/email-already-in-use') {
         return res.status(400).json({ email: 'Email is already in use' });
       } else {
@@ -170,7 +170,6 @@ app.post('/api/v1/login', (req, res) => {
       return res.json({ token });
     })
     .catch((err) => {
-      console.error(err);
       return res
         .status(403)
         .json({ password: 'Wrong credentials, please try again' });
@@ -281,10 +280,8 @@ app.get('/api/v1/getProfile/:email', (req, res) => {
       snapshot.forEach(doc => {
         let tempJSON = {};
         tempJSON = doc.data();
-        console.log("userdata_index.js_234", doc.data())
         userData.push(tempJSON);
       });
-      console.log("index:userData", userData)
       res.status(200).send(userData);
     }).catch(err => {
       console.error(err);
@@ -384,7 +381,6 @@ app.post('/api/v1/sendFriendRequest', (req, res) => {
         arr = doc.data()['from'];
         if (!arr.includes(sender)) {
           arr.push(sender);
-          console.log("final", arr)
           db.collection('connections').doc(receiver).set({
             from: arr
           }, { merge: true })
@@ -594,10 +590,7 @@ app.post('/api/v1/friendsGoing', (req, res) => {
           let friendsList = connection.data()['friends']
           if (friendsList) {
             friendsList.forEach(friend => {
-              console.log("friend", friend);
-              console.log("goingList", goingList);
               if (goingList.includes(friend)) {
-                console.log("frind going to event",friend);
                 myFriendsGoing.push(friend);
               }
             });
@@ -614,11 +607,7 @@ app.post('/api/v1/friendsGoing', (req, res) => {
 
 
 app.get('/api/v1/getFriendsList/:email', (req, res) => {
-  // eventID = Object.values(req.body)[0];
-  // //logged user has to accept the request
-  // loggedEmail = Object.values(req.body)[1];
   loggedEmail = req.params.email
-  console.log("loggedEmail",loggedEmail)
   let friendsList = [];
       db.collection('connections').doc(loggedEmail).get().then(connection => {
         if (connection.exists) {
@@ -634,6 +623,43 @@ app.get('/api/v1/getFriendsList/:email', (req, res) => {
       }).catch(err => {
         console.error(err);
         res.status(500).json({ error: err.code });
-      });;
+      });
+    })
+
+    app.post('/api/v1/checkFriendshipStatus', (req, res) => {
+      console.log("req:",req)
+      loggedEmail = Object.values(req.body)[0];
+      FriendEmail = Object.values(req.body)[1];
+      console.log("loggedEmail",loggedEmail)
+      console.log("FriendEmail",FriendEmail)
+      //loggedEmail  = "darshan3400@gmail.com"
+      //FriendEmail = req.params.email
+      status = '';
+      let toList  = [];
+      let fromList  = [];
+      let friendList  = [];
+      db.collection('connections').doc(loggedEmail).get().then(doc => {
+        if (doc.exists) {
+          toList = doc.data()['to'];
+          fromList = doc.data()['from'];
+          friendList = doc.data()['friends'];
+            if ( toList.includes(FriendEmail) ) {
+              status = "Request already Sent"
+              res.status(200).send(status);
+            } else if (fromList.includes(FriendEmail) ) {
+              status = "You have Received a request , Please check Request List"
+              res.status(200).send(status);
+            } else if ( friendList.includes(FriendEmail)) {
+              status = "You are already Friends"
+              res.status(200).send(status);
+            } else {
+              status = "Add Friend"
+              res.status(200).send(status);
+            }
+        }
+      }).catch(err => {
+        console.error(err);
+        res.status(500).json({ error: err.code });
+      });
     })
 exports.api = functions.https.onRequest(app);
