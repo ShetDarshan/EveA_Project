@@ -55,7 +55,7 @@ class Friend extends Component {
                                                     <div className="friend-profile">
                                                         <div className="avtar float-left m-auto">
                                                             {/* <div className="avtarImg" style={{backgroundImage: `url(${userImageUrl})`}}></div> */}
-                                                            <div className="avtarImg" style={{ backgroundImage: `url(${value.imageUrl})` }}>></div>
+                                                            <div className="avtarImg" style={{ backgroundImage: `url(${value.imageUrl})` }}></div>
                                                         </div>
                                                         <div className="name float-left">
                                                             <h2 className="title text-capitalize font-weight-bold text-priamry">{value.handle}</h2>
@@ -64,6 +64,7 @@ class Friend extends Component {
                                                                 <p className="text-capitalize">{}</p>
                                                                 <h6 className="w-100"><span className="text-muted">Lives at:</span> <b className="bold">{value.location}</b> </h6>
                                                                 {
+                                                                     
                                                                     friendStatus === 'Add Friend' ? <button className="btn btn-lg btn-primary btn-sm mr-2"
                                                                         onClick={() => {
                                                                             this.setState({
