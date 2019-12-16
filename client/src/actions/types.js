@@ -18,3 +18,4 @@ export const N_GOING_REQ= 'N_GOING_REQ';
 export const FRNDS_GOING= 'FRNDS_GOING';
 export const FRNDS_LIST= 'FRNDS_LIST';
 export const GET_SUG_DETAILS= 'GET_SUG_DETAILS';
+export const CHK_FRND= 'CHK_FRND';
